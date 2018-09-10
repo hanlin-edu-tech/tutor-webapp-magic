@@ -1,0 +1,133 @@
+@charset "UTF-8";
+* {
+  font-family: 微軟正黑體; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: relative; }
+
+body {
+  background-image: url("../img/magicImg/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }
+
+#section_titlelist .container-fluid .row .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; }
+  #section_titlelist .container-fluid .row .title img {
+    width: 90%;
+    height: auto; }
+
+#section_titlelist .container-fluid .row .person_info {
+  padding: 0px; }
+  #section_titlelist .container-fluid .row .person_info .row.person_bg {
+    height: 65%;
+    background-image: url("../img/magicImg/person_info.png");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    margin: 0px; }
+    #section_titlelist .container-fluid .row .person_info .row.person_bg .col-4 {
+      padding: 0; }
+    #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 {
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row {
+        width: 100%;
+        height: 65%; }
+        #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row {
+          height: 100%;
+          margin: 0; }
+          #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-name {
+            height: 45%; }
+          #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-coins {
+            height: 55%; }
+          #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 {
+            padding: 0;
+            display: flex;
+            align-items: center; }
+            #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .user_name {
+              font-size: 12px;
+              color: #fff; }
+            #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .row {
+              margin: 0; }
+              #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .row .col-6 {
+                padding: 0; }
+                #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .row .col-6 .ecoin, #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .row .col-6 .diamond {
+                  font-size: 12px;
+                  color: #fff;
+                  text-shadow: 0 0 6px #333; }
+        #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-4 .row {
+          height: 100%;
+          margin: 0; }
+          #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-4 .row .col-bank {
+            height: 64%;
+            padding: 0; }
+            #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-4 .row .col-bank .bank {
+              height: 100%;
+              background-image: url("../img/magicImg/bank.png");
+              background-size: auto 100%;
+              background-position: center;
+              background-repeat: no-repeat; }
+          #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-4 .row .col-logout {
+            height: 36%;
+            padding: 0; }
+            #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-4 .row .col-logout .logout {
+              height: 100%;
+              background-image: url("../img/magicImg/login.png");
+              background-size: auto 100%;
+              background-position: center;
+              background-repeat: no-repeat;
+              display: flex;
+              justify-content: center;
+              align-items: center; }
+              #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-4 .row .col-logout .logout h3 {
+                font-size: 12px;
+                color: #fff;
+                display: block;
+                font-weight: 300;
+                margin: 0;
+                text-shadow: 0 0 6px #333; }
+
+#section_middle_part {
+  position: relative; }
+  #section_middle_part .container-fluid {
+    padding-top: 50px; }
+    #section_middle_part .container-fluid .row .potion_box {
+      background-image: url("../img/magicImg/potion_box.png");
+      height: 400px;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      padding-top: 70px; }
+      #section_middle_part .container-fluid .row .potion_box .row {
+        margin: 0;
+        width: 90%; }
+        #section_middle_part .container-fluid .row .potion_box .row .col-3 {
+          height: 200px;
+          padding: 6px; }
+          #section_middle_part .container-fluid .row .potion_box .row .col-3 .mix_upgrade .row {
+            margin: 0;
+            width: 100%; }
+            #section_middle_part .container-fluid .row .potion_box .row .col-3 .mix_upgrade .row .col-6 {
+              padding: 0;
+              padding-top: 10px;
+              height: 100%;
+              width: auto; }
+          #section_middle_part .container-fluid .row .potion_box .row .col-3 .col {
+            padding: 0; }
+            #section_middle_part .container-fluid .row .potion_box .row .col-3 .col img {
+              width: 100%;
+              height: auto; }
+          #section_middle_part .container-fluid .row .potion_box .row .col-3 .now_finish, #section_middle_part .container-fluid .row .potion_box .row .col-3 .mix_finish {
+            padding-top: 10px; }
+          #section_middle_part .container-fluid .row .potion_box .row .col-3 .potion_colum {
+            padding: 0; }

@@ -1,282 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <!-- <meta http-equiv="PRAGMA" content="NO-CACHE">
-    <meta http-equiv="EXPIRES" content="0">
-    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="shortcut icon" type="image/png" href="./img/eventSpaceFavicon.png" />
-    <title>雲端銀河探險隊</title>
-
-    <!-- build:css -->
-    <link rel="stylesheet" href="./css/lib/sweetalert2.css">
-    <link rel="stylesheet" href="./css/galaxy-space/event-main.css">
-    <link rel="stylesheet" href="./css/galaxy-space/event-chest.css">
-    <link rel="stylesheet" href="./css/galaxy-space/event-award.css">
-    <link rel="stylesheet" href="./css/galaxy-space/event-confirm-popup.css">
-    <link rel="stylesheet" href="./css/galaxy-space/event-start-award-popup.css">
-    <link rel="stylesheet" href="./css/galaxy-space/event-open-award-popup.css">
-    <link rel="stylesheet" href="./css/galaxy-space/event-loading.css">
-    <link rel="stylesheet" href="./css/galaxy-space/event-bonus-popup.css">
-    <link rel="stylesheet" href="./css/galaxy-space/event-drop-down.css">
-    <link rel="stylesheet" href="./css/galaxy-space/event-awards-are-zero.css">
-    <link rel="stylesheet" href="./css/lib/csspin-balls.css">
-    <!-- endbuild -->
-  </head>
-
-  <body id="galaxy-space-body" ng-app="ehanlinSpace"
-        ng-init="linkS3 = 'https://d220xxmclrx033.cloudfront.net/event-space/img/'">
-    <main class="container horizontal-center">
-      <div class="user-status" ng-init="memberLogin='會員登入';phoneNumer='免費諮詢專線：0800-0088-11'">
-        <img class="meteor1" ng-src="{{linkS3}}meteor.png">
-        <span class="login" ng-bind="memberLogin"></span>
-        <span class="name"></span>
-        <span class="student-card"></span>
-        <img class="meteor2" ng-src="{{linkS3}}meteor.png">
-        <span class="phone-call" ng-bind="phoneNumer"></span>
-      </div>
-
-      <section>
-        <img class="logo_375" title="logo_375" ng-src="{{linkS3}}logo_375.png">
-        <img class="logo" title="logo" ng-src="{{linkS3}}logo.png">
-        <img class="logoFlag" ng-src="{{linkS3}}logoFlag.png">
-        <img class="activity" title="activity" ng-src="{{linkS3}}activity.png">
-        <img class="bank" title="bank" ng-src="{{linkS3}}bank.png">
-        <img class="fb" title="fb" ng-src="{{linkS3}}fb.png">
-        <img class="line" title="line" ng-src="{{linkS3}}line.png">
-        <img class="my-class" title="myClass" ng-src="{{linkS3}}myClass.png">
-        <img class="free" title="free" ng-src="{{linkS3}}free.png">
-        <img class="event-text" title="eventText" ng-src="{{linkS3}}eventText.png">
-      </section>
-
-      <div class="total-assets">
-        <div class="display-coins" title="displayCoins">
-          <span id="coins"></span>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="expires" content="0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link rel="icon" href="./img/magicImg/favicon.png" type="image/png">
+        <link rel="stylesheet" href="./css/animate.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <title>雲端奇幻魔藥學</title>
+    </head>
+    <body> 
+        <div id="section_titlelist">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3 elogo"><img src=""></div>
+                    <div class="col-6 title"><img src="./img/magicImg/title.png" alt="Responsive image"></div>
+                    <div class="col-3 person_info">
+                        <div class="row person_bg">
+                            <div class="col-4"></div>
+                            <div class="col-8">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="row">
+                                            <div class="col-12 col-name">
+                                                <div class="user_name">這是我的名字這是我的</div>
+                                            </div>
+                                            <div class="col-12 col-coins">
+                                                <div class="row">
+                                                    <div class="col-6"></div>
+                                                    <div class="col-6">
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="ecoin">55555</div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="diamond">55555</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="row">
+                                            <div class="col-12 col-bank">
+                                                <div class="bank"></div>
+                                            </div>
+                                            <div class="col-12 col-logout">
+                                                <div class="logout">
+                                                    <h3>登出</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="display-gems" title="displayGems">
-          <span id="gems"></span>
-        </div>
-      </div>
-
-      <section class="chest-block">
-        <div class="platform platform-GREEN">
-          <img class="start-btn" ng-src="{{linkS3}}startBtn.png" style="display:none;">
-          <img class="upgrade-btn" ng-src="{{linkS3}}upgradeBtn.png" style="display:none;">
-          <img class="green-position" ng-src="{{linkS3}}greenPosition.png">
-          <img class="ready-btn" ng-src="{{linkS3}}readyBtn.png" style="display:none;">
-          <img class="open-now-btn" ng-src="{{linkS3}}openNowBtn.png" style="display:none;">
-          <div class="countdown"></div>
-        </div>
-
-        <div class="platform platform-RED">
-          <img class="start-btn" ng-src="{{linkS3}}startBtn.png" style="display:none;">
-          <img class="upgrade-btn" ng-src="{{linkS3}}upgradeBtn.png" style="display:none;">
-          <img class="red-position" ng-src="{{linkS3}}redPosition.png">
-          <img class="ready-btn" ng-src="{{linkS3}}readyBtn.png" style="display:none;">
-          <img class="open-now-btn" ng-src="{{linkS3}}openNowBtn.png" style="display:none;">
-          <div class="countdown"></div>
-        </div>
-
-        <div class="platform platform-BROWN">
-          <img class="start-btn" ng-src="{{linkS3}}startBtn.png" style="display:none;">
-          <img class="upgrade-btn" ng-src="{{linkS3}}upgradeBtn.png" style="display:none;">
-          <img class="brown-position" ng-src="{{linkS3}}brownPosition.png">
-          <img class="ready-btn" ng-src="{{linkS3}}readyBtn.png" style="display:none;">
-          <img class="open-now-btn" ng-src="{{linkS3}}openNowBtn.png" style="display:none;">
-          <div class="countdown"></div>
-        </div>
-
-        <div class="platform platform-PINK">
-          <img class="start-btn" ng-src="{{linkS3}}startBtn.png" style="display:none;">
-          <img class="upgrade-btn" ng-src="{{linkS3}}upgradeBtn.png" style="display:none;">
-          <img class="pink-position" ng-src="{{linkS3}}pinkPosition.png">
-          <img class="ready-btn" ng-src="{{linkS3}}readyBtn.png" style="display:none;">
-          <img class="open-now-btn" ng-src="{{linkS3}}openNowBtn.png" style="display:none;">
-          <div class="countdown"></div>
-        </div>
-      </section>
-
-      <section>
-        <img class="chest-award-icon1" title="chestAwardIcon1" ng-src="{{linkS3}}chestAwardIcon.png">
-        <img class="chest-award-icon2" title="chestAwardIcon2" ng-src="{{linkS3}}chestAwardIcon2.png">
-        <img class="stock-room1" title="stockRoom1" ng-src="{{linkS3}}monsterRoom.png">
-        <img class="stock-room2" title="stockRoom2" ng-src="{{linkS3}}stockRoom.png">
-        <span class="message1">這次的寶藏有哪些呢？快來看看！</span>
-        <span class="message2">真的好棒！已經擁有了這麼多了呢～</span>
-      </section>
-
-      <article>
-        <section id="award-info">
-          <img class="monster" title="monster" ng-src="{{linkS3}}monster.png">
-          <img class="next" ng-src="{{linkS3}}up.png">
-          <img class="previous" ng-src="{{linkS3}}down.png">
-        </section>
-
-        <section>
-          <img class="return-btn" title="returnBtn" ng-src="{{linkS3}}returnBtn.png">
-          <img class="border1" ng-src="{{linkS3}}awardBorder.png">
-          <img class="border2" ng-src="{{linkS3}}awardBorder.png">
-          <img class="border3" ng-src="{{linkS3}}awardBorder.png">
-          <img class="border4" ng-src="{{linkS3}}awardBorder.png">
-
-          <div class="award-box" ng-init="has='擁有數量：'">
-            <ul class="block">
-              <li class="border-box1">
-                <span ng-bind="has"></span>
-              </li>
-              <li class="border-box2">
-                <span ng-bind="has"></span>
-              </li>
-              <li class="border-box3">
-                <span ng-bind="has"></span>
-              </li>
-              <li class="border-box4">
-                <span ng-bind="has"></span>
-              </li>
-            </ul>
-            <ul class="block">
-              <li class="border-box1">
-                <span ng-bind="has"></span>
-              </li>
-              <li class="border-box2">
-                <span ng-bind="has"></span>
-              </li>
-              <li class="border-box3">
-                <span ng-bind="has"></span>
-              </li>
-              <li class="border-box4">
-                <span ng-bind="has"></span>
-              </li>
-            </ul>
-            <ul class="block">
-              <li class="border-box1">
-                <span ng-bind="has"></span>
-              </li>
-              <li class="border-box2">
-                <span ng-bind="has"></span>
-              </li>
-              <li class="border-box3">
-                <span ng-bind="has"></span>
-              </li>
-              <li class="border-box4">
-                <span ng-bind="has"></span>
-              </li>
-            </ul>
-            <ul class="block">
-              <li class="border-box1">
-                <span ng-bind="has"></span>
-              </li>
-              <li class="border-box2">
-                <span ng-bind="has"></span>
-              </li>
-              <li class="border-box3">
-                <span ng-bind="has"></span>
-              </li>
-              <li class="border-box4">
-                <span ng-bind="has"></span>
-              </li>
-            </ul>
-            <ul class="block">
-              <li class="border-box1">
-                <span ng-bind="has"></span>
-              </li>
-              <li class="border-box2">
-                <span ng-bind="has"></span>
-              </li>
-              <li class="border-box3">
-                <span ng-bind="has"></span>
-              </li>
-              <li class="border-box4">
-                <span ng-bind="has"></span>
-              </li>
-            </ul>
-          </div>
-
-          <img class="right" ng-src="{{linkS3}}next.png">
-          <img class="left" ng-src="{{linkS3}}previous.png">
-        </section>
-      </article>
-
-      <div class="service">
-        <img class="shareBox" ng-src="{{linkS3}}shareBox.png">
-        <span class="service-message">心得分享活動</span>
-        <span class="service-message-text">
-          參加者請於2018年7月2日活動收件截止日前，完成填寫連結問卷，就有機會獲得加贈的精美小禮物哦！
-        </span>
-        <img class="shareBtn" ng-src="{{linkS3}}shareBtn.png">
-      </div>
-    </main>
-
-    <section id="loading" style="display: none;">
-      <div class="animation">
-        <div class="cp-spinner cp-balls"></div>
-      </div>
-    </section>
-
-    <section style="display:none;">
-      <img ng-src="{{linkS3}}chest/chest1.png">
-      <img ng-src="{{linkS3}}chest/chest2.png">
-      <img ng-src="{{linkS3}}chest/chest3.png">
-      <img ng-src="{{linkS3}}chest/chest4.png">
-      <img ng-src="{{linkS3}}chest/chest5.png">
-      <img ng-src="{{linkS3}}chest/chest6.png">
-      <img ng-src="{{linkS3}}chest/upgradeStatus/upgradeFail1.gif">
-      <img ng-src="{{linkS3}}chest/upgradeStatus/upgradeFail2.gif">
-      <img ng-src="{{linkS3}}chest/upgradeStatus/upgradeFail3.gif">
-      <img ng-src="{{linkS3}}chest/upgradeStatus/upgradeFail4.gif">
-      <img ng-src="{{linkS3}}chest/upgradeStatus/upgradeFail5.gif">
-      <img ng-src="{{linkS3}}chest/upgradeStatus/upgradeSuccess2.gif">
-      <img ng-src="{{linkS3}}chest/upgradeStatus/upgradeSuccess3.gif">
-      <img ng-src="{{linkS3}}chest/upgradeStatus/upgradeSuccess4.gif">
-      <img ng-src="{{linkS3}}chest/upgradeStatus/upgradeSuccess5.gif">
-      <img ng-src="{{linkS3}}chest/upgradeStatus/upgradeSuccess6.gif">
-      <img ng-src="{{linkS3}}chest/open/openChest1.gif">
-      <img ng-src="{{linkS3}}chest/open/openChest2.gif">
-      <img ng-src="{{linkS3}}chest/open/openChest3.gif">
-      <img ng-src="{{linkS3}}chest/open/openChest4.gif">
-      <img ng-src="{{linkS3}}chest/open/openChest5.gif">
-      <img ng-src="{{linkS3}}popup/confirm.png">
-      <img ng-src="{{linkS3}}bonus/english.png">
-      <img ng-src="{{linkS3}}bonus/nature.png">
-      <img ng-src="{{linkS3}}bonus/math.png">
-      <img ng-src="{{linkS3}}bonus/social-science.png">
-    </section>
-
-    <section id="bonus-popup">
-    </section>
-    <svg xmlns="http://www.w3.org/2000/svg">
-      <filter id="grayscale">
-        <feColorMatrix type="matrix" values="
-          0.3333 0.3333 0.3333 0 0
-          0.3333 0.3333 0.3333 0 0
-          0.3333 0.3333 0.3333 0 0
-          0 0 0 1 0">
-        </feColorMatrix>
-      </filter>
-    </svg>
-    <svg xmlns="http://www.w3.org/2000/svg">
-      <filter id="silhouette">
-        <feColorMatrix type="matrix" values="
-          0 0 0 0 0
-          0 0 0 0 0
-          0 0 0 0 0
-          -0.4 0.2 0 1 0 ">
-        </feColorMatrix>
-      </filter>
-    </svg>
-  </body>
-  <script src="./js/lib/angular-1.6.9.min.js"></script>
-  <script>
-    var ehanlinSpace = angular.module('ehanlinSpace', [])
-  </script>
-  <script>
-    require = {
-      urlArgs: 'v=0.1.213'
-    }
-  </script>
-  <script data-main="./js/galaxy-space/main" src="./js/lib/require.js"></script>
-  <script type="text/javascript"
-          src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/common_webcomponent/current/js/ehanlin-social.js"></script>
+        <div id="section_middle_part">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6 potion_box">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="col potion_colum"><img src="./img/magicImg/potion_colum.png"  alt="Responsive image"></div>
+                                <div class="col mix_upgrade">
+                                    <div class="row">
+                                        <div class="col-6 mix_btn"><img src="./img/magicImg/mix_btn.png"  alt="Responsive image"></div>
+                                        <div class="col-6 upgrade_btn"><img src="./img/magicImg/upgrade_btn.png"  alt="Responsive image"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="col potion_colum"><img src="./img/magicImg/potion_colum.png"  alt="Responsive image"></div>
+                                <div class="col now_finish"><img src="./img/magicImg/now_finish_btn.png"  alt="Responsive image"></div>
+                            </div>
+                            <div class="col-3">
+                                <div class="col potion_colum"><img src="./img/magicImg/potion_colum.png"  alt="Responsive image"></div>
+                                <div class="col mix_finish"><img src="./img/magicImg/mix_finish_btn.png"  alt="Responsive image"></div>
+                            </div>
+                            <div class="col-3">
+                                <div class="col potion_colum"><img src="./img/magicImg/potion_colum.png"  alt="Responsive image"></div>
+                                <div class="col"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+            </div>
+        </div><!-- Optional JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="./js/wow.min.js"></script>
+        <script src="./js/index.js"></script>
+    </body>
 </html>
