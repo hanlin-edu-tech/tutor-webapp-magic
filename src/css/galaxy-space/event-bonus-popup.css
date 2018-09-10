@@ -1,0 +1,56 @@
+#bonus-popup {
+  position: absolute;
+  background-size: contain;
+  height: 650px;
+  width: 650px;
+  z-index: 10;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%) scale(0);
+  transition: all 0.5s linear;
+  visibility: hidden;
+}
+
+#bonus-popup .forward-anchor {
+  cursor: url(https://d220xxmclrx033.cloudfront.net/event-space/img/hand.png), pointer;
+  position: absolute;
+  bottom: -1.5%;
+  width: 220px;
+}
+
+#bonus-popup .forward-event {
+  left: 10%;
+}
+
+#bonus-popup .forward-course {
+  right: 10%;
+}
+
+#bonus-popup.bonus-popup-show {
+  visibility: visible;
+  transform: translateX(-50%) scale(1);
+}
+
+@media screen and (max-width: 700px) {
+  #bonus-popup {
+    height: 500px;
+    width: 500px;
+    top: 100px;
+  }
+
+  #bonus-popup .forward-anchor {
+    width: 160px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #bonus-popup {
+    height: 300px;
+    width: 300px;
+    top: 100px;
+  }
+
+  #bonus-popup .forward-anchor {
+    width: 120px;
+  }
+}

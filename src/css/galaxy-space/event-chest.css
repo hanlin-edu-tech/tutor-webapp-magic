@@ -1,0 +1,271 @@
+/* ============================> 寶箱 <============================ */
+.container .green-position,
+.container .red-position,
+.container .brown-position,
+.container .pink-position {
+  width: 100%;
+  bottom: 0;
+}
+
+.container .platform {
+  width: 167px;
+  height: 330px;
+}
+
+.container .platform-GREEN {
+  top: 390px;
+  left: 100px;
+}
+
+.container .platform-RED {
+  top: 330px;
+  left: 400px;
+}
+
+.container .platform-BROWN {
+  top: 390px;
+  left: 700px;
+}
+
+.container .platform-PINK {
+  top: 330px;
+  left: 1000px;
+}
+
+.chest1 {
+  bottom: 56px;
+  left: -28px;
+}
+
+.chest2 {
+  bottom: 56px;
+  left: -30px;
+}
+
+.chest3 {
+  bottom: 56px;
+  left: -38px;
+}
+
+.chest4 {
+  bottom: 46px;
+  left: -45px;
+}
+
+.chest5 {
+  bottom: 47px;
+  left: -53px;
+}
+
+.chest6 {
+  bottom: 46px;
+  left: -74px;
+  width: 190%;
+}
+
+.container .start-btn:hover,
+.container .upgrade-btn:hover,
+.container .ready-btn:hover,
+.container .open-now-btn:hover {
+  opacity: 0.6;
+}
+
+.container .start-btn,
+.container .upgrade-btn,
+.container .ready-btn {
+  width: 45%;
+  font-size: 25px;
+  cursor: pointer;
+  outline: none;
+  z-index: 1;
+}
+
+.container .upgrade-btn {
+  right: 0;
+}
+
+.container .ready-btn {
+  left: 45px;
+}
+
+.container .open-now-btn {
+  bottom: 20px;
+  left: 42px;
+  width: 50%;
+  cursor: pointer;
+  outline: none;
+  z-index: 1;
+}
+
+.container .countdown {
+  color: bisque;
+  font-size: 21px;
+  font-family: "微軟正黑體", fantasy;
+  top: 20px;
+  left: 15px;
+  width: 150px;
+}
+
+/* ============================> 寶箱 <============================ */
+
+/* ============================> iPad <============================ */
+
+@media screen and (max-width: 1280px) {
+
+  .container .platform {
+    height: 295px;
+    width: 145px;
+  }
+
+  .container .platform-GREEN {
+    top: 330px;
+    left: 60px;
+  }
+
+  .container .platform-RED {
+    top: 275px;
+    left: 305px;
+  }
+
+  .container .platform-BROWN {
+    top: 330px;
+    left: 555px;
+  }
+
+  .container .platform-PINK {
+    top: 275px;
+    left: 800px;
+  }
+
+  .chest1 {
+    bottom: 53px;
+    left: -26px;
+    width: 135%;
+  }
+
+  .chest2 {
+    bottom: 52px;
+    left: -26px;
+    width: 135%;
+  }
+
+  .chest3 {
+    bottom: 52px;
+    left: -30px;
+    width: 143%;
+  }
+
+  .chest4 {
+    bottom: 45px;
+    left: -32px;
+    width: 147%;
+  }
+
+  .chest5 {
+    bottom: 46px;
+    left: -44px;
+    width: 165%;
+  }
+
+  .chest6 {
+    bottom: 41px;
+    left: -65px;
+  }
+
+  .container .ready-btn {
+    left: 37px;
+  }
+
+  .container .open-now-btn {
+    left: 38px;
+  }
+
+  .container .countdown {
+    font-size: 20px;
+  }
+}
+
+/* ============================> iPad <============================ */
+
+/* ============================> iPhone <============================ */
+
+@media screen and (max-width: 800px) {
+
+  .container .platform {
+    height: 220px;
+    width: 110px;
+  }
+
+  .container .platform-GREEN {
+    top: 335px;
+    left: 45px;
+  }
+
+  .container .platform-RED {
+    top: 300px;
+    left: 225px;
+  }
+
+  .container .platform-BROWN {
+    top: 590px;
+    left: 45px;
+  }
+
+  .container .platform-PINK {
+    top: 540px;
+    left: 225px;
+  }
+
+  .chest1 {
+    bottom: 39px;
+    left: -18px;
+  }
+
+  .chest2 {
+    bottom: 39px;
+    left: -19px;
+  }
+
+  .chest3 {
+    bottom: 39px;
+    left: -24px;
+  }
+
+  .chest4 {
+    bottom: 30px;
+    left: -24px;
+  }
+
+  .chest5 {
+    bottom: 32px;
+    left: -33px;
+  }
+
+  .chest6 {
+    bottom: 32px;
+    left: -50px;
+  }
+
+  .container .start-btn,
+  .container .upgrade-btn,
+  .container .ready-btn {
+    width: 47%;
+  }
+
+  .container .ready-btn {
+    left: 27px;
+  }
+
+  .container .open-now-btn {
+    bottom: 16px;
+    left: 27px;
+    width: 55%;
+  }
+
+  .container .countdown {
+    font-size: 17px;
+    left: 2px;
+  }
+}
+
+/* ============================> iPhone <============================ */

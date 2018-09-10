@@ -1,0 +1,117 @@
+.start-confirm-grid-container {
+  height: 250px;
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 2% 8% 80% 8% 2%;
+  -ms-grid-columns: 2% 8% 80% 8% 2%;
+  grid-template-rows: 15% 10% 60% 15%;
+  -ms-grid-rows: 15% 10% 60% 15%;
+  font-size: 23px;
+  font-weight: bolder;
+  grid-gap: 2px;
+}
+
+.start-confirm-grid-container .content-block1 {
+  grid-column: 1 / span 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-row: 1;
+  -ms-grid-row: 1;
+  color: #217dbb;
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+.start-confirm-grid-container .content-block2 {
+  grid-column: 1 / span 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-row: 2;
+  -ms-grid-row: 2;
+  color: #217dbb;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.start-confirm-grid-container .img-block-award {
+  grid-column: 1 / span 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-row: 3;
+  -ms-grid-row: 3;
+}
+
+.start-confirm-grid-container img[class^="img-award"] {
+  margin-top: 3px;
+  width: 140px;
+}
+
+.start-confirm-grid-container .img-block-left-btn {
+  grid-column: 2;
+  -ms-grid-column: 2;
+  grid-row: 3;
+  -ms-grid-row: 3;
+  margin-top: 50%;
+}
+
+.start-confirm-grid-container .img-block-right-btn {
+  grid-column: 4;
+  -ms-grid-column: 4;
+  grid-row: 3;
+  -ms-grid-row: 3;
+  margin-top: 50%;
+}
+
+.start-confirm-grid-container .img-block-left-btn .left-btn,
+.start-confirm-grid-container .img-block-right-btn .right-btn {
+  width: 60px;
+}
+
+.start-confirm-grid-container .content-block4 {
+  grid-column: 1 / span 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-row: 4;
+  -ms-grid-row: 4;
+  color: #217dbb;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.start-confirm-grid-container img[class^=img-award].zero-quantity {
+  filter: url(#grayscale);
+}
+
+.start-confirm-grid-container .start-show-award {
+  position: relative;
+  display: inline-block;
+  width: 140px;
+  height: 140px;
+}
+
+.start-confirm-grid-container .award-zero {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .start-confirm-grid-container {
+    grid-template-columns: 1px 50px 70% 50px 1px;
+    -ms-grid-columns: 1px 50px 70% 50px 1px;
+    font-size: 21px;
+  }
+
+  .start-confirm-grid-container .content-block1 {
+    font-size: 19px;
+  }
+
+  .start-confirm-grid-container .content-block2 {
+    font-size: 16px;
+  }
+
+  .start-confirm-grid-container .img-block-left-btn .left-btn,
+  .start-confirm-grid-container .img-block-right-btn .right-btn {
+    width: 40px;
+  }
+}

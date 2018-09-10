@@ -1,0 +1,239 @@
+.confirm-popup-modal {
+  height: 390px;
+}
+
+.confirm-popup-warning {
+  color: red;
+}
+
+.confirm-popup-info {
+  color: #217dbb;
+}
+
+.confirm-popup-btn {
+  border-radius: 5px;
+  margin-right: 20px;
+  color: #604417;
+  font-size: 20px;
+  font-weight: bolder;
+  padding: 3px 50px;
+  border: solid #604417 2px;
+  text-decoration: none;
+  outline: 0;
+  cursor: pointer;
+}
+
+.confirm-popup-btn-gif,
+.confirm-popup-btn-ok,
+.confirm-popup-btn-awardZero,
+.confirm-popup-btn-dialog {
+  background: #fff79e;
+}
+
+.confirm-popup-btn-dialog {
+  margin-top: 0;
+}
+
+.confirm-popup-btn-gif {
+  margin-top: 1px;
+}
+
+.confirm-popup-btn-ok {
+  margin-top: 10px;
+}
+
+.confirm-popup-btn-awardZero {
+  margin-top: 10px;
+}
+
+.confirm-popup-btn-ok:hover,
+.confirm-popup-btn-dialog:hover,
+.confirm-popup-btn-awardZero:hover,
+.confirm-popup-btn-gif:hover {
+  background: #604417;
+  color: #ffffff;
+  border: solid #fff79e 2px;
+  text-decoration: none;
+}
+
+.confirm-popup-btn-cancel {
+  background: #bbfcec;
+}
+
+.confirm-popup-btn-cancel:hover {
+  background: #604417;
+  color: #ffffff;
+  border: solid #bbfcec 2px;
+  text-decoration: none;
+}
+
+.confirm-popup-content {
+  font-size: 25px;
+  font-weight: bolder;
+  max-height: 250px;
+}
+
+.header-text {
+  margin-bottom: 1px;
+  color: #217dbb;
+  font-size: 28px;
+  font-weight: bolder;
+}
+
+/* ============================> Grid ok layout <============================ */
+
+.confirm-grid-gif-container {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 20% 60% 20%;
+  -ms-grid-columns: 20% 60% 20%;
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.lucky-bag-height {
+  height: 235px;
+  grid-template-rows: 32px 200px;
+  -ms-grid-rows: 32px 200px;
+}
+
+.level-up-modal {
+  height: 440px;
+}
+
+.level-up-height {
+  height: 300px;
+  grid-template-rows: 95px 200px;
+  -ms-grid-rows: 95px 200px;
+}
+
+.confirm-grid-gif-container .header-block1 {
+  grid-column: 2;
+  -ms-grid-column: 2;
+  grid-row: 1;
+  -ms-grid-row: 1;
+  margin-bottom: 1px;
+  color: #217dbb;
+  font-size: 28px;
+  font-weight: bolder;
+}
+
+.confirm-grid-gif-container .content-block1 {
+  grid-column: 2;
+  -ms-grid-column: 2;
+  grid-row: 2;
+  -ms-grid-row: 2;
+}
+
+.confirm-popup-chest-img {
+  height: 200px;
+}
+
+.confirm-popup-chest-img {
+  height: 200px;
+}
+
+.confirm-popup-chest-level-up-failed {
+  height: 95px;
+}
+
+/* ============================> Grid Dialog layout <============================ */
+
+.confirm-grid-upgrade-container {
+  height: 230px;
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 19% 30% 32% 19%;
+  -ms-grid-columns: 19% 30% 32% 19%;
+  grid-template-rows: repeat(3, 1fr);
+  -ms-grid-rows: 1fr 1fr 1fr;
+  font-size: 23px;
+  font-weight: bolder;
+}
+
+.confirm-grid-upgrade-container .image-block1 {
+  grid-column: 2;
+  -ms-grid-column: 2;
+  grid-row: 1 / span 3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+}
+
+.confirm-grid-upgrade-container .image-block1-chest {
+  max-height: 100%;
+  filter: url('#silhouette');
+}
+
+.confirm-grid-upgrade-container .content-block1 {
+  grid-column: 3;
+  -ms-grid-column: 3;
+  grid-row: 1;
+  -ms-grid-row: 1;
+  color: #217dbb;
+  font-size: 28px;
+  font-weight: bolder;
+}
+
+.confirm-grid-upgrade-container .content-block2 {
+  text-align: left;
+  grid-column: 3;
+  -ms-grid-column: 3;
+  grid-row: 2;
+  -ms-grid-row: 2;
+}
+
+.confirm-grid-upgrade-container .content-block3 {
+  text-align: left;
+  grid-column: 3;
+  -ms-grid-column: 3;
+  grid-row: 3;
+  -ms-grid-row: 3;
+  font-size: 88%;
+}
+
+/* ============================> Grid Dialog layout <============================ */
+
+@media screen and (max-width: 980px) {
+  .confirm-grid-upgrade-container {
+    grid-template-columns: 1% 39% 59% 1%;
+    -ms-grid-columns: 1% 39% 59% 1%;
+    grid-template-rows: repeat(3, 1fr);
+    -ms-grid-rows: 1fr 1fr 1fr;
+    font-size: 23px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .confirm-grid-upgrade-container {
+    font-size: 20px;
+  }
+
+  .confirm-grid-upgrade-container .image-block1-chest {
+    max-height: 78%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .confirm-grid-upgrade-container {
+    grid-template-columns: 1% 1% 97% 1%;
+    -ms-grid-columns: 1% 1% 97% 1%;
+  }
+
+  .confirm-grid-upgrade-container .image-block1-chest {
+    max-height: 0;
+  }
+
+  .confirm-popup-btn {
+    border-radius: 5px;
+    margin-top: 0;
+    margin-right: 5px;
+    color: #604417;
+    font-size: 19px;
+    font-weight: bolder;
+    padding: 5px 25px;
+  }
+
+  .confirm-grid-gif-container .header-block1 {
+    font-size: 20px;
+  }
+}

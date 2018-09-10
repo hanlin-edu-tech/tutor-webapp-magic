@@ -1,0 +1,17 @@
+#loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(1, 23, 43, 0.7);
+  height: 300%;
+  width: 100%;
+  z-index: 12;
+}
+
+#loading .animation {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%,-50%);
+}

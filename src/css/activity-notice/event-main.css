@@ -1,0 +1,108 @@
+#galaxy-space-activity {
+  background-color: #000C1A;
+  height: 100%;
+}
+
+#galaxy-space-activity main {
+  position: absolute;
+}
+
+.activity-main {
+  top: 0;
+  left: 100px;
+}
+
+.activity-main {
+  background: url("https://d220xxmclrx033.cloudfront.net/event-space/img/space.png") no-repeat;
+  background-size: contain;
+  width: 1080px;
+  height: 800px;
+}
+
+#galaxy-space-activity .returnToActivity {
+  position: fixed;
+  width: 7%;
+  top: 8px;
+  left: 1060px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+#galaxy-space-activity .returnToActivity:hover {
+  animation: returnToActivityRotate 50s infinite;
+  animation-direction: alternate;
+  z-index: 1;
+}
+
+@keyframes returnToActivityRotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  10%,
+  20%,
+  30%,
+  40%,
+  50%,
+  60%,
+  70%,
+  80%,
+  90%,
+  100% {
+    -webkit-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+  }
+  5%,
+  15%,
+  25%,
+  35%,
+  45%,
+  55%,
+  65%,
+  75%,
+  85%,
+  95% {
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+}
+
+@media screen and (max-width: 1280px) {
+ .activityNotice {
+   position: absolute;
+   width: 1080px;
+   left: 0px;
+ }
+
+ #galaxy-space-activity .returnToActivity {
+  left: 950px;
+ }
+}
+
+@media screen and (max-width: 1100px) {
+  .activityNotice {
+    width: 880px;
+  }
+
+  .activity-main {
+    left: 100px;
+    width: 880px;
+  }
+  #galaxy-space-activity .returnToActivity {
+    left: 800px;
+   }
+}
+
+@media screen and (max-width: 980px) {
+  .activityNotice {
+    width: 680px;
+  }
+
+  .activity-main {
+    width: 680px;
+  }
+  #galaxy-space-activity .returnToActivity {
+    left: 640px;
+    width: 6%;
+   }
+}

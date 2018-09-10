@@ -1,0 +1,679 @@
+/* ============================> 禮物 <============================ */
+
+.container .chest-award-icon1 {
+  top: 780px;
+  left: 300px;
+}
+
+.container .chest-award-icon2 {
+  top: 780px;
+  left: 900px;
+}
+
+.container .stock-room1 {
+  top: 880px;
+  left: 50px;
+}
+
+.container .stock-room2 {
+  top: 880px;
+  right: 20px;
+}
+
+.container .message1 {
+  color: aliceblue;
+  font-family: "微軟正黑體", fantasy;
+  font-size: 32px;
+  top: 980px;
+  left: 130px;
+}
+
+.container .message2 {
+  color: aliceblue;
+  font-family: "微軟正黑體", fantasy;
+  font-size: 32px;
+  top: 980px;
+  right: 60px;
+}
+
+.container .return-btn {
+  top: 1040px;
+  right: 150px;
+  cursor: pointer;
+}
+
+.container .award-box li[class^=border-box] {
+  width: 200px;
+  height: 190px;
+  list-style-type: none;
+}
+
+.container .award-box .border-box1 {
+  top: 30px;
+}
+
+.container .award-box .border-box2 {
+  top: 30px;
+  left: 250px;
+}
+
+.container .award-box .border-box3 {
+  top: 250px;
+}
+
+.container .award-box .border-box4 {
+  top: 250px;
+  left: 250px;
+}
+
+.container .border1 {
+  top: 1120px;
+  left: 745px;
+}
+
+.container .border2 {
+  top: 1120px;
+  left: 965px;
+}
+
+.container .border3 {
+  top: 1340px;
+  left: 745px;
+}
+
+.container .border4 {
+  top: 1340px;
+  left: 965px;
+}
+
+.container .award-box .block {
+  top: 1080px;
+  left: 715px;
+}
+
+.container .award-box .block img {
+  width: 75%;
+  left: 25px;
+  top: 8px;
+}
+
+.container .award-box .block span {
+  color: antiquewhite;
+  font-family: "微軟正黑體", fantasy;
+  font-size: 20px;
+  top: 160px;
+  left: 30px;
+}
+
+.container .award-box .block .awardSum {
+  color: antiquewhite;
+  font-family: "微軟正黑體", fantasy;
+  font-size: 20px;
+  top: 160px;
+  left: 135px;
+}
+
+.container .right:hover,
+.container .left:hover,
+.container .next:hover,
+.container .previous:hover,
+.container .return-btn:hover {
+  opacity: 0.6;
+}
+
+.container .right {
+  top: 1288px;
+  right: 25px;
+  width: 100px;
+  height: 90px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.container .left {
+  top: 1288px;
+  right: 520px;
+  width: 100px;
+  height: 90px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.container .slide-show {
+  top: 1110px;
+  left: 30px;
+}
+
+.container .award-show {
+  top: 0;
+  left: 10px;
+  height: 170px;
+}
+
+.container .slide-show-award-introduce {
+  top: 1380px;
+  left: 277px;
+  width: 178px;
+  height: 128px;
+  z-index: 1;
+}
+
+.container .slide-show-award-introduce .award {
+  color: black;
+  font-size: 17px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.container .slide-show-award-introduce .needChestLv {
+  color: black;
+  font-size: 17px;
+  top: 45px;
+  left: 0;
+  z-index: 1;
+}
+
+.container .slide-show-award-introduce .quantity {
+  color: darkblue;
+  font-size: 17px;
+  top: 67px;
+  left: 0;
+  z-index: 1;
+}
+
+.container .slide-show-award-introduce .awardNotice {
+  color: brown;
+  font-size: 15px;
+  top: 90px;
+  left: 0;
+  z-index: 1;
+}
+
+.container .monster {
+  width: 500px;
+  height: 420px;
+  top: 1160px;
+  left: 100px;
+}
+
+.container .next {
+  top: 1120px;
+  left: 500px;
+  height: 100px;
+  width: 100px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.container .previous {
+  top: 1220px;
+  left: 500px;
+  height: 100px;
+  width: 100px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.container .service {
+  background: rgba(126, 206, 244, 0.9);
+  border-radius: 300px;
+  top: 1580px;
+  height: 250px;
+  width: 100%;
+}
+
+.container .service .service-message {
+  top: 40px;
+  left: 19%;
+}
+
+.container .service .service-message-text {
+  top: 102px;
+  left: 15%;
+  width: 75%;
+}
+
+.container .service .service-message,
+.container .service .service-message-text {
+  color: black;
+  font-size: 21px;
+  font-family: "微軟正黑體", fantasy;
+}
+
+.container .service .shareBox {
+  top: 12px;
+  left: 13%;
+  width: 5%;
+  transform: rotate(-5deg);
+  -webkit-transform: rotate(-5deg);
+}
+
+.container .service .shareBtn {
+  top: 190px;
+  left: 580px;
+  width: 12%;
+  cursor: pointer;
+}
+
+.container .service .shareBtn:hover {
+  opacity: 0.6;
+}
+
+/* ============================> 禮物 <============================ */
+
+/* ============================================> iPad ============================================>*/
+
+@media screen and (max-width: 1280px) {
+  .container .chest-award-icon1 {
+    top: 650px;
+    left: 220px;
+    width: 6%;
+  }
+
+  .container .chest-award-icon2 {
+    top: 650px;
+    left: 700px;
+    width: 6%;
+  }
+
+  .container .stock-room1 {
+    top: 740px;
+    left: 30px;
+    width: 45%;
+  }
+
+  .container .stock-room2 {
+    top: 740px;
+    right: 30px;
+    width: 45%;
+  }
+
+  .container .message1 {
+    font-size: 25px;
+    top: 810px;
+    left: 70px;
+  }
+
+  .container .message2 {
+    font-size: 25px;
+    top: 810px;
+    right: 40px;
+  }
+
+  .container .return-btn {
+    top: 850px;
+    right: 130px;
+    width: 25%;
+  }
+
+  .container .award-box li[class^=border-box] {
+    width: 176px;
+    height: 170px;
+    list-style-type: none;
+  }
+
+  .container .award-box .border-box1 {
+    top: 30px;
+  }
+
+  .container .award-box .border-box2 {
+    top: 30px;
+    left: 240px;
+  }
+
+  .container .award-box .border-box3 {
+    top: 245px;
+  }
+
+  .container .award-box .border-box4 {
+    top: 245px;
+    left: 240px;
+  }
+
+  .container .border1 {
+    top: 920px;
+    left: 535px;
+    width: 20%;
+  }
+
+  .container .border2 {
+    top: 920px;
+    left: 745px;
+    width: 20%;
+  }
+
+  .container .border3 {
+    top: 1135px;
+    left: 535px;
+    width: 20%;
+  }
+
+  .container .border4 {
+    top: 1135px;
+    left: 745px;
+    width: 20%;
+  }
+
+  .container .award-box .block {
+    top: 880px;
+    left: 510px;
+  }
+
+  .container .award-box .block img {
+    width: 70%;
+    left: 25px;
+  }
+
+  .container .award-box .block span,
+  .container .award-box .block .awardSum {
+    top: 140px;
+  }
+
+  .container .right {
+    top: 1090px;
+    right: -15px;
+    width: 70px;
+    height: 70px;
+  }
+
+  .container .left {
+    top: 1090px;
+    right: 430px;
+    width: 70px;
+    height: 70px;
+  }
+
+  .container .slide-show {
+    top: 1020px;
+    left: 10px;
+  }
+
+  .container .award-show {
+    top: -110px;
+    left: -10px;
+    height: 150px;
+  }
+
+  .container .award {
+    top: -160px;
+    left: -60px;
+    font-size: 17px;
+  }
+
+  .container .next {
+    top: 920px;
+    left: 390px;
+    height: 80px;
+    width: 80px;
+  }
+
+  .container .previous {
+    top: 1000px;
+    left: 390px;
+    height: 80px;
+    width: 80px;
+  }
+
+  .container .slide-show-award-introduce {
+    top: 1130px;
+    left: 193px;
+    width: 153px;
+    height: 122px;
+  }
+
+  .container .slide-show-award-introduce .award,
+  .container .slide-show-award-introduce .needChestLv,
+  .container .slide-show-award-introduce .quantity {
+    font-size: 15px;
+  }
+
+  .container .slide-show-award-introduce .awardNotice {
+    font-size: 12px;
+  }
+
+  .container .monster {
+    width: 430px;
+    height: 400px;
+    top: 920px;
+    left: 40px;
+  }
+
+  .container .service {
+    top: 1350px;
+    height: 200px;
+  }
+
+  .container .service .service-message {
+    top: 30px;
+    font-size: 19px;
+  }
+
+  .container .service .service-message-text {
+    top: 85px;
+    font-size: 19px;
+    width: 72%;
+  }
+
+  .container .service .shareBtn {
+    top: 150px;
+    left: 450px;
+    width: 15%;
+  }
+}
+
+/* ============================================> iPad ============================================>*/
+
+/* ============================================> iPhone ============================================>*/
+
+@media screen and (max-width: 800px) {
+  .container .chest-award-icon1 {
+    top: 820px;
+    left: 180px;
+    width: 8%;
+  }
+
+  .container .stock-room1 {
+    top: 865px;
+    left: 85px;
+    width: 55%;
+  }
+
+  .container .message1 {
+    font-size: 17px;
+    top: 900px;
+    left: 65px;
+  }
+
+  .container .slide-show {
+    top: 1000px;
+    left: 20px;
+  }
+
+  .container .award-show {
+    top: -55px;
+    left: -5px;
+    height: 105px;
+  }
+
+  .container .award-box li[class^=border-box] {
+    width: 130px;
+    height: 135px;
+    list-style-type: none;
+  }
+
+  .container .award-box .border-box1 {
+    top: 25px;
+    left: 45px;
+  }
+
+  .container .award-box .border-box2 {
+    top: 25px;
+    left: 210px;
+  }
+
+  .container .award-box .border-box3 {
+    top: 185px;
+    left: 50px;
+  }
+
+  .container .award-box .border-box4 {
+    top: 185px;
+    left: 210px;
+  }
+
+  .container .border1 {
+    top: 1350px;
+    left: 28px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .container .border2 {
+    top: 1350px;
+    left: 205px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .container .border3 {
+    top: 1515px;
+    left: 28px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .container .border4 {
+    top: 1515px;
+    left: 205px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .container .award-box .block {
+    top: 1320px;
+    left: 5px;
+  }
+
+  .container .award-box .block img {
+    width: 75%;
+    left: 17px;
+  }
+
+  .container .award-box .block span {
+    font-size: 14px;
+    top: 110px;
+    left: 20px;
+  }
+
+  .container .award-box .block .awardSum {
+    font-size: 14px;
+    top: 110px;
+    left: 95px;
+  }
+
+  .container .right {
+    top: 1480px;
+    right: 2px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .container .left {
+    top: 1480px;
+    left: 2px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .container .next {
+    top: 945px;
+    left: 270px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .container .previous {
+    top: 1005px;
+    left: 270px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .container .slide-show-award-introduce {
+    top: 1093px;
+    left: 144px;
+    width: 110px;
+    height: 100px;
+  }
+
+  .container .slide-show-award-introduce .award {
+    font-size: 14px;
+  }
+
+  .container .slide-show-award-introduce .quantity {
+    top: 40px;
+    left: 0;
+    font-size: 14px;
+  }
+
+  .container .monster {
+    width: 290px;
+    height: 235px;
+    top: 970px;
+    left: 42px;
+  }
+
+  .container .chest-award-icon2 {
+    top: 1200px;
+    left: 180px;
+    width: 8%;
+  }
+
+  .container .stock-room2 {
+    top: 1240px;
+    left: 90px;
+    width: 55%;
+  }
+
+  .container .message2 {
+    font-size: 17px;
+    top: 1280px;
+    left: 60px;
+  }
+
+  .container .return-btn {
+    top: 1310px;
+    right: 110px;
+    width: 42%;
+  }
+
+  .container .service {
+    top: 1680px;
+    height: 150px;
+  }
+
+  .container .service .service-message {
+    top: 15px;
+    left: 28%;
+    font-size: 14px;
+  }
+
+  .container .service .service-message-text {
+    top: 47px;
+    left: 15%;
+    font-size: 14px;
+  }
+
+  .container .service .shareBox {
+    width: 8%;
+  }
+
+  .container .service .shareBtn {
+    top: 115px;
+    left: 130px;
+    width: 28%;
+  }
+}
+
+/* ============================================> iPhone ============================================>*/
