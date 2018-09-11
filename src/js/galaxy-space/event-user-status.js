@@ -35,7 +35,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => { // eslin
       // window.location = '/Users/register.html'
     }
   }
-  confirmPopup.dialog(content, dialog)
+  // confirmPopup.dialog(content, dialog)
 
   ajax('GET', `/ms-user-status/userStatus`)
     .then((data) => {
