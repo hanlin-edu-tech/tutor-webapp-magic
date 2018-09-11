@@ -4,7 +4,7 @@ define(['jquery', 'ajax', 'eventCountUp'], ($, ajax, eventCountUp) => {// eslint
       let finalCoins = data.content.coins
       let finalGems = data.content.gems
 
-      eventCountUp('coins', 0, finalCoins)
-      eventCountUp('gems', 0, finalGems)
+      eventCountUp('ecoin', 0, finalCoins)
+      eventCountUp('diamond', 0, finalGems)
     })
 })
