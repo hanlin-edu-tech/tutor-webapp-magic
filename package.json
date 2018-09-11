@@ -1,16 +1,14 @@
 {
   "name": "event-space",
-  "description": "eHanlin 雲端銀河探險隊",
+  "description": "eHanlin 雲端魔法學院",
   "author": "Aso <aso@ehanlin.com.tw>, Sonic <sonic@ehanlin.com.tw>",
-  "version": "2.0.1-SNAPSHOT",
+  "version": "1.2.01-SNAPSHOT",
   "repository": {
     "type": "git",
     "url": "https://github.com/eHanlin/event-space.git"
   },
   "dependencies": {
-    "csspin": "^1.1.4",
-    "gulp-sass": "^4.0.1",
-    "pug": "^2.0.3"
+    "csspin": "^1.1.4"
   },
   "devDependencies": {
     "@google-cloud/storage": "^1.7.0",
@@ -31,6 +29,8 @@
     "gulp-replace": "^0.6.1",
     "gulp-template-util": "0.0.2",
     "gulp-uglify-es": "^1.0.4",
+    "gulp-sass": "^4.0.1",
+    "pug": "^2.0.3",
     "imagemin-pngquant": "^5.1.0",
     "path": "^0.12.7",
     "q": "^1.5.1"

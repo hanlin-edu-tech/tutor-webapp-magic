@@ -14,13 +14,11 @@ const gcPub = require('gulp-gcloud-publish')
 const Storage = require('@google-cloud/storage')
 const htmlReplace = require('gulp-html-replace')
 const templateUtil = require('gulp-template-util')
-const es = require('event-stream');
-const pug = require('pug');
-const gulpSass = require('gulp-sass');
+const es = require('event-stream')
+const pug = require('pug')
+const gulpSass = require('gulp-sass')
 
 const destination = './dist'
-
-
 
 let bucketNameForTest = 'tutor-events-test'
 let bucketNameForProd = 'tutor-events'
@@ -207,37 +205,36 @@ let uploadGCS = bucketName => {
     }))
 }
 
-
 /* pug sass */
-function buildHtml(){
-  return es.map(function(file, cb){
-      file.contents = new Buffer(pug.renderFile(
-          file.path, { 
-              filename : file.path,
-              pretty : "    "
-          }
-      ));
-      cb(null, file);
-  });
+function buildHtml () {
+  return es.map(function (file, cb) {
+    file.contents = new Buffer(pug.renderFile(
+      file.path, {
+        filename: file.path,
+        pretty: '    '
+      }
+    ))
+    cb(null, file)
+  })
 }
 
-function htmlTask(dest){
-return function(){
+function htmlTask (dest) {
+  return function () {
     return gulp.src('src/pug/**/*.pug')
-        .pipe(buildHtml())
-        .pipe(rename({extname:'.html'}))
-        .pipe(gulp.dest(dest));};    
+      .pipe(buildHtml())
+      .pipe(rename({extname: '.html'}))
+      .pipe(gulp.dest(dest))
+  }
 }
 
-function styleTask(dest){
-  return function(){
-      return gulp.src('src/sass/**/*.sass')
-          .pipe(gulpSass())
-          .pipe(rename({extname:'.css'}))
-          .pipe(gulp.dest(dest));};    
+function styleTask (dest) {
+  return function () {
+    return gulp.src('src/sass/**/*.sass')
+      .pipe(gulpSass())
+      .pipe(rename({extname: '.css'}))
+      .pipe(gulp.dest(dest))
+  }
 }
-
-
 
 /* 開發 */
 gulp.task('buildEnvToDev', () => {
@@ -288,11 +285,11 @@ gulp.task('uploadGcsTest', uploadGCS.bind(uploadGCS, bucketNameForTest))
 gulp.task('uploadGcsProd', uploadGCS.bind(uploadGCS, bucketNameForProd))
 
 /* 編譯 pug sass */
-gulp.task('style', styleTask('src/css'));
-gulp.task('html', htmlTask('src'));
-gulp.task('build', ['style', 'html']);
-gulp.task('default', ['build']);
-gulp.task('watch', function() {
-  gulp.watch('src/pug/**/*.pug', ['html']);
-  gulp.watch('src/sass/**/*.sass', ['style']);
-});
+gulp.task('style', styleTask('src/css'))
+gulp.task('html', htmlTask('src'))
+gulp.task('build', ['style', 'html'])
+gulp.task('default', ['build'])
+gulp.task('watch', function () {
+  gulp.watch('src/pug/**/*.pug', ['html'])
+  gulp.watch('src/sass/**/*.sass', ['style'])
+})
