@@ -7,10 +7,23 @@ html(lang="en")
         meta(http-equiv="pragma" content="no-cache")
         meta(http-equiv="expires" content="0")
 
-        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous")
-        link(rel='icon', href='./img/magicImg/favicon.png', type='image/png')
-        link(rel="stylesheet" href="./css/animate.css")
-        link(rel="stylesheet" href="./css/style.css")
+        link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous")
+        link(type='image/png', href='./img/magicImg/favicon.png', rel='icon')
+        link(href="./css/animate.css" rel="stylesheet")
+        link(href="./css/style.css" rel="stylesheet")
+
+        link(href="./css/lib/sweetalert2.css" rel="stylesheet")
+        link(href="./css/galaxy-space/event-main.css" rel="stylesheet")
+        link(href="./css/galaxy-space/event-chest.css" rel="stylesheet")
+        link(href="./css/galaxy-space/event-award.css" rel="stylesheet")
+        link(href="./css/galaxy-space/event-confirm-popup.css" rel="stylesheet")
+        link(href="./css/galaxy-space/event-start-award-popup.css" rel="stylesheet")
+        link(href="./css/galaxy-space/event-open-award-popup.css" rel="stylesheet")
+        link(href="./css/galaxy-space/event-loading.css" rel="stylesheet")
+        link(href="./css/galaxy-space/event-bonus-popup.css" rel="stylesheet")
+        link(href="./css/galaxy-space/event-drop-down.css" rel="stylesheet")
+        link(href="./css/galaxy-space/event-awards-are-zero.css" rel="stylesheet")
+        link(href="./css/lib/csspin-balls.css" rel="stylesheet")
         title 雲端奇幻魔藥學
 
     body
@@ -36,9 +49,9 @@ html(lang="en")
                                                     .col-6
                                                         .row
                                                             .col-12
-                                                                .ecoin 55555
+                                                                #ecoin
                                                             .col-12
-                                                                .diamond 55555
+                                                                #diamond
                                     .col-4
                                         .row
                                             .col-12.col-bank
@@ -55,6 +68,10 @@ html(lang="en")
                             .col-3
                                 .col.potion_colum
                                     img(src="./img/magicImg/potion_colum.png",,alt="Responsive image")
+                                    .potion
+                                        img(src="./img/magicImg/LV1.png",,alt="Responsive image")
+                                    .count_time 00:30:00
+
                                 .col.mix_upgrade
                                     .row
                                         .col-6.mix_btn
@@ -64,16 +81,22 @@ html(lang="en")
                             .col-3
                                 .col.potion_colum
                                     img(src="./img/magicImg/potion_colum.png",,alt="Responsive image")
+                                    .potion
+                                        img(src="./img/magicImg/LV1.png",,alt="Responsive image")
                                 .col.now_finish
                                     img(src="./img/magicImg/now_finish_btn.png",,alt="Responsive image")
                             .col-3
                                 .col.potion_colum
                                     img(src="./img/magicImg/potion_colum.png",,alt="Responsive image")
+                                    .potion.potion_finish
+                                        img(src="./img/magicImg/LV1.png",,alt="Responsive image")
                                 .col.mix_finish
                                     img(src="./img/magicImg/mix_finish_btn.png",,alt="Responsive image")
                             .col-3
                                 .col.potion_colum
                                     img(src="./img/magicImg/potion_colum.png",,alt="Responsive image")
+                                    .potion
+                                        img(src="./img/magicImg/LV1.png",,alt="Responsive image")
                                 .col
 
                     .col-3
@@ -111,14 +134,21 @@ html(lang="en")
 
                     .col-3
 
-
-        <!-- Optional JavaScript -->
+        #message_box
+            .container-fluid
+                .row
+                    .col-10
+                        p 太好了！你獲得了1個Lv1魔法藥水。未來當你獲得藥水時，就會幫你存放在這裡喔！
+                        p.highlight 基本上，1次所能擁有的 藥水數量上限是4個，超過的話是沒辦法再放進來的！
+                        p 因此，定時回來調配藥水是很重要的！
+                    .col-2
+                        a.btn_iknow(href="") 知道了
 
         script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous")
         script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js")
         script(src="./js/wow.min.js")
-        script(src="./js/index.js")
+        script(data-main="./js/galaxy-space/main" src="./js/lib/require.js")
         
     
