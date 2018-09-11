@@ -98,7 +98,7 @@ body {
 #section_middle_part {
   position: relative; }
   #section_middle_part .container-fluid {
-    padding-top: 50px; }
+    padding-top: 3%; }
     #section_middle_part .container-fluid .row .potion_box {
       background-image: url("../img/magicImg/potion_box.png");
       height: 400px;
@@ -107,7 +107,7 @@ body {
       padding: 0;
       display: flex;
       justify-content: center;
-      padding-top: 70px; }
+      padding-top: 66px; }
       #section_middle_part .container-fluid .row .potion_box .row {
         margin: 0;
         width: 90%; }
@@ -130,4 +130,67 @@ body {
           #section_middle_part .container-fluid .row .potion_box .row .col-3 .now_finish, #section_middle_part .container-fluid .row .potion_box .row .col-3 .mix_finish {
             padding-top: 10px; }
           #section_middle_part .container-fluid .row .potion_box .row .col-3 .potion_colum {
-            padding: 0; }
+            padding: 0;
+            position: relative; }
+            #section_middle_part .container-fluid .row .potion_box .row .col-3 .potion_colum .potion {
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 0%; }
+            #section_middle_part .container-fluid .row .potion_box .row .col-3 .potion_colum .potion_finish {
+              filter: drop-shadow(0px 0px 3px rgba(179, 248, 152, 0.9)); }
+            #section_middle_part .container-fluid .row .potion_box .row .col-3 .potion_colum .count_time {
+              width: 100%;
+              text-align: center;
+              color: white;
+              font-size: 20px;
+              background: rgba(51, 51, 51, 0.75);
+              position: absolute;
+              top: 50%;
+              right: 0;
+              letter-spacing: 2px;
+              font-weight: 500;
+              transform: translateY(-50%);
+              text-shadow: 0px 3px 8px #000;
+              line-height: 35px; }
+
+#message_box {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+  #message_box .container-fluid {
+    background-color: rgba(73, 173, 177, 0.9);
+    border-top: solid 3px white; }
+    #message_box .container-fluid .row {
+      padding: 40px 30px; }
+      #message_box .container-fluid .row .col-10 p {
+        margin: 0;
+        color: white;
+        font-size: 20px;
+        letter-spacing: 2px;
+        line-height: 34px;
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.5); }
+      #message_box .container-fluid .row .col-10 .highlight {
+        color: #FFFD30;
+        text-shadow: 0 0 3px rgba(255, 253, 48, 0.5); }
+      #message_box .container-fluid .row .col-2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        position: relative; }
+        #message_box .container-fluid .row .col-2 .btn_iknow {
+          cursor: pointer;
+          padding: 10px 20px;
+          background-image: linear-gradient(-180deg, #D7B060 0%, #CD9514 51%, #D7B060 100%);
+          border: 3px solid #EFD08D;
+          box-shadow: 0 4px 10px 0 rgba(152, 90, 16, 0.5);
+          border-radius: 10px;
+          font-size: 25px;
+          color: #FFFFFF;
+          letter-spacing: 3px;
+          text-align: center;
+          text-shadow: 0 0 7px rgba(0, 0, 0, 0.5); }
+          #message_box .container-fluid .row .col-2 .btn_iknow:hover {
+            text-decoration: none;
+            color: #f9e5ac; }
