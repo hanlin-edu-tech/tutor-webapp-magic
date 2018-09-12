@@ -14,13 +14,13 @@ define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
     },
 
     unLocking: (chest, targets) => {
-      $(`.platform-${chest.colorPlatform} .chest${chest.level}`).attr('data-status', 'UNLOCKING')
+      $(`.potion.platform-${chest.colorPlatform} .LV${chest.level}`).attr('data-status', 'UNLOCKING')
 
       ajax('GET', `/chest/coolDownTime/${chest.id}`)
         .then(data => {
           let seconds = data.content
-          $('.start-btn').css('display', 'none')
-          $('.upgrade-btn').css('left', '27%')
+          $('.mix_btn').css('display', 'none')
+          $('.upgrade_btn').css('left', '27%')
 
           targets.startBtn.css('display', 'none')
           targets.upgradeBtn.css('display', 'none')
@@ -42,7 +42,7 @@ define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
       targets.readyBtn.removeAttr('style')
       targets.platformChest.removeAttr('style')
       targets.platformChest.attr('data-status', 'READY')
-      targets.platformChest.attr('src', `https://d220xxmclrx033.cloudfront.net/event-space/img/chest/readyChest${chest.level}.png`)
+      // targets.platformChest.attr('src', `https://d220xxmclrx033.cloudfront.net/event-space/img/chest/readyChest${chest.level}.png`)
     }
   }
 })
