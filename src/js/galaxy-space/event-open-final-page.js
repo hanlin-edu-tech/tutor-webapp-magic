@@ -139,7 +139,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
           let content = `
             <span style="font-size:24px;">
               經過一年的努力，我們終於在銀河中找到一片適合安定下來的土地，在這片土地上，
-              <br/>有一些厲害的魔法師居住著，透過他們的魔法將封存的寶箱都打開啦!趕快來看看你獲得了哪些寶藏吧!
+              <br/>有一些厲害的魔法師居住著，透過他們的魔法將封存的藥水都打開啦!趕快來看看你獲得了哪些寶藏吧!
               <br/>
               <br/>
             </span>

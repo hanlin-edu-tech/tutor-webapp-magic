@@ -19,8 +19,8 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], // eslint-dis
           spendGems = spendGems * cycles
           popupContent = `
             <div>
-              <h2 class="header-text">立即開啟寶箱需花費 ${spendGems} 個寶石</h2>
-              <h3>確定要立即開啟寶箱嗎？</h3>
+              <h2 class="header-text">立即開啟藥水需花費 ${spendGems} 個寶石</h2>
+              <h3>確定要立即開啟藥水嗎？</h3>
             </div>
           `
           confirmPopup.dialog(popupContent,
@@ -55,7 +55,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], // eslint-dis
             eventCountUp('gems', parseInt($('#gems').text()), finalGems)
           })
 
-          /* 倒數計時秒數設定為 1，讓寶箱變成 ready 狀態 */
+          /* 倒數計時秒數設定為 1，讓藥水變成 ready 狀態 */
           require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
             eventCountdown(0, chest, targets, eventChestReady)
           })

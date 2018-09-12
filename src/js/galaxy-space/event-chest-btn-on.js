@@ -19,7 +19,7 @@ define(['jquery'], $ => {// eslint-disable-line
       targets.upgradeBtn.on('click', eventChestUpgrade.ask.bind(eventChestUpgrade.ask, chest, targets))
     })
 
-    /* 開啟寶箱 */
+    /* 開啟藥水 */
     require(['eventChestOpen'], eventChestOpen => {
       targets.readyBtn.off('click')
       targets.readyBtn.on('click', (event) => {

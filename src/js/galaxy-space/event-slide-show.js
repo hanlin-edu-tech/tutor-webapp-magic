@@ -50,7 +50,7 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => {// eslint-disable-line
             <div class="slide-show-award-introduce">
               <span class="award">${title}</span>
               <span class="quantity">庫存：${howMany}</span>
-              <span class="needChestLv">所在寶箱：Lv${needChestLv}</span>
+              <span class="needChestLv">所在藥水：Lv${needChestLv}</span>
               <span class="awardNotice">${notice}</span>
             </div>
           `
