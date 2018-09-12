@@ -6,10 +6,10 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
         content = `
           <div class="start-confirm-grid-container">
             <div class="content-block1">
-              <span>寶箱準備啟動中...</span>
+              <span>藥水準備啟動中...</span>
             </div>
             <div class="content-block2">
-              <span>目前寶箱等級為Lv${chest.level}，開啟這個寶箱可能獲得</span>
+              <span>目前藥水等級為Lv${chest.level}，開啟這個藥水可能獲得</span>
             </div>  
             <div class="img-block-left-btn">
               <img class="left-btn" src="https://d220xxmclrx033.cloudfront.net/event-space/img/previous.png">
@@ -18,15 +18,15 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
               <img class="right-btn" src="https://d220xxmclrx033.cloudfront.net/event-space/img/next.png">
             </div>
             <div class="content-block4">
-              <span>你確定要啟動這個寶箱嗎？</span>
+              <span>你確定要啟動這個藥水嗎？</span>
             </div>
           </div>
         `
       } else {
         content = `
           <div>
-            <h2 class="header-text">寶箱準備啟動中...</h2>
-            <h3>你確定要啟動這個寶箱嗎？</h3>
+            <h2 class="header-text">藥水準備啟動中...</h2>
+            <h3>你確定要啟動這個藥水嗎？</h3>
           </div>
         `
       }

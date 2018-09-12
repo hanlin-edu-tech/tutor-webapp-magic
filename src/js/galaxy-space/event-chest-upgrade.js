@@ -11,7 +11,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
         let content = `
           <div class="confirm-grid-upgrade-container">
             <div class="image-block1">
-              <img class="image-block1-chest" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/chest${upLevel}.png">
+              <img class="image-block1-chest" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV${upLevel}.png">
             </div>
             <div class="content-block1">
               <span>Lv${chest.level} -> Lv${upLevel}</span>
@@ -19,9 +19,9 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
             <div class="content-block2">
               你確定要花費 <span class="confirm-popup-info"> ${needCoins}
               <span class="confirm-popup-warning">個 e 幣</span>、 ${needGems} <span class="confirm-popup-warning">個 寶石 </span></span>
-              升級至 Lv${upLevel} 寶箱嗎？
+              升級至 Lv${upLevel} 藥水嗎？
             </div>
-            <div class="content-block3">請注意： 高等的寶箱有更好的寶藏等著你，但升級寶箱有一定失敗的機率喔!</div>
+            <div class="content-block3">請注意： 高等的藥水有更好的寶藏等著你，但升級藥水有一定失敗的機率喔!</div>
           </div>
         `
         confirmPopup.dialog(content,

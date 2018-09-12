@@ -15,13 +15,13 @@ require.config({
     eventCountdown: ['./event-countdown'],
     eventUserStatus: ['./event-user-status'],
 
-    /* 取回寶箱與判定狀態 */
+    /* 取回藥水與判定狀態 */
     eventChestGet: ['./event-chest-get'],
     eventChestDetermine: ['./event-chest-determine'],
     eventChestBtnOn: ['./event-chest-btn-on'],
     eventChestStatusDo: ['./event-chest-status-do'],
 
-    /* 寶箱 action */
+    /* 藥水 action */
     eventChestUpgrade: ['./event-chest-upgrade'],
     eventChestStart: ['./event-chest-start'],
     eventChestReady: ['./event-chest-ready'],
