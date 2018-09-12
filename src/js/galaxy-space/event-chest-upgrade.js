@@ -50,7 +50,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
           loadingTarget.css('display', 'none')
           return $.Deferred().reject().promise()
         } else {
-          return ajax('PUT', `/currencyBank/chest/levelUp/${chest.id}`)
+          return ajax('POST', `/currencyBank/chest/levelUp/${chest.id}`)
         }
       })
       .then(jsonData => {

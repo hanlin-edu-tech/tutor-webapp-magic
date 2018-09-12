@@ -237,7 +237,7 @@ let uploadGCS = bucketName => {
 /* pug sass */
 function buildHtml () {
   return es.map(function (file, cb) {
-    file.contents = new Buffer(pug.renderFile(
+    file.contents = Buffer.from(pug.renderFile(
       file.path, {
         filename: file.path,
         pretty: '    '
@@ -289,7 +289,7 @@ gulp.task('uploadGcsProd', uploadGCS.bind(uploadGCS, bucketNameForProd))
 /* 編譯 pug sass */
 gulp.task('style', styleTask('src/css'))
 gulp.task('html', htmlTask('src'))
-gulp.task('build', ['style', 'html'])
+gulp.task('compilePugSass', ['style', 'html'])
 gulp.task('default', ['build'])
 gulp.task('watch', function () {
   gulp.watch('src/pug/**/*.pug', ['html'])

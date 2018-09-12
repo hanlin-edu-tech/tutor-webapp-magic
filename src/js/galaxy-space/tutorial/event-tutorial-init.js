@@ -1,10 +1,24 @@
 define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmPopup, confirmTutorial) => { // eslint-disable-line
-  let chestId
+  let chestId, user
+  let platformTarget = $('#section_novice .potion.platform-GREEN')
+  let greenTarget = $('#section_novice .col-3.GREEN')
+  let upgradeBtn = greenTarget.find('.upgrade_btn')
 
   /********************* 新手村 *********************/
   /* 3-1 開始學習升級 */
   let step3_2 = () => {
-    let content = `首先，我們先來學習<span class="highlight">如何升級</span>」吧！第一次升級是免費的唷，快來試試看～`
+    upgradeBtn.css({display: '', left: '27%'})
+    upgradeBtn.one('click', () => {
+      return ajax('POST', `/chest/upgrade/${chestId}`, {user: user})
+        .then(jsonData => {
+            console.log(jsonData)
+            platformTarget.find('img').attr('src',
+              'https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV2.png')
+          }
+        )
+    })
+
+    let content = '現在，點選「升級」按鈕進行升級'
 
     confirmTutorial.prompt(content, {})
   }
@@ -13,7 +27,10 @@ define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmP
   let step3_1 = () => {
     let content = `首先，我們先來學習<span class="highlight">如何升級</span>」吧！第一次升級是免費的唷，快來試試看～`
 
-    confirmTutorial.prompt(content, {})
+    confirmTutorial.prompt(content, {
+      confirmFn: step3_2(),
+      confirmBtnText: '沒問題'
+    })
   }
 
   /* 2-3 藥水的獲得方式 */
@@ -39,7 +56,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmP
 
   /* 2-1 獲得藥水提示 */
   let step2_1 = () => {
-    $('#section_novice .potion.platform-GREEN')
+    platformTarget
       .append(`<img src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV1.png" 
                         data-chest-tutorial-id="${chestId}">`)
 
@@ -54,9 +71,10 @@ define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmP
 
   ajax('GET', `/chest/novice/`)
     .then(jsonData => {
-      console.log(jsonData)
-      chestId = jsonData.content
-      if (chestId) {
+      let chest = jsonData.content
+      if (chest) {
+        chestId = chest.id
+        user = chest.user
         confirmPopup.generalImage('嗨！我是傳奇魔法師',
           '<img src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV1.png">',
           step2_1, '領取')
