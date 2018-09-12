@@ -131,7 +131,7 @@ const buildCss = () => {
 
 const buildDevToEnv = () => {
     return gulp
-        .src(['./src/js/@(galaxy-space|currency-bank)/*.js', './src/index.html'], {
+        .src(['./src/js/@(galaxy-space|currency-bank)/**/*.js', './src/index.html'], {
             base: './'
         })
         .pipe(
@@ -149,6 +149,35 @@ const buildDevToEnv = () => {
             })
         )
         .pipe(gulp.dest('./'))
+}
+
+const buildEnvToDev = () => {
+  return gulp
+    .src(['./src/js/@(galaxy-space|currency-bank)/**/*.js', './src/index.html'], {
+      base: './'
+    })
+    .pipe(
+      replace(/[`]\/(chest)\/([\w-/${.?=&}]*)`/g, (match, p1, p2) => {
+        let dev = `\`http://localhost:8080/${p1}/${p2}\``
+        console.log(`chest domain => ${match} to ${dev}`)
+        return dev
+      })
+    )
+    .pipe(
+      replace(/[`]\/(currencyBank)\/([\w-/${.?=&}]*)`/g, (match, p1, p2) => {
+        let dev = `\`http://localhost:9090/${p1}/${p2}\``
+        console.log(`currencyBank domain => ${match} to ${dev}`)
+        return dev
+      })
+    )
+    .pipe(
+      replace(/common_webcomponent\/(current.SNAPSHOT|current)/g, (match) => {
+        let dev = `common_webcomponent\/current.SNAPSHOT`
+        console.log(`replace ${match} to ${dev}`)
+        return dev
+      })
+    )
+    .pipe(gulp.dest('./'))
 }
 
 const replaceComponentPath = envDir => {
@@ -237,34 +266,7 @@ function styleTask(dest) {
 }
 
 /* 開發 */
-gulp.task('buildEnvToDev', () => {
-    return gulp
-        .src(['./src/js/@(galaxy-space|currency-bank)/*.js', './src/index.html'], {
-            base: './'
-        })
-        .pipe(
-            replace(/[`]\/(chest)\/([\w-/${.?=&}]*)`/g, (match, p1, p2) => {
-                let dev = `\`http://localhost:8080/${p1}/${p2}\``
-                console.log(`chest domain => ${match} to ${dev}`)
-                return dev
-            })
-        )
-        .pipe(
-            replace(/[`]\/(currencyBank)\/([\w-/${.?=&}]*)`/g, (match, p1, p2) => {
-                let dev = `\`http://localhost:9090/${p1}/${p2}\``
-                console.log(`currencyBank domain => ${match} to ${dev}`)
-                return dev
-            })
-        )
-        .pipe(
-            replace(/common_webcomponent\/(current.SNAPSHOT|current)/g, (match) => {
-                let dev = `common_webcomponent\/current.SNAPSHOT`
-                console.log(`replace ${match} to ${dev}`)
-                return dev
-            })
-        )
-        .pipe(gulp.dest('./'))
-})
+gulp.task('buildEnvToDev', buildEnvToDev)
 
 /* 正式 */
 gulp.task('buildDevToEnv', buildDevToEnv)

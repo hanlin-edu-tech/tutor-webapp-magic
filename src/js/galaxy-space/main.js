@@ -35,10 +35,14 @@ require.config({
     eventCountUp: ['./event-count-up'],
     eventBonusPopup: ['./event-bonus-popup'],
     eventOpenFinalPage: ['./event-open-final-page'],
+
+    /* 雲端奇幻魔藥學 */
+    eventTutorialInit: ['./tutorial/event-tutorial-init'],
+
     /* third party */
     jquery: ['../lib/jquery-3.3.1.min'],
     w3: ['../lib/w3'],
-    swal: ['../lib/sweetalert2'],
+    sweetAlert: ['../lib/sweetalert2.all.min'],
     jqueryCountDown: ['../lib/jquery-time-countdown.min'],
     countUp: ['../lib/countUp.min'],
     bluebird: ['../lib/bluebird.min'],
@@ -46,6 +50,7 @@ require.config({
 
     /* 共用元件 */
     confirmPopup: ['../module-utils/confirm-popup'],
+    confirmTutorial: ['../module-utils/confirm-tutorial'],
     ajax: ['../module-utils/ajax']
   },
 
@@ -61,16 +66,17 @@ require(['jquery', 'ajax'], () => {
   require(['bluebird'], function (Promise) {
     window.Promise = Promise
   })
-  require(['eventClickLink'])
-  require(['eventSlideShow'])
-  require(['eventUserStatus'])
-  require(['eventTotalAssets'])
-  require(['eventAwardGet'], (eventAwardGet) => {
-    eventAwardGet()
-  })
-  require(['eventChestGet'], eventChestGet => {
-    eventChestGet()
-  })
-  require(['eventBonusPopup'])
-  require(['eventOpenFinalPage'])
+  require(['eventTutorialInit'])
+  // require(['eventClickLink'])
+  // require(['eventSlideShow'])
+  // require(['eventUserStatus'])
+  // require(['eventTotalAssets'])
+  // require(['eventAwardGet'], (eventAwardGet) => {
+  //   eventAwardGet()
+  // })
+  // require(['eventChestGet'], eventChestGet => {
+  //   eventChestGet()
+  // })
+  // require(['eventBonusPopup'])
+  // require(['eventOpenFinalPage'])
 })

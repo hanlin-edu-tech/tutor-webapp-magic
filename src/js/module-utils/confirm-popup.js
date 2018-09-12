@@ -1,4 +1,4 @@
-define(['jquery', 'swal'], ($, swal) => { // eslint-disable-line
+define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
   let commonStyle = {
     background: 'url(https://d220xxmclrx033.cloudfront.net/event-space/img/popup/confirm.png) repeat center center / contain',
     width: '100%',
@@ -39,17 +39,17 @@ define(['jquery', 'swal'], ($, swal) => { // eslint-disable-line
       onOpenFn()
     }
 
-    return swal(dialogStyle)
+    sweetAlert(dialogStyle)
       .then((result) => {
         if (result.value && confirmFn) {
           confirmFn()
-        } else if (result.dismiss === swal.DismissReason.cancel) {
+        } else if (result.dismiss === sweetAlert.DismissReason.cancel) {
           cancelFn()
         }
       })
   }
 
-  confirmPopup.image = buttonText => {
+  confirmPopup.baseImage = buttonText => {
     let gifStyle = cloneCommonStyle(commonStyle)
     gifStyle.title = ''
     gifStyle.confirmButtonText = buttonText || '我瞭解了'
@@ -61,14 +61,14 @@ define(['jquery', 'swal'], ($, swal) => { // eslint-disable-line
   }
 
   confirmPopup.luckyBagImage = (title, content, gifImageFn, buttonText) => {
-    let gifStyle = confirmPopup.image(buttonText)
+    let gifStyle = confirmPopup.baseImage(buttonText)
     gifStyle.html = `
       <div class="confirm-grid-gif-container lucky-bag-height">
         <div class="header-block1">${title}</div>
         <div class="content-block1 ">${content}</div>
       </div> 
     `
-    return swal(gifStyle).then((result) => {
+    sweetAlert(gifStyle).then((result) => {
       if (result.value && gifImageFn) {
         gifImageFn()
       }
@@ -76,7 +76,7 @@ define(['jquery', 'swal'], ($, swal) => { // eslint-disable-line
   }
 
   confirmPopup.levelUpImage = (title, content, gifImageFn, buttonText) => {
-    let gifStyle = confirmPopup.image(buttonText)
+    let gifStyle = confirmPopup.baseImage(buttonText)
     gifStyle.customClass = 'level-up-modal'
     gifStyle.html =
       `
@@ -85,7 +85,24 @@ define(['jquery', 'swal'], ($, swal) => { // eslint-disable-line
           <div class="content-block1 ">${content}</div>
         </div> 
       `
-    return swal(gifStyle).then((result) => {
+    sweetAlert(gifStyle).then((result) => {
+      if (result.value && gifImageFn) {
+        gifImageFn()
+      }
+    })
+  }
+
+  confirmPopup.generalImage = (title, content, gifImageFn, buttonText) => {
+    let gifStyle = confirmPopup.baseImage(buttonText)
+    gifStyle.customClass = 'level-up-modal'
+    gifStyle.html =
+      `
+        <div class="confirm-grid-gif-container level-up-height">
+          <div class="header-block1">${title}</div>
+          <div class="content-block1 ">${content}</div>
+        </div> 
+      `
+    sweetAlert(gifStyle).then((result) => {
       if (result.value && gifImageFn) {
         gifImageFn()
       }
@@ -99,7 +116,7 @@ define(['jquery', 'swal'], ($, swal) => { // eslint-disable-line
     okStyle.confirmButtonText = buttonText || '我瞭解了'
     okStyle.confirmButtonClass = 'confirm-popup-btn confirm-popup-btn-ok'
 
-    return swal(okStyle).then((result) => {
+    sweetAlert(okStyle).then((result) => {
       if (result.value && okFn) {
         okFn()
       }
@@ -131,7 +148,8 @@ define(['jquery', 'swal'], ($, swal) => { // eslint-disable-line
           .append(`<img class="gems${index}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/gemGif.gif">`)
       }
     }
-    return swal(awardIsZeroDialogStyle).then(result => {
+
+    sweetAlert(awardIsZeroDialogStyle).then(result => {
       if (result.value && awardIsZeroFun) {
         awardIsZeroFun()
       }
