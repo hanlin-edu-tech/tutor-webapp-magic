@@ -5,22 +5,83 @@ define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmP
   let upgradeBtn = greenTarget.find('.upgrade_btn')
 
   /********************* 新手村 *********************/
+  /* 完成升級教學 */
+  let step3_4 = () => {
+    upgradeBtn.css({display: 'none'})
+    let content = `恭喜你升級成功了！想獲得越好的寶藏，就要越努力的升級魔法藥水哦！
+      當然，每次升級魔法藥水都需要一定數量的資源 (e 幣、 寶石)。`
+
+    confirmTutorial.prompt(content, {
+      //confirmFn: step3_2(),
+    })
+  }
+
+  /* 升級成功 */
+  let step3_3 = () => {
+    ajax('POST', `/chest/upgrade/${chestId}`, {user: user})
+      .then(jsonData => {
+          platformTarget.find('img').attr('src',
+            'https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV2.png')
+
+          setTimeout(() => {
+            let content = `<div class="confirm-grid-upgrade-container">
+                <div class="image-block1">
+                    <img src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV2.png">
+                </div>
+                <div class="content-block1">
+                    <span>升級成功</span>
+                </div>
+                <div class="content-block2">
+                    <p>恭喜你！恭喜你成功升級至 <span class="highlight">Lv2 魔法藥水</span>，調配出厲害的寶藏的機率又提高了一點啦！</p>
+                </div>
+              </div>
+            `
+
+            confirmPopup.dialog(content,
+              {
+                confirmFn: step3_4,
+                cancelBtnText: '太棒了！',
+                isShowCancelButton: false
+              })
+          }, 3000)
+        }
+      )
+  }
+
   /* 3-1 開始學習升級 */
   let step3_2 = () => {
     upgradeBtn.css({display: '', left: '27%'})
     upgradeBtn.one('click', () => {
-      return ajax('POST', `/chest/upgrade/${chestId}`, {user: user})
-        .then(jsonData => {
-            console.log(jsonData)
-            platformTarget.find('img').attr('src',
-              'https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV2.png')
-          }
-        )
+      let content = `
+          <div class="confirm-grid-upgrade-container">
+            <div class="image-block1">
+              <img class="image-silhouette" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV2.png">
+            </div>
+            <div class="content-block1 confirm-popup-title-font">
+              <span>藥水升級 Lv1 -> Lv2</span>
+            </div>
+            <div class="content-block2">
+              <p>
+                升級這個藥水需要花費 
+                <span class="highlight">100 個 e 幣、0 個寶石 </span>
+                ，由於這次是你第一次升級，本次費用<span class="highlight">完全免費哦！</span>
+             </p>
+            </div>
+          </div>
+        `
+      confirmPopup.dialog(content,
+        {
+          confirmFn: step3_3,
+          cancelBtnText: '馬上升級',
+          isShowCancelButton: false
+        })
     })
 
     let content = '現在，點選「升級」按鈕進行升級'
 
-    confirmTutorial.prompt(content, {})
+    confirmTutorial.prompt(content, {
+      timer: 2000
+    })
   }
 
   /* 3-1 開始學習升級 */
@@ -28,7 +89,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmP
     let content = `首先，我們先來學習<span class="highlight">如何升級</span>」吧！第一次升級是免費的唷，快來試試看～`
 
     confirmTutorial.prompt(content, {
-      confirmFn: step3_2(),
+      confirmFn: step3_2,
       confirmBtnText: '沒問題'
     })
   }

@@ -4,9 +4,10 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     customClass: 'tutorial-message-box row',
     background: 'rgba(73, 173, 177, 0.9)',
     width: '100%',
-    buttonsStyling: false,
     allowOutsideClick: false,
     heightAuto: false,
+    buttonsStyling: false,
+    confirmButtonClass: 'btn_iknow tutorial-message-box-btn-padding',
     onBeforeOpen: () => {
       $('html').css({height: '100vh'})
     }
@@ -25,21 +26,25 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
   confirmTutorial.prompt = (content, {
     confirmFn = () => {},
     onOpenFn = () => {},
-    confirmBtnText = '知道了'
+    confirmBtnText = '知道了',
+    timer = 0
   } = {}) => {
-    let dialogStyle = cloneCommonStyle(commonStyle)
-    dialogStyle.title = ''
-    dialogStyle.html = `<p>${content}</p>`
-    dialogStyle.confirmButtonText = confirmBtnText
-    dialogStyle.confirmButtonClass = 'btn_iknow'
-    dialogStyle.onOpen = () => {
+    let promptStyle = cloneCommonStyle(commonStyle)
+    promptStyle.title = ''
+    promptStyle.html = `<p>${content}</p>`
+    promptStyle.confirmButtonText = confirmBtnText
+    promptStyle.onOpen = () => {
       $('.tutorial-message-box .swal2-header').remove()
       $('.tutorial-message-box .swal2-content').addClass('col-9')
       $('.tutorial-message-box .swal2-actions').addClass('col-3')
       onOpenFn()
     }
 
-    return sweetAlert(dialogStyle)
+    if (timer > 0) {
+      promptStyle.timer = timer
+    }
+
+    return sweetAlert(promptStyle)
       .then((result) => {
         if (result.value && confirmFn) {
           confirmFn()

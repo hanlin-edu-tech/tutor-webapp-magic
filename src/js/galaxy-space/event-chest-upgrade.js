@@ -11,15 +11,17 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
         let content = `
           <div class="confirm-grid-upgrade-container">
             <div class="image-block1">
-              <img class="image-block1-chest" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV${upLevel}.png">
+              <img class="image-silhouette" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV${upLevel}.png">
             </div>
-            <div class="content-block1">
+            <div class="content-block1 confirm-popup-title-font">
               <span>Lv${chest.level} -> Lv${upLevel}</span>
             </div>
             <div class="content-block2">
-              你確定要花費 <span class="confirm-popup-info"> ${needCoins}
-              <span class="confirm-popup-warning">個 e 幣</span>、 ${needGems} <span class="confirm-popup-warning">個 寶石 </span></span>
-              升級至 Lv${upLevel} 藥水嗎？
+              <p>
+                你確定要花費 
+                <span class="highlight"> ${needCoins} 個 e 幣、 ${needGems} 個寶石</span>
+                升級至 Lv${upLevel} 藥水嗎？
+              <p/>
             </div>
             <div class="content-block3">請注意： 高等的藥水有更好的寶藏等著你，但升級藥水有一定失敗的機率喔!</div>
           </div>
@@ -79,7 +81,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
       })
   }
 
-  eventChestUpgrade.determineLevelUpSuccess = (content) => {
+  eventChestUpgrade.determineLevelUpSuccess = content => {
     let result = content[0]
     let upLevel = parseInt(result.memo.upLevel)
     if (result && result.memo.levelUpSuccess === 'true') {

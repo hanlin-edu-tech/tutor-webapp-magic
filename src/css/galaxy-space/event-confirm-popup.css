@@ -10,6 +10,12 @@
   color: #217dbb;
 }
 
+.confirm-popup-title-font {
+  color: white;
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(127, 57, 59, 0.8);
+}
+
 .confirm-popup-btn {
   border-radius: 5px;
   margin-right: 20px;
@@ -140,15 +146,14 @@
 /* ============================> Grid Dialog layout <============================ */
 
 .confirm-grid-upgrade-container {
-  height: 230px;
+  height: 183px;
   display: grid;
   display: -ms-grid;
-  grid-template-columns: 19% 30% 32% 19%;
-  -ms-grid-columns: 19% 30% 32% 19%;
+  grid-template-columns: 5% 45% 45% 5%;
+  -ms-grid-columns: 5% 45% 45% 5%;
   grid-template-rows: repeat(3, 1fr);
   -ms-grid-rows: 1fr 1fr 1fr;
   font-size: 23px;
-  font-weight: bolder;
 }
 
 .confirm-grid-upgrade-container .image-block1 {
@@ -161,6 +166,9 @@
 
 .confirm-grid-upgrade-container .image-block1-chest {
   max-height: 100%;
+}
+
+.confirm-grid-upgrade-container .image-silhouette {
   filter: url('#silhouette');
 }
 
@@ -169,9 +177,7 @@
   -ms-grid-column: 3;
   grid-row: 1;
   -ms-grid-row: 1;
-  color: #217dbb;
   font-size: 28px;
-  font-weight: bolder;
 }
 
 .confirm-grid-upgrade-container .content-block2 {
@@ -192,7 +198,6 @@
 }
 
 /* ============================> Grid Dialog layout <============================ */
-
 @media screen and (max-width: 980px) {
   .confirm-grid-upgrade-container {
     grid-template-columns: 1% 39% 59% 1%;
