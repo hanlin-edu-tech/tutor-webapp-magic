@@ -13,20 +13,24 @@ define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
       }
     },
 
-    unLocking: (chest, targets) => {
+    unLocking: (chest, targets, beginInceptionFn) => {
       $(`.potion.platform-${chest.colorPlatform} .LV${chest.level}`).attr('data-status', 'UNLOCKING')
 
       ajax('GET', `/chest/coolDownTime/${chest.id}`)
         .then(data => {
           let seconds = data.content
-          $('.mix_btn').css('display', 'none')
-          $('.upgrade_btn').css('left', '27%')
+          if (beginInceptionFn) {
+            beginInceptionFn()
+          } else {
+            $('.mix_btn').css('display', 'none')
+            $('.upgrade_btn').css('left', '27%')
 
-          targets.startBtn.css('display', 'none')
-          targets.upgradeBtn.css('display', 'none')
-          targets.readyBtn.css('display', 'none')
-          targets.openNowBtn.removeAttr('style')
-          targets.platformChest.css('filter', 'url("#grayscale")')
+            targets.startBtn.css('display', 'none')
+            targets.upgradeBtn.css('display', 'none')
+            targets.readyBtn.css('display', 'none')
+            targets.openNowBtn.removeAttr('style')
+            targets.platformChest.css('filter', 'url("#grayscale")')
+          }
 
           require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
             eventCountdown(seconds, chest, targets, eventChestReady)

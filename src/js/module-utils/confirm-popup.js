@@ -4,8 +4,8 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     background: 'rgba(73, 173, 177, 0.9)',
     width: '72%',
     buttonsStyling: false,
-    confirmButtonClass: 'btn_iknow confirm-message-box-btn-padding',
-    cancelButtonClass: 'btn_iknow confirm-message-box-btn-padding',
+    confirmButtonClass: 'btn_iknow confirm-message-box-btn',
+    cancelButtonClass: 'btn_iknow confirm-message-box-btn',
     allowOutsideClick: false,
     heightAuto: false,
     onBeforeOpen: () => {
@@ -33,7 +33,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
   } = {}) => {
     let dialogStyle = cloneCommonStyle(commonStyle)
     dialogStyle.title = ''
-    dialogStyle.html = content
+    dialogStyle.html = `${content}`
     dialogStyle.showCancelButton = isShowCancelButton
     dialogStyle.confirmButtonText = confirmBtnText
     dialogStyle.cancelButtonText = cancelBtnText

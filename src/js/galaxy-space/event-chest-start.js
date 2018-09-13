@@ -1,16 +1,16 @@
 define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChestInspection', 'eventAwardAreZero'], // eslint-disable-line
   ($, ajax, confirmPopup, eventChestStatusDo, w3, eventChestInspection, eventAwardAreZero) => {
-    return (chest, targets) => {
+    return (chest, targets = {}, beginInceptionFn) => {
       let content
       if (chest.level >= 2) {
         content = `
           <div class="start-confirm-grid-container">
-            <div class="content-block1">
-              <span>藥水準備啟動中...</span>
+            <div class="content-block1 confirm-popup-title-font">
+              <span>開始調配藥水</span>
             </div>
             <div class="content-block2">
-              <span>目前藥水等級為Lv${chest.level}，開啟這個藥水可能獲得</span>
-            </div>  
+              <span>目前藥水等級為 Lv${chest.level}，成功調配此魔法藥水可能獲得</span>
+            </div>
             <div class="img-block-left-btn">
               <img class="left-btn" src="https://d220xxmclrx033.cloudfront.net/event-space/img/previous.png">
             </div>
@@ -25,8 +25,8 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
       } else {
         content = `
           <div>
-            <h2 class="header-text">藥水準備啟動中...</h2>
-            <h3>你確定要啟動這個藥水嗎？</h3>
+            <h2 class="confirm-popup-title-font">藥水準備啟動中...</h2>
+            <p>你確定要啟動這個藥水嗎？</p>
           </div>
         `
       }
@@ -44,7 +44,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
                 return
               }
 
-              eventChestStatusDo.unLocking(chest, targets)
+              eventChestStatusDo.unLocking(chest, targets, beginInceptionFn)
             })
         },
 

@@ -7,9 +7,12 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     allowOutsideClick: false,
     heightAuto: false,
     buttonsStyling: false,
-    confirmButtonClass: 'btn_iknow tutorial-message-box-btn-padding',
+    confirmButtonClass: 'btn_iknow tutorial-message-box-btn',
     onBeforeOpen: () => {
       $('html').css({height: '100vh'})
+      $('.tutorial-message-box .swal2-header').remove()
+      $('.tutorial-message-box .swal2-content').addClass('col-9')
+      $('.tutorial-message-box .swal2-actions').addClass('col-3')
     }
   }
 
@@ -33,12 +36,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     promptStyle.title = ''
     promptStyle.html = `<p>${content}</p>`
     promptStyle.confirmButtonText = confirmBtnText
-    promptStyle.onOpen = () => {
-      $('.tutorial-message-box .swal2-header').remove()
-      $('.tutorial-message-box .swal2-content').addClass('col-9')
-      $('.tutorial-message-box .swal2-actions').addClass('col-3')
-      onOpenFn()
-    }
+    promptStyle.onOpen = onOpenFn
 
     if (timer > 0) {
       promptStyle.timer = timer

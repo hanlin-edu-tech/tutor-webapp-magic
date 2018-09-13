@@ -17,13 +17,11 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
               <span>Lv${chest.level} -> Lv${upLevel}</span>
             </div>
             <div class="content-block2">
-              <p>
                 你確定要花費 
                 <span class="highlight"> ${needCoins} 個 e 幣、 ${needGems} 個寶石</span>
                 升級至 Lv${upLevel} 藥水嗎？
-              <p/>
             </div>
-            <div class="content-block3">請注意： 高等的藥水有更好的寶藏等著你，但升級藥水有一定失敗的機率喔!</div>
+            <div class="content-block3">請注意：高等的藥水有更好的寶藏等著你，但升級藥水有一定失敗的機率喔！</div>
           </div>
         `
         confirmPopup.dialog(content,

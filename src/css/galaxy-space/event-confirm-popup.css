@@ -79,13 +79,6 @@
   max-height: 250px;
 }
 
-.header-text {
-  margin-bottom: 1px;
-  color: #217dbb;
-  font-size: 28px;
-  font-weight: bolder;
-}
-
 /* ============================> Grid ok layout <============================ */
 
 .confirm-grid-gif-container {
@@ -146,14 +139,14 @@
 /* ============================> Grid Dialog layout <============================ */
 
 .confirm-grid-upgrade-container {
-  height: 183px;
+  height: 198px;
   display: grid;
   display: -ms-grid;
   grid-template-columns: 5% 45% 45% 5%;
   -ms-grid-columns: 5% 45% 45% 5%;
   grid-template-rows: repeat(3, 1fr);
   -ms-grid-rows: 1fr 1fr 1fr;
-  font-size: 23px;
+  font-size: 21px;
 }
 
 .confirm-grid-upgrade-container .image-block1 {
@@ -178,6 +171,7 @@
   grid-row: 1;
   -ms-grid-row: 1;
   font-size: 28px;
+  line-height: 42px
 }
 
 .confirm-grid-upgrade-container .content-block2 {
@@ -194,7 +188,7 @@
   -ms-grid-column: 3;
   grid-row: 3;
   -ms-grid-row: 3;
-  font-size: 88%;
+  font-size: 18px;
 }
 
 /* ============================> Grid Dialog layout <============================ */
@@ -204,7 +198,7 @@
     -ms-grid-columns: 1% 39% 59% 1%;
     grid-template-rows: repeat(3, 1fr);
     -ms-grid-rows: 1fr 1fr 1fr;
-    font-size: 23px;
+    font-size: 20px;
   }
 }
 
