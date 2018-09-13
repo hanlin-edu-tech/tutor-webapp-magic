@@ -5,7 +5,11 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     background: 'rgba(73, 173, 177, 0.9)',
     width: '100%',
     buttonsStyling: false,
-    allowOutsideClick: false
+    allowOutsideClick: false,
+    heightAuto: false,
+    onBeforeOpen: () => {
+      $('html').css({height: '100vh'})
+    }
   }
 
   let cloneCommonStyle = function (commonStyle) {

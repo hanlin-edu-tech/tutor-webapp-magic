@@ -4,7 +4,11 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     width: '100%',
     customClass: 'confirm-popup-modal',
     buttonsStyling: false,
-    allowOutsideClick: false
+    allowOutsideClick: false,
+    heightAuto: false,
+    onBeforeOpen: () => {
+      $('html').css({height: '100vh'})
+    }
   }
 
   let cloneCommonStyle = function (commonStyle) {
