@@ -24,7 +24,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
 
   let confirmPopup = {}
   confirmPopup.dialog = (content, {
-    appendClass = '',
+    customClass = '',
     width = '',
     confirmFn = () => {},
     cancelFn = () => {},
@@ -34,8 +34,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     isShowCancelButton = true
   } = {}) => {
     let dialogStyle = cloneCommonStyle(commonStyle)
-    dialogStyle.customClass =
-      appendClass ? `${dialogStyle.customClass} ${appendClass}` : dialogStyle.customClass
+    dialogStyle.customClass = customClass ? customClass : dialogStyle.customClass
     dialogStyle.width = width ? width : dialogStyle.width
     dialogStyle.title = ''
     dialogStyle.html = `${content}`

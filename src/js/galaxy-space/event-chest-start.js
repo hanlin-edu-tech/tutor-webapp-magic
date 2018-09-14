@@ -1,6 +1,6 @@
 define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChestInspection', 'eventAwardAreZero'], // eslint-disable-line
   ($, ajax, confirmPopup, eventChestStatusDo, w3, eventChestInspection, eventAwardAreZero) => {
-    return (chest, targets = {}, beginInceptionFn) => {
+    return (chest, targets, beginInceptionFn) => {
       let content
       if (chest.level >= 2) {
         content = `
@@ -32,7 +32,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
       }
 
       let dialogAttr = {
-        appendClass: 'modal-popup-start',
+        customClass: 'confirm-message-box modal-popup-start',
         width: '85%',
         confirmFn: () => {
           let statusInfo = {
