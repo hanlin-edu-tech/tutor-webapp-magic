@@ -24,6 +24,8 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
 
   let confirmPopup = {}
   confirmPopup.dialog = (content, {
+    appendClass = '',
+    width = '',
     confirmFn = () => {},
     cancelFn = () => {},
     onOpenFn = () => {},
@@ -32,6 +34,9 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     isShowCancelButton = true
   } = {}) => {
     let dialogStyle = cloneCommonStyle(commonStyle)
+    dialogStyle.customClass =
+      appendClass ? `${dialogStyle.customClass} ${appendClass}` : dialogStyle.customClass
+    dialogStyle.width = width ? width : dialogStyle.width
     dialogStyle.title = ''
     dialogStyle.html = `${content}`
     dialogStyle.showCancelButton = isShowCancelButton
@@ -66,7 +71,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
   confirmPopup.luckyBagImage = (title, content, gifImageFn, buttonText) => {
     let gifStyle = confirmPopup.baseImage(buttonText)
     gifStyle.html = `
-      <div class="confirm-grid-gif-container lucky-bag-height">
+      <div class="confirm-grid-gif-img-container lucky-bag-height">
         <div class="header-block1">${title}</div>
         <div class="content-block1 ">${content}</div>
       </div> 
@@ -83,7 +88,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     gifStyle.customClass = 'level-up-modal'
     gifStyle.html =
       `
-        <div class="confirm-grid-gif-container level-up-height">
+        <div class="confirm-grid-gif-img-container level-up-height">
           <div class="header-block1">${title}</div>
           <div class="content-block1 ">${content}</div>
         </div> 
@@ -100,7 +105,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     gifStyle.customClass = 'confirm-message-box level-up-modal'
     gifStyle.html =
       `
-        <div class="confirm-grid-gif-container level-up-height">
+        <div class="confirm-grid-gif-img-container level-up-height">
           <div class="header-block1">${title}</div>
           <div class="content-block1 ">${content}</div>
         </div> 

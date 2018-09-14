@@ -1,4 +1,4 @@
-.confirm-popup-modal {
+.modal-confirm-popup {
   height: 390px;
 }
 
@@ -12,6 +12,7 @@
 
 .confirm-popup-title-font {
   color: white;
+  font-size: 28px;
   font-weight: 500;
   text-shadow: 0 1px 3px rgba(127, 57, 59, 0.8);
 }
@@ -79,149 +80,7 @@
   max-height: 250px;
 }
 
-/* ============================> Grid ok layout <============================ */
-
-.confirm-grid-gif-container {
-  display: grid;
-  display: -ms-grid;
-  grid-template-columns: 20% 60% 20%;
-  -ms-grid-columns: 20% 60% 20%;
-  font-size: 22px;
-  font-weight: normal;
-}
-
-.lucky-bag-height {
-  height: 235px;
-  grid-template-rows: 32px 200px;
-  -ms-grid-rows: 32px 200px;
-}
-
-.level-up-modal {
-  height: 440px;
-}
-
-.level-up-height {
-  height: 300px;
-  grid-template-rows: 95px 200px;
-  -ms-grid-rows: 95px 200px;
-}
-
-.confirm-grid-gif-container .header-block1 {
-  grid-column: 2;
-  -ms-grid-column: 2;
-  grid-row: 1;
-  -ms-grid-row: 1;
-  margin-bottom: 1px;
-  color: #217dbb;
-  font-size: 28px;
-  font-weight: bolder;
-}
-
-.confirm-grid-gif-container .content-block1 {
-  grid-column: 2;
-  -ms-grid-column: 2;
-  grid-row: 2;
-  -ms-grid-row: 2;
-}
-
-.confirm-popup-chest-img {
-  height: 200px;
-}
-
-.confirm-popup-chest-img {
-  height: 200px;
-}
-
-.confirm-popup-chest-level-up-failed {
-  height: 95px;
-}
-
-/* ============================> Grid Dialog layout <============================ */
-
-.confirm-grid-upgrade-container {
-  height: 198px;
-  display: grid;
-  display: -ms-grid;
-  grid-template-columns: 5% 45% 45% 5%;
-  -ms-grid-columns: 5% 45% 45% 5%;
-  grid-template-rows: repeat(3, 1fr);
-  -ms-grid-rows: 1fr 1fr 1fr;
-  font-size: 21px;
-}
-
-.confirm-grid-upgrade-container .image-block1 {
-  grid-column: 2;
-  -ms-grid-column: 2;
-  grid-row: 1 / span 3;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 3;
-}
-
-.confirm-grid-upgrade-container .image-block1-chest {
-  max-height: 100%;
-}
-
-.confirm-grid-upgrade-container .image-silhouette {
-  filter: url('#silhouette');
-}
-
-.confirm-grid-upgrade-container .content-block1 {
-  grid-column: 3;
-  -ms-grid-column: 3;
-  grid-row: 1;
-  -ms-grid-row: 1;
-  font-size: 28px;
-  line-height: 42px
-}
-
-.confirm-grid-upgrade-container .content-block2 {
-  text-align: left;
-  grid-column: 3;
-  -ms-grid-column: 3;
-  grid-row: 2;
-  -ms-grid-row: 2;
-}
-
-.confirm-grid-upgrade-container .content-block3 {
-  text-align: left;
-  grid-column: 3;
-  -ms-grid-column: 3;
-  grid-row: 3;
-  -ms-grid-row: 3;
-  font-size: 18px;
-}
-
-/* ============================> Grid Dialog layout <============================ */
-@media screen and (max-width: 980px) {
-  .confirm-grid-upgrade-container {
-    grid-template-columns: 1% 39% 59% 1%;
-    -ms-grid-columns: 1% 39% 59% 1%;
-    grid-template-rows: repeat(3, 1fr);
-    -ms-grid-rows: 1fr 1fr 1fr;
-    font-size: 20px;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .confirm-grid-upgrade-container {
-    font-size: 20px;
-  }
-
-  .confirm-grid-upgrade-container .image-block1-chest {
-    max-height: 78%;
-  }
-}
-
 @media screen and (max-width: 550px) {
-  .confirm-grid-upgrade-container {
-    grid-template-columns: 1% 1% 97% 1%;
-    -ms-grid-columns: 1% 1% 97% 1%;
-  }
-
-  .confirm-grid-upgrade-container .image-block1-chest {
-    max-height: 0;
-  }
-
   .confirm-popup-btn {
     border-radius: 5px;
     margin-top: 0;
@@ -230,9 +89,5 @@
     font-size: 19px;
     font-weight: bolder;
     padding: 5px 25px;
-  }
-
-  .confirm-grid-gif-container .header-block1 {
-    font-size: 20px;
   }
 }

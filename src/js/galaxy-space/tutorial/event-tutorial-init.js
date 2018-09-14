@@ -18,7 +18,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmP
     })
 
     confirmTutorial.prompt(content, {
-      timer: 2000
+      timer: 2500
     })
   }
 
@@ -35,7 +35,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmP
   let step3_4 = () => {
     upgradeBtn.css({display: 'none'})
     let content = `恭喜你升級成功了！想獲得越好的寶藏，就要越努力的升級魔法藥水哦！
-      當然，<span class="highlight">每次升級魔法藥水都需要一定數量的資源 (e幣、寶石)。</span>`
+      當然，<span class="highlight">每次升級魔法藥水都需要一定數量的資源 (e幣、寶石)</span>。`
 
     confirmTutorial.prompt(content, {
       confirmFn: step4_1,
@@ -106,10 +106,10 @@ define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmP
         })
     })
 
-    let content = '現在，點選<span class="highlight">「升級」</span>按鈕進行升級'
+    let content = '現在，點選<span class="highlight">「升級」</span>按鈕進行升級。'
 
     confirmTutorial.prompt(content, {
-      timer: 2000
+      timer: 2500
     })
   }
 
@@ -129,7 +129,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmP
   let step2_3 = () => {
     let content = `當然是真的！ 大部分的藥水你都可以透過
         <span class="highlight">練習名師派卷、自我評量獲得</span>，
-        練習得越多，就有機會取得更高級的藥水，調配出更好的寶藏!`
+        練習得越多，就有機會取得更高級的藥水，調配出更好的寶藏！`
 
     confirmTutorial.prompt(content, {
       confirmFn: step3_1

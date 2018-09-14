@@ -17,11 +17,13 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
               <span>Lv${chest.level} -> Lv${upLevel}</span>
             </div>
             <div class="content-block2">
+              <p>  
                 你確定要花費 
                 <span class="highlight"> ${needCoins} 個 e 幣、 ${needGems} 個寶石</span>
                 升級至 Lv${upLevel} 藥水嗎？
+              </p>
             </div>
-            <div class="content-block3">請注意：高等的藥水有更好的寶藏等著你，但升級藥水有一定失敗的機率喔！</div>
+            <div class="content-block3"><p>請注意：高等的藥水有更好的寶藏等著你，但升級藥水有一定失敗的機率喔！</p></div>
           </div>
         `
         confirmPopup.dialog(content,
@@ -84,7 +86,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
     let upLevel = parseInt(result.memo.upLevel)
     if (result && result.memo.levelUpSuccess === 'true') {
       result.text = '升級成功'
-      result.gif = `<img class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
+      result.gif = `<img class="grid-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/upgradeStatus/upgradeSuccess${upLevel}.gif">`
     } else {
       if (window.matchMedia('(max-width: 550px)').matches) {
         result.text = '升級失敗'
@@ -92,7 +94,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
         result.text = `<img class="confirm-popup-chest-level-up-failed" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/level-up-failed.gif">`
       }
 
-      result.gif = `<img class="confirm-popup-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/upgradeStatus/upgradeFail${upLevel - 1}.gif">`
+      result.gif = `<img class="grid-chest-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/upgradeStatus/upgradeFail${upLevel - 1}.gif">`
     }
     return result
   }

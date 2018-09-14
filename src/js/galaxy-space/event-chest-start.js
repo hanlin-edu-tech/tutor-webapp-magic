@@ -4,12 +4,12 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
       let content
       if (chest.level >= 2) {
         content = `
-          <div class="start-confirm-grid-container">
+          <div class="confirm-grid-start-container">
             <div class="content-block1 confirm-popup-title-font">
               <span>開始調配藥水</span>
             </div>
             <div class="content-block2">
-              <span>目前藥水等級為 Lv${chest.level}，成功調配此魔法藥水可能獲得</span>
+              <p>目前藥水等級為 <span class="highlight">Lv${chest.level}</span>，成功調配此魔法藥水可能獲得</p>
             </div>
             <div class="img-block-left-btn">
               <img class="left-btn" src="https://d220xxmclrx033.cloudfront.net/event-space/img/previous.png">
@@ -18,7 +18,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
               <img class="right-btn" src="https://d220xxmclrx033.cloudfront.net/event-space/img/next.png">
             </div>
             <div class="content-block4">
-              <span>你確定要啟動這個藥水嗎？</span>
+              <p>你確定要啟動這個藥水嗎？</p>
             </div>
           </div>
         `
@@ -32,6 +32,8 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
       }
 
       let dialogAttr = {
+        appendClass: 'modal-popup-start',
+        width: '85%',
         confirmFn: () => {
           let statusInfo = {
             status: 'UNLOCKING'
@@ -120,11 +122,11 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
 
               let slide = w3.slideshow('.img-block-award', 0)
 
-              $('.start-confirm-grid-container .right-btn').on('click', () => {
+              $('.confirm-grid-start-container .right-btn').on('click', () => {
                 slide.next()
               })
 
-              $('.start-confirm-grid-container .left-btn').on('click', () => {
+              $('.confirm-grid-start-container .left-btn').on('click', () => {
                 slide.previous()
               })
             })

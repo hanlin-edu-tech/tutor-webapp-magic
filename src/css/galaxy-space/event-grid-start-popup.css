@@ -1,0 +1,112 @@
+.modal-popup-start {
+  height: 380px;
+}
+
+.confirm-grid-start-container {
+  height: 300px;
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 2% 8% 80% 8% 2%;
+  -ms-grid-columns: 2% 8% 80% 8% 2%;
+  grid-template-rows: 15% 10% 60% 15%;
+  -ms-grid-rows: 15% 10% 60% 15%;
+  font-size: 21px;
+  grid-gap: 2px;
+}
+
+.confirm-grid-start-container .content-block1 {
+  grid-column: 1 / span 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-row: 1;
+  -ms-grid-row: 1;
+}
+
+.confirm-grid-start-container .content-block2 {
+  grid-column: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-row: 2;
+  -ms-grid-row: 2;
+}
+
+.confirm-grid-start-container .img-block-award {
+  grid-column: 1 / span 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-row: 3;
+  -ms-grid-row: 3;
+}
+
+.confirm-grid-start-container .content-block4 {
+  grid-column: 1 / span 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-row: 4;
+  -ms-grid-row: 4;
+  text-align: center;
+}
+
+.confirm-grid-start-container img[class^="img-award"] {
+  margin-top: 3px;
+  width: 140px;
+}
+
+.confirm-grid-start-container .img-block-left-btn {
+  grid-column: 2;
+  -ms-grid-column: 2;
+  grid-row: 3;
+  -ms-grid-row: 3;
+  margin-top: 50%;
+}
+
+.confirm-grid-start-container .img-block-right-btn {
+  grid-column: 4;
+  -ms-grid-column: 4;
+  grid-row: 3;
+  -ms-grid-row: 3;
+  margin-top: 50%;
+}
+
+.confirm-grid-start-container .img-block-left-btn .left-btn,
+.confirm-grid-start-container .img-block-right-btn .right-btn {
+  width: 60px;
+}
+
+.confirm-grid-start-container img[class^=img-award].zero-quantity {
+  filter: url(#grayscale);
+}
+
+.confirm-grid-start-container .start-show-award {
+  position: relative;
+  display: inline-block;
+  width: 140px;
+  height: 140px;
+}
+
+.confirm-grid-start-container .award-zero {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .confirm-grid-start-container {
+    grid-template-columns: 1px 50px 70% 50px 1px;
+    -ms-grid-columns: 1px 50px 70% 50px 1px;
+    font-size: 21px;
+  }
+
+  .confirm-grid-start-container .content-block1 {
+    font-size: 19px;
+  }
+
+  .confirm-grid-start-container .content-block2 {
+    font-size: 16px;
+  }
+
+  .confirm-grid-start-container .img-block-left-btn .left-btn,
+  .confirm-grid-start-container .img-block-right-btn .right-btn {
+    width: 40px;
+  }
+}
