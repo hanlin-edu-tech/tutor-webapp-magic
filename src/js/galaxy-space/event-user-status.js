@@ -37,6 +37,14 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => { // eslin
   }
   // confirmPopup.dialog(content, dialog)
 
+  $('.col-12.col-name .user_name').append('suck my dick')
+
+  // 未登入時  需要隱藏的項目
+  // $('#section_titlelist .col-4 img').css('display', 'none')
+  // $('#section_titlelist .col-12.col-name').css('display', 'none')
+  // $('#section_titlelist .col-12.col-coins').css('display', 'none')
+  // $('#section_titlelist .col-4').css('display', 'none')
+
   ajax('GET', `/ms-user-status/userStatus`)
     .then((data) => {
       let name = data.name
@@ -44,27 +52,27 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => { // eslin
 
       console.log('--------- ' + data.id + ' ----------')
       $('.user-status .login').remove()
-      $('.user-status .name').append(`${name}&nbsp;&nbsp;<span class="logout">登出</span>`)
+      // $('.col-12.col-name .user_name').append('suck my dick')
       $('.user-status .student-card').append(`${studentCard}`)
     })
 
-  $('.user-status .logout').on('click', () => {
+  $('.col-12.col-logout .logout').on('click', () => {
     ajax('PUT', `/Users/521d946be4b0d765448570bd/!logout`)
       .then(() => {
         window.location = 'https://' + window.location.hostname
       })
   })
 
-  $('.user-status .name').on('click', () => {
-    ajax('PUT', `/Users/521d946be4b0d765448570bd/!logout`)
-      .then(() => {
-        window.location = 'https://' + window.location.hostname
-      })
-  })
-  $('.user-status .student-card').on('click', () => {
-    window.location.href = '/my/owned/Courses.html'
-  })
-  $('.user-status .login').on('click', () => {
+  // $('.user-status .name').on('click', () => {
+  //   ajax('PUT', `/Users/521d946be4b0d765448570bd/!logout`)
+  //     .then(() => {
+  //       window.location = 'https://' + window.location.hostname
+  //     })
+  // })
+  // $('.user-status .student-card').on('click', () => {
+  //   window.location.href = '/my/owned/Courses.html'
+  // })
+  $('.col-12.col-login .login').on('click', () => {
     window.location.href = '/Users/login.html'
   })
 })
