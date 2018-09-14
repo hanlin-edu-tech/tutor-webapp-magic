@@ -40,7 +40,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], // eslint-dis
             confirmPopup.ok(title, insufficientMessage)
             return $.Deferred().reject().promise()
           } else {
-            return ajax('PUT', `/chest/open/immediately/${chest.id}`, {
+            return ajax('PATCH', `/chest/open/immediately/${chest.id}`, {
               spendGems: spendGems
             })
           }

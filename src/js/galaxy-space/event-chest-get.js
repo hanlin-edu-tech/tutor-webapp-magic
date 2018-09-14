@@ -1,10 +1,9 @@
 define(['jquery', 'ajax', 'eventChestBtnOn'], ($, ajax, eventChestBtnOn) => {// eslint-disable-line
   return () => ajax('GET', `/chest/`)
     .then((jsonData) => {
-      let chests
+      let chests = jsonData.content
       let isUnlockingChestExisted = false
 
-      chests = jsonData.content
       $(`#section_middle_part .potion img`).remove()
 
       for (let index in chests) {
@@ -20,8 +19,8 @@ define(['jquery', 'ajax', 'eventChestBtnOn'], ($, ajax, eventChestBtnOn) => {// 
         targets.countdown = currentChest.find('.count_time')
         targets.startBtn = currentChest.find('.mix_btn')
         targets.upgradeBtn = currentChest.find('.upgrade_btn')
-        targets.readyBtn = currentChest.find('.mix_finish')
-        targets.openNowBtn = currentChest.find('.now_finish')
+        targets.openBtn = currentChest.find('.mix_finish')
+        targets.readyNowBtn = currentChest.find('.now_finish')
         targets.platformChest = currentChest.find(`.potion.platform-${chest.colorPlatform} .LV${chest.level}`)
 
         if (chest.status === 'UNLOCKING') {

@@ -27,8 +27,8 @@ define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
 
             targets.startBtn.css('display', 'none')
             targets.upgradeBtn.css('display', 'none')
-            targets.readyBtn.css('display', 'none')
-            targets.openNowBtn.removeAttr('style')
+            targets.openBtn.css('display', 'none')
+            targets.readyNowBtn.removeAttr('style')
             targets.platformChest.css('filter', 'url("#grayscale")')
           }
 
@@ -39,11 +39,12 @@ define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
     },
 
     ready: (chest, targets) => {
+      console.log(targets)
       targets.countdown.css('display', 'none')
       targets.startBtn.css('display', 'none')
       targets.upgradeBtn.css('display', 'none')
-      targets.openNowBtn.css('display', 'none')
-      targets.readyBtn.removeAttr('style')
+      targets.readyNowBtn.css('display', 'none')
+      targets.openBtn.removeAttr('style')
       targets.platformChest.removeAttr('style')
       targets.platformChest.attr('data-status', 'READY')
       // targets.platformChest.attr('src', `https://d220xxmclrx033.cloudfront.net/event-space/img/chest/readyChest${chest.level}.png`)

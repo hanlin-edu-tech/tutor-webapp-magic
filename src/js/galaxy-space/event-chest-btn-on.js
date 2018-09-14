@@ -11,8 +11,8 @@ define(['jquery'], $ => {// eslint-disable-line
 
     /* 立即開啟按鈕 */
     require(['eventChestOpenImmediately'], eventChestOpenImmediately => {
-      targets.openNowBtn.off('click')
-      targets.openNowBtn.on('click', eventChestOpenImmediately.ask.bind(eventChestOpenImmediately.ask, chest, targets))
+      targets.readyNowBtn.off('click')
+      targets.readyNowBtn.on('click', eventChestOpenImmediately.ask.bind(eventChestOpenImmediately.ask, chest, targets))
     })
 
     /* 升級按鈕 */
@@ -23,8 +23,8 @@ define(['jquery'], $ => {// eslint-disable-line
 
     /* 開啟藥水 */
     require(['eventChestOpen'], eventChestOpen => {
-      targets.readyBtn.off('click')
-      targets.readyBtn.on('click', (event) => {
+      targets.openBtn.off('click')
+      targets.openBtn.on('click', (event) => {
         let currentTarget = event.currentTarget
         event.preventDefault()
         if (!$(currentTarget).attr('data-lockedAt') ||

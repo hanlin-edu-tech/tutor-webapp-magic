@@ -63,7 +63,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
 
           let afterOpen = (finalCoins, finalGems) => {
             require(['eventCountUp'], eventCountUp => {
-              targets.readyBtn.css('display', 'none')
+              targets.openBtn.css('display', 'none')
               targets.platformChest.remove()
               eventCountUp('coins', parseInt($('#coins').text()), finalCoins)
               eventCountUp('gems', parseInt($('#gems').text()), finalGems)

@@ -1,14 +1,15 @@
 define(['jquery', 'ajax', 'eventChestGet', 'eventChestInspection'], ($, ajax, eventChestGet, eventChestInspection) => { // eslint-disable-line
-  return (chest) => {
+  return chest => {
     let statusInfo = {
       status: 'READY'
     }
     ajax('POST', `/chest/ready/${chest.id}`, statusInfo)
-      .then((jsonData) => {
+      .then(jsonData => {
+        console.log(jsonData)
         if (eventChestInspection(jsonData.message, jsonData.content)) {
           return
         }
-        eventChestGet()
+        //eventChestGet()
       })
   }
 })
