@@ -39,7 +39,6 @@ define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
     },
 
     ready: (chest, targets) => {
-      console.log(targets)
       targets.countdown.css('display', 'none')
       targets.startBtn.css('display', 'none')
       targets.upgradeBtn.css('display', 'none')

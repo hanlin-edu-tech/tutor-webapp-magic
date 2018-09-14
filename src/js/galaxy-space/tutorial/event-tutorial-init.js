@@ -3,7 +3,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmP
   let targets = {}
   let platformTarget = $('#section_novice .potion.platform-GREEN')
   let greenTarget = $('#section_novice .col-3.GREEN')
-
+  targets.platform = platformTarget
   targets.countdown = greenTarget.find('.count_time')
   targets.startBtn = greenTarget.find('.mix_btn')
   targets.upgradeBtn = greenTarget.find('.upgrade_btn')
