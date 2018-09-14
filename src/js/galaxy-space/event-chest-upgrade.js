@@ -23,7 +23,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
                 升級至 Lv${upLevel} 藥水嗎？
               </p>
             </div>
-            <div class="content-block3"><p>請注意：高等的藥水有更好的寶藏等著你，但升級藥水有一定失敗的機率喔！</p></div>
+      
           </div>
         `
         confirmPopup.dialog(content,

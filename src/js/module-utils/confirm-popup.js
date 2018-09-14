@@ -2,7 +2,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
   let commonStyle = {
     customClass: 'confirm-message-box',
     background: 'rgba(73, 173, 177, 0.9)',
-    width: '72%',
+    width: '55%',
     buttonsStyling: false,
     confirmButtonClass: 'btn_iknow confirm-message-box-btn',
     cancelButtonClass: 'btn_iknow confirm-message-box-btn',

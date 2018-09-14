@@ -1,17 +1,17 @@
 .modal-popup-start {
-  height: 380px;
+  height: 350px;
 }
 
 .confirm-grid-start-container {
-  height: 300px;
+  height: 260px;
   display: grid;
   display: -ms-grid;
   grid-template-columns: 2% 8% 80% 8% 2%;
   -ms-grid-columns: 2% 8% 80% 8% 2%;
-  grid-template-rows: 15% 10% 60% 15%;
-  -ms-grid-rows: 15% 10% 60% 15%;
+  grid-template-rows: 16% 11% 55% 18%;
+  -ms-grid-rows: 16% 11% 55% 18%;
   font-size: 21px;
-  grid-gap: 2px;
+  grid-gap: 3px;
 }
 
 .confirm-grid-start-container .content-block1 {
@@ -48,8 +48,8 @@
 }
 
 .confirm-grid-start-container img[class^="img-award"] {
-  margin-top: 3px;
-  width: 140px;
+  margin-top: 5px;
+  height: 130px;
 }
 
 .confirm-grid-start-container .img-block-left-btn {
@@ -88,6 +88,23 @@
   position: absolute;
   left: 20px;
   top: 20px;
+}
+
+@media screen and (max-width: 900px) {
+  .confirm-grid-start-container {
+    grid-template-columns: 1px 50px 82% 50px 1px;
+    -ms-grid-columns: 1px 50px 82% 50px 1px;
+    font-size: 20px;
+  }
+
+  .confirm-grid-start-container .content-block2 {
+    font-size: 19px;
+  }
+
+  .confirm-grid-start-container .img-block-left-btn .left-btn,
+  .confirm-grid-start-container .img-block-right-btn .right-btn {
+    width: 35px;
+  }
 }
 
 @media screen and (max-width: 500px) {
