@@ -15,8 +15,10 @@
         <link href="./css/galaxy-space/event-chest.css" rel="stylesheet">
         <link href="./css/galaxy-space/event-award.css" rel="stylesheet">
         <link href="./css/galaxy-space/event-confirm-popup.css" rel="stylesheet">
-        <link href="./css/galaxy-space/event-start-award-popup.css" rel="stylesheet">
-        <link href="./css/galaxy-space/event-open-award-popup.css" rel="stylesheet">
+        <link href="./css/galaxy-space/event-grid-gif-img-popup.css" rel="stylesheet">
+        <link href="./css/galaxy-space/event-grid-upgrade-popup.css" rel="stylesheet">
+        <link href="./css/galaxy-space/event-grid-start-popup.css" rel="stylesheet">
+        <link href="./css/galaxy-space/event-grid-open-popup.css" rel="stylesheet">
         <link href="./css/galaxy-space/event-loading.css" rel="stylesheet">
         <link href="./css/galaxy-space/event-bonus-popup.css" rel="stylesheet">
         <link href="./css/galaxy-space/event-drop-down.css" rel="stylesheet">
@@ -27,8 +29,7 @@
     <body>
         <div id="section_titlelist">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-3 elogo"><img src=""></div>
+                <div class="row"><a class="col-3 elogo" href="https://www.ehanlin.com.tw/index.html"><img src="./img/magicImg/elogo.png"></a>
                     <div class="col-6 title"><img src="./img/magicImg/title.png"></div>
                     <div class="col-3 person_info">
                         <div class="row person_bg">
@@ -63,9 +64,10 @@
                                                 <div class="bank"></div>
                                             </div>
                                             <div class="col-12 col-logout">
-                                                <div class="logout">
-                                                    <h3>登出</h3>
-                                                </div>
+                                                <div class="logout"></div>
+                                            </div>
+                                            <div class="col-12 col-login" style="display:none">
+                                                <div class="login"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +78,7 @@
                 </div>
             </div>
         </div>
-        <div id="section_middle_part" style="display:none">
+        <div id="section_middle_part">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-3"></div>
@@ -146,7 +148,7 @@
                 </div>
             </div>
         </div>
-        <div id="section_novice">
+        <div id="section_novice" style="display:none">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-3"></div>
