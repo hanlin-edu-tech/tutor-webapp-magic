@@ -27,7 +27,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => { // eslin
   let dialog = {
     confirmBtnText: '馬上登入',
     cancelBtnText: '前往註冊',
-    isShowCancelButton: true,
+    showCancelButton: true,
     confirmFn () {
       // window.location = '/Users/login.html'
     },

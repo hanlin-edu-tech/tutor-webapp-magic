@@ -130,7 +130,6 @@ button, a
                                             &:hover
                                                 -webkit-filter: saturate(1.6)
                                                 cursor: pointer
-                                        
 
 //寶箱清單,藥水欄,選單
 #section_middle_part, #section_novice
@@ -212,16 +211,16 @@ button, a
                         width: 40%
                         height: auto
 
-    .col.mix_upgrade, .col.now_finish .col.mix_finish img
+    .col.mix_upgrade, .col.now_finish, .col.mix_finish img
         cursor: pointer
 
-.confirm-message-box
+.confirm_message_box
     border-top: solid 3px white
     border-bottom: solid 3px white
     height: 270px
 
 //教學訊息視窗
-.tutorial-message-box.row
+.tutorial_message_box.row
     border-top: solid 3px white
     height: 200px
 
@@ -237,13 +236,23 @@ button, a
     .col-9
         margin-bottom: 20px
 
-.confirm-message-box, .tutorial-message-box
+@mixin message_content
     p
         margin: 0
         color: white
         letter-spacing: 2px
         line-height: 34px
         text-shadow: 0 0 4px rgba(255, 255, 255, 0.5)
+
+@mixin message_btn_profile
+    .message_box_btn_profile
+        font-size: 20px
+        margin-right: 5px
+        padding: 0 27px
+
+.confirm_message_box, .tutorial_message_box
+    @include message_content
+    @include message_btn_profile
 
     .btn_iknow
         cursor: pointer
@@ -261,14 +270,26 @@ button, a
             text-decoration: none
             color: #f9e5ac
 
-    .confirm-message-box-btn
-        font-size: 20px
-        margin-right: 5px
-        padding: 0 27px
-
-    .tutorial-message-box-btn
+    .tutorial_message_box-btn
         padding: 10px 20px
         margin-bottom: 20px
+
+//近期活動&我的寶藏 視窗
+.my_treasure_content
+    border: 5px solid #887868
+
+    @include message_content
+    @include message_btn_profile
+
+    //內文
+    .text_color
+        color: #452E0A
+
+    //按鈕
+    .btn
+        color: white
+        background-color: #6E5537
+        border: 3px solid #4A382A
 
 //近期活動(貓)
 #near_activity
@@ -321,23 +342,6 @@ button, a
             &:hover
                 cursor: pointer
                 color: #efffd6
-
-//近期活動&我的寶藏 視窗
-
-.my-treasure-content
-    background-color: #a6937c
-    border: 5px solid #887868
-    color: white
-
-    //內文
-    .text_color
-        color: #452E0A
-
-    //按鈕
-    .btn
-        color: white
-        background-color: #6E5537
-        border: 3px solid #4A382A
 
 @media screen and (max-width: 1200px)
     #my_treasure

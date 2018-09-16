@@ -23,7 +23,7 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {// eslint-disable-line
     $('.return-btn').on('click', () => {
       confirmPopup.dialog('<h1>回填時間已結束！</h1>',
         {
-          isShowCancelButton: false
+          showCancelButton: false
         })
 
       //window.open('/Events/winner_info.html?id=space', 'returnAward')

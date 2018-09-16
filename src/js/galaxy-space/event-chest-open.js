@@ -1,6 +1,16 @@
 define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAreZero'], // eslint-disable-line
   ($, ajax, confirmPopup, eventChestInspection, eventAwardAreZero) => {
-    return (chest, targets) => {
+    return (chest, targets, afterOpen) => {
+
+      afterOpen = !afterOpen ? (finalCoins, finalGems) => {
+        require(['eventCountUp'], eventCountUp => {
+          targets.openBtn.css('display', 'none')
+          targets.platformChest.remove()
+          eventCountUp('coins', parseInt($('#coins').text()), finalCoins)
+          eventCountUp('gems', parseInt($('#gems').text()), finalGems)
+        })
+      } : afterOpen
+
       ajax('POST', `/chest/open/${chest.id}`)
         .then((jsonData) => {
           let jsonContent = jsonData.content
@@ -13,8 +23,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
           let gainAward = jsonContent.gainAward
           let luckyBag = jsonContent.luckyBag
           let awardImg = '', // eslint-disable-line
-            awardTitle = '',
-            openLuckyBagBtn = ''
+            awardTitle = ''
           let content, openTextBlock3 = '', // eslint-disable-line
             openTextBlock4 = ''
 
@@ -25,50 +34,41 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
           }
 
           if (gainAwardId) {
-            awardTitle = `<span class="gif-title">${gainAward}</span>`
+            awardTitle = gainAward
             awardImg = `<img class="your-award-gif" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${gainAwardId}.png">`
             openTextBlock3 = `
-            <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
-            <span>${gainCoins}</span>
-            <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
-            <span>${gainGems}</span>
-          `
+              <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
+              <span>${gainCoins}</span>
+              <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
+              <span>${gainGems}</span>
+            `
             openTextBlock4 = awardImg
           } else {
             openTextBlock4 = `
-            <img class="coins-img-lg" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
-            <span class="coins-lg">${gainCoins}</span>
-            <br/>
-            <img class="gems-img-lg" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
-            <span class="gems-lg">${gainGems}</span>
-          `
+              <img class="coins-img-lg" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
+              <span class="coins-lg">${gainCoins}</span>
+              <br/>
+              <img class="gems-img-lg" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
+              <span class="gems-lg">${gainGems}</span>
+            `
           }
 
           content = `
-          <div class="open-confirm-grid-container">
-            <div class="open-text-block1">
-              <img class="open-gif-chest" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/open/openChest${chest.level}.gif">
+            <div class="open-confirm-grid-container">
+              <div class="open-text-block1">
+                <img class="open-gif-chest" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/open/openChest${chest.level}.gif">
+              </div>
+              <div class="open-text-block2 confirm-popup-title-font gif-title">恭喜你獲得了
+                ${awardTitle}
+              </div>
+              <div class="open-text-block3">
+                <p>${openTextBlock3}</p>
+              </div>
+              <div class="open-text-block4">
+                <p>${openTextBlock4}</p>
+              </div>
             </div>
-            <div class="open-text-block2">恭喜你獲得了
-              <span class="gif-title">${awardTitle}</span>
-            </div>
-            <div class="open-text-block3">
-              ${openTextBlock3}
-            </div>
-            <div class="open-text-block4">
-              ${openTextBlock4}
-            </div>
-          </div>
-        `
-
-          let afterOpen = (finalCoins, finalGems) => {
-            require(['eventCountUp'], eventCountUp => {
-              targets.openBtn.css('display', 'none')
-              targets.platformChest.remove()
-              eventCountUp('coins', parseInt($('#coins').text()), finalCoins)
-              eventCountUp('gems', parseInt($('#gems').text()), finalGems)
-            })
-          }
+          `
 
           if (gainAwardId && luckyBag === false) {
             let dialogAttr = {
@@ -80,18 +80,13 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
 
               cancelFn: afterOpen.bind(afterOpen, finalCoins, finalGems),
               confirmBtnText: '回填領獎',
-              cancelBtnText: '我瞭解了'
+              cancelBtnText: '太好了'
             }
 
             confirmPopup.dialog(content, dialogAttr)
-          } else {
-            if (luckyBag === true) {
-              openLuckyBagBtn = '打開福袋'
-            }
-
-            confirmPopup.ok('', content, () => {
-              /* 福袋內容 */
-              if (luckyBag === true) {
+          } else if (luckyBag === true) {
+            confirmPopup.dialog(content, {
+              confirmFn: () => {
                 ajax('POST', `/chest/award/luckyBag/${chest.id}`,
                   {
                     awardId: gainAwardId,
@@ -123,10 +118,15 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
 
                     confirmPopup.luckyBagImage(title, bagImage, afterOpen.bind(afterOpen, finalCoins, finalGems))
                   })
-              } else {
-                afterOpen(finalCoins, finalGems)
-              }
-            }, openLuckyBagBtn)
+              },
+              confirmBtnText: '打開福袋'
+            })
+          } else {
+            confirmPopup.dialog(content, {
+              confirmFn: afterOpen.bind(afterOpen, finalCoins, finalGems),
+              confirmBtnText: '太好了',
+              showCancelButton: false
+            })
           }
         })
     }

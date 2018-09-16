@@ -1,19 +1,15 @@
 define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
-  let commonStyle = {
-    customClass: 'confirm-message-box',
-    background: 'rgba(73, 173, 177, 0.9)',
-    width: '55%',
+  let constantStyle = {
     buttonsStyling: false,
-    confirmButtonClass: 'btn_iknow confirm-message-box-btn',
-    cancelButtonClass: 'btn_iknow confirm-message-box-btn',
     allowOutsideClick: false,
     heightAuto: false,
+    reverseButtons: true,
     onBeforeOpen: () => {
       $('html').css({height: '100vh'})
     }
   }
 
-  let cloneCommonStyle = function (commonStyle) {
+  let cloneConstantStyle = function (commonStyle) {
     let newStyle = {}
     let attr
     for (attr in commonStyle) {
@@ -24,24 +20,30 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
 
   let confirmPopup = {}
   confirmPopup.dialog = (content, {
-    customClass = '',
-    width = '',
+    width = '55%',
+    customClass = 'confirm_message_box',
+    background = 'rgba(73, 173, 177, 0.9)',
+    title = '',
     confirmFn = () => {},
     cancelFn = () => {},
     onOpenFn = () => {},
     confirmBtnText = '確定',
     cancelBtnText = '我再想想',
-    isShowCancelButton = true
+    showCancelButton = true,
+    confirmButtonClass = 'btn_iknow message_box_btn_profile',
+    cancelButtonClass = 'btn_iknow message_box_btn_profile'
   } = {}) => {
-    let dialogStyle = cloneCommonStyle(commonStyle)
-    dialogStyle.customClass = customClass ? customClass : dialogStyle.customClass
-    dialogStyle.width = width ? width : dialogStyle.width
-    dialogStyle.title = ''
-    dialogStyle.html = `${content}`
-    dialogStyle.showCancelButton = isShowCancelButton
+    let dialogStyle = cloneConstantStyle(constantStyle)
+    dialogStyle.width = width
+    dialogStyle.customClass = customClass
+    dialogStyle.background = background
+    dialogStyle.title = title
+    dialogStyle.html = content
+    dialogStyle.showCancelButton = showCancelButton
     dialogStyle.confirmButtonText = confirmBtnText
     dialogStyle.cancelButtonText = cancelBtnText
-    dialogStyle.reverseButtons = true
+    dialogStyle.confirmButtonClass = confirmButtonClass
+    dialogStyle.cancelButtonClass = cancelButtonClass
     dialogStyle.onOpen = () => {
       $('.swal2-header').remove()
       onOpenFn()
@@ -58,7 +60,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
   }
 
   confirmPopup.baseImage = buttonText => {
-    let gifStyle = cloneCommonStyle(commonStyle)
+    let gifStyle = cloneConstantStyle(constantStyle)
     gifStyle.title = ''
     gifStyle.confirmButtonText = buttonText || '我瞭解了'
     gifStyle.onOpen = () => {
@@ -101,7 +103,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
 
   confirmPopup.generalImage = (title, content, gifImageFn, buttonText) => {
     let gifStyle = confirmPopup.baseImage(buttonText)
-    gifStyle.customClass = 'confirm-message-box level-up-modal'
+    gifStyle.customClass = 'confirm_message_box level-up-modal'
     gifStyle.html =
       `
         <div class="confirm-grid-gif-img-container level-up-height">
@@ -117,7 +119,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
   }
 
   confirmPopup.ok = (title, content, okFn, buttonText) => {
-    let okStyle = cloneCommonStyle(commonStyle)
+    let okStyle = cloneConstantStyle(constantStyle)
     okStyle.title = `<span style="color: #217dbb;">${title}</span>`
     okStyle.html = `<div style="font-weight: bolder">${content}</div>`
     okStyle.confirmButtonText = buttonText || '我瞭解了'
@@ -130,7 +132,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
   }
 
   confirmPopup.awardIsZeroDialog = (title, content, awardIsZeroFun, buttonText) => {
-    let awardIsZeroDialogStyle = cloneCommonStyle(commonStyle)
+    let awardIsZeroDialogStyle = cloneConstantStyle(constantStyle)
     awardIsZeroDialogStyle.customClass = 'awards-are-zero-confirm-popup-modal'
     awardIsZeroDialogStyle.title = `<span class="awards-are-zero-title">${title}</span>`
     awardIsZeroDialogStyle.html = `<div style="font-weight: bolder">${content}</div>`

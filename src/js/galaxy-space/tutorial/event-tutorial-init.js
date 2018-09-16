@@ -12,8 +12,64 @@ define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmP
 
   /********************* 新手村 *********************/
   /***** step 4 調配藥水完成 *****/
-  /* 4-4 成功調配藥水*/
+  /* 新手教學獎勵：縮短前 10 瓶藥水調配時間 */
+  let step4_5_1 = () => {
+    let content = `別急別急，我還要送你一份大禮物！劈劈啪滋酷酷唷~ 為了讓魔法學員們更快學會魔藥學，
+    <span class="highlight">我將你們前 10 瓶藥水的調配時間大大的縮短了唷~完成新手教學之後趕快前往「我的課程」練題拿寶箱吧！</span>
+    成為魔法師的第一步驟就是拜師學藝，前往下一步，選擇你想選擇的學院吧!`
+
+    confirmPopup.dialog(content,
+      {
+        confirmFn: step4_3,
+        cancelBtnText: '下一步',
+        showCancelButton: false
+      })
+  }
+
+  /* 了解調配藥水所需時間 */
+  let step4_5 = () => {
+    let content = `嘿嘿，別睡著了！新手教學即將完成囉～
+    你已經很棒了，也學會了如何調配藥水，每一個藥水的調配時間都是固定的，
+    越好的藥水調配時間就會越長： 
+    <span class="highlight">Lv1:1小時；Lv2:2小時；Lv3:4小時；Lv4:8小時；Lv5:12小時；Lv6:24小時</span>
+    記得每一個寶藏是有限的，每個雲端魔法學徒都
+    有可能是你的競爭對手，每天固定時間回來參加
+    將會是你獲勝的關鍵！`
+
+    confirmPopup.dialog(content,
+      {
+        confirmFn: step4_5_1,
+        cancelBtnText: '好的',
+        showCancelButton: false
+      })
+  }
+
+  /* 4-4 完成調配 */
   let step4_4 = () => {
+    let content = `太好了！現在可以打開藥水看看調配出什麼東西囉！點選<span class="highlight">「調配完成」</span>確認結果吧～`
+
+    /* 開啟藥水 */
+    require(['eventChestOpen'], eventChestOpen => {
+      targets.openBtn.one('click', event => {
+        let currentTarget = event.currentTarget
+        let allowSamePlatformReOpen
+        event.preventDefault()
+
+        allowSamePlatformReOpen = (new Date().getTime() - $(currentTarget).attr('data-lockedAt') > 5000)
+        if (!$(currentTarget).attr('data-lockedAt') || allowSamePlatformReOpen) {
+          eventChestOpen(chest, targets, step4_5)
+        }
+
+        // 每次觸發按鈕時間，即增加時戳，防止連續點擊
+        $(currentTarget).attr('data-lockedAt', new Date().getTime())
+      })
+    })
+
+    confirmTutorial.prompt(content)
+  }
+
+  /* 4-3-2 成功調配藥水 */
+  let step4_3_2 = () => {
     ajax('PATCH', `/chest/open/immediately/${chestId}`, {
       spendGems: 0
     })
@@ -22,12 +78,13 @@ define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmP
           /* 倒數計時秒數設定為 1，讓藥水變成 ready 狀態 */
           require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
             eventCountdown(seconds, chest, targets, eventChestReady)
+            setTimeout(step4_4, 1000)
           })
         }
       )
   }
 
-  /* 4-3 等待調配藥水之時間或立即完成藥水調配 */
+  /* 4-3 等待調配藥水之時間，且學習立即完成藥水之調配 */
   let step4_3 = () => {
     let content = `通常製作藥水都是需要一些時間的唷！
         <span class="highlight">你也可以花費寶石「立即完成」直接結束倒數！</span>
@@ -36,11 +93,9 @@ define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmP
 
     targets.readyNowBtn.removeAttr('style')
     targets.startBtn.css('display', 'none')
-    targets.readyNowBtn.one('click', step4_4)
+    targets.readyNowBtn.one('click', step4_3_2)
 
-    confirmTutorial.prompt(content, {
-      timer: 3000
-    })
+    confirmTutorial.prompt(content)
   }
 
   /* 4-2 確認調配藥水 */
@@ -52,9 +107,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmP
       targets.startBtn.one('click', eventChestStart.bind(eventChestStart, chest, targets, step4_3))
     })
 
-    confirmTutorial.prompt(content, {
-      timer: 2500
-    })
+    confirmTutorial.prompt(content)
   }
 
   /* 4-1 學習調配藥水 */
@@ -108,7 +161,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmP
               {
                 confirmFn: step3_4,
                 cancelBtnText: '太棒了！',
-                isShowCancelButton: false
+                showCancelButton: false
               })
           }, 3000)
         }
@@ -140,15 +193,13 @@ define(['jquery', 'ajax', 'confirmPopup', 'confirmTutorial'], ($, ajax, confirmP
         {
           confirmFn: step3_3,
           cancelBtnText: '馬上升級',
-          isShowCancelButton: false
+          showCancelButton: false
         })
     })
 
     let content = '現在，點選<span class="highlight">「升級」</span>按鈕進行升級。'
 
-    confirmTutorial.prompt(content, {
-      timer: 2500
-    })
+    confirmTutorial.prompt(content, {})
   }
 
   /* 3-1 學習升級 */

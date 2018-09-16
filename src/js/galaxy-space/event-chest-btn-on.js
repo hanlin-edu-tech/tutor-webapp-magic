@@ -26,11 +26,15 @@ define(['jquery'], $ => {// eslint-disable-line
       targets.openBtn.off('click')
       targets.openBtn.on('click', (event) => {
         let currentTarget = event.currentTarget
+        let isAllowSamePlatformReOpen
         event.preventDefault()
-        if (!$(currentTarget).attr('data-lockedAt') ||
-          new Date().getTime() - $(currentTarget).attr('data-lockedAt') > 1000) {
+
+        isAllowSamePlatformReOpen = (new Date().getTime() - $(currentTarget).attr('data-lockedAt') > 5000)
+        if (!$(currentTarget).attr('data-lockedAt') || isAllowSamePlatformReOpen) {
           eventChestOpen(chest, targets)
         }
+
+        // 每次觸發按鈕時間，即增加時戳，防止連續點擊
         $(currentTarget).attr('data-lockedAt', new Date().getTime())
       })
     })

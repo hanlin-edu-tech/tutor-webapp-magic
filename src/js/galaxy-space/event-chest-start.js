@@ -32,8 +32,11 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
       }
 
       let dialogAttr = {
-        customClass: 'confirm-message-box modal-popup-start',
+        customClass: 'my_treasure_content modal-popup-start',
+        background: '#a6937c',
         width: '85%',
+        confirmButtonClass: 'btn message_box_btn_profile',
+        cancelButtonClass: 'btn message_box_btn_profile',
         confirmFn: () => {
           let statusInfo = {
             status: 'UNLOCKING'

@@ -82,7 +82,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
         dialogAttr = {
           confirmFn: autoOpenedFunc.bind(autoOpenedFunc, jsonDataContent, openedChestsIndex + 1, openedChestsCount),
           confirmBtnText: '確認',
-          isShowCancelButton: false
+          showCancelButton: false
         }
       } else if (luckyBag === true) {
         dialogAttr = {
@@ -118,13 +118,13 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
               })
           },
           confirmBtnText: '打開福袋',
-          isShowCancelButton: false
+          showCancelButton: false
         }
       } else {
         dialogAttr = {
           confirmFn: autoOpenedFunc.bind(autoOpenedFunc, jsonDataContent, openedChestsIndex + 1, openedChestsCount),
           confirmBtnText: '確認',
-          isShowCancelButton: false
+          showCancelButton: false
         }
       }
 
@@ -147,7 +147,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
           let dialogAttr = {
             confirmFn: autoOpenedFunc.bind(autoOpenedFunc, jsonData.content, openedChestsIndex, openedChestsCount),
             confirmBtnText: '確認',
-            isShowCancelButton: false,
+            showCancelButton: false,
             onOpenFn () {
               $('.swal2-content').append(
                 `

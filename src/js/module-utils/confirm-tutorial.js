@@ -1,18 +1,18 @@
 define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
   let commonStyle = {
     position: 'bottom',
-    customClass: 'tutorial-message-box row',
+    customClass: 'tutorial_message_box row',
     background: 'rgba(73, 173, 177, 0.9)',
     width: '100%',
     allowOutsideClick: false,
     heightAuto: false,
     buttonsStyling: false,
-    confirmButtonClass: 'btn_iknow tutorial-message-box-btn',
+    confirmButtonClass: 'btn_iknow tutorial_message_box-btn',
     onBeforeOpen: () => {
       $('html').css({height: '100vh'})
-      $('.tutorial-message-box .swal2-header').remove()
-      $('.tutorial-message-box .swal2-content').addClass('col-9')
-      $('.tutorial-message-box .swal2-actions').addClass('col-3')
+      $('.tutorial_message_box .swal2-header').remove()
+      $('.tutorial_message_box .swal2-content').addClass('col-9')
+      $('.tutorial_message_box .swal2-actions').addClass('col-3')
     }
   }
 
