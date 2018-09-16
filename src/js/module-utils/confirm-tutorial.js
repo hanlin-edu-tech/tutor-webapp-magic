@@ -7,7 +7,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     allowOutsideClick: false,
     heightAuto: false,
     buttonsStyling: false,
-    confirmButtonClass: 'btn_iknow tutorial_message_box-btn',
+    confirmButtonClass: 'btn_iknow tutorial_message_box_btn',
     onBeforeOpen: () => {
       $('html').css({height: '100vh'})
       $('.tutorial_message_box .swal2-header').remove()

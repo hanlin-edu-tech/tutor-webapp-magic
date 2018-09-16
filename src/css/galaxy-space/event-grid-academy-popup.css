@@ -1,0 +1,9 @@
+.confirm-grid-academy-container {
+  height: 290px;
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+  font-size: 21px;
+  grid-gap: 3px;
+}

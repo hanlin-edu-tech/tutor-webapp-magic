@@ -1,7 +1,6 @@
 define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAreZero'], // eslint-disable-line
   ($, ajax, confirmPopup, eventChestInspection, eventAwardAreZero) => {
     return (chest, targets, afterOpen) => {
-
       afterOpen = !afterOpen ? (finalCoins, finalGems) => {
         require(['eventCountUp'], eventCountUp => {
           targets.openBtn.css('display', 'none')
@@ -26,6 +25,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
             awardTitle = ''
           let content, openTextBlock3 = '', // eslint-disable-line
             openTextBlock4 = ''
+          let dialogAttr
 
           if (eventChestInspection(jsonData.message, jsonData.content)) {
             return
@@ -56,7 +56,6 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
           content = `
             <div class="open-confirm-grid-container">
               <div class="open-text-block1">
-                <img class="open-gif-chest" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/open/openChest${chest.level}.gif">
               </div>
               <div class="open-text-block2 confirm-popup-title-font gif-title">恭喜你獲得了
                 ${awardTitle}
@@ -71,7 +70,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
           `
 
           if (gainAwardId && luckyBag === false) {
-            let dialogAttr = {
+            dialogAttr = {
               /* 導頁至領取㽪品 */
               confirmFn: () => {
                 afterOpen(finalCoins, finalGems)
@@ -82,10 +81,8 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
               confirmBtnText: '回填領獎',
               cancelBtnText: '太好了'
             }
-
-            confirmPopup.dialog(content, dialogAttr)
           } else if (luckyBag === true) {
-            confirmPopup.dialog(content, {
+            dialogAttr = {
               confirmFn: () => {
                 ajax('POST', `/chest/award/luckyBag/${chest.id}`,
                   {
@@ -120,14 +117,17 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
                   })
               },
               confirmBtnText: '打開福袋'
-            })
+            }
           } else {
-            confirmPopup.dialog(content, {
+            dialogAttr = {
               confirmFn: afterOpen.bind(afterOpen, finalCoins, finalGems),
               confirmBtnText: '太好了',
               showCancelButton: false
-            })
+            }
           }
+
+          dialogAttr.customClass = 'confirm_message_box confirm-popup-middle-height'
+          confirmPopup.dialog(content, dialogAttr)
         })
     }
   })

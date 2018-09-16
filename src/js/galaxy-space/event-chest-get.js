@@ -32,6 +32,9 @@ define(['jquery', 'ajax', 'eventChestBtnOn'], ($, ajax, eventChestBtnOn) => {// 
         })
 
         eventChestBtnOn(chest, execTargets)
+        if(execTargets.execAnotherFn) {
+          execTargets.execAnotherFn()
+        }
       }
     })
 })

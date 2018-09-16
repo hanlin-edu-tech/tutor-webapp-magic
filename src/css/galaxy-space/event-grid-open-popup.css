@@ -1,11 +1,11 @@
 .open-confirm-grid-container {
-  height: 220px;
+  height: 230px;
   width: 100%;
   display: grid;
   display: -ms-grid;
-  grid-template-columns: 29% 19% 24% 28%;
-  -ms-grid-columns: 29% 19% 24% 28%;
-  grid-template-rows: 15% 15% 70%;
+  grid-template-columns: 15% 30% 40% 15%;
+  -ms-grid-columns: 15% 30% 40% 15%;
+  grid-template-rows: 20% 15% 70%;
   -ms-grid-rows: 15% 15% 70%;
   font-size: 23px;
   font-weight: bolder;
@@ -31,9 +31,6 @@
   -ms-grid-column-span: 4;
   grid-row: 1;
   -ms-grid-row: 1;
-  font-size: 22px;
-  font-family: "微軟正黑體", fantasy;
-  color: #217dbb;
 }
 
 .open-confirm-grid-container .open-text-block2 .gif-title {

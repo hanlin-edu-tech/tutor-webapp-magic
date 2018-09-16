@@ -1,5 +1,9 @@
-.modal-confirm-popup {
-  height: 390px;
+.confirm-popup-default-height {
+  height: 270px
+}
+
+.confirm-popup-middle-height {
+  height: 340px;
 }
 
 .confirm-popup-warning {

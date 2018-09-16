@@ -21,17 +21,18 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
   let confirmPopup = {}
   confirmPopup.dialog = (content, {
     width = '55%',
-    customClass = 'confirm_message_box',
+    customClass = 'confirm_message_box confirm-popup-default-height',
     background = 'rgba(73, 173, 177, 0.9)',
     title = '',
     confirmFn = () => {},
     cancelFn = () => {},
     onOpenFn = () => {},
+    showConfirmButton = true,
     confirmBtnText = '確定',
-    cancelBtnText = '我再想想',
     showCancelButton = true,
-    confirmButtonClass = 'btn_iknow message_box_btn_profile',
-    cancelButtonClass = 'btn_iknow message_box_btn_profile'
+    cancelBtnText = '我再想想',
+    confirmButtonClass = 'btn_iknow message_box_btn_style',
+    cancelButtonClass = 'btn_iknow message_box_btn_style'
   } = {}) => {
     let dialogStyle = cloneConstantStyle(constantStyle)
     dialogStyle.width = width
@@ -40,6 +41,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     dialogStyle.title = title
     dialogStyle.html = content
     dialogStyle.showCancelButton = showCancelButton
+    dialogStyle.showConfirmButton = showConfirmButton
     dialogStyle.confirmButtonText = confirmBtnText
     dialogStyle.cancelButtonText = cancelBtnText
     dialogStyle.confirmButtonClass = confirmButtonClass
