@@ -33,8 +33,9 @@ html(lang="en")
         #section_titlelist
             .container-fluid
                 .row
-                    a.col-3.elogo(href="https://www.ehanlin.com.tw/index.html")
-                        img(src="./img/magicImg/elogo.png")
+                    .col-3.elogo
+                        a(href="https://www.ehanlin.com.tw/index.html")
+                            img(src="./img/magicImg/elogo.png")
                     .col-6.title
                         img(src="./img/magicImg/title.png")
                     .col-3.person_info
@@ -60,10 +61,12 @@ html(lang="en")
                                         .row
                                             .col-12.col-bank
                                                 .bank
+                                                    a(href="https://www.ehanlin.com.tw/index.html")
+                                                        img(src="./img/magicImg/bank.png")
                                             .col-12.col-logout
-                                                .logout
+                                                img.logout(src="./img/magicImg/logout.png")
                                             .col-12.col-login(style="display:none")
-                                                .login
+                                                img.login(src="./img/magicImg/login.png")
 
         #section_middle_part
             .container-fluid
