@@ -12,18 +12,18 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
 
       ajax('POST', `/chest/open/${chest.id}`)
         .then((jsonData) => {
-          let jsonContent = jsonData.content
-          let finalCoins = jsonContent.finalCoins
-          let finalGems = jsonContent.finalGems
+          let jsonDataContent = jsonData.content
+          let finalCoins = jsonDataContent.finalCoins
+          let finalGems = jsonDataContent.finalGems
           /* 獲得禮物內容 */
-          let gainCoins = jsonContent.coins ? jsonContent.coins : 0
-          let gainGems = jsonContent.gems ? jsonContent.gems : 0
-          let gainAwardId = jsonContent.gainAwardId
-          let gainAward = jsonContent.gainAward
-          let luckyBag = jsonContent.luckyBag
+          let gainCoins = jsonDataContent.coins ? jsonDataContent.coins : 0
+          let gainGems = jsonDataContent.gems ? jsonDataContent.gems : 0
+          let gainAwardId = jsonDataContent.gainAwardId
+          let gainAward = jsonDataContent.gainAward
+          let luckyBag = jsonDataContent.luckyBag
           let awardImg = '', // eslint-disable-line
             awardTitle = ''
-          let content, openTextBlock3 = '', // eslint-disable-line
+          let popupHtml, openTextBlock3 = '', // eslint-disable-line
             openTextBlock4 = ''
           let dialogAttr
 
@@ -53,7 +53,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
             `
           }
 
-          content = `
+          popupHtml = `
             <div class="open-confirm-grid-container">
               <div class="open-text-block1">
               </div>
@@ -102,18 +102,26 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
                     gainGems = jsonContent.gems
                     finalCoins = jsonContent.finalCoins
                     finalGems = jsonContent.finalGems
-                    title = `
-                    <div class="lucky-bag">
-                      <span>福袋打開囉，得到 </span>
-                      <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
-                      <span>${gainCoins}</span>
-                      <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
-                      <span>${gainGems}</span>
-                    </div>
-                  `
-                    let bagImage = `<img class="confirm-popup-lucky-bag" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${gainAwardId}.png">`
 
-                    confirmPopup.luckyBagImage(title, bagImage, afterOpen.bind(afterOpen, finalCoins, finalGems))
+                    popupHtml = `
+                      <div class="confirm-grid-gif-img-container lucky-bag-height">
+                        <div class="header-block1 lucky-bag confirm-popup-title-font">
+                          <span>福袋打開囉，得到 </span>
+                          <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
+                          <span>${gainCoins}</span>
+                          <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
+                          <span>${gainGems}</span>
+                        </div>
+                        <div class="content-block1 ">
+                          <img class="confirm-popup-lucky-bag" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${gainAwardId}.png">
+                        </div>
+                      </div> 
+                    `
+
+                    confirmPopup.dialog(popupHtml, {
+                      confirmFn: afterOpen.bind(afterOpen, finalCoins, finalGems),
+                      confirmButtonText: '太棒了！'
+                    })
                   })
               },
               confirmBtnText: '打開福袋'
@@ -127,7 +135,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
           }
 
           dialogAttr.customClass = 'confirm_message_box confirm-popup-middle-height'
-          confirmPopup.dialog(content, dialogAttr)
+          confirmPopup.dialog(popupHtml, dialogAttr)
         })
     }
   })

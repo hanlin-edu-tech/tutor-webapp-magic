@@ -67,16 +67,15 @@ require(['jquery', 'ajax'], () => {
     window.Promise = Promise
   })
   require(['eventTutorialInit'])
-  // require(['eventClickLink'])
+  require(['eventClickLink'])
   // require(['eventSlideShow'])
   // require(['eventUserStatus'])
   // require(['eventTotalAssets'])
   // require(['eventAwardGet'], (eventAwardGet) => {
   //   eventAwardGet()
   // })
-  // require(['eventChestGet'], eventChestGet => {
-  //   eventChestGet()
-  // })
+  require(['eventChestGet'], eventChestGet => {
+    eventChestGet()
+  })
   // require(['eventBonusPopup'])
-  // require(['eventOpenFinalPage'])
 })

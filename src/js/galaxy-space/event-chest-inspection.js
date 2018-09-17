@@ -3,8 +3,12 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => { // eslint-disable-line
     let isAbnormally = false
     if (message === 'Chest operate abnormally by user') {
       isAbnormally = true
-      confirmPopup.ok('Oooooops！', checkResult, () => {
-        window.location.reload()
+      confirmPopup.dialog(checkResult, {
+        title: 'Oooooops！',
+        confirmButtonText: '我瞭解了',
+        confirmFn: () => {
+          window.location.reload()
+        }
       })
     }
     return isAbnormally

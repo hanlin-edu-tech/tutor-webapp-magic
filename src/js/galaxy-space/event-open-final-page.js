@@ -6,7 +6,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
       let dialogAttr
 
       if (openedChestsIndex > openedChestsCount - 1) {
-        let okContent = `
+        let popupHtml = `
           <span style="font-size:24px;">
             哇！獲得了好多寶藏呢～記得在 7/23 之前完成資料回填，贈品將會在 7/26 開始陸續寄出。
             <br/>下學期我們將會在魔法世界展開冒險，記得回來唷！
@@ -18,11 +18,15 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
         for (let i = 0; i < jsonDataContent.length; i++) {
           chestIds.push(jsonDataContent[i].chestId)
         }
-        confirmPopup.ok('', okContent, () => {
-          ajax('POST', `/chest/award/notePopupAutoOpened`, chestIds)
-            .then(() => {
-              window.location.reload()
-            })
+
+        confirmPopup.dialog(popupHtml, {
+          confirmButtonText: '太棒了！',
+          confirmFn: () => {
+            ajax('POST', `/chest/award/notePopupAutoOpened`, chestIds)
+              .then(() => {
+                window.location.reload()
+              })
+          }
         })
         return
       }
@@ -136,7 +140,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
         let openedChestsCount = jsonData.content.length
         let openedChestsIndex = 0
         if (openedChestsCount > 0) {
-          let content = `
+          let popupHtml = `
             <span style="font-size:24px;">
               經過一年的努力，我們終於在銀河中找到一片適合安定下來的土地，在這片土地上，
               <br/>有一些厲害的魔法師居住著，透過他們的魔法將封存的藥水都打開啦!趕快來看看你獲得了哪些寶藏吧!
@@ -169,7 +173,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
               }
             }
           }
-          confirmPopup.dialog(content, dialogAttr)
+          confirmPopup.dialog(popupHtml, dialogAttr)
         }
       })
   })

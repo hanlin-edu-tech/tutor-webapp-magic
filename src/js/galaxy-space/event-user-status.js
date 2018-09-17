@@ -1,5 +1,5 @@
 define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => { // eslint-disable-line
-  let content =
+  let popupHtml =
     `
       <div style="position: relative; top:-40px; font-weight:bold;">
           <div>

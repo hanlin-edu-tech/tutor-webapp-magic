@@ -23,7 +23,7 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {// eslint-disable-line
 
     let isAwardsAreZero = false
     if (message === 'All awards are zero') {
-      let content = `
+      let popupHtml = `
           <div class="awards-are-zero-grid-container">
             ${resultBlocks}
             <div class="result-summary-block">
@@ -36,7 +36,7 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {// eslint-disable-line
           </div>
         `
 
-      confirmPopup.awardIsZeroDialog('寶藏已被隊員們探索完畢，請靜待下次開放探索時間<br>總部已將您的藥水結算', content, () => {
+      confirmPopup.awardIsZeroDialog('寶藏已被隊員們探索完畢，請靜待下次開放探索時間<br>總部已將您的藥水結算', popupHtml, () => {
         require(['eventCountUp'], eventCountUp => {
           eventCountUp('coins', parseInt($('#coins').text()), finalCoins)
           eventCountUp('gems', parseInt($('#gems').text()), finalGems)

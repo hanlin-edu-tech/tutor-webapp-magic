@@ -1,5 +1,5 @@
 define(['jquery', 'ajax', 'eventChestBtnOn'], ($, ajax, eventChestBtnOn) => {// eslint-disable-line
-  return targets => ajax('GET', `/chest/`)
+  return (targets, isNovice = false) => ajax('GET', `/chest/`)
     .then((jsonData) => {
       let chests = jsonData.content
       let isUnlockingChestExisted = false
@@ -9,7 +9,7 @@ define(['jquery', 'ajax', 'eventChestBtnOn'], ($, ajax, eventChestBtnOn) => {// 
       for (let index in chests) {
         let chest = chests[index]
         let chestRelativeOperation = $(`#section_middle_part .col-3.${chest.colorPlatform}`)
-        let execTargets = targets ? targets :
+        let execTargets = isNovice ? targets :
           {
             platform: $(`#section_middle_part .potion.platform-${chest.colorPlatform}`),
             countdown: chestRelativeOperation.find('.count_time'),

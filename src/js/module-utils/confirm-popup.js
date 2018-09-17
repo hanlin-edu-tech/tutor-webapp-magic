@@ -19,7 +19,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
   }
 
   let confirmPopup = {}
-  confirmPopup.dialog = (content, {
+  confirmPopup.dialog = (popupHtml, {
     width = '55%',
     customClass = 'confirm_message_box confirm-popup-default-height',
     background = 'rgba(73, 173, 177, 0.9)',
@@ -38,8 +38,8 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     dialogStyle.width = width
     dialogStyle.customClass = customClass
     dialogStyle.background = background
-    dialogStyle.title = title
-    dialogStyle.html = content
+    dialogStyle.title = title ? `<span class="confirm-popup-title-font">${title}</span>` : ''
+    dialogStyle.html = popupHtml
     dialogStyle.showCancelButton = showCancelButton
     dialogStyle.showConfirmButton = showConfirmButton
     dialogStyle.confirmButtonText = confirmBtnText
@@ -59,78 +59,6 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
           cancelFn()
         }
       })
-  }
-
-  confirmPopup.baseImage = buttonText => {
-    let gifStyle = cloneConstantStyle(constantStyle)
-    gifStyle.title = ''
-    gifStyle.confirmButtonText = buttonText || '我瞭解了'
-    gifStyle.onOpen = () => {
-      $('.swal2-header').remove()
-    }
-    return gifStyle
-  }
-
-  confirmPopup.luckyBagImage = (title, content, gifImageFn, buttonText) => {
-    let gifStyle = confirmPopup.baseImage(buttonText)
-    gifStyle.html = `
-      <div class="confirm-grid-gif-img-container lucky-bag-height">
-        <div class="header-block1">${title}</div>
-        <div class="content-block1 ">${content}</div>
-      </div> 
-    `
-    sweetAlert(gifStyle).then((result) => {
-      if (result.value && gifImageFn) {
-        gifImageFn()
-      }
-    })
-  }
-
-  confirmPopup.levelUpImage = (title, content, gifImageFn, buttonText) => {
-    let gifStyle = confirmPopup.baseImage(buttonText)
-    gifStyle.customClass = 'level-up-modal'
-    gifStyle.html =
-      `
-        <div class="confirm-grid-gif-img-container level-up-height">
-          <div class="header-block1">${title}</div>
-          <div class="content-block1 ">${content}</div>
-        </div> 
-      `
-    sweetAlert(gifStyle).then((result) => {
-      if (result.value && gifImageFn) {
-        gifImageFn()
-      }
-    })
-  }
-
-  confirmPopup.generalImage = (title, content, gifImageFn, buttonText) => {
-    let gifStyle = confirmPopup.baseImage(buttonText)
-    gifStyle.customClass = 'confirm_message_box level-up-modal'
-    gifStyle.html =
-      `
-        <div class="confirm-grid-gif-img-container level-up-height">
-          <div class="header-block1">${title}</div>
-          <div class="content-block1 ">${content}</div>
-        </div> 
-      `
-    sweetAlert(gifStyle).then((result) => {
-      if (result.value && gifImageFn) {
-        gifImageFn()
-      }
-    })
-  }
-
-  confirmPopup.ok = (title, content, okFn, buttonText) => {
-    let okStyle = cloneConstantStyle(constantStyle)
-    okStyle.title = `<span style="color: #217dbb;">${title}</span>`
-    okStyle.html = `<div style="font-weight: bolder">${content}</div>`
-    okStyle.confirmButtonText = buttonText || '我瞭解了'
-
-    sweetAlert(okStyle).then((result) => {
-      if (result.value && okFn) {
-        okFn()
-      }
-    })
   }
 
   confirmPopup.awardIsZeroDialog = (title, content, awardIsZeroFun, buttonText) => {

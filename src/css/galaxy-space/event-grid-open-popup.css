@@ -9,7 +9,7 @@
   -ms-grid-rows: 15% 15% 70%;
   font-size: 23px;
   font-weight: bolder;
-  grid-gap: 2px;
+  grid-gap: 3px;
 }
 
 .open-confirm-grid-container .open-text-block1 {

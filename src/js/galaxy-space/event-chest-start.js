@@ -1,9 +1,9 @@
 define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChestInspection', 'eventAwardAreZero'], // eslint-disable-line
   ($, ajax, confirmPopup, eventChestStatusDo, w3, eventChestInspection, eventAwardAreZero) => {
     return (chest, targets, beginInceptionFn) => {
-      let content
+      let popupHtml
       if (chest.level >= 2) {
-        content = `
+        popupHtml = `
           <div class="confirm-grid-start-container">
             <div class="content-block1 confirm-popup-title-font">
               <span>開始調配藥水</span>
@@ -23,7 +23,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
           </div>
         `
       } else {
-        content = `
+        popupHtml = `
           <div>
             <h2 class="confirm-popup-title-font">藥水準備啟動中...</h2>
             <p>你確定要啟動這個藥水嗎？</p>
@@ -136,6 +136,6 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
         }
       }
 
-      confirmPopup.dialog(content, dialogAttr)
+      confirmPopup.dialog(popupHtml, dialogAttr)
     }
   })
