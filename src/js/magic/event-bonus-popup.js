@@ -16,7 +16,7 @@ define(['jquery', 'cookie', 'ajax'], ($, Cookie, ajax) => { // eslint-disable-li
   }
 
   let generalPopup = () => {
-    ajax('GET', `http://localhost:8080/chest/condition/popup`)
+    ajax('GET', `/chest/condition/popup`)
       .then(jsonData => {
         let popup = jsonData.content
         let image = popup.content.image

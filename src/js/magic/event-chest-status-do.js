@@ -16,7 +16,7 @@ define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
     unLocking: (chest, targets, beginInceptionFn) => {
       $(`.potion.platform-${chest.colorPlatform} .LV${chest.level}`).attr('data-status', 'UNLOCKING')
 
-      ajax('GET', `http://localhost:8080/chest/coolDownTime/${chest.id}`)
+      ajax('GET', `/chest/coolDownTime/${chest.id}`)
         .then(data => {
           let seconds = data.content
           if (beginInceptionFn) {

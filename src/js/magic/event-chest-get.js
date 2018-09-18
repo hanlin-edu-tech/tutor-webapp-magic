@@ -1,5 +1,5 @@
 define(['jquery', 'ajax', 'eventChestBtnOn'], ($, ajax, eventChestBtnOn) => {// eslint-disable-line
-  return (targets, isNovice = false) => ajax('GET', `http://localhost:8080/chest/`)
+  return (targets, isNovice = false) => ajax('GET', `/chest/`)
     .then((jsonData) => {
       let chests = jsonData.content
       let isUnlockingChestExisted = false

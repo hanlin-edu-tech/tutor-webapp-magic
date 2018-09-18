@@ -9,7 +9,7 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => {// eslint-disable-line
     }
   })
 
-  ajax('GET', `http://localhost:8080/chest/award/conditions`)
+  ajax('GET', `/chest/award/conditions`)
     .then(jsonData => {
       let awards = jsonData.content
 

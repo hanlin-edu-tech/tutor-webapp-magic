@@ -41,7 +41,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
           let statusInfo = {
             status: 'UNLOCKING'
           }
-          ajax('POST', `http://localhost:8080/chest/inception/${chest.id}`, statusInfo)
+          ajax('POST', `/chest/inception/${chest.id}`, statusInfo)
             .then(jsonData => {
               if (eventChestInspection(jsonData.message, jsonData.content)) {
                 return
@@ -56,7 +56,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
         onOpenFn: () => {
           if (chest.level < 2) return
 
-          ajax('GET', `http://localhost:8080/chest/showAwardsWhenStart/chest${chest.level}`)
+          ajax('GET', `/chest/showAwardsWhenStart/chest${chest.level}`)
             .then(data => {
               let awardsQuantity = data.content
               let limit = 0

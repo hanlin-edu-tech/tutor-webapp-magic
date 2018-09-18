@@ -22,7 +22,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
         confirmPopup.dialog(popupHtml, {
           confirmButtonText: '太棒了！',
           confirmFn: () => {
-            ajax('POST', `http://localhost:8080/chest/award/notePopupAutoOpened`, chestIds)
+            ajax('POST', `/chest/award/notePopupAutoOpened`, chestIds)
               .then(() => {
                 window.location.reload()
               })
@@ -91,7 +91,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
       } else if (luckyBag === true) {
         dialogAttr = {
           confirmFn () {
-            ajax('POST', `http://localhost:8080/chest/award/luckyBag/${chestId}`, {
+            ajax('POST', `/chest/award/luckyBag/${chestId}`, {
               awardId: gainAwardId,
               chestId: chestId
             })
@@ -135,7 +135,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
       confirmPopup.dialog(awardContent, dialogAttr)
     }
 
-    ajax('GET', `http://localhost:8080/chest/autoOpened`)
+    ajax('GET', `/chest/autoOpened`)
       .then(jsonData => {
         let openedChestsCount = jsonData.content.length
         let openedChestsIndex = 0

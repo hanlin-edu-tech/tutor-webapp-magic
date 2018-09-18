@@ -91,7 +91,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial', 'even
             })
           },
           confirmFn: () => {
-            ajax('POST', `http://localhost:9090/currencyBank/totalAssets/academy`, {
+            ajax('POST', `/currencyBank/totalAssets/academy`, {
               academyName: academyName,
               badge: badge
             })
@@ -175,7 +175,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial', 'even
     /* 4-3-2 成功調配藥水 */
     let step4_3_2 = () => {
       let isNovice = true
-      ajax('PATCH', `http://localhost:8080/chest/open/immediately/${chestId}`, {
+      ajax('PATCH', `/chest/open/immediately/${chestId}`, {
         spendGems: 0
       })
         .then(() => {
@@ -243,7 +243,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial', 'even
 
     /* 3-3 成功升級 */
     let step3_3 = () => {
-      ajax('POST', `http://localhost:8080/chest/upgrade/${chestId}`, {user: user})
+      ajax('POST', `/chest/upgrade/${chestId}`, {user: user})
         .then(jsonData => {
             platformTarget.find('img').attr('src',
               'https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV2.png')
@@ -364,7 +364,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial', 'even
 
     /* 1-1 初次見面 */
     let step1_1 = () => {
-      ajax('GET', `http://localhost:8080/chest/novice/`)
+      ajax('GET', `/chest/novice/`)
         .then(jsonData => {
           chest = jsonData.content
           if (chest) {

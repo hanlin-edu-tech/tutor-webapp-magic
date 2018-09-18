@@ -23,12 +23,12 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
     let upLevel = chest.level + 1
     let loadingTarget = $('#loading')
     loadingTarget.css('display', '')
-    ajax('GET', `http://localhost:8080/chest/condition/level${upLevel}`, null)
+    ajax('GET', `/chest/condition/level${upLevel}`, null)
       .then(jsonData => {
         let levelInfo = jsonData.content.content
         let coins = levelInfo.coins
         let gems = levelInfo.gems
-        return ajax('GET', `http://localhost:8080/chest/checkBalance?coins=${coins}&gems=${gems}`, null)
+        return ajax('GET', `/chest/checkBalance?coins=${coins}&gems=${gems}`, null)
       })
       .then(jsonData => {
         let insufficientMessage = jsonData.content
@@ -40,7 +40,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
           loadingTarget.css('display', 'none')
           return $.Deferred().reject().promise()
         } else {
-          return ajax('POST', `http://localhost:9090/currencyBank/chest/levelUp/${chest.id}`)
+          return ajax('POST', `/currencyBank/chest/levelUp/${chest.id}`)
         }
       })
       .then(jsonData => {
@@ -78,7 +78,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
   eventChestUpgrade.ask = (chest, targets) => {
     let upLevel = chest.level + 1
 
-    ajax('GET', `http://localhost:8080/chest/condition/level${upLevel}`, null)
+    ajax('GET', `/chest/condition/level${upLevel}`, null)
       .then(jsonData => {
         let data = jsonData.content.content
         let needCoins = data['coins']

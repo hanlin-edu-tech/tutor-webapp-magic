@@ -3,7 +3,7 @@ define(['jquery', 'ajax', 'eventChestGet', 'eventChestInspection'], ($, ajax, ev
     let statusInfo = {
       status: 'READY'
     }
-    ajax('POST', `http://localhost:8080/chest/ready/${chest.id}`, statusInfo)
+    ajax('POST', `/chest/ready/${chest.id}`, statusInfo)
       .then(jsonData => {
         if (eventChestInspection(jsonData.message, jsonData.content)) {
           return
