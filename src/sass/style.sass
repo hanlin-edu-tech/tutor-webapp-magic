@@ -47,6 +47,7 @@ button, a
                     width: 90%
                     height: auto
             .person_info
+                z-index: 1000
                 padding: 0px
                 .row.person_bg
                     height: 65%
@@ -201,14 +202,16 @@ button, a
                 display: flex
                 flex-direction: column
                 padding: 0
+                align-items: flex-end
                 a
+                    width: 40%
                     text-align: right
                     margin-right: -15px
                     transition: 0.3s
                     &:hover
                         margin-right: 0px
                     img
-                        width: 40%
+                        width: 100%
                         height: auto
 
     .col.mix_upgrade, .col.now_finish, .col.mix_finish img
@@ -300,6 +303,7 @@ button, a
 
 //近期活動(貓)
 #near_activity
+    z-index: 1000
     position: absolute
     bottom: 0%
     left: 7%
@@ -325,8 +329,9 @@ button, a
 
 //我的寶藏(書本)
 #my_treasure
+    z-index: 1000
     position: absolute
-    bottom: 3%
+    bottom: 10%
     right: 5%
     width: 15%
     height: auto
@@ -350,6 +355,58 @@ button, a
                 cursor: pointer
                 color: #efffd6
 
+//功能說明
+.function_description
+    position: absolute
+    top: 0%
+    z-index: 50
+    background-color: rgba(#000,0.7)
+    width: 100%
+    height: 100%
+    color: #fff
+    font-size: 18px
+    letter-spacing: 1px
+    .explain_cat
+        position: absolute
+        bottom: 0%
+        left: 6%
+        width: 14%
+        height: 27%
+        border: 3px solid #fff
+    .content_cat
+        position: absolute
+        display: block
+        bottom: 12%
+        left: 21%
+        width: 16%
+    .explain_treasure
+        position: absolute
+        bottom: 10%
+        right: 5%
+        width: 14%
+        height: 32%
+        border: 3px solid #fff
+    .content_treasure
+        position: absolute
+        display: block
+        bottom: 23%
+        right: 20%
+        width: 16%
+    .explain_person_info
+        position: absolute
+        top: 0%
+        right: 0%
+        width: 26%
+        height: 17%
+        border: 3px solid #fff
+    .content_person_info
+        position: absolute
+        display: block
+        top: 7%
+        right: 27%
+
+
+
 @media screen and (max-width: 1200px)
     #my_treasure
         .book
@@ -366,3 +423,25 @@ button, a
                 right: 10%
                 font-size: 18px
                 line-height: 22px
+
+    .function_description
+        .explain_cat
+            width: 14%
+            height: 20%
+        .content_cat
+            bottom: 5%
+            width: 23%
+
+        .explain_treasure
+            width: 15%
+            height: 25%
+            right: 4%
+        .content_treasure
+            bottom: 17%
+            width: 22%
+
+        .explain_person_info
+            width: 26%
+            height: 13%
+        .content_person_info
+            top: 3%
