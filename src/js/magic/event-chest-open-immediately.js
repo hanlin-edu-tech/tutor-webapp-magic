@@ -2,7 +2,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], // eslint-dis
   ($, ajax, confirmPopup, eventChestInspection) => {
     let eventChestOpenImmediately = {}
     eventChestOpenImmediately.process = (chest, targets, spendGems) => {
-      ajax('GET', `/chest/checkBalance?gems=${spendGems}`)
+      ajax('GET', `http://localhost:8080/chest/checkBalance?gems=${spendGems}`)
         .then(jsonData => {
           let insufficientMessage = jsonData.content
           if (insufficientMessage) {
@@ -12,7 +12,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], // eslint-dis
             })
             return $.Deferred().reject().promise()
           } else {
-            return ajax('PATCH', `/chest/open/immediately/${chest.id}`, {
+            return ajax('PATCH', `http://localhost:8080/chest/open/immediately/${chest.id}`, {
               spendGems: spendGems
             })
           }
@@ -36,10 +36,10 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], // eslint-dis
 
     eventChestOpenImmediately.ask = (chest, targets) => {
       let seconds
-      ajax('GET', `/chest/coolDownTime/${chest.id}`)
+      ajax('GET', `http://localhost:8080/chest/coolDownTime/${chest.id}`)
         .then(jsonData => {
           seconds = jsonData.content
-          return ajax('GET', `/chest/condition/openImmediately`)
+          return ajax('GET', `http://localhost:8080/chest/condition/openImmediately`)
         })
         .then(jsonData => {
           let openImmediatelyData = jsonData.content

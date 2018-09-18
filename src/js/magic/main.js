@@ -39,6 +39,9 @@ require.config({
     /* 雲端奇幻魔藥學 */
     eventTutorialInit: ['./tutorial/event-tutorial-init'],
 
+    /* 初始化 */
+    eventGameStart: ['./tutorial/event-game-start'],
+
     /* third party */
     jquery: ['../lib/jquery-3.3.1.min'],
     w3: ['../lib/w3'],
@@ -74,8 +77,6 @@ require(['jquery', 'ajax'], () => {
   // require(['eventAwardGet'], (eventAwardGet) => {
   //   eventAwardGet()
   // })
-  require(['eventChestGet'], eventChestGet => {
-    eventChestGet()
-  })
+
   // require(['eventBonusPopup'])
 })

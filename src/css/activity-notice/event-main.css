@@ -1,9 +1,9 @@
-#galaxy-space-activity {
+#magic-activity {
   background-color: #000C1A;
   height: 100%;
 }
 
-#galaxy-space-activity main {
+#magic-activity main {
   position: absolute;
 }
 
@@ -19,7 +19,7 @@
   height: 800px;
 }
 
-#galaxy-space-activity .returnToActivity {
+#magic-activity .returnToActivity {
   position: fixed;
   width: 7%;
   top: 8px;
@@ -28,7 +28,7 @@
   z-index: 1;
 }
 
-#galaxy-space-activity .returnToActivity:hover {
+#magic-activity .returnToActivity:hover {
   animation: returnToActivityRotate 50s infinite;
   animation-direction: alternate;
   z-index: 1;
@@ -74,7 +74,7 @@
    left: 0px;
  }
 
- #galaxy-space-activity .returnToActivity {
+ #magic-activity .returnToActivity {
   left: 950px;
  }
 }
@@ -88,7 +88,7 @@
     left: 100px;
     width: 880px;
   }
-  #galaxy-space-activity .returnToActivity {
+  #magic-activity .returnToActivity {
     left: 800px;
    }
 }
@@ -101,7 +101,7 @@
   .activity-main {
     width: 680px;
   }
-  #galaxy-space-activity .returnToActivity {
+  #magic-activity .returnToActivity {
     left: 640px;
     width: 6%;
    }

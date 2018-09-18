@@ -97,7 +97,7 @@ const concatCss = sourceCss => {
   return gulp.src(sourceCss, {
     base: './src'
   })
-    .pipe(concat('ehanlin-galaxy-space.css'))
+    .pipe(concat('ehanlin-magic.css'))
     .pipe(cleanCss())
     .pipe(rename(path => {
       path.basename += '.min'
@@ -111,7 +111,7 @@ const replaceCss = () => {
     base: './src'
   })
     .pipe(htmlReplace({
-      'css': './css/ehanlin-galaxy-space.min.css'
+      'css': './css/ehanlin-magic.min.css'
     }))
     .pipe(gulp.dest(destination))
 }
@@ -120,18 +120,18 @@ const buildCss = () => {
   Q.fcall(templateUtil.logPromise.bind(templateUtil.logPromise,
     clean.bind(clean, './dist/css/ehanlin-space-all.min.css')))
     .then(templateUtil.logStream.bind(templateUtil.logStream,
-      concatCss.bind(concatCss, ['./src/css/galaxy-space/*.css', './src/css/lib/csspin-balls.css', './src/css/lib/sweetalert2.css'])
+      concatCss.bind(concatCss, ['./src/css/magic/*.css', './src/css/lib/csspin-balls.css', './src/css/lib/sweetalert2.css'])
     ))
     .then(templateUtil.logStream.bind(templateUtil.logStream, replaceCss))
     .then(templateUtil.logPromise.bind(templateUtil.logPromise,
-      clean.bind(clean, './dist/css/galaxy-space')))
+      clean.bind(clean, './dist/css/magic')))
 
   return Q.defer().promise
 }
 
 const buildDevToEnv = () => {
   return gulp
-    .src(['./src/js/@(galaxy-space|currency-bank)/**/*.js', './src/index.html'], {
+    .src(['./src/js/@(magic|currency-bank)/**/*.js', './src/index.html'], {
       base: './'
     })
     .pipe(
@@ -153,7 +153,7 @@ const buildDevToEnv = () => {
 
 const buildEnvToDev = () => {
   return gulp
-    .src(['./src/js/@(galaxy-space|currency-bank)/**/*.js', './src/index.html'], {
+    .src(['./src/js/@(magic|currency-bank)/**/*.js', './src/index.html'], {
       base: './'
     })
     .pipe(
@@ -235,7 +235,7 @@ let uploadGCS = bucketName => {
 }
 
 /* pug sass */
-function buildHtml () {
+let buildHtml = () => {
   return es.map(function (file, cb) {
     file.contents = Buffer.from(pug.renderFile(
       file.path, {
@@ -247,21 +247,21 @@ function buildHtml () {
   })
 }
 
-function htmlTask (dest) {
-  return function () {
-    return gulp.src('src/pug/**/*.pug')
+let htmlTask = () => {
+  return () => {
+    return gulp.src('./src/pug/**/*.pug')
       .pipe(buildHtml())
       .pipe(rename({extname: '.html'}))
-      .pipe(gulp.dest(dest))
+      .pipe(gulp.dest('./src'))
   }
 }
 
-function styleTask (dest) {
-  return function () {
-    return gulp.src('src/sass/**/*.sass')
+let styleTask = () => {
+  return () => {
+    return gulp.src('./src/sass/**/*.sass', {base: './src/sass'})
       .pipe(gulpSass())
       .pipe(rename({extname: '.css'}))
-      .pipe(gulp.dest(dest))
+      .pipe(gulp.dest(`./src/css/`))
   }
 }
 
@@ -275,7 +275,7 @@ gulp.task('concatCss', buildCss)
 gulp.task('minifyImage', minifyImage.bind(minifyImage, './src/img/**/*.@(jpg|png)'))
 gulp.task('minifyJs', minifyJs.bind(minifyJs, './babel-temp/js/**/*.js'))
 gulp.task('babelJs',
-  babelJs.bind(babelJs, './dist/js/@(galaxy-space|currency-bank|module-utils)/*.js'))
+  babelJs.bind(babelJs, './dist/js/@(magic|currency-bank|module-utils)/*.js'))
 
 gulp.task('packageTest', packageProject.bind(packageProject, 'current.SNAPSHOT'))
 gulp.task('packageProd', packageProject.bind(packageProject, 'current'))
@@ -287,10 +287,10 @@ gulp.task('uploadGcsTest', uploadGCS.bind(uploadGCS, bucketNameForTest))
 gulp.task('uploadGcsProd', uploadGCS.bind(uploadGCS, bucketNameForProd))
 
 /* 編譯 pug sass */
-gulp.task('style', styleTask('src/css'))
-gulp.task('html', htmlTask('src'))
+gulp.task('style', styleTask())
+gulp.task('html', htmlTask())
 gulp.task('compilePugSass', ['style', 'html'])
-gulp.task('default', ['build'])
+gulp.task('default', ['compilePugSass'])
 gulp.task('watch', function () {
   gulp.watch('src/pug/**/*.pug', ['html'])
   gulp.watch('src/sass/**/*.sass', ['style'])

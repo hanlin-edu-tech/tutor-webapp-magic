@@ -10,7 +10,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
         })
       } : afterOpen
 
-      ajax('POST', `/chest/open/${chest.id}`)
+      ajax('POST', `http://localhost:8080/chest/open/${chest.id}`)
         .then((jsonData) => {
           let jsonDataContent = jsonData.content
           let finalCoins = jsonDataContent.finalCoins
@@ -84,7 +84,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
           } else if (luckyBag === true) {
             dialogAttr = {
               confirmFn: () => {
-                ajax('POST', `/chest/award/luckyBag/${chest.id}`,
+                ajax('POST', `http://localhost:8080/chest/award/luckyBag/${chest.id}`,
                   {
                     awardId: gainAwardId,
                     chestId: chest.id,

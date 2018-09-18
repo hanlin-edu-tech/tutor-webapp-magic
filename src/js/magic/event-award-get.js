@@ -1,6 +1,6 @@
 define(['jquery', 'ajax', 'w3', 'eventAwardAreZero'], ($, ajax, w3, eventAwardAreZero) => {// eslint-disable-line
   return () => {
-    ajax('GET', `/chest/award`)
+    ajax('GET', `http://localhost:8080/chest/award`)
       .then((data) => {
         let awards = data.content
         let awardId
@@ -29,7 +29,7 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero'], ($, ajax, w3, eventAwardAr
           slide.previous()
         })
 
-        return ajax('GET', `/chest/award/sufficient`)
+        return ajax('GET', `http://localhost:8080/chest/award/sufficient`)
       })
       .then((jsonData) => {
         eventAwardAreZero(jsonData.message, jsonData.content)

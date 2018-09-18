@@ -1,5 +1,5 @@
-define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
-  ($, ajax, sweetAlert, confirmPopup, confirmTutorial) => { // eslint-disable-line
+define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial', 'eventGameStart'],
+  ($, ajax, sweetAlert, confirmPopup, confirmTutorial, eventGameStart) => { // eslint-disable-line
     let chest, chestId, user
     let targets = {}
     let platformTarget = $('#section_novice .potion.platform-GREEN')
@@ -12,9 +12,29 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
     targets.readyNowBtn = greenTarget.find('.now_finish')
 
     /********************* 新手村 *********************/
-    /**
-     * 在按鈕相關事件觸發前，先初始化清除按鈕事件，以防止和正常遊戲流程互相抵觸
-     */
+    let step6 = () => {
+
+    }
+
+
+    /***** step 5 選擇學院完成 *****/
+    /* 正式成為魔藥學學員 */
+    let step5_2 = () => {
+      let popupHtml = `<p>每一個人都需要為學院盡一份心力！
+        未來將會有許多團體戰需要你們一起完成喔～最後最後，我們來了解其他重要的功能吧~！
+        </p>
+      `
+
+      confirmPopup.dialog(popupHtml,
+        {
+          width: '70%',
+          confirmFn: step5_1,
+          customClass: 'confirm_message_box',
+          showCancelButton: false
+        })
+    }
+
+    /* 註冊學院 */
     let step5_1 = () => {
       let popupHtml = `
         <div class="confirm-grid-academy-container">
@@ -71,13 +91,12 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
             })
           },
           confirmFn: () => {
-            ajax('POST', `/currencyBank/totalAssets/academy`, {
+            ajax('POST', `http://localhost:9090/currencyBank/totalAssets/academy`, {
               academyName: academyName,
               badge: badge
             })
-              .then(jsonData => {
-                  let jsonDataContent = jsonData.content
-                  console.log(jsonDataContent)
+              .then(() => {
+                  step5_2()
                 }
               )
           }
@@ -89,10 +108,11 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
     /* 新手教學獎勵：縮短前 10 瓶藥水調配時間 */
     let step4_5_1 = () => {
       let popupHtml = `<p class="common-font left-align">別急別急，我還要送你一份大禮物！
-    劈劈啪滋酷酷唷～為了讓魔法學員們更快學會魔藥學，
-    <span class="highlight">我將你們前 10 瓶藥水的調配時間大大的縮短了喔！
-    完成新手教學之後趕快前往「我的課程」練題拿寶箱吧！</span>
-    成為魔法師的第一步驟就是拜師學藝，前往下一步，選擇你想選擇的學院吧！</p>`
+        劈劈啪滋酷酷唷～為了讓魔法學員們更快學會魔藥學，
+        <span class="highlight">我將你們前 10 瓶藥水的調配時間大大的縮短了喔！
+        完成新手教學之後趕快前往「我的課程」練題拿寶箱吧！</span>
+        成為魔法師的第一步驟就是拜師學藝，前往下一步，選擇你想選擇的學院吧！</p>
+      `
 
       confirmPopup.dialog(popupHtml,
         {
@@ -155,7 +175,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
     /* 4-3-2 成功調配藥水 */
     let step4_3_2 = () => {
       let isNovice = true
-      ajax('PATCH', `/chest/open/immediately/${chestId}`, {
+      ajax('PATCH', `http://localhost:8080/chest/open/immediately/${chestId}`, {
         spendGems: 0
       })
         .then(() => {
@@ -223,7 +243,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
 
     /* 3-3 成功升級 */
     let step3_3 = () => {
-      ajax('POST', `/chest/upgrade/${chestId}`, {user: user})
+      ajax('POST', `http://localhost:8080/chest/upgrade/${chestId}`, {user: user})
         .then(jsonData => {
             platformTarget.find('img').attr('src',
               'https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV2.png')
@@ -344,7 +364,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
 
     /* 1-1 初次見面 */
     let step1_1 = () => {
-      ajax('GET', `/chest/novice/`)
+      ajax('GET', `http://localhost:8080/chest/novice/`)
         .then(jsonData => {
           chest = jsonData.content
           if (chest) {
@@ -373,6 +393,8 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
                 confirmBtnText: '領取',
                 showCancelButton: false
               })
+          } else {
+            eventGameStart()
           }
         })
     }

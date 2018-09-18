@@ -1,216 +1,216 @@
-#galaxy-space-body .shining-block {
+#magic-body .shining-block {
   position: absolute;
 }
 
-#galaxy-space-body .shining-block {
+#magic-body .shining-block {
   top: 0;
   right: 50px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins1 {
+#magic-body .shining-block .shining-coins .coins1 {
   position: absolute;
   animation: coin1 9.6s infinite;
   z-index: 1;
   right: 930px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins2 {
+#magic-body .shining-block .shining-coins .coins2 {
   position: absolute;
   animation: coin2 4s infinite;
   z-index: 1;
   right: 750px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins3 {
+#magic-body .shining-block .shining-coins .coins3 {
   position: absolute;
   animation: coin3 9s infinite;
   z-index: 1;
   right: 480px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins4 {
+#magic-body .shining-block .shining-coins .coins4 {
   position: absolute;
   animation: coin4 5s infinite;
   z-index: 1;
   right: 280px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins5 {
+#magic-body .shining-block .shining-coins .coins5 {
   position: absolute;
   animation: coin5 6.5s infinite;
   z-index: 1;
   right: 130px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins6 {
+#magic-body .shining-block .shining-coins .coins6 {
   position: absolute;
   animation: coin6 4.5s infinite;
   z-index: 1;
   right: 130px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins7 {
+#magic-body .shining-block .shining-coins .coins7 {
   position: absolute;
   animation: coin7 8.4s infinite;
   z-index: 1;
   right: 320px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins8 {
+#magic-body .shining-block .shining-coins .coins8 {
   position: absolute;
   animation: coin8 4.8s infinite;
   z-index: 1;
   right: 530px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins9 {
+#magic-body .shining-block .shining-coins .coins9 {
   position: absolute;
   animation: coin9 4.1s infinite;
   z-index: 1;
   right: 730px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins10 {
+#magic-body .shining-block .shining-coins .coins10 {
   position: absolute;
   animation: coin10 3.3s infinite;
   z-index: 1;
   right: 815px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins11 {
+#magic-body .shining-block .shining-coins .coins11 {
   position: absolute;
   animation: coin11 7.3s infinite;
   z-index: 1;
   right: 920px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins12 {
+#magic-body .shining-block .shining-coins .coins12 {
   position: absolute;
   animation: coin12 3.3s infinite;
   z-index: 1;
   right: 1190px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins13 {
+#magic-body .shining-block .shining-coins .coins13 {
   position: absolute;
   animation: coin13 3.5s infinite;
   z-index: 1;
   right: 80px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins14 {
+#magic-body .shining-block .shining-coins .coins14 {
   position: absolute;
   animation: coin14 4.4s infinite;
   z-index: 1;
   right: 190px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins15 {
+#magic-body .shining-block .shining-coins .coins15 {
   position: absolute;
   animation: coin15 9.7s infinite;
   z-index: 1;
   right: 317px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins16 {
+#magic-body .shining-block .shining-coins .coins16 {
   position: absolute;
   animation: coin16 4.2s infinite;
   z-index: 1;
   right: 190px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins17 {
+#magic-body .shining-block .shining-coins .coins17 {
   position: absolute;
   animation: coin17 4.8s infinite;
   z-index: 1;
   right: 490px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins18 {
+#magic-body .shining-block .shining-coins .coins18 {
   position: absolute;
   animation: coin18 8.2s infinite;
   z-index: 1;
   right: 990px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins19 {
+#magic-body .shining-block .shining-coins .coins19 {
   position: absolute;
   animation: coin19 4s infinite;
   z-index: 1;
   right: 679px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins20 {
+#magic-body .shining-block .shining-coins .coins20 {
   position: absolute;
   animation: coin20 3.3s infinite;
   z-index: 1;
   right: 790px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins21 {
+#magic-body .shining-block .shining-coins .coins21 {
   position: absolute;
   animation: coin21 10.3s infinite;
   z-index: 1;
   right: 90px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins22 {
+#magic-body .shining-block .shining-coins .coins22 {
   position: absolute;
   animation: coin22 5s infinite;
   z-index: 1;
   right: 54px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins23 {
+#magic-body .shining-block .shining-coins .coins23 {
   position: absolute;
   animation: coin23 3.9s infinite;
   z-index: 1;
   right: 14px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins24 {
+#magic-body .shining-block .shining-coins .coins24 {
   position: absolute;
   animation: coin24 9.1s infinite;
   z-index: 1;
   right: 69px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins25 {
+#magic-body .shining-block .shining-coins .coins25 {
   position: absolute;
   animation: coin25 5s infinite;
   z-index: 1;
   right: 1330px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins26 {
+#magic-body .shining-block .shining-coins .coins26 {
   position: absolute;
   animation: coin26 4.5s infinite;
   z-index: 1;
   right: 1671px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins27 {
+#magic-body .shining-block .shining-coins .coins27 {
   position: absolute;
   animation: coin27 3.3s infinite;
   z-index: 1;
   right: 1690px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins28 {
+#magic-body .shining-block .shining-coins .coins28 {
   position: absolute;
   animation: coin28 9.6s infinite;
   z-index: 1;
   right: 1694px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins29 {
+#magic-body .shining-block .shining-coins .coins29 {
   position: absolute;
   animation: coin29 3.9s infinite;
   z-index: 1;
   right: 1563px;
 }
 
-#galaxy-space-body .shining-block .shining-coins .coins30 {
+#magic-body .shining-block .shining-coins .coins30 {
   position: absolute;
   animation: coin30 8.1s infinite;
   z-index: 1;
@@ -1271,140 +1271,140 @@
   }
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems1 {
+#magic-body .shining-block .shining-gems .gems1 {
   position: absolute;
   animation: gem1 10s infinite;
   z-index: 1;
   right: 1260px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems2 {
+#magic-body .shining-block .shining-gems .gems2 {
   position: absolute;
   animation: gem2 4.2s infinite;
   z-index: 1;
   right: 1140px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems3 {
+#magic-body .shining-block .shining-gems .gems3 {
   position: absolute;
   animation: gem3 3.5s infinite;
   z-index: 1;
   right: 1370px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems4 {
+#magic-body .shining-block .shining-gems .gems4 {
   position: absolute;
   animation: gem4 9.5s infinite;
   z-index: 1;
   right: 1130px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems5 {
+#magic-body .shining-block .shining-gems .gems5 {
   position: absolute;
   animation: gem5 3.1s infinite;
   z-index: 1;
   right: 570px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems6 {
+#magic-body .shining-block .shining-gems .gems6 {
   position: absolute;
   animation: gem6 8.8s infinite;
   z-index: 1;
   right: 270px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems7 {
+#magic-body .shining-block .shining-gems .gems7 {
   position: absolute;
   animation: gem7 3.8s infinite;
   z-index: 1;
   right: 350px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems8 {
+#magic-body .shining-block .shining-gems .gems8 {
   position: absolute;
   animation: gem8 6.3s infinite;
   z-index: 1;
   right: 190px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems9 {
+#magic-body .shining-block .shining-gems .gems9 {
   position: absolute;
   animation: gem9 2.6s infinite;
   z-index: 1;
   right: 330px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems10 {
+#magic-body .shining-block .shining-gems .gems10 {
   position: absolute;
   animation: gem10 8.1s infinite;
   z-index: 1;
   right: 820px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems11 {
+#magic-body .shining-block .shining-gems .gems11 {
   position: absolute;
   animation: gem11 4.9s infinite;
   z-index: 1;
   right: 143px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems12 {
+#magic-body .shining-block .shining-gems .gems12 {
   position: absolute;
   animation: gem12 6.6s infinite;
   z-index: 1;
   right: 229px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems13 {
+#magic-body .shining-block .shining-gems .gems13 {
   position: absolute;
   animation: gem13 3.8s infinite;
   z-index: 1;
   right: 379px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems14 {
+#magic-body .shining-block .shining-gems .gems14 {
   position: absolute;
   animation: gem14 8.6s infinite;
   z-index: 1;
   right: 229px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems15 {
+#magic-body .shining-block .shining-gems .gems15 {
   position: absolute;
   animation: gem15 4s infinite;
   z-index: 1;
   right: 339px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems16 {
+#magic-body .shining-block .shining-gems .gems16 {
   position: absolute;
   animation: gem16 10s infinite;
   z-index: 1;
   right: 471px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems17 {
+#magic-body .shining-block .shining-gems .gems17 {
   position: absolute;
   animation: gem17 4.2s infinite;
   z-index: 1;
   right: 563px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems18 {
+#magic-body .shining-block .shining-gems .gems18 {
   position: absolute;
   animation: gem18 6.7s infinite;
   z-index: 1;
   right: 929px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems19 {
+#magic-body .shining-block .shining-gems .gems19 {
   position: absolute;
   animation: gem19 3.9s infinite;
   z-index: 1;
   right: 1179px;
 }
 
-#galaxy-space-body .shining-block .shining-gems .gems20 {
+#magic-body .shining-block .shining-gems .gems20 {
   position: absolute;
   animation: gem20 8.1s infinite;
   z-index: 1;
