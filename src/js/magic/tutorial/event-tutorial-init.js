@@ -1,5 +1,5 @@
-define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial', 'eventGameStart'],
-  ($, ajax, sweetAlert, confirmPopup, confirmTutorial, eventGameStart) => { // eslint-disable-line
+define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
+  ($, ajax, sweetAlert, confirmPopup, confirmTutorial) => { // eslint-disable-line
     let chest, chestId, user
     let targets = {}
     let platformTarget = $('#section_novice .potion.platform-GREEN')
@@ -12,10 +12,10 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial', 'even
     targets.readyNowBtn = greenTarget.find('.now_finish')
 
     /********************* 新手村 *********************/
-    let step6 = () => {
-
+    /* 功能介紹 */
+    let step6_1 = () => {
+      $('.function_description').removeAttr('style')
     }
-
 
     /***** step 5 選擇學院完成 *****/
     /* 正式成為魔藥學學員 */
@@ -338,7 +338,9 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial', 'even
 
     /* 2-2 知悉調配藥水的重要性 */
     let step2_2 = () => {
-      let popupHtml = `調配藥水是雲端魔法師非常重要的課程，藥水可以調配出生活中大部分的物品，幸運的話還能調配出寶藏喔！`
+      let popupHtml = `調配藥水是雲端魔法師非常重要的課程，藥水可以調配出生活中大部分的物品，
+        <span class="highlight">幸運的話還能調配出寶藏喔！</span>
+      `
 
       confirmTutorial.prompt(popupHtml, {
         confirmBtnText: '真的嗎',
@@ -368,6 +370,9 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial', 'even
         .then(jsonData => {
           chest = jsonData.content
           if (chest) {
+            targets.chestInstance = chest
+            targets.platformChest = greenTarget.find(`.potion.platform-GREEN .LV1`)
+
             chestId = chest.id
             user = chest.user
             $('#section_middle_part').css({display: 'none'})
@@ -394,7 +399,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial', 'even
                 showCancelButton: false
               })
           } else {
-            eventGameStart()
+            require(['eventGameBegin'])
           }
         })
     }

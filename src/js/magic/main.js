@@ -40,7 +40,7 @@ require.config({
     eventTutorialInit: ['./tutorial/event-tutorial-init'],
 
     /* 初始化 */
-    eventGameStart: ['./tutorial/event-game-start'],
+    eventGameBegin: ['./event-game-begin'],
 
     /* third party */
     jquery: ['../lib/jquery-3.3.1.min'],
