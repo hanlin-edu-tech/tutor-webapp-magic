@@ -16,7 +16,6 @@ html, body
 body
     background: url("../../img/magicImg/background.png") no-repeat center center
     background-size: cover
-    overflow: hidden
 
 button, a
     cursor: pointer
@@ -43,9 +42,11 @@ button, a
             .title
                 +flexCenter
                 padding: 0
+                
                 img
-                    width: 90%
+                    width: 80%
                     height: auto
+                    padding-bottom: 2%
             .person_info
                 z-index: 1000
                 padding: 0px
@@ -54,6 +55,8 @@ button, a
                     background: url("../../img/magicImg/person_info.png") no-repeat
                     background-size: 100% auto
                     margin: 0
+                    margin-top: 5px
+                    margin-right: 5px
                     .col-4
                         padding: 0
                         +flexCenter
@@ -137,7 +140,6 @@ button, a
     position: relative
     overflow: hidden
     .container-fluid
-        padding-top: 3%
         .row
             .potion_box
                 background-image: url("../../img/magicImg/potion_box.png")
@@ -147,7 +149,7 @@ button, a
                 padding: 0
                 display: flex
                 justify-content: center
-                padding-top: 66px
+                padding-top: 5%
                 .row
                     margin: 0
                     width: 90%
@@ -305,7 +307,7 @@ button, a
 #near_activity
     z-index: 1000
     position: absolute
-    bottom: 0%
+    bottom: 6%
     left: 7%
     width: 12%
     height: auto
@@ -383,7 +385,7 @@ button, a
         text-shadow: 0 0 7px rgba(0, 0, 0, 0.50)
 
     .explain_cat
-        position: absolute
+        position: fixed
         bottom: 0%
         left: 6%
         width: 14%
@@ -396,7 +398,7 @@ button, a
         left: 21%
         width: 16%
     .explain_treasure
-        position: absolute
+        position: fixed
         bottom: 10%
         right: 5%
         width: 14%
@@ -471,19 +473,54 @@ button, a
 
 
 @media screen and (max-width: 1200px)
+    #section_titlelist
+        .container-fluid
+            .row
+                .title
+                    img
+                        width: 90%
+                        height: auto
+                        padding-bottom: 0%
+                .person_info
+                    .row.person_bg
+                        .col-8
+                            .row
+                                .col-8
+                                    .row
+                                        .col-12
+                                            .user_name
+                                                -webkit-transform-origin: left
+                                                -webkit-transform: scale(0.9)
+                                                white-space: nowrap
+
+                                            .row
+                                                .col-6
+                                                    .row
+                                                        .col-12
+                                                            #ecoin, #diamond
+                                                                -webkit-transform-origin: left
+                                                                -webkit-transform: scale(0.9)
+                                                                white-space: nowrap
+    
+    
+    #section_middle_part, #section_novice
+        padding-top: 8%
+    
     #my_treasure
+        width: 18%
         .book
             .book_title
                 line-height: 20px
                 top: 18%
                 right: 0%
                 font-size: 18px
-                padding: 10px
+                padding: 15px
     #near_activity
+        width: 16%
         .cat
             .cat_title
-                top: 54%
-                right: 10%
+                top: 56%
+                right: 12%
                 font-size: 18px
                 line-height: 22px
 
@@ -513,10 +550,73 @@ button, a
         .login_potion_box
             top: 40%
 
-@media screen and (max-width: 767px)
+@media screen and (max-width: 768px)
     #section_titlelist
+        position: relative
+        height: 30%
+        .container-fluid
+            height: 100%
+            .row
+                height: 100%
+                .title
+                    padding-top: 2%
+                    align-items: flex-start
+                .person_info
+                    .row.person_bg
+                        height: 72%
+                        .col-8
+                            .row
+                                .col-8
+                                    .row
+                                        .col-12
+                                            border: 1px solid #fff
+                                            .user_name
+                                                transform: translateX(-5px)
+                                                border: 1px solid yellow
+                                                left: 0
+                                                padding: 0
+                                                -webkit-transform-origin: left
+                                                -webkit-transform: scale(0.8)
+                                                white-space: nowrap
+
+                                            .row
+                                                .col-6
+                                                    .row
+                                                        .col-12
+                                                            height: 50%
+
+          
+    #section_middle_part, #section_novice
+        padding-top: 0%
         .container-fluid
             .row
-                .person_info
-                    .person_bg
-                        height: 85%
+                .menu
+                    display: flex
+                    flex-direction: column
+                    padding: 0
+                    align-items: flex-end
+                    a
+                        width: 40%
+                        height: 4.3%
+                        text-align: right
+                        margin-right: -15px
+                        transition: 0.3s
+                        &:hover
+                            margin-right: 0px
+                        img
+                            width: 100%
+                            height: auto
+
+    #my_treasure
+        .book
+            .book_title
+                line-height: 15px
+                font-size: 12px
+                padding: 6px
+    #near_activity
+        .cat
+            .cat_title
+                top: 56%
+                right: 12%
+                font-size: 14px
+                line-height: 17px

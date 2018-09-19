@@ -10,8 +10,7 @@ html, body {
 
 body {
   background: url("../../img/magicImg/background.png") no-repeat center center;
-  background-size: cover;
-  overflow: hidden; }
+  background-size: cover; }
 
 button, a {
   cursor: pointer;
@@ -40,8 +39,9 @@ button, a {
   align-items: center;
   padding: 0; }
   #section_titlelist .container-fluid .row .title img {
-    width: 90%;
-    height: auto; }
+    width: 80%;
+    height: auto;
+    padding-bottom: 2%; }
 
 #section_titlelist .container-fluid .row .person_info {
   z-index: 1000;
@@ -50,7 +50,9 @@ button, a {
     height: 65%;
     background: url("../../img/magicImg/person_info.png") no-repeat;
     background-size: 100% auto;
-    margin: 0; }
+    margin: 0;
+    margin-top: 5px;
+    margin-right: 5px; }
     #section_titlelist .container-fluid .row .person_info .row.person_bg .col-4 {
       padding: 0;
       display: flex;
@@ -131,77 +133,75 @@ button, a {
 #section_middle_part, #section_novice {
   position: relative;
   overflow: hidden; }
-  #section_middle_part .container-fluid, #section_novice .container-fluid {
-    padding-top: 3%; }
-    #section_middle_part .container-fluid .row .potion_box, #section_novice .container-fluid .row .potion_box {
-      background-image: url("../../img/magicImg/potion_box.png");
-      height: 400px;
-      background-size: 100% auto;
-      background-repeat: no-repeat;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      padding-top: 66px; }
-      #section_middle_part .container-fluid .row .potion_box .row, #section_novice .container-fluid .row .potion_box .row {
-        margin: 0;
-        width: 90%; }
-        #section_middle_part .container-fluid .row .potion_box .row .col-3, #section_novice .container-fluid .row .potion_box .row .col-3 {
-          height: 200px;
-          padding: 6px; }
-          #section_middle_part .container-fluid .row .potion_box .row .col-3 .mix_upgrade .row, #section_novice .container-fluid .row .potion_box .row .col-3 .mix_upgrade .row {
-            margin: 0;
-            width: 100%; }
-            #section_middle_part .container-fluid .row .potion_box .row .col-3 .mix_upgrade .row .col-6, #section_novice .container-fluid .row .potion_box .row .col-3 .mix_upgrade .row .col-6 {
-              padding: 0;
-              padding-top: 10px;
-              height: 100%;
-              width: auto; }
-          #section_middle_part .container-fluid .row .potion_box .row .col-3 .col, #section_novice .container-fluid .row .potion_box .row .col-3 .col {
-            padding: 0; }
-            #section_middle_part .container-fluid .row .potion_box .row .col-3 .col img, #section_novice .container-fluid .row .potion_box .row .col-3 .col img {
-              width: 100%;
-              height: auto; }
-          #section_middle_part .container-fluid .row .potion_box .row .col-3 .now_finish, #section_middle_part .container-fluid .row .potion_box .row .col-3 .mix_finish, #section_novice .container-fluid .row .potion_box .row .col-3 .now_finish, #section_novice .container-fluid .row .potion_box .row .col-3 .mix_finish {
-            padding-top: 10px; }
-          #section_middle_part .container-fluid .row .potion_box .row .col-3 .potion_colum, #section_novice .container-fluid .row .potion_box .row .col-3 .potion_colum {
+  #section_middle_part .container-fluid .row .potion_box, #section_novice .container-fluid .row .potion_box {
+    background-image: url("../../img/magicImg/potion_box.png");
+    height: 400px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    padding-top: 5%; }
+    #section_middle_part .container-fluid .row .potion_box .row, #section_novice .container-fluid .row .potion_box .row {
+      margin: 0;
+      width: 90%; }
+      #section_middle_part .container-fluid .row .potion_box .row .col-3, #section_novice .container-fluid .row .potion_box .row .col-3 {
+        height: 200px;
+        padding: 6px; }
+        #section_middle_part .container-fluid .row .potion_box .row .col-3 .mix_upgrade .row, #section_novice .container-fluid .row .potion_box .row .col-3 .mix_upgrade .row {
+          margin: 0;
+          width: 100%; }
+          #section_middle_part .container-fluid .row .potion_box .row .col-3 .mix_upgrade .row .col-6, #section_novice .container-fluid .row .potion_box .row .col-3 .mix_upgrade .row .col-6 {
             padding: 0;
-            position: relative; }
-            #section_middle_part .container-fluid .row .potion_box .row .col-3 .potion_colum .potion, #section_novice .container-fluid .row .potion_box .row .col-3 .potion_colum .potion {
-              width: 100%;
-              height: 100%;
-              position: absolute;
-              top: 0%; }
-            #section_middle_part .container-fluid .row .potion_box .row .col-3 .potion_colum .potion_finish, #section_novice .container-fluid .row .potion_box .row .col-3 .potion_colum .potion_finish {
-              filter: drop-shadow(0px 0px 3px rgba(179, 248, 152, 0.9)); }
-            #section_middle_part .container-fluid .row .potion_box .row .col-3 .potion_colum .count_time, #section_novice .container-fluid .row .potion_box .row .col-3 .potion_colum .count_time {
-              width: 100%;
-              text-align: center;
-              color: white;
-              font-size: 20px;
-              background: rgba(51, 51, 51, 0.75);
-              position: absolute;
-              top: 50%;
-              right: 0;
-              letter-spacing: 2px;
-              font-weight: 500;
-              transform: translateY(-50%);
-              text-shadow: 0px 3px 8px #000;
-              line-height: 35px; }
-    #section_middle_part .container-fluid .row .menu, #section_novice .container-fluid .row .menu {
-      display: flex;
-      flex-direction: column;
-      padding: 0;
-      align-items: flex-end; }
-      #section_middle_part .container-fluid .row .menu a, #section_novice .container-fluid .row .menu a {
-        width: 40%;
-        text-align: right;
-        margin-right: -15px;
-        transition: 0.3s; }
-        #section_middle_part .container-fluid .row .menu a:hover, #section_novice .container-fluid .row .menu a:hover {
-          margin-right: 0px; }
-        #section_middle_part .container-fluid .row .menu a img, #section_novice .container-fluid .row .menu a img {
-          width: 100%;
-          height: auto; }
+            padding-top: 10px;
+            height: 100%;
+            width: auto; }
+        #section_middle_part .container-fluid .row .potion_box .row .col-3 .col, #section_novice .container-fluid .row .potion_box .row .col-3 .col {
+          padding: 0; }
+          #section_middle_part .container-fluid .row .potion_box .row .col-3 .col img, #section_novice .container-fluid .row .potion_box .row .col-3 .col img {
+            width: 100%;
+            height: auto; }
+        #section_middle_part .container-fluid .row .potion_box .row .col-3 .now_finish, #section_middle_part .container-fluid .row .potion_box .row .col-3 .mix_finish, #section_novice .container-fluid .row .potion_box .row .col-3 .now_finish, #section_novice .container-fluid .row .potion_box .row .col-3 .mix_finish {
+          padding-top: 10px; }
+        #section_middle_part .container-fluid .row .potion_box .row .col-3 .potion_colum, #section_novice .container-fluid .row .potion_box .row .col-3 .potion_colum {
+          padding: 0;
+          position: relative; }
+          #section_middle_part .container-fluid .row .potion_box .row .col-3 .potion_colum .potion, #section_novice .container-fluid .row .potion_box .row .col-3 .potion_colum .potion {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0%; }
+          #section_middle_part .container-fluid .row .potion_box .row .col-3 .potion_colum .potion_finish, #section_novice .container-fluid .row .potion_box .row .col-3 .potion_colum .potion_finish {
+            filter: drop-shadow(0px 0px 3px rgba(179, 248, 152, 0.9)); }
+          #section_middle_part .container-fluid .row .potion_box .row .col-3 .potion_colum .count_time, #section_novice .container-fluid .row .potion_box .row .col-3 .potion_colum .count_time {
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            background: rgba(51, 51, 51, 0.75);
+            position: absolute;
+            top: 50%;
+            right: 0;
+            letter-spacing: 2px;
+            font-weight: 500;
+            transform: translateY(-50%);
+            text-shadow: 0px 3px 8px #000;
+            line-height: 35px; }
+  #section_middle_part .container-fluid .row .menu, #section_novice .container-fluid .row .menu {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    align-items: flex-end; }
+    #section_middle_part .container-fluid .row .menu a, #section_novice .container-fluid .row .menu a {
+      width: 40%;
+      text-align: right;
+      margin-right: -15px;
+      transition: 0.3s; }
+      #section_middle_part .container-fluid .row .menu a:hover, #section_novice .container-fluid .row .menu a:hover {
+        margin-right: 0px; }
+      #section_middle_part .container-fluid .row .menu a img, #section_novice .container-fluid .row .menu a img {
+        width: 100%;
+        height: auto; }
   #section_middle_part .col.mix_upgrade, #section_middle_part .col.now_finish, #section_middle_part .col.mix_finish img, #section_novice .col.mix_upgrade, #section_novice .col.now_finish, #section_novice .col.mix_finish img {
     cursor: pointer; }
 
@@ -283,7 +283,7 @@ button, a {
 #near_activity {
   z-index: 1000;
   position: absolute;
-  bottom: 0%;
+  bottom: 6%;
   left: 7%;
   width: 12%;
   height: auto; }
@@ -358,7 +358,7 @@ button, a {
     text-align: center;
     text-shadow: 0 0 7px rgba(0, 0, 0, 0.5); }
   .function_description .explain_cat {
-    position: absolute;
+    position: fixed;
     bottom: 0%;
     left: 6%;
     width: 14%;
@@ -371,7 +371,7 @@ button, a {
     left: 21%;
     width: 16%; }
   .function_description .explain_treasure {
-    position: absolute;
+    position: fixed;
     bottom: 10%;
     right: 5%;
     width: 14%;
@@ -440,17 +440,35 @@ button, a {
           cursor: pointer; }
 
 @media screen and (max-width: 1200px) {
-  #my_treasure .book .book_title {
-    line-height: 20px;
-    top: 18%;
-    right: 0%;
-    font-size: 18px;
-    padding: 10px; }
-  #near_activity .cat .cat_title {
-    top: 54%;
-    right: 10%;
-    font-size: 18px;
-    line-height: 22px; }
+  #section_titlelist .container-fluid .row .title img {
+    width: 90%;
+    height: auto;
+    padding-bottom: 0%; }
+  #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .user_name {
+    -webkit-transform-origin: left;
+    -webkit-transform: scale(0.9);
+    white-space: nowrap; }
+  #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .row .col-6 .row .col-12 #ecoin, #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .row .col-6 .row .col-12 #diamond {
+    -webkit-transform-origin: left;
+    -webkit-transform: scale(0.9);
+    white-space: nowrap; }
+  #section_middle_part, #section_novice {
+    padding-top: 8%; }
+  #my_treasure {
+    width: 18%; }
+    #my_treasure .book .book_title {
+      line-height: 20px;
+      top: 18%;
+      right: 0%;
+      font-size: 18px;
+      padding: 15px; }
+  #near_activity {
+    width: 16%; }
+    #near_activity .cat .cat_title {
+      top: 56%;
+      right: 12%;
+      font-size: 18px;
+      line-height: 22px; }
   .function_description .explain_cat {
     width: 14%;
     height: 20%; }
@@ -472,6 +490,55 @@ button, a {
   #login_dialog .login_potion_box {
     top: 40%; } }
 
-@media screen and (max-width: 767px) {
-  #section_titlelist .container-fluid .row .person_info .person_bg {
-    height: 85%; } }
+@media screen and (max-width: 768px) {
+  #section_titlelist {
+    position: relative;
+    height: 30%; }
+    #section_titlelist .container-fluid {
+      height: 100%; }
+      #section_titlelist .container-fluid .row {
+        height: 100%; }
+        #section_titlelist .container-fluid .row .title {
+          padding-top: 2%;
+          align-items: flex-start; }
+        #section_titlelist .container-fluid .row .person_info .row.person_bg {
+          height: 72%; }
+          #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 {
+            border: 1px solid #fff; }
+            #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .user_name {
+              transform: translateX(-5px);
+              border: 1px solid yellow;
+              left: 0;
+              padding: 0;
+              -webkit-transform-origin: left;
+              -webkit-transform: scale(0.8);
+              white-space: nowrap; }
+            #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .row .col-6 .row .col-12 {
+              height: 50%; }
+  #section_middle_part, #section_novice {
+    padding-top: 0%; }
+    #section_middle_part .container-fluid .row .menu, #section_novice .container-fluid .row .menu {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      align-items: flex-end; }
+      #section_middle_part .container-fluid .row .menu a, #section_novice .container-fluid .row .menu a {
+        width: 40%;
+        height: 4.3%;
+        text-align: right;
+        margin-right: -15px;
+        transition: 0.3s; }
+        #section_middle_part .container-fluid .row .menu a:hover, #section_novice .container-fluid .row .menu a:hover {
+          margin-right: 0px; }
+        #section_middle_part .container-fluid .row .menu a img, #section_novice .container-fluid .row .menu a img {
+          width: 100%;
+          height: auto; }
+  #my_treasure .book .book_title {
+    line-height: 15px;
+    font-size: 12px;
+    padding: 6px; }
+  #near_activity .cat .cat_title {
+    top: 56%;
+    right: 12%;
+    font-size: 14px;
+    line-height: 17px; } }
