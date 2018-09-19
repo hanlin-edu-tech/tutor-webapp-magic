@@ -14,7 +14,14 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
     /********************* 新手村 *********************/
     /* 功能介紹 */
     let step6_1 = () => {
-      $('.function_description').removeAttr('style')
+      let functionDescTarget = $('.function_description')
+      functionDescTarget.removeAttr('style')
+      functionDescTarget.find('.finish_novice_btn').one('click', () => {
+        functionDescTarget.fadeOut()
+        $('#section_novice').remove()
+        $('#section_middle_part').removeAttr('style')
+        require(['eventGameBegin'])
+      })
     }
 
     /***** step 5 選擇學院完成 *****/
@@ -416,6 +423,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
                 showCancelButton: false
               })
           } else {
+            $('#section_novice').remove()
             require(['eventGameBegin'])
           }
         })

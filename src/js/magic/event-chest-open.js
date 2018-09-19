@@ -127,7 +127,6 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
               confirmBtnText: '打開福袋'
             }
           } else {
-            console.log('RR')
             dialogAttr = {
               confirmFn: afterOpen.bind(afterOpen, finalCoins, finalGems),
               confirmBtnText: '太好了',

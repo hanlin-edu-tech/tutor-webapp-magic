@@ -30,8 +30,6 @@ define(['jquery', 'ajax', 'eventChestBtnOn'], ($, ajax, eventChestBtnOn) => {// 
 
           targets.platformChest = chestRelativeOperation.find(`.potion.platform-${chest.colorPlatform} img`)
 
-          console.log(targets)
-
           if (chest.status === 'UNLOCKING') {
             isUnlockingChestExisted = true
           }
