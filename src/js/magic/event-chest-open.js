@@ -1,14 +1,14 @@
 define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAreZero'], // eslint-disable-line
   ($, ajax, confirmPopup, eventChestInspection, eventAwardAreZero) => {
-    return (chest, targets, afterOpen) => {
-      afterOpen = !afterOpen ? (finalCoins, finalGems) => {
+    return (chest, targets, afterOpenFn) => {
+      let afterOpen = !afterOpenFn ? (finalCoins, finalGems) => {
         require(['eventCountUp'], eventCountUp => {
           targets.openBtn.css('display', 'none')
           targets.platformChest.remove()
           eventCountUp('coins', parseInt($('#coins').text()), finalCoins)
           eventCountUp('gems', parseInt($('#gems').text()), finalGems)
         })
-      } : afterOpen
+      } : afterOpenFn
 
       ajax('POST', `/chest/open/${chest.id}`)
         .then((jsonData) => {
@@ -127,6 +127,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
               confirmBtnText: '打開福袋'
             }
           } else {
+            console.log('RR')
             dialogAttr = {
               confirmFn: afterOpen.bind(afterOpen, finalCoins, finalGems),
               confirmBtnText: '太好了',

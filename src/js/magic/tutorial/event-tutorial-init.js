@@ -21,14 +21,15 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
     /* 正式成為魔藥學學員 */
     let step5_2 = () => {
       let popupHtml = `<p>每一個人都需要為學院盡一份心力！
-        未來將會有許多團體戰需要你們一起完成喔～最後最後，我們來了解其他重要的功能吧~！
+          未來將會有許多團體戰需要你們一起完成喔～
+          <span class="highlight">最後最後，我們來了解其他重要的功能吧～！</span>
         </p>
       `
 
       confirmPopup.dialog(popupHtml,
         {
           width: '70%',
-          confirmFn: step5_1,
+          confirmFn: step6_1,
           customClass: 'confirm_message_box',
           showCancelButton: false
         })
@@ -40,37 +41,50 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
         <div class="confirm-grid-academy-container">
           <div class="academy">
             <img src="./img/magicImg/badge_cat.png">
-            <p>
-              <span class="highlight">學院名稱</span><br/>學院介紹
+            <p><span class="highlight">貝斯坦特</span></p>
+            <p class="left-align">
+              來自在神秘異域國度，嬌小的身軀有著無比敏捷與聰慧的力量。
+              <span class="highlight">唯有精明機智的人才能把握良機</span>
             </p>
-            <br/>
-            <btn class="btn message_box_btn_style" data-academy="tigerName" data-badge="tiger">選我</btn>
+          </div>
+          <div class="register">
+            <button class="btn message_box_btn_style" data-academy="貝斯坦特" data-badge="cat">選我</button>
           </div>
           <div class="academy">
             <img src="./img/magicImg/badge_lion.png">
-              <p>
-              <span class="highlight">學院名稱</span><br/>學院介紹
-            </p>
-            <br/>
-            <btn class="btn message_box_btn_style" data-academy="tigerName" data-badge="tiger">選我</btn>
+            <p><span class="highlight">格里芬恩</span></p>
+            <p class="left-align">
+              出身於藏寶豐富的草原，有著沉穩的性格和強烈的正義感。
+              <span class="highlight">耐心和毅力引領我們走向王者之路</span>
+            </p>           
+          </div>
+          <div class="register">
+            <button class="btn message_box_btn_style" data-academy="格里芬恩" data-badge="lion">選我</button>
           </div>
           <div class="academy">
             <img src="./img/magicImg/badge_rabbit.png">
-            <p>
-              <span class="highlight">學院名稱</span><br/>學院介紹
+            <p><span class="highlight">加卡洛普</span></p>
+            <p class="left-align">
+              來自繁花盛開的大地，舉止文雅，判斷力強，是幸運的象徵。
+              <span class="highlight">迅速果斷的判斷力是成功的必要條件。</span>
             </p>
-            <br/>
-            <btn class="btn message_box_btn_style" data-academy="tigerName" data-badge="tiger">選我</btn>
+          </div>
+          <div class="register">
+            <button class="btn message_box_btn_style" data-academy="加卡洛普" data-badge="rabbit">選我</button>
           </div>
           <div class="academy">
             <img src="./img/magicImg/badge_tiger.png">
-            <p>
-              <span class="highlight">學院名稱</span><br/>學院介紹
+            <p><span class="highlight">克拉托斯</span></p>
+            <p class="left-align">
+              生活在荒蕪的叢林之中，雖來去無蹤但無所畏懼、英勇無比。
+              <span class="highlight">前方即使荊棘滿地，也要勇往直前！</span>
             </p>
-            <br/>
-            <btn class="btn message_box_btn_style" data-academy="tigerName" data-badge="tiger">選我</btn>
+          </div>
+          <div class="register">
+            <button class="btn message_box_btn_style" data-academy="克拉托斯" data-badge="tiger">選我</button>
           </div>
         </div>
+        <p class="confirm-popup-small-font">※ 請注意，一但選擇後即無法更改喔！</p>
       `
 
       let academyName = ''
@@ -78,12 +92,12 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
       confirmPopup.dialog(popupHtml,
         {
           width: '90%',
-          customClass: 'my_treasure_message_box confirm-popup-middle-height',
+          customClass: 'my_treasure_message_box confirm-popup-academy-height',
           background: '#a6937c',
           showConfirmButton: false,
           showCancelButton: false,
           onOpenFn: () => {
-            $('.confirm-popup-middle-height div.academy .btn').one('click', event => {
+            $('.confirm-grid-academy-container .register button').one('click', event => {
               let currentTarget = event.currentTarget
               academyName = $(currentTarget).data('academy')
               badge = $(currentTarget).data('badge')
@@ -137,7 +151,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
 
       confirmPopup.dialog(popupHtml,
         {
-          width: '75%',
+          width: '80%',
           customClass: 'confirm_message_box confirm-popup-middle-height',
           confirmFn: step4_5_1,
           confirmBtnText: '好的',
@@ -182,8 +196,11 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
             let seconds = 0
             /* 倒數計時秒數設定為 1，讓藥水變成 ready 狀態 */
             require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
-              targets.execAnotherFn = step4_4
-              eventCountdown(seconds, chest, targets, eventChestReady, isNovice)
+              let noviceObj = {
+                isNovice: true,
+                noviceExecFn: step4_4
+              }
+              eventCountdown(seconds, chest, targets, eventChestReady, noviceObj)
             })
           }
         )
@@ -254,7 +271,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup', 'confirmTutorial'],
             setTimeout(() => {
               let popupHtml = `<div class="confirm-grid-upgrade-container">
                   <div class="image-block1">
-                      <img src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV2.png">
+                      <img src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV2_box.png">
                   </div>
                   <div class="content-block1 confirm-popup-title-font">
                       <span>升級成功</span>

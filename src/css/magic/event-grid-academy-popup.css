@@ -1,9 +1,33 @@
+.confirm-popup-academy-height {
+  height: 500px;
+}
+
 .confirm-grid-academy-container {
-  height: 290px;
+  height: 450px;
   display: grid;
   display: -ms-grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   -ms-grid-columns: 1fr 1fr 1fr 1fr;
-  font-size: 21px;
-  grid-gap: 3px;
+  grid-template-rows: 90% 10%;
+  -ms-grid-rows: 90% 10%;
+  grid-gap: 2px;
+  font-size: 17px;
+}
+
+.confirm-grid-academy-container .academy {
+  grid-row: 1;
+  -ms-grid-row: 1;
+}
+
+.confirm-grid-academy-container .register {
+  grid-row: 2;
+  -ms-grid-row: 2;
+}
+
+.confirm-grid-academy-container .academy img {
+  width: 150px;
+}
+
+.confirm-grid-academy-container .academy p.left-align {
+  font-size: 15px;
 }

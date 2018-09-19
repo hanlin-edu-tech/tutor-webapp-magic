@@ -102,7 +102,7 @@ const concatCss = sourceCss => {
     .pipe(rename(path => {
       path.basename += '.min'
     }))
-    .pipe(gulp.dest('./dist/css'))
+    .pipe(gulp.dest('./dist/css/event-magic'))
 }
 
 /* 將 index.html include 的所有 CSS 替換為合併後之 CSS */
@@ -111,7 +111,7 @@ const replaceCss = () => {
     base: './src'
   })
     .pipe(htmlReplace({
-      'css': './css/ehanlin-magic.min.css'
+      'css': './css/event-magic/ehanlin-magic.min.css'
     }))
     .pipe(gulp.dest(destination))
 }
@@ -211,7 +211,7 @@ let packageProject = componentDir => {
   return Q.defer().promise
 }
 
-let uploadGCS = bucketName => {
+let uploadGcs = bucketName => {
   return gulp
     .src([
       './dist/*.html',
@@ -281,10 +281,10 @@ gulp.task('packageTest', packageProject.bind(packageProject, 'current.SNAPSHOT')
 gulp.task('packageProd', packageProject.bind(packageProject, 'current'))
 
 /* upload to test */
-gulp.task('uploadGcsTest', uploadGCS.bind(uploadGCS, bucketNameForTest))
+gulp.task('uploadGcsTest', uploadGcs.bind(uploadGcs, bucketNameForTest))
 
 /* upload to prod */
-gulp.task('uploadGcsProd', uploadGCS.bind(uploadGCS, bucketNameForProd))
+gulp.task('uploadGcsProd', uploadGcs.bind(uploadGcs, bucketNameForProd))
 
 /* 編譯 pug sass */
 gulp.task('style', styleTask())

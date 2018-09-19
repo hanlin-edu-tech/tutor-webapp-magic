@@ -16,6 +16,7 @@
   grid-row: 1 / span 3;
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
+  width: 90%;
 }
 
 .confirm-grid-upgrade-container .image-silhouette {

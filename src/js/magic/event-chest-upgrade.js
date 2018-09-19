@@ -6,7 +6,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
     let upLevel = parseInt(result.memo.upLevel)
     result.html = `<div class="confirm-grid-upgrade-container">
         <div class="image-block1">
-          <img src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV${upLevel}.png">
+          <img src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV${upLevel}_box.png">
         </div>
         <div class="content-block1 confirm-popup-title-font">
           <span>升級成功</span>
