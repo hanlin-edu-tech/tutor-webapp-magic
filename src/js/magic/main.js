@@ -68,8 +68,8 @@ require(['jquery', 'ajax'], () => {
   require(['bluebird'], function (Promise) {
     window.Promise = Promise
   })
-  require(['eventTutorialInit'])
-  require(['eventClickLink'])
+  //require(['eventTutorialInit'])
+  //require(['eventClickLink'])
   // require(['eventSlideShow'])
   // require(['eventUserStatus'])
   // require(['eventTotalAssets'])
