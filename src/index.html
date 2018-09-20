@@ -9,6 +9,7 @@
         <meta http-equiv="expires" content="0">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
         <link type="image/png" href="./img/magicImg/favicon.png" rel="icon">
+        <!--link(href="./css/animate.css" rel="stylesheet")--><!-- build:css -->
         <link href="./css/magic/style.css" rel="stylesheet">
         <link href="./css/lib/sweetalert2.css" rel="stylesheet">
         <link href="./css/magic/event-main.css" rel="stylesheet">
@@ -24,7 +25,7 @@
         <link href="./css/magic/event-bonus-popup.css" rel="stylesheet">
         <link href="./css/magic/event-drop-down.css" rel="stylesheet">
         <link href="./css/magic/event-awards-are-zero.css" rel="stylesheet">
-        <link href="./css/lib/csspin-balls.css" rel="stylesheet">
+        <link href="./css/lib/csspin-balls.css" rel="stylesheet"><!-- endbuild -->
         <title>雲端奇幻魔藥學</title>
     </head>
     <body>
@@ -79,7 +80,29 @@
         <div id="section_middle_part">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-3"></div>
+                    <div class="col-3 gift_list">
+                        <div class="row row_gift_pic">
+                            <div class="col-3 col-sm-4 col-lg-3 previous_btn"><img src="./img/magicImg/previous.svg" alt="Responsive image"></div>
+                            <div class="col-6 col-sm-4 col-lg-6"><img class="gift_photo" src="./img/magicImg/awards/award05.png" alt="Responsive image"></div>
+                            <div class="col-3 col-sm-4 col-lg-3 next_btn"><img src="./img/magicImg/next.svg" alt="Responsive image"></div>
+                        </div>
+                        <div class="row row_gift_content">
+                            <div class="col-12">
+                                <div class="award_title">樂事雞汁洋芋片兌換券</div>
+                            </div>
+                            <div class="col-7 award_stitle">所在等級：</div>
+                            <div class="col-5 award_scontnet">
+                                <div class="award_level">D</div>
+                            </div>
+                            <div class="col-5 award_stitle">庫存：</div>
+                            <div class="col-7 award_scontnet">
+                                <div class="award_stock">還有貨哦</div>
+                            </div>
+                            <div class="col-12">
+                                <div class="award_note">1.本商品券僅限兌換一次<br>2.使用期限及說明請見得獎信件 </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-6 potion_box">
                         <div class="row">
                             <div class="col-3 GREEN">
@@ -199,6 +222,8 @@
         </div>
         <div class="function_description" style="display:none">
             <div class="finish_novice_btn">完成教學</div>
+            <div class="explain_gift"></div>
+            <div class="content_gift">這裡是這次的寶藏清單，<br>可能會有特別獎勵喔！<br>請隨時關注！</div>
             <div class="explain_cat"></div>
             <div class="content_cat">魔法師不定時的重要公告、活動資訊請杜瑞絲貓夫人幫忙傳達，要多多照顧她喔!</div>
             <div class="explain_treasure"></div>
