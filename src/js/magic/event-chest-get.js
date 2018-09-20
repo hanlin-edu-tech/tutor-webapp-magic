@@ -26,7 +26,7 @@ define(['jquery', 'ajax', 'eventChestBtnOn'], ($, ajax, eventChestBtnOn) => {// 
 
           targets.chestInstance = chest
           targets.platform
-            .append(`<img class="LV${chest.level}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV${chest.level}.png">`)
+            .append(`<img src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV${chest.level}.png">`)
 
           targets.platformChest = chestRelativeOperation.find(`.potion.platform-${chest.colorPlatform} img`)
 

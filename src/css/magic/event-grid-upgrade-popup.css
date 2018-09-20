@@ -2,21 +2,26 @@
   height: 170px;
   display: grid;
   display: -ms-grid;
-  grid-template-columns: 1% 28% 70% 1%;
-  -ms-grid-columns: 1% 28% 70% 1%;
+  grid-template-columns: 30% 70%;
+  -ms-grid-columns: 30% 70%;
   grid-template-rows: 1fr 2fr;
   -ms-grid-rows: 1fr 2fr;
   font-size: 21px;
-  grid-gap: 3px;
+  grid-gap: 5px;
 }
 
 .confirm-grid-upgrade-container .image-block1 {
-  grid-column: 2;
-  -ms-grid-column: 2;
+  grid-column: 1;
+  -ms-grid-column: 1;
   grid-row: 1 / span 3;
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
   width: 90%;
+}
+
+.confirm-grid-upgrade-container .image-block1 img {
+  height: 130px;
+  margin-top: 20px;
 }
 
 .confirm-grid-upgrade-container .image-silhouette {
@@ -24,8 +29,8 @@
 }
 
 .confirm-grid-upgrade-container .content-block1 {
-  grid-column: 3;
-  -ms-grid-column: 3;
+  grid-column: 2;
+  -ms-grid-column: 2;
   grid-row: 1;
   -ms-grid-row: 1;
   line-height: 42px
@@ -33,16 +38,16 @@
 
 .confirm-grid-upgrade-container .content-block2 {
   text-align: left;
-  grid-column: 3;
-  -ms-grid-column: 3;
+  grid-column: 2;
+  -ms-grid-column: 2;
   grid-row: 2;
   -ms-grid-row: 2;
 }
 
 .confirm-grid-upgrade-container .content-block3 {
   text-align: left;
-  grid-column: 3;
-  -ms-grid-column: 3;
+  grid-column: 2;
+  -ms-grid-column: 2;
   grid-row: 3;
   -ms-grid-row: 3;
   font-size: 18px;
@@ -50,13 +55,9 @@
 
 @media screen and (max-width: 900px) {
   .confirm-grid-upgrade-container {
-    grid-template-columns: 0 35% 65% 0;
-    -ms-grid-columns: 0 35% 65% 0;
+    grid-template-columns: 35% 65%;
+    -ms-grid-columns: 35% 65%;
     font-size: 17px;
-  }
-
-  .confirm-grid-upgrade-container .image-block1 img {
-    height: 135px;
   }
 
   .confirm-grid-upgrade-container .content-block3 {
@@ -71,16 +72,5 @@
 
   .confirm-grid-upgrade-container .image-block1-chest {
     max-height: 78%;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  .confirm-grid-upgrade-container {
-    grid-template-columns: 1% 1% 97% 1%;
-    -ms-grid-columns: 1% 1% 97% 1%;
-  }
-
-  .confirm-grid-upgrade-container .image-block1-chest {
-    max-height: 0;
   }
 }

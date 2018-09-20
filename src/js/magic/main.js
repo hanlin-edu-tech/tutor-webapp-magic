@@ -53,7 +53,6 @@ require.config({
 
     /* 共用元件 */
     confirmPopup: ['../module-utils/confirm-popup'],
-    confirmTutorial: ['../module-utils/confirm-tutorial'],
     ajax: ['../module-utils/ajax']
   },
 

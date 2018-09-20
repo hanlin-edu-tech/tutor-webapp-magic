@@ -3,17 +3,18 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     buttonsStyling: false,
     allowOutsideClick: false,
     heightAuto: false,
+    animation: false,
     reverseButtons: true,
     onBeforeOpen: () => {
-      $('html').css({height: '100vh'})
+      //$('html').css({height: '100vh'})
     }
   }
 
-  let cloneConstantStyle = function (commonStyle) {
+  let cloneConstantStyle = () => {
     let newStyle = {}
     let attr
-    for (attr in commonStyle) {
-      newStyle[attr] = commonStyle[attr]
+    for (attr in constantStyle) {
+      newStyle[attr] = constantStyle[attr]
     }
     return newStyle
   }
@@ -34,9 +35,9 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     confirmButtonClass = 'btn_iknow message_box_btn_style',
     cancelButtonClass = 'btn_iknow message_box_btn_style'
   } = {}) => {
-    let dialogStyle = cloneConstantStyle(constantStyle)
+    let dialogStyle = cloneConstantStyle()
     dialogStyle.width = width
-    dialogStyle.customClass = customClass
+    dialogStyle.customClass = `animated zoomInUp fast ${customClass}`
     dialogStyle.background = background
     dialogStyle.title = title ? `<span class="confirm-popup-title-font">${title}</span>` : ''
     dialogStyle.html = popupHtml
@@ -61,8 +62,51 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
       })
   }
 
+  let newTutorialStyle = () => {
+    let tutorialStyle = {}
+    let attr
+    for (attr in constantStyle) {
+      tutorialStyle[attr] = constantStyle[attr]
+    }
+    tutorialStyle.position = 'bottom'
+    tutorialStyle.customClass = 'animated slideInLeft fast tutorial_message_box row'
+    tutorialStyle.background = 'rgba(73, 173, 177, 0.9)'
+    tutorialStyle.width = '100%'
+    tutorialStyle.confirmButtonClass = 'btn_iknow tutorial_message_box_btn'
+    tutorialStyle.onBeforeOpen = () => {
+      $('.tutorial_message_box .swal2-header').remove()
+      $('.tutorial_message_box .swal2-content').addClass('col-9')
+      $('.tutorial_message_box .swal2-actions').addClass('col-3')
+    }
+    return tutorialStyle
+  }
+
+  confirmPopup.tutorialPrompt = (content, {
+    confirmFn = () => {},
+    onOpenFn = () => {},
+    confirmBtnText = '知道了',
+    timer = 0
+  } = {}) => {
+    let tutorialStyle = newTutorialStyle()
+    tutorialStyle.title = ''
+    tutorialStyle.html = `<p>${content}</p>`
+    tutorialStyle.confirmButtonText = confirmBtnText
+    tutorialStyle.onOpen = onOpenFn
+
+    if (timer > 0) {
+      tutorialStyle.timer = timer
+    }
+
+    return sweetAlert(tutorialStyle)
+      .then((result) => {
+        if (result.value && confirmFn) {
+          confirmFn()
+        }
+      })
+  }
+
   confirmPopup.awardIsZeroDialog = (title, content, awardIsZeroFun, buttonText) => {
-    let awardIsZeroDialogStyle = cloneConstantStyle(constantStyle)
+    let awardIsZeroDialogStyle = cloneConstantStyle()
     awardIsZeroDialogStyle.customClass = 'awards-are-zero-confirm-popup-modal'
     awardIsZeroDialogStyle.title = `<span class="awards-are-zero-title">${title}</span>`
     awardIsZeroDialogStyle.html = `<div style="font-weight: bolder">${content}</div>`
