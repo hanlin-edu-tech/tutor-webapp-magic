@@ -129,7 +129,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
           } else {
             dialogAttr = {
               confirmFn: afterOpen.bind(afterOpen, finalCoins, finalGems),
-              confirmBtnText: '太好了',
+              confirmBtnText: '太好了！',
               showCancelButton: false
             }
           }

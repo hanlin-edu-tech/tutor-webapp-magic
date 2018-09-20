@@ -1,5 +1,10 @@
 define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, confirmPopup, eventChestInspection) => {// eslint-disable-line
   let eventChestUpgrade = {}
+  let delay = millisecond => {
+    return new Promise(resolve => {
+      setTimeout(resolve, millisecond)
+    })
+  }
 
   eventChestUpgrade.composeLevelUpResult = jsonDataContent => {
     let result = jsonDataContent[0]
@@ -19,7 +24,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
     return result
   }
 
-  eventChestUpgrade.process = (chest) => {
+  eventChestUpgrade.process = (chest, targets) => {
     let upLevel = chest.level + 1
     let loadingTarget = $('#loading')
     loadingTarget.css('display', '')
@@ -43,13 +48,21 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
           return ajax('POST', `/currencyBank/chest/levelUp/${chest.id}`)
         }
       })
-      .then(jsonData => {
+      .then(async jsonData => {
         if (eventChestInspection(jsonData.message, jsonData.content)) {
           return
         }
 
-        let result = eventChestUpgrade.composeLevelUpResult(jsonData.content)
+        targets.platformChest.addClass('upgrade_animation')
+        await delay(3000)
 
+        targets.platformChest.attr('src',
+          `https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV${upLevel}.png`)
+
+        targets.platformChest.removeClass('upgrade_animation')
+        await delay(500)
+
+        let result = eventChestUpgrade.composeLevelUpResult(jsonData.content)
         confirmPopup.dialog(result.html,
           {
             confirmFn: () => {
@@ -66,7 +79,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
                 eventCountUp('gems', originalGems, finalGems)
               })
             },
-            cancelBtnText: '太棒了！',
+            confirmBtnText: '太棒了！',
             showCancelButton: false
           })
       })
@@ -103,7 +116,8 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], ($, ajax, con
         `
         confirmPopup.dialog(popupHtml,
           {
-            confirmFn: eventChestUpgrade.process.bind(eventChestUpgrade.process, chest)
+            confirmFn: eventChestUpgrade.process.bind(eventChestUpgrade.process, chest, targets),
+            confirmBtnText: '馬上升級',
           })
       })
   }

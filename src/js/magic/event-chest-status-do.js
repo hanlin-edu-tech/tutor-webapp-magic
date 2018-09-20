@@ -46,6 +46,7 @@ define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
       targets.openBtn.removeAttr('style')
       targets.platformChest.removeAttr('style')
       targets.platformChest.attr('data-status', 'READY')
+      targets.platformChest.addClass('finish_animation')
       // targets.platformChest.attr('src', `https://d220xxmclrx033.cloudfront.net/event-space/img/chest/readyChest${chest.level}.png`)
     }
   }

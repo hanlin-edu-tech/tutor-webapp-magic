@@ -338,9 +338,10 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
     /***** step 3 升級教學完成 *****/
     /* 3-4 了解升級成本 */
     let step3_4 = () => {
-      noviceTargets.upgradeBtn.css({display: 'none'})
       let popupHtml = `恭喜你升級成功了！想獲得越好的寶藏，就要越努力的升級魔法藥水哦！
       當然，<span class="highlight">每次升級魔法藥水都需要一定數量的資源 (e幣、寶石)</span>。`
+
+      noviceTargets.upgradeBtn.css({display: 'none'})
 
       confirmPopup.tutorialPrompt(popupHtml, {
         confirmFn: step4_1,
@@ -349,36 +350,49 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
 
     /* 3-3 成功升級 */
     let step3_3 = () => {
+      let delay = millisecond => {
+        return new Promise(resolve => {
+          setTimeout(resolve, millisecond)
+        })
+      }
+
       ajax('POST', `/chest/upgrade/${chestId}`, {user: user})
-        .then(jsonData => {
+        .then(async jsonData => {
             let upLevel = jsonData.content['upLevel']
-            platformTarget.find('img').attr('src',
-              `https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV${upLevel}.png`)
+            let potionTarget = platformTarget.find('img')
 
             // 更新寶箱目前等級
             noviceTargets.chestInstance.level = upLevel
 
-            setTimeout(() => {
-              let popupHtml = `<div class="confirm-grid-upgrade-container">
-                  <div class="image-block1">
-                      <img src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV2_box.png">
-                  </div>
-                  <div class="content-block1 confirm-popup-title-font">
-                      <span>升級成功</span>
-                  </div>
-                  <div class="content-block2">
-                    <p>恭喜你！成功升級至 <span class="highlight">Lv2 魔法藥水</span>，調配出厲害的寶藏的機率又提高了一點啦！</p>
-                  </div>
-                </div>
-              `
+            potionTarget.addClass('upgrade_animation')
+            await delay(3000)
 
-              confirmPopup.dialog(popupHtml,
-                {
-                  confirmFn: step3_4,
-                  confirmBtnText: '太棒了！',
-                  showCancelButton: false
-                })
-            }, 3000)
+            potionTarget.attr('src',
+              `https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV${upLevel}.png`)
+
+            potionTarget.removeClass('upgrade_animation')
+            await delay(500)
+
+            let popupHtml = `
+              <div class="confirm-grid-upgrade-container">
+                <div class="image-block1">
+                    <img src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV2_box.png">
+                </div>
+                <div class="content-block1 confirm-popup-title-font">
+                    <span>升級成功</span>
+                </div>
+                <div class="content-block2">
+                  <p>恭喜你！成功升級至 <span class="highlight">Lv2 魔法藥水</span>，調配出厲害的寶藏的機率又提高了一點啦！</p>
+                </div>
+              </div>
+            `
+
+            confirmPopup.dialog(popupHtml,
+              {
+                confirmFn: step3_4,
+                confirmBtnText: '太棒了！',
+                showCancelButton: false
+              })
           }
         )
     }
