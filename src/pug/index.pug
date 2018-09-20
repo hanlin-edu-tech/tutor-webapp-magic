@@ -73,7 +73,25 @@ html(lang="en")
         #section_middle_part
             .container-fluid
                 .row
-                    .col-3
+                    .col-3.gift_list
+                        .row.row_gift_pic
+                            .col-3.col-sm-4.col-lg-3.previous_btn
+                                img(src="./img/magicImg/previous.svg", alt="Responsive image")
+                            .col-6.col-sm-4.col-lg-6
+                                img.gift_photo(src="./img/magicImg/awards/award05.png", alt="Responsive image")
+                            .col-3.col-sm-4.col-lg-3.next_btn
+                                img(src="./img/magicImg/next.svg", alt="Responsive image")
+                        .row.row_gift_content
+                            .col-12
+                                .award_title 樂事雞汁洋芋片兌換券
+                            .col-7.award_stitle 所在等級：
+                            .col-5.award_scontnet
+                                .award_level D
+                            .col-5.award_stitle 庫存：
+                            .col-7.award_scontnet
+                                .award_stock 還有貨哦
+                            .col-12
+                                .award_note 1.本商品券僅限兌換一次<br>2.使用期限及說明請見得獎信件 
 
                     .col-6.potion_box
                         .row
@@ -231,6 +249,8 @@ html(lang="en")
 
         .function_description(style="display:none")
             .finish_novice_btn 完成教學
+            .explain_gift
+            .content_gift 這裡是這次的寶藏清單，<br>可能會有特別獎勵喔！<br>請隨時關注！
             .explain_cat
             .content_cat 魔法師不定時的重要公告、活動資訊請杜瑞絲貓夫人幫忙傳達，要多多照顧她喔!
             .explain_treasure

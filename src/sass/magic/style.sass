@@ -5,7 +5,7 @@
 
 *
     font-family: 微軟正黑體, monospace
-    //border: 1px solid #fff
+    //border: 0.5px solid #fff
 
 html, body
     width: 100%
@@ -141,6 +141,59 @@ button, a
     overflow: hidden
     .container-fluid
         .row
+            .gift_list
+                padding: 0 5%
+                z-index: 1000
+                background-image: url(../../img/magicImg/paper.png)
+                background-size: 72% auto
+                background-position: center 0
+                background-repeat: no-repeat
+                .row_gift_pic
+                    height: 29%
+                    .col-3
+                        cursor: pointer
+                        padding: 5px
+                        img
+                            width: 40%
+                    .previous_btn
+                        display: flex
+                        align-items: center
+                        justify-content: flex-end
+                    .next_btn
+                        display: flex
+                        align-items: center
+                        justify-content: flex-start
+                    .col-6
+                        +flexCenter
+                        align-items: center
+                        padding: 0px 1%
+                        .gift_photo
+                            width: 100%
+                            
+                .row_gift_content
+                    padding: 0 11% 0 13%
+                    text-align: center
+                    font-size: 15px
+                    color: #41210e
+                    .award_title
+                        padding: 2% 0
+                        font-weight: 700
+                    .col-12,.col-4,.col-5,.col-7
+                        padding: 0
+                    .award_stitle
+                        text-align: right
+                    .award_scontnet
+                        text-align: left
+                        .award_stock
+                            color: #ff1616
+                            text-shadow: 0px 0px 12px #fff8e8
+                    .award_note
+                        margin-top: 3%
+                        -webkit-transform-origin: right
+                        -webkit-transform: scale(0.9)
+                        text-align: left
+                        font-size: 12px
+
             .potion_box
                 background-image: url("../../img/magicImg/potion_box.png")
                 height: 400px
@@ -307,9 +360,9 @@ button, a
 #near_activity
     z-index: 1000
     position: absolute
-    bottom: 6%
+    bottom: 0%
     left: 7%
-    width: 12%
+    width: 11%
     height: auto
     .cat
         position: relative
@@ -384,18 +437,32 @@ button, a
         text-align: center
         text-shadow: 0 0 7px rgba(0, 0, 0, 0.50)
 
+    .explain_gift
+        position: fixed
+        bottom: 32%
+        left: 3%
+        width: 18%
+        height: 43%
+        border: 3px solid #fff
+    .content_gift
+        position: fixed
+        display: block
+        bottom: 55%
+        left: 22%
+        width: 17%
+
     .explain_cat
         position: fixed
-        bottom: 6%
+        bottom: 0%
         left: 6%
-        width: 14%
-        height: 30%
+        width: 13%
+        height: 28%
         border: 3px solid #fff
     .content_cat
         position: absolute
         display: block
-        bottom: 12%
-        left: 21%
+        bottom: 7%
+        left: 20%
         width: 16%
     .explain_treasure
         position: fixed
@@ -505,7 +572,40 @@ button, a
     
     #section_middle_part, #section_novice
         padding-top: 8%
-    
+        .container-fluid
+            .row
+                .gift_list
+                    padding: 0 2%
+                    background-size: 90% auto
+                    .row_gift_pic
+                        height: 30%
+                        .col-3
+                            cursor: pointer
+                            padding: 5px
+                            img
+                                width: 30%
+                        .previous_btn
+                            display: flex
+                            align-items: center
+                            justify-content: flex-end
+                        .next_btn
+                            display: flex
+                            align-items: center
+                            justify-content: flex-start
+                        .col-6
+                            +flexCenter
+                            align-items: center
+                            padding: 0px 1%
+                            .gift_photo
+                                width: 100%
+                                
+                    .row_gift_content
+                        font-size: 13px
+                        .award_note
+                            margin-right: 5%
+                            margin-top: 0%
+                            -webkit-transform: scale(0.85)
+
     #my_treasure
         width: 18%
         .book
@@ -525,6 +625,15 @@ button, a
                 line-height: 22px
 
     .function_description
+        .explain_gift
+            bottom: 38%
+            left: 1%
+            width: 22%
+            height: 35%
+        .content_gift
+            bottom: 60%
+            left: 25%
+            width: 25%
         .explain_cat
             width: 18%
             height: 26%
@@ -569,10 +678,8 @@ button, a
                                 .col-8
                                     .row
                                         .col-12
-                                            border: 1px solid #fff
                                             .user_name
                                                 transform: translateX(-5px)
-                                                border: 1px solid yellow
                                                 left: 0
                                                 padding: 0
                                                 -webkit-transform-origin: left
@@ -585,11 +692,47 @@ button, a
                                                         .col-12
                                                             height: 50%
 
-          
+     
     #section_middle_part, #section_novice
         padding-top: 0%
         .container-fluid
             .row
+                .gift_list
+                    padding: 0 2%
+                    background-size: 80% auto
+                    .row_gift_pic
+                        height: 15%
+                        .col-3
+                            cursor: pointer
+                            padding: 5px
+                            img
+                                width: 25%
+                        .previous_btn
+                            display: flex
+                            align-items: center
+                            justify-content: flex-end
+                        .next_btn
+                            display: flex
+                            align-items: center
+                            justify-content: flex-start
+                        .col-6
+                            +flexCenter
+                            align-items: center
+                            padding: 0px 1%
+                            .gift_photo
+                                width: 100%
+                                
+                    .row_gift_content
+                        font-size: 13px
+                        -webkit-transform: scale(0.7) 
+                        -webkit-transform-origin: top
+                        .award_note
+                            padding-left: 10%
+                            margin-top: 0%
+                            -webkit-transform: scale(0.7)  
+                            -webkit-transform-origin: left
+                            white-space: nowrap
+
                 .menu
                     display: flex
                     flex-direction: column
@@ -614,11 +757,13 @@ button, a
                 font-size: 12px
                 padding: 6px
     #near_activity
+        left: 9%
+        width: 13%
         .cat
             .cat_title
-                top: 56%
-                right: 12%
-                font-size: 14px
+                top: 53%
+                right: 10%
+                font-size: 13px
                 line-height: 17px
 
     #login_dialog
@@ -634,12 +779,19 @@ button, a
             border: 3px solid #EFD08D
             font-size: 20px
             letter-spacing: 2px
-
+        .explain_gift
+            bottom: 32%
+            left: 1%
+            width: 22%
+            height: 41%
+        .content_gift
+            bottom: 57%
         .explain_cat
-            width: 18%
-            height: 35%
+            width: 16%
+            height: 29%
+            left: 8%
         .content_cat
-            bottom: 8%
+            bottom: 7%
             width: 23%
             left: 26%
         .explain_treasure
@@ -654,3 +806,33 @@ button, a
         .content_person_info
             top: 3%
             right: 36%
+
+
+//- 動畫class -//
+.upgrade_animation
+    animation: upgrade 1.5s infinite
+    
+.finish_animation
+    animation: finish 1.5s infinite
+
+
+//- keyframes -//
+
+@keyframes finish
+    0%
+        filter: drop-shadow(0px 0px 5px rgba(#fff, 0.8))
+    50%
+        filter: drop-shadow(0px 0px 8px rgba(#fff, 1))
+    100%
+        filter: drop-shadow(0px 0px 5px rgba(#fff, 0.8))
+    
+@keyframes upgrade
+    0%
+        filter: blur(0px) brightness(1)
+    30%
+        filter: blur(0px) brightness(1.2)
+    60%
+        filter: blur(0px) brightness(1)
+    100%
+        filter: blur(16px) brightness(2.5)
+        opacity: 1
