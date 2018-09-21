@@ -73,9 +73,9 @@ button, a {
           height: 100%;
           margin: 0; }
           #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-name {
-            height: 45%; }
+            height: 50%; }
           #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-coins {
-            height: 55%; }
+            height: 53%; }
           #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 {
             padding: 0;
             display: flex;
@@ -137,11 +137,11 @@ button, a {
     padding: 0 5%;
     z-index: 1000;
     background-image: url(../../img/magicImg/paper.png);
-    background-size: 72% auto;
+    background-size: 85% auto;
     background-position: center 0;
     background-repeat: no-repeat; }
     #section_middle_part .container-fluid .row .gift_list .row_gift_pic, #section_novice .container-fluid .row .gift_list .row_gift_pic {
-      height: 29%; }
+      height: 35%; }
       #section_middle_part .container-fluid .row .gift_list .row_gift_pic .col-3, #section_novice .container-fluid .row .gift_list .row_gift_pic .col-3 {
         cursor: pointer;
         padding: 5px; }
@@ -164,14 +164,14 @@ button, a {
         #section_middle_part .container-fluid .row .gift_list .row_gift_pic .col-6 .gift_photo, #section_novice .container-fluid .row .gift_list .row_gift_pic .col-6 .gift_photo {
           width: 100%; }
     #section_middle_part .container-fluid .row .gift_list .row_gift_content, #section_novice .container-fluid .row .gift_list .row_gift_content {
-      padding: 0 11% 0 13%;
+      padding: 0 10%;
       text-align: center;
       font-size: 15px;
       color: #41210e; }
       #section_middle_part .container-fluid .row .gift_list .row_gift_content .award_title, #section_novice .container-fluid .row .gift_list .row_gift_content .award_title {
         padding: 2% 0;
         font-weight: 700; }
-      #section_middle_part .container-fluid .row .gift_list .row_gift_content .col-12, #section_middle_part .container-fluid .row .gift_list .row_gift_content .col-4, #section_middle_part .container-fluid .row .gift_list .row_gift_content .col-5, #section_middle_part .container-fluid .row .gift_list .row_gift_content .col-7, #section_novice .container-fluid .row .gift_list .row_gift_content .col-12, #section_novice .container-fluid .row .gift_list .row_gift_content .col-4, #section_novice .container-fluid .row .gift_list .row_gift_content .col-5, #section_novice .container-fluid .row .gift_list .row_gift_content .col-7 {
+      #section_middle_part .container-fluid .row .gift_list .row_gift_content .col-12, #section_middle_part .container-fluid .row .gift_list .row_gift_content .col-4, #section_middle_part .container-fluid .row .gift_list .row_gift_content .col-6, #section_middle_part .container-fluid .row .gift_list .row_gift_content .col-8, #section_novice .container-fluid .row .gift_list .row_gift_content .col-12, #section_novice .container-fluid .row .gift_list .row_gift_content .col-4, #section_novice .container-fluid .row .gift_list .row_gift_content .col-6, #section_novice .container-fluid .row .gift_list .row_gift_content .col-8 {
         padding: 0; }
       #section_middle_part .container-fluid .row .gift_list .row_gift_content .award_stitle, #section_novice .container-fluid .row .gift_list .row_gift_content .award_stitle {
         text-align: right; }
@@ -181,9 +181,8 @@ button, a {
           color: #ff1616;
           text-shadow: 0px 0px 12px #fff8e8; }
       #section_middle_part .container-fluid .row .gift_list .row_gift_content .award_note, #section_novice .container-fluid .row .gift_list .row_gift_content .award_note {
+        padding-left: 5%;
         margin-top: 3%;
-        -webkit-transform-origin: right;
-        -webkit-transform: scale(0.9);
         text-align: left;
         font-size: 12px; }
   #section_middle_part .container-fluid .row .potion_box, #section_novice .container-fluid .row .potion_box {
@@ -732,7 +731,7 @@ button, a {
     padding-top: 0%; }
     #section_middle_part .container-fluid .row .gift_list, #section_novice .container-fluid .row .gift_list {
       padding: 0 2%;
-      background-size: 80% auto; }
+      background-size: 88% auto; }
       #section_middle_part .container-fluid .row .gift_list .row_gift_pic, #section_novice .container-fluid .row .gift_list .row_gift_pic {
         height: 15%; }
         #section_middle_part .container-fluid .row .gift_list .row_gift_pic .col-3, #section_novice .container-fluid .row .gift_list .row_gift_pic .col-3 {

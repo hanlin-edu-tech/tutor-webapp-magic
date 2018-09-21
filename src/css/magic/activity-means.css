@@ -1,0 +1,62 @@
+html {
+  width: 100%; }
+
+body {
+  background-image: url("../../img/magicImg/activityMeans/background.png");
+  background-size: contain; }
+
+* {
+  border: .5px solid #000;
+  letter-spacing: 1px;
+  color: #422700;
+  font-size: 14px; }
+
+section#section_title .container-fluid .row .col-12 .title {
+  border-radius: 22px;
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  margin: 0;
+  margin: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 5px 0px; }
+
+section#section_title .container-fluid .row .col-12 p {
+  font-size: 12px;
+  line-height: 18px; }
+
+section#section_title .container-fluid .row .col-12 .title_content {
+  font-size: 15px;
+  margin-bottom: 15px; }
+
+section#section_part1 .container-fluid .row .col-12 {
+  padding-bottom: 15px; }
+
+section#section_part2 .container-fluid .row .stitle {
+  margin-bottom: 15px; }
+
+section#section_part2 .container-fluid .row .upgrade_content {
+  padding: 0px 35px; }
+
+section#section_part2 .container-fluid .row .col-4 .row .col-12 {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  section#section_part2 .container-fluid .row .col-4 .row .col-12 img {
+    width: 90%;
+    height: auto; }
+  section#section_part2 .container-fluid .row .col-4 .row .col-12 .potion_time {
+    border-radius: 15px;
+    border: 2px solid #422700;
+    padding: 2px 12px;
+    margin: 5px 0px;
+    background-color: #fff; }
+
+section#section_part2 .container-fluid .row .col-tac {
+  text-align: center; }
+
+section#section_part3 .container-fluid .row .col-12 .stitle {
+  margin-bottom: 15px; }
+
+section#section_part3 .container-fluid .row .col-12 p {
+  font-size: 12px; }
