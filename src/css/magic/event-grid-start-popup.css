@@ -70,7 +70,7 @@
 
 .confirm-grid-start-container .img-block-left-btn .left-btn,
 .confirm-grid-start-container .img-block-right-btn .right-btn {
-  width: 60px;
+  width: 30px;
 }
 
 .confirm-grid-start-container img[class^=img-award].zero-quantity {
@@ -86,8 +86,9 @@
 
 .confirm-grid-start-container .award-zero {
   position: absolute;
-  left: 20px;
-  top: 20px;
+  left: 0;
+  top: 0;
+  width: 150px;
 }
 
 @media screen and (max-width: 900px) {
