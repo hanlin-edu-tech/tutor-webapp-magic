@@ -68,14 +68,14 @@ require(['jquery', 'ajax'], () => {
   require(['bluebird'], function (Promise) {
     window.Promise = Promise
   })
-  //require(['eventTutorialInit'])
-  //require(['eventClickLink'])
-  // require(['eventSlideShow'])
-  // require(['eventUserStatus'])
-  // require(['eventTotalAssets'])
-  // require(['eventAwardGet'], (eventAwardGet) => {
-  //   eventAwardGet()
-  // })
+  // require(['eventTutorialInit'])
+  require(['eventClickLink'])
+  require(['eventSlideShow'])
+  require(['eventUserStatus'])
+  require(['eventTotalAssets'])
+  require(['eventAwardGet'], (eventAwardGet) => {
+    eventAwardGet()
+  })
 
-  // require(['eventBonusPopup'])
+  require(['eventBonusPopup'])
 })

@@ -21,7 +21,7 @@ define(['jquery', 'ajax', 'eventChestBtnOn'], ($, ajax, eventChestBtnOn) => {// 
             startBtn: chestRelativeOperation.find('.mix_btn'),
             upgradeBtn: chestRelativeOperation.find('.upgrade_btn'),
             openBtn: chestRelativeOperation.find('.mix_finish'),
-            readyNowBtn: chestRelativeOperation.find('.now_finish'),
+            readyNowBtn: chestRelativeOperation.find('.now_finish')
           }
 
           targets.chestInstance = chest
