@@ -70,12 +70,12 @@ require(['jquery', 'ajax'], () => {
   })
   require(['eventTutorialInit'])
   require(['eventClickLink'])
-  // require(['eventSlideShow'])
-  // require(['eventUserStatus'])
-  // require(['eventTotalAssets'])
-  // require(['eventAwardGet'], (eventAwardGet) => {
-  //   eventAwardGet()
-  // })
+  require(['eventSlideShow'])
+  require(['eventUserStatus'])
+  require(['eventTotalAssets'])
+  require(['eventAwardGet'], (eventAwardGet) => {
+    eventAwardGet()
+  })
 
   // require(['eventBonusPopup'])
 })
