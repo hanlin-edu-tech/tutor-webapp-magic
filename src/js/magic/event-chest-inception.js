@@ -12,10 +12,10 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
               <p>目前藥水等級為 <span class="highlight">Lv${chest.level}</span>，成功調配此魔法藥水可能獲得</p>
             </div>
             <div class="img-block-left-btn">
-              <img class="left-btn" src="./img/magicImg/previous.png">
+              <img class="left-btn" src="./img/magicImg/previous.svg">
             </div>
             <div class="img-block-right-btn">
-              <img class="right-btn" src="./img/magicImg/next.png">
+              <img class="right-btn" src="./img/magicImg/next.svg">
             </div>
             <div class="content-block4">
               <p>你確定要啟動這個藥水嗎？</p>
@@ -37,6 +37,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
         width: '85%',
         confirmButtonClass: 'btn message_box_btn_style',
         cancelButtonClass: 'btn message_box_btn_style',
+        showCancelButton: !targets.chestInstance['isNovice'],
         confirmFn: () => {
           let statusInfo = {
             status: 'UNLOCKING'
@@ -92,7 +93,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
               awardIndex = 0
               for (let awardId in awardsQuantity) {
                 let awardImage = `<div class="start-show-award">
-                  <img class="img-award${awardIndex}" data-award-id="${awardId}" src="./img/magicImg/award/${awardId}.png">
+                  <img class="img-award${awardIndex}" data-award-id="${awardId}" src="./img/award/${awardId}.png">
                 </div>
               `
 

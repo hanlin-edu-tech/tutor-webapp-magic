@@ -814,7 +814,8 @@ button, a {
       position: fixed;
       border: 3px solid #EFD08D;
       font-size: 20px;
-      letter-spacing: 2px; }
+      letter-spacing: 2px;
+      cursor: pointer; }
     .function_description .explain_gift {
       bottom: 32%;
       left: 1%;
@@ -918,7 +919,7 @@ button, a {
       -webkit-transform: scale(0.9); } }
 
 .upgrade_animation {
-  animation: upgrade 1.5s alternate; }
+  animation: upgrade 2s alternate; }
 
 .finish_animation {
   animation: finish 1.5s infinite; }
