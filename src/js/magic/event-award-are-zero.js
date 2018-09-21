@@ -9,9 +9,9 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {// eslint-disable-line
       resultBlocks += `
         <div>
           Lv ${resultInfo.chestLevel} 藥水獲得
-          <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
+          <img class="coins-img" src="./img/magicImg/coin.svg">
           <span>${resultInfo.coins}</span>
-          <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
+          <img class="gems-img" src="./img/magicImg/gem.svg">
           <span>${resultInfo.gems}</span>
         </div>
       `
@@ -22,14 +22,14 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {// eslint-disable-line
     }
 
     let isAwardsAreZero = false
-    if (message === 'All awards are zero') {
+    if (message === 'All award are zero') {
       let popupHtml = `
           <div class="awards-are-zero-grid-container">
             ${resultBlocks}
             <div class="result-summary-block">
                 總計 
-                <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg"> ${totalCoins} 
-                <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg"> ${totalGems}
+                <img class="coins-img" src="./img/magicImg/coin.svg"> ${totalCoins} 
+                <img class="gems-img" src="./img/magicImg/gem.svg"> ${totalGems}
                 <br/>
                 請至雲端銀行確認，您的資產未來活動中仍可繼續使用
             </div>

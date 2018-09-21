@@ -12,7 +12,7 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero'], ($, ajax, w3, eventAwardAr
         for (awardId in awards) {
           let value = awards[awardId]
           let awardBlock = $(`.award-box li:eq(${index})`)
-          let awardImg = `<img src='https://d220xxmclrx033.cloudfront.net/event-space/img/award/${awardId}.png' />`
+          let awardImg = `<img src='./img/magicImg/award/${awardId}.png' />`
           awardBlock.append(awardImg)
           awardBlock.append(`<span class="awardSum">${value}</span>`)
           index++

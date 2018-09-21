@@ -2,10 +2,10 @@ define(['jquery'], $ => {// eslint-disable-line
   return (chest, targets) => {
     /* requireJs進來，click後綁定自己將參數(chest, targets)傳入 */
     /* 啟動按鈕 */
-    require(['eventChestStart'], eventChestStart => {
+    require(['eventChestInception'], eventChestInception => {
       targets.startBtn.off('click')
       targets.startBtn.on('click', () => {
-        eventChestStart(chest, targets)
+        eventChestInception(chest, targets)
       })
     })
 

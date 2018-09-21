@@ -12,7 +12,7 @@
         <link href="./css/lib/animate.min.css" rel="stylesheet">
         <link href="./css/lib/sweetalert2.min.css" rel="stylesheet"><!-- build:css -->
         <link href="./css/magic/style.css" rel="stylesheet">
-        <link href="./css/magic/event-main.css" rel="stylesheet">
+        <!--link(href="./css/magic/event-main.css" rel="stylesheet")-->
         <link href="./css/magic/event-chest.css" rel="stylesheet">
         <link href="./css/magic/event-award.css" rel="stylesheet">
         <link href="./css/magic/event-confirm-popup.css" rel="stylesheet">
@@ -35,7 +35,7 @@
                     <div class="col-4 col-xs-4 col-sm-4 col-lg-6 title"><img src="./img/magicImg/title.png"></div>
                     <div class="col-4 col-xs-4 col-sm-4 col-lg-3 person_info">
                         <div class="row person_bg">
-                            <div class="col-4"><img src="./img/magicImg/badge_rabbit.png" alt="Responsive image"></div>
+                            <div class="col-4"><img src="./img/magicImg/badge_rabbit.png"></div>
                             <div class="col-8">
                                 <div class="row">
                                     <div class="col-8">
@@ -76,13 +76,13 @@
                 </div>
             </div>
         </div>
-        <div id="section_middle_part">
+        <div id="section_middle_part" style="display:none">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-3 gift_list">
                         <div class="row row_gift_pic">
                             <div class="col-3 col-sm-4 col-lg-3 previous_btn"><img src="./img/magicImg/previous.svg" alt="Responsive image"></div>
-                            <div class="col-6 col-sm-4 col-lg-6"><img class="gift_photo" src="./img/magicImg/awards/award05.png" alt="Responsive image"></div>
+                            <div class="col-6 col-sm-4 col-lg-6"><img class="gift_photo" src="./img/magicImg/awards/award05.png"></div>
                             <div class="col-3 col-sm-4 col-lg-3 next_btn"><img src="./img/magicImg/next.svg" alt="Responsive image"></div>
                         </div>
                         <div class="row row_gift_content">
@@ -159,8 +159,6 @@
                                 </div>
                                 <div class="col now_finish" style="display:none"><img src="./img/magicImg/now_finish_btn.png"></div>
                                 <div class="col mix_finish" style="display:none"><img src="./img/magicImg/mix_finish_btn.png"></div>
-                                <div class="col"></div>
-                                <div class="col"></div>
                             </div>
                         </div>
                     </div>
@@ -210,12 +208,12 @@
             </div>
         </div>
         <div id="near_activity">
-            <div class="cat"><img src="./img/magicImg/cat.png" alt="Responsive image">
+            <div class="cat"><img src="./img/magicImg/cat.png">
                 <div class="cat_title">近期<br>活動</div>
             </div>
         </div>
         <div id="my_treasure">
-            <div class="book"><img src="./img/magicImg/book.png" alt="Responsive image">
+            <div class="book"><img src="./img/magicImg/book.png">
                 <div class="book_title">我的<br>寶藏</div>
             </div>
         </div>
@@ -248,13 +246,12 @@
                 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.4 0.2 0 1 0"></feColorMatrix>
             </filter>
         </svg>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <!--script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")-->
+        <!--script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous")-->
+        <!--script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous")-->
         <!--script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js")-->
         <script data-main="./js/magic/main" src="./js/lib/require.js"></script>
         <script data-main="./js/galaxy-space/main" src="./js/lib/require.js"></script>
         <script src="./js/index.js"></script>
-        <script src="./js/lib/jquery-time-countdown.min.js"></script>
     </body>
 </html>

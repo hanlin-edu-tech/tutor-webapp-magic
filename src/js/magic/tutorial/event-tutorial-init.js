@@ -34,23 +34,35 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
      */
     let comebackExecFunction = progressiveStep => {
       switch (progressiveStep) {
-        case '2': {
+        case '2_1': {
           step2_1()
           break
         }
-        case '3': {
+        case '3_1': {
           step3_1()
           break
         }
-        case '4': {
+        case '3_4': {
+          step3_4()
+          break
+        }
+        case '4_1': {
           step4_1()
           break
         }
-        case '5': {
+        case '4_4': {
+          step4_4()
+          break
+        }
+        case '4_5': {
+          step4_5()
+          break
+        }
+        case '5_1': {
           step5_1()
           break
         }
-        case '6': {
+        case '6_1': {
           step6_1()
           break
         }
@@ -65,18 +77,21 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
       ajax('GET', `/chest/?isNoviceExisted=true`)
         .then((jsonData) => {
           let chests = jsonData.content
-          let chest = chests[0]
+
 
           $('#section_middle_part .potion img, #section_novice .potion img').remove()
 
-          chestId = chest.id
-          user = chest.user
-          noviceTargets.chestInstance = chest
-          noviceTargets.platform
-            .append(`<img src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV${chest.level}.png" 
+          if(chests.length > 0) {
+            let chest = chests[0]
+            chestId = chest.id
+            user = chest.user
+            noviceTargets.chestInstance = chest
+            noviceTargets.platform
+              .append(`<img src="./img/magicImg/LV${chest.level}.png" 
                         data-chest-tutorial-id="${chestId}">`)
 
-          noviceTargets.platformChest = greenTarget.find(`.potion.platform-${chest.colorPlatform} img`)
+            noviceTargets.platformChest = greenTarget.find(`.potion.platform-${chest.colorPlatform} img`)
+          }
 
           comebackExecFunction(progressiveStep)
           exitRemind()
@@ -87,15 +102,15 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
     /* 6_1 功能介紹 */
     let step6_1 = () => {
       let functionDescTarget = $('.function_description')
-      let progressiveStep = 6
+      let progressiveStep = '6_1'
       saveCookie(progressiveStep)
 
       functionDescTarget.removeAttr('style')
       functionDescTarget.find('.finish_novice_btn').one('click', () => {
-        functionDescTarget.fadeOut()
         ajax('PATCH', `/chest/novice/`, {
           progressiveStep: 'completed'
         })
+        functionDescTarget.fadeOut()
         require(['eventGameBegin'])
       })
     }
@@ -103,7 +118,8 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
     /***** step 5 選擇學院完成 *****/
     /* 5_2 正式成為魔藥學學員 */
     let step5_2 = () => {
-      let popupHtml = `<p>每一個人都需要為學院盡一份心力！
+      let popupHtml = `
+        <p class="left-align">每一個人都需要為學院盡一份心力！
           未來將會有許多團體戰需要你們一起完成喔～
           <span class="highlight">最後最後，我們來了解其他重要的功能吧～！</span>
         </p>
@@ -172,7 +188,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
 
       let academyName = ''
       let badge = ''
-      let progressiveStep = 5
+      let progressiveStep = '5_1'
       saveCookie(progressiveStep)
 
       confirmPopup.dialog(popupHtml,
@@ -247,20 +263,25 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
 
     /* 4-4 完成調配 */
     let step4_4 = () => {
-      let popupHtml = `太好了！現在可以打開藥水看看調配出什麼東西囉！
+      let popupHtml = `
+        太好了！現在可以打開藥水看看調配出什麼東西囉！
         點選<span class="highlight">「調配完成」</span>確認結果吧！～
       `
 
       /* 開啟藥水 */
       require(['eventChestOpen'], eventChestOpen => {
+        noviceTargets.openBtn.addClass('press_animation')
         noviceTargets.openBtn.off('click')
         noviceTargets.openBtn.one('click', event => {
           let currentTarget = event.currentTarget
           let allowSamePlatformReOpen
+
           event.preventDefault()
 
           allowSamePlatformReOpen = (new Date().getTime() - $(currentTarget).attr('data-lockedAt') > 5000)
           if (!$(currentTarget).attr('data-lockedAt') || allowSamePlatformReOpen) {
+            let progressiveStep = '4_5'
+            saveCookie(progressiveStep)
             eventChestOpen(noviceTargets.chestInstance, noviceTargets, step4_5)
           }
 
@@ -274,12 +295,15 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
 
     /* 4-3-2 成功調配藥水 */
     let step4_3_2 = () => {
+      let progressiveStep = '4_4'
+      saveCookie(progressiveStep)
+
       ajax('PATCH', `/chest/open/immediately/${chestId}`, {
         spendGems: 0
       })
         .then(() => {
             let seconds = 0
-            /* 倒數計時秒數設定為 1，讓藥水變成 ready 狀態 */
+            /* 倒數計時秒數設定為 0，讓藥水變成 ready 狀態 */
             require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
               let noviceObj = {
                 isNovice: true,
@@ -298,8 +322,9 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         為了可以盡快教會你，就再給你一次免費的機會吧！
         馬上點選按鈕試試看～`
 
-      noviceTargets.readyNowBtn.removeAttr('style')
       noviceTargets.startBtn.css('display', 'none')
+      noviceTargets.readyNowBtn.removeAttr('style')
+      noviceTargets.readyNowBtn.addClass('press_animation')
       noviceTargets.readyNowBtn.one('click', step4_3_2)
 
       confirmPopup.tutorialPrompt(popupHtml)
@@ -309,11 +334,12 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
     let step4_2 = () => {
       let popupHtml = `現在，點選<span class="highlight">「調配」</span>來烹煮藥水吧！`
 
-      noviceTargets.startBtn.css({display: '', left: '27%'})
-      require(['eventChestStart'], eventChestStart => {
+      require(['eventChestInception'], eventChestInception => {
+        noviceTargets.startBtn.css({display: '', left: '27%'})
+        noviceTargets.startBtn.addClass('press_animation')
         noviceTargets.startBtn.off('click')
         noviceTargets.startBtn.one('click',
-          eventChestStart.bind(eventChestStart, noviceTargets.chestInstance, noviceTargets, step4_3))
+          eventChestInception.bind(eventChestInception, noviceTargets.chestInstance, noviceTargets, step4_3))
       })
 
       confirmPopup.tutorialPrompt(popupHtml)
@@ -325,7 +351,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         學會升級還不夠喔！
         你必須學會<span class="highlight">「調配藥水」</span>才能成為真正的魔法師。
       `
-      let progressiveStep = 4
+      let progressiveStep = '4_1'
       saveCookie(progressiveStep)
 
       confirmPopup.tutorialPrompt(popupHtml, {
@@ -356,6 +382,10 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         })
       }
 
+      /* 如果升級過程離開，就直接跳到 3_4 */
+      let progressiveStep = '3_4'
+      saveCookie(progressiveStep)
+
       ajax('POST', `/chest/upgrade/${chestId}`, {user: user})
         .then(async jsonData => {
             let upLevel = jsonData.content['upLevel']
@@ -365,10 +395,10 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
             noviceTargets.chestInstance.level = upLevel
 
             potionTarget.addClass('upgrade_animation')
-            await delay(3000)
+            await delay(2000)
 
             potionTarget.attr('src',
-              `https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV${upLevel}.png`)
+              `./img/magicImg/LV${upLevel}.png`)
 
             potionTarget.removeClass('upgrade_animation')
             await delay(500)
@@ -376,7 +406,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
             let popupHtml = `
               <div class="confirm-grid-upgrade-container">
                 <div class="image-block1">
-                    <img src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV2_box.png">
+                    <img src="./img/magicImg/LV2_box.png">
                 </div>
                 <div class="content-block1 confirm-popup-title-font">
                     <span>升級成功</span>
@@ -400,12 +430,13 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
     /* 3-2 確認升級 */
     let step3_2 = () => {
       noviceTargets.upgradeBtn.css({display: '', left: '27%'})
+      noviceTargets.upgradeBtn.addClass('press_animation')
       noviceTargets.upgradeBtn.off('click')
       noviceTargets.upgradeBtn.one('click', () => {
         let popupHtml = `
           <div class="confirm-grid-upgrade-container">
             <div class="image-block1">
-              <img class="image-silhouette" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV2.png">
+              <img class="image-silhouette" src="./img/magicImg/LV2.png">
             </div>
             <div class="content-block1 confirm-popup-title-font">
               <span>藥水升級</span>
@@ -438,7 +469,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         首先，我們先來學習<span class="highlight">「如何升級」</span>吧！
         第一次升級是免費的唷，快來試試看～
       `
-      let progressiveStep = 3
+      let progressiveStep = '3_1'
       saveCookie(progressiveStep)
 
       confirmPopup.tutorialPrompt(popupHtml, {
@@ -477,7 +508,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
       let popupHtml = `太好了！你獲得了 1 個 Lv1 魔法藥水。未來當你獲得藥水時，就會幫你存放在這裡喔！
                  <span class="highlight">基本上，1 次所能擁有的藥水數量上限是 4 個，超過的話是沒辦法再放進來的！</span>
                  因此，定時回來調配藥水是很重要的！`
-      let progressiveStep = 2
+      let progressiveStep = '2_1'
       saveCookie(progressiveStep)
 
       confirmPopup.tutorialPrompt(popupHtml, {
@@ -489,7 +520,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
     /***** step 1 初次進入新手教學 *****/
     /* 1_1 發放寶箱 */
     let step1_1 = () => {
-      let popupHtml, progressiveStep = 1
+      let popupHtml, progressiveStep = '1_1'
       saveCookie(progressiveStep)
 
       popupHtml = `
@@ -498,7 +529,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
           初次見面你好 這學期我們要學習<span class="highlight">奇幻魔藥學哦！</span>
           準備好了嗎？首先就讓我送你一個<span class="highlight"> Lv1 魔法藥水 </span>當作見面禮吧！
         </p>
-        <img src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/magicImg/LV1.png">
+        <img src="./img/magicImg/LV1.png">
       `
 
       confirmPopup.dialog(popupHtml,

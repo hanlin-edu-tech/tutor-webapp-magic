@@ -107,7 +107,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
 
   confirmPopup.awardIsZeroDialog = (title, content, awardIsZeroFun, buttonText) => {
     let awardIsZeroDialogStyle = cloneConstantStyle()
-    awardIsZeroDialogStyle.customClass = 'awards-are-zero-confirm-popup-modal'
+    awardIsZeroDialogStyle.customClass = 'award-are-zero-confirm-popup-modal'
     awardIsZeroDialogStyle.title = `<span class="awards-are-zero-title">${title}</span>`
     awardIsZeroDialogStyle.html = `<div style="font-weight: bolder">${content}</div>`
     awardIsZeroDialogStyle.confirmButtonText = buttonText || '好的'
@@ -122,11 +122,11 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
       )
       for (let index = 1; index < 31; index++) {
         $('.shining-block .shining-coins')
-          .append(`<img class="coins${index}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/coinGif.gif">`)
+          .append(`<img class="coins${index}" src="./img/magicImg/coinGif.gif">`)
       }
       for (let index = 1; index < 21; index++) {
         $('.shining-block .shining-gems')
-          .append(`<img class="gems${index}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/gemGif.gif">`)
+          .append(`<img class="gems${index}" src="./img/magicImg/gemGif.gif">`)
       }
     }
 

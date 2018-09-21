@@ -1,5 +1,5 @@
-define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], // eslint-disable-line
-  ($, ajax, confirmPopup, eventChestInspection) => {
+define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], // eslint-disable-line
+  ($, ajax, confirmPopup, eventChestCheck) => {
     let eventChestOpenImmediately = {}
     eventChestOpenImmediately.process = (chest, targets, spendGems) => {
       ajax('GET', `/chest/checkBalance?gems=${spendGems}`)
@@ -18,7 +18,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection'], // eslint-dis
           }
         })
         .then(jsonData => {
-          if (eventChestInspection(jsonData.message, jsonData.content)) {
+          if (eventChestCheck(jsonData.message, jsonData.content)) {
             return
           }
 

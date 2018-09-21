@@ -15,7 +15,7 @@ html(lang="en")
         link(href="./css/lib/sweetalert2.min.css" rel="stylesheet")
         <!-- build:css -->
         link(href="./css/magic/style.css" rel="stylesheet")
-        link(href="./css/magic/event-main.css" rel="stylesheet")
+        //link(href="./css/magic/event-main.css" rel="stylesheet")
         link(href="./css/magic/event-chest.css" rel="stylesheet")
         link(href="./css/magic/event-award.css" rel="stylesheet")
         link(href="./css/magic/event-confirm-popup.css" rel="stylesheet")
@@ -27,7 +27,7 @@ html(lang="en")
         link(href="./css/magic/event-loading.css" rel="stylesheet")
         link(href="./css/magic/event-bonus-popup.css" rel="stylesheet")
         link(href="./css/magic/event-drop-down.css" rel="stylesheet")
-        link(href="./css/magic/event-awards-are-zero.css" rel="stylesheet")
+        link(href="./css/magic/event-award-are-zero.css" rel="stylesheet")
         <!-- endbuild -->
         title 雲端奇幻魔藥學
     body
@@ -42,7 +42,7 @@ html(lang="en")
                     .col-4.col-xs-4.col-sm-4.col-lg-3.person_info
                         .row.person_bg
                             .col-4
-                                img(src="./img/magicImg/badge_rabbit.png",alt="Responsive image")
+                                img(src="./img/magicImg/badge_rabbit.png")
                             .col-8
                                 .row
                                     .col-8
@@ -69,7 +69,7 @@ html(lang="en")
                                             .col-12.col-login(style="display:none")
                                                 img.login(src="./img/magicImg/login.png")
 
-        #section_middle_part
+        #section_middle_part(style="display:none")
             .container-fluid
                 .row
                     .col-3.gift_list
@@ -77,7 +77,7 @@ html(lang="en")
                             .col-3.col-sm-4.col-lg-3.previous_btn
                                 img(src="./img/magicImg/previous.svg", alt="Responsive image")
                             .col-6.col-sm-4.col-lg-6
-                                img.gift_photo(src="./img/magicImg/awards/award05.png", alt="Responsive image")
+                                img.gift_photo(src="./img/magicImg/award/award05.png")
                             .col-3.col-sm-4.col-lg-3.next_btn
                                 img(src="./img/magicImg/next.svg", alt="Responsive image")
                         .row.row_gift_content
@@ -98,7 +98,6 @@ html(lang="en")
                                 .col.potion_colum
                                     img(src="./img/magicImg/potion_colum.png")
                                     .potion.platform-GREEN
-                                        //- img(src="./img/magicImg/LV1.png")
                                     .count_time
 
                                 .col.mix_upgrade
@@ -119,7 +118,6 @@ html(lang="en")
                                 .col.potion_colum
                                     img(src="./img/magicImg/potion_colum.png")
                                     .potion.platform-RED
-                                        //- img(src="./img/magicImg/LV1.png")
                                     .count_time
 
                                 .col.mix_upgrade
@@ -139,7 +137,6 @@ html(lang="en")
                                 .col.potion_colum
                                     img(src="./img/magicImg/potion_colum.png")
                                     .potion.platform-BROWN
-                                        //- img(src="./img/magicImg/LV1.png")
                                     .count_time
 
                                 .col.mix_upgrade
@@ -154,6 +151,7 @@ html(lang="en")
 
                                 .col.mix_finish(style="display:none")
                                     img(src="./img/magicImg/mix_finish_btn.png")
+
                             .col-3.PINK
                                 .col.potion_colum
                                     img(src="./img/magicImg/potion_colum.png")
@@ -174,10 +172,6 @@ html(lang="en")
                                 .col.mix_finish(style="display:none")
                                     img(src="./img/magicImg/mix_finish_btn.png")
 
-                                .col
-
-                                .col
-                        
                     .col-3.menu
                         a(href="https://www.ehanlin.com.tw/my/owned/Courses.html")
                             img(src="./img/magicImg/menu_btn01.png", alt="Responsive image")
@@ -238,12 +232,12 @@ html(lang="en")
 
         #near_activity
             .cat
-                img(src="./img/magicImg/cat.png", alt="Responsive image")
+                img(src="./img/magicImg/cat.png")
                 .cat_title 近期<br>活動
         
         #my_treasure
             .book
-                img(src="./img/magicImg/book.png", alt="Responsive image")
+                img(src="./img/magicImg/book.png")
                 .book_title 我的<br>寶藏
 
         .function_description(style="display:none")
@@ -278,13 +272,10 @@ html(lang="en")
             filter(id="silhouette")
                 feColorMatrix(type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.4 0.2 0 1 0")
 
-        script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous")
-        script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous")
+        //script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
+        //script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous")
+        //script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous")
         //script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js")
         script(data-main="./js/magic/main" src="./js/lib/require.js")
         script(data-main="./js/galaxy-space/main" src="./js/lib/require.js")
         script(src="./js/index.js")
-        script(src="./js/lib/jquery-time-countdown.min.js")
-        
-    

@@ -3,6 +3,9 @@
   "description": "eHanlin 雲端魔法學院",
   "author": "Aso <aso@ehanlin.com.tw>, Sonic <sonic@ehanlin.com.tw>",
   "version": "1.2.01-SNAPSHOT",
+  "scripts": {
+    "buildToTest": "gulp compilePugSass && gulp packageTest && gulp uploadGcsTest"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/eHanlin/event-space.git"

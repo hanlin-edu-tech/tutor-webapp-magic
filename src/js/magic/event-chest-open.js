@@ -1,5 +1,5 @@
-define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAreZero'], // eslint-disable-line
-  ($, ajax, confirmPopup, eventChestInspection, eventAwardAreZero) => {
+define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'], // eslint-disable-line
+  ($, ajax, confirmPopup, eventChestCheck, eventAwardAreZero) => {
     return (chest, targets, afterOpenFn) => {
       let afterOpen = !afterOpenFn ? (finalCoins, finalGems) => {
         require(['eventCountUp'], eventCountUp => {
@@ -27,7 +27,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
             openTextBlock4 = ''
           let dialogAttr
 
-          if (eventChestInspection(jsonData.message, jsonData.content)) {
+          if (eventChestCheck(jsonData.message, jsonData.content)) {
             return
           } else if (eventAwardAreZero(jsonData.message, jsonData.content)) {
             return
@@ -35,20 +35,20 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
 
           if (gainAwardId) {
             awardTitle = gainAward
-            awardImg = `<img class="your-award-gif" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${gainAwardId}.png">`
+            awardImg = `<img class="your-award-gif" src="./img/magicImg/award/${gainAwardId}.png">`
             openTextBlock3 = `
-              <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
+              <img class="coins-img" src="./img/magicImg/coin.svg">
               <span>${gainCoins}</span>
-              <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
+              <img class="gems-img" src="./img/magicImg/gem.svg">
               <span>${gainGems}</span>
             `
             openTextBlock4 = awardImg
           } else {
             openTextBlock4 = `
-              <img class="coins-img-lg" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
+              <img class="coins-img-lg" src="./img/magicImg/coin.svg">
               <span class="coins-lg">${gainCoins}</span>
               <br/>
-              <img class="gems-img-lg" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
+              <img class="gems-img-lg" src="./img/magicImg/gem.svg">
               <span class="gems-lg">${gainGems}</span>
             `
           }
@@ -94,7 +94,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
                     let jsonContent = jsonData.content
                     let gainCoins, gainGems, finalCoins, finalGems, title
 
-                    if (eventChestInspection(jsonData.message, jsonData.content)) {
+                    if (eventChestCheck(jsonData.message, jsonData.content)) {
                       return
                     }
 
@@ -107,13 +107,13 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventAwardAre
                       <div class="confirm-grid-gif-img-container lucky-bag-height">
                         <div class="header-block1 lucky-bag confirm-popup-title-font">
                           <span>福袋打開囉，得到 </span>
-                          <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
+                          <img class="coins-img" src="./img/magicImg/coin.svg">
                           <span>${gainCoins}</span>
-                          <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
+                          <img class="gems-img" src="./img/magicImg/gem.svg">
                           <span>${gainGems}</span>
                         </div>
                         <div class="content-block1 ">
-                          <img class="confirm-popup-lucky-bag" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${gainAwardId}.png">
+                          <img class="confirm-popup-lucky-bag" src="./img/magicImg/award/${gainAwardId}.png">
                         </div>
                       </div> 
                     `

@@ -23,11 +23,11 @@ require.config({
 
     /* 藥水 action */
     eventChestUpgrade: ['./event-chest-upgrade'],
-    eventChestStart: ['./event-chest-start'],
+    eventChestInception: ['./event-chest-inception'],
     eventChestReady: ['./event-chest-ready'],
     eventChestOpenImmediately: ['./event-chest-open-immediately'],
     eventChestOpen: ['./event-chest-open'],
-    eventChestInspection: ['./event-chest-inspection'],
+    eventChestCheck: ['./event-chest-check'],
 
     eventAwardAreZero: ['./event-award-are-zero'],
     eventAwardGet: ['./event-award-get'],
@@ -68,8 +68,8 @@ require(['jquery', 'ajax'], () => {
   require(['bluebird'], function (Promise) {
     window.Promise = Promise
   })
-  //require(['eventTutorialInit'])
-  //require(['eventClickLink'])
+  require(['eventTutorialInit'])
+  require(['eventClickLink'])
   // require(['eventSlideShow'])
   // require(['eventUserStatus'])
   // require(['eventTotalAssets'])

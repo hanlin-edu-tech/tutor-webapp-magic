@@ -1,5 +1,5 @@
-define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChestInspection', 'eventAwardAreZero'], // eslint-disable-line
-  ($, ajax, confirmPopup, eventChestStatusDo, w3, eventChestInspection, eventAwardAreZero) => {
+define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChestCheck', 'eventAwardAreZero'], // eslint-disable-line
+  ($, ajax, confirmPopup, eventChestStatusDo, w3, eventChestCheck, eventAwardAreZero) => {
     return (chest, targets, beginInceptionFn) => {
       let popupHtml
       if (chest.level >= 2) {
@@ -12,10 +12,10 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
               <p>目前藥水等級為 <span class="highlight">Lv${chest.level}</span>，成功調配此魔法藥水可能獲得</p>
             </div>
             <div class="img-block-left-btn">
-              <img class="left-btn" src="https://d220xxmclrx033.cloudfront.net/event-space/img/previous.png">
+              <img class="left-btn" src="./img/magicImg/previous.png">
             </div>
             <div class="img-block-right-btn">
-              <img class="right-btn" src="https://d220xxmclrx033.cloudfront.net/event-space/img/next.png">
+              <img class="right-btn" src="./img/magicImg/next.png">
             </div>
             <div class="content-block4">
               <p>你確定要啟動這個藥水嗎？</p>
@@ -43,7 +43,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
           }
           ajax('POST', `/chest/inception/${chest.id}`, statusInfo)
             .then(jsonData => {
-              if (eventChestInspection(jsonData.message, jsonData.content)) {
+              if (eventChestCheck(jsonData.message, jsonData.content)) {
                 return
               } else if (eventAwardAreZero(jsonData.message, jsonData.content)) {
                 return
@@ -92,7 +92,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
               awardIndex = 0
               for (let awardId in awardsQuantity) {
                 let awardImage = `<div class="start-show-award">
-                  <img class="img-award${awardIndex}" data-award-id="${awardId}" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${awardId}.png">
+                  <img class="img-award${awardIndex}" data-award-id="${awardId}" src="./img/magicImg/award/${awardId}.png">
                 </div>
               `
 
@@ -119,7 +119,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
 
                   $(element)
                     .parent('div.start-show-award')
-                    .append('<img class="award-zero" src="https://d220xxmclrx033.cloudfront.net/event-space/img/soldout.png">')
+                    .append('<img class="award-zero" src="./img/magicImg/soldout.png">')
                 }
               })
 

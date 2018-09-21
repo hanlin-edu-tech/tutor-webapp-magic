@@ -1,5 +1,5 @@
-define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'eventTotalAssets'],
-  (require, $, ajax, confirmPopup, eventChestInspection) => {
+define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventTotalAssets'],
+  (require, $, ajax, confirmPopup, eventChestCheck) => {
     let autoOpenedFunc = (jsonDataContent, openedChestsIndex, openedChestsCount) => {
       let chestId, level, gainCoins, gainGems, gainAwardId, gainAward, luckyBag
       let awardImg, awardTitle, awardContent, openTextBlock3, openTextBlock4
@@ -47,20 +47,20 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
 
       if (gainAwardId) {
         awardTitle = `<span class="gif-title">${gainAward}</span>`
-        awardImg = `<img class="your-award-gif" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${gainAwardId}.png">`
+        awardImg = `<img class="your-award-gif" src="./img/magicImg/award/${gainAwardId}.png">`
         openTextBlock3 = `
-            <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
+            <img class="coins-img" src="./img/magicImg/coin.svg">
             <span>${gainCoins}</span>
-            <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
+            <img class="gems-img" src="./img/magicImg/gem.svg">
             <span>${gainGems}</span>
           `
         openTextBlock4 = awardImg
       } else {
         openTextBlock4 = `
-            <img class="coins-img-lg" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
+            <img class="coins-img-lg" src="./img/magicImg/coin.svg">
             <span class="coins-lg">${gainCoins}</span>
             <br/>
-            <img class="gems-img-lg" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
+            <img class="gems-img-lg" src="./img/magicImg/gem.svg">
             <span class="gems-lg">${gainGems}</span>
           `
       }
@@ -68,7 +68,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
       awardContent = `
         <div class="open-confirm-grid-container">
           <div class="open-text-block1">
-            <img class="open-gif-chest" src="https://d220xxmclrx033.cloudfront.net/event-space/img/chest/open/openChest${level}.gif">
+            <img class="open-gif-chest" src="./img/magicImg/chest/open/openChest${level}.gif">
           </div>
           <div class="open-text-block2">恭喜你獲得了
             <span class="gif-title">${awardTitle}</span>
@@ -99,7 +99,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
                 let jsonContent = jsonData.content
                 let title, gainCoins, gainGems
 
-                if (eventChestInspection(jsonData.message, jsonData.content)) {
+                if (eventChestCheck(jsonData.message, jsonData.content)) {
                   return
                 }
 
@@ -108,13 +108,13 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
                 title = `
                   <div class="lucky-bag">
                     <span>福袋打開囉，得到 </span>
-                    <img class="coins-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/coin.svg">
+                    <img class="coins-img" src="./img/magicImg/coin.svg">
                     <span>${gainCoins}</span>
-                    <img class="gems-img" src="https://d220xxmclrx033.cloudfront.net/event-space/img/gem.svg">
+                    <img class="gems-img" src="./img/magicImg/gem.svg">
                     <span>${gainGems}</span>
                   </div>
                 `
-                let bagImage = `<img class="confirm-popup-lucky-bag" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${gainAwardId}.png">`
+                let bagImage = `<img class="confirm-popup-lucky-bag" src="./img/magicImg/award/${gainAwardId}.png">`
 
                 confirmPopup.luckyBagImage(title, bagImage, () => {
                   autoOpenedFunc(jsonDataContent, openedChestsIndex + 1, openedChestsCount)
@@ -164,12 +164,12 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestInspection', 'ev
 
               for (let index = 1; index < 31; index++) {
                 $('.shining-block .shining-coins')
-                  .append(`<img class="coins${index}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/coinGif.gif">`)
+                  .append(`<img class="coins${index}" src="./img/magicImg/coinGif.gif">`)
               }
 
               for (let index = 1; index < 21; index++) {
                 $('.shining-block .shining-gems')
-                  .append(`<img class="gems${index}" src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/event-space/img/gemGif.gif">`)
+                  .append(`<img class="gems${index}" src="./img/magicImg/gemGif.gif">`)
               }
             }
           }
