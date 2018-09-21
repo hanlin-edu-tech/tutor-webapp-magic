@@ -508,14 +508,20 @@ button, a {
     width: 90%;
     height: auto;
     padding-bottom: 0%; }
+  #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-name {
+    height: 40%; }
+  #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-coins {
+    height: 50%; }
   #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .user_name {
     -webkit-transform-origin: left;
     -webkit-transform: scale(0.9);
     white-space: nowrap; }
-  #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .row .col-6 .row .col-12 #ecoin, #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .row .col-6 .row .col-12 #diamond {
-    -webkit-transform-origin: left;
-    -webkit-transform: scale(0.9);
-    white-space: nowrap; }
+  #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .row .col-6 .row .col-12 {
+    height: 50%; }
+    #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .row .col-6 .row .col-12 #ecoin, #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .row .col-6 .row .col-12 #diamond {
+      -webkit-transform-origin: left;
+      -webkit-transform: scale(0.9);
+      white-space: nowrap; }
   #section_middle_part, #section_novice {
     padding-top: 8%; }
     #section_middle_part .container-fluid .row .gift_list, #section_novice .container-fluid .row .gift_list {
@@ -612,6 +618,10 @@ button, a {
         align-items: flex-start; }
       #section_titlelist .container-fluid .row .person_info .row.person_bg {
         height: 70%; }
+        #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-name {
+          height: 52%; }
+        #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-coins {
+          height: 55%; }
   #section_middle_part, #section_novice {
     padding-top: 0%; }
     #section_middle_part .container-fluid .row .gift_list, #section_novice .container-fluid .row .gift_list {
@@ -718,15 +728,19 @@ button, a {
           align-items: flex-start; }
         #section_titlelist .container-fluid .row .person_info .row.person_bg {
           height: 72%; }
-          #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .user_name {
-            transform: translateX(-5px);
-            left: 0;
-            padding: 0;
-            -webkit-transform-origin: left;
-            -webkit-transform: scale(0.8);
-            white-space: nowrap; }
-          #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-12 .row .col-6 .row .col-12 {
+          #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-name {
+            height: 43%; }
+          #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-coins {
             height: 50%; }
+            #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-coins .user_name {
+              transform: translateX(-5px);
+              left: 0;
+              padding: 0;
+              -webkit-transform-origin: left;
+              -webkit-transform: scale(0.8);
+              white-space: nowrap; }
+            #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-coins .row .col-6 .row .col-12 {
+              height: 50%; }
   #section_middle_part, #section_novice {
     padding-top: 0%; }
     #section_middle_part .container-fluid .row .gift_list, #section_novice .container-fluid .row .gift_list {
@@ -814,7 +828,8 @@ button, a {
       position: fixed;
       border: 3px solid #EFD08D;
       font-size: 20px;
-      letter-spacing: 2px; }
+      letter-spacing: 2px;
+      cursor: pointer; }
     .function_description .explain_gift {
       bottom: 32%;
       left: 1%;
@@ -918,7 +933,7 @@ button, a {
       -webkit-transform: scale(0.9); } }
 
 .upgrade_animation {
-  animation: upgrade 1.5s alternate; }
+  animation: upgrade 2s alternate; }
 
 .finish_animation {
   animation: finish 1.5s infinite; }
