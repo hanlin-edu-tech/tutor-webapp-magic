@@ -1,10 +1,12 @@
 define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChestCheck', 'eventAwardAreZero'], // eslint-disable-line
   ($, ajax, confirmPopup, eventChestStatusDo, w3, eventChestCheck, eventAwardAreZero) => {
     return (chest, targets, beginInceptionFn) => {
-      let popupHtml
+      let popupHtml, classHeight = '', width = ''
       if (chest.level >= 2) {
+        classHeight = 'modal-popup-inception-height'
+        width = '85%'
         popupHtml = `
-          <div class="confirm-grid-start-container">
+          <div class="confirm-grid-inception-container">
             <div class="content-block1 confirm-popup-title-font">
               <span>開始調配藥水</span>
             </div>
@@ -25,16 +27,16 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
       } else {
         popupHtml = `
           <div>
-            <h2 class="confirm-popup-title-font">藥水準備啟動中...</h2>
-            <p>你確定要啟動這個藥水嗎？</p>
+            <div class="confirm-popup-title-font">藥水準備啟動中...</div>
+            <p class="common-font">你確定要啟動這個藥水嗎？</p>
           </div>
         `
       }
 
       let dialogAttr = {
-        customClass: 'my_treasure_message_box modal-popup-start-height',
+        customClass: `my_treasure_message_box ${classHeight}`,
         background: '#a6937c',
-        width: '85%',
+        width: width,
         confirmButtonClass: 'btn message_box_btn_style',
         cancelButtonClass: 'btn message_box_btn_style',
         showCancelButton: !targets.chestInstance['isNovice'],
@@ -126,11 +128,11 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
 
               let slide = w3.slideshow('.img-block-award', 0)
 
-              $('.confirm-grid-start-container .right-btn').on('click', () => {
+              $('.confirm-grid-inception-container .right-btn').on('click', () => {
                 slide.next()
               })
 
-              $('.confirm-grid-start-container .left-btn').on('click', () => {
+              $('.confirm-grid-inception-container .left-btn').on('click', () => {
                 slide.previous()
               })
             })

@@ -24,7 +24,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
           let awardImg = '', // eslint-disable-line
             awardTitle = ''
           let popupHtml, openTextBlock3 = '', // eslint-disable-line
-            openTextBlock4 = ''
+            openTextBlock4 = '', gridOpenContainerClass = ''
           let dialogAttr
 
           if (eventChestCheck(jsonData.message, jsonData.content)) {
@@ -34,37 +34,24 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
           }
 
           if (gainAwardId) {
-            awardTitle = gainAward
-            awardImg = `<img class="your-award-gif" src="./img/magicImg/award/${gainAwardId}.png">`
-            openTextBlock3 = `
-              <img class="coins-img" src="./img/magicImg/coin.svg">
-              <span>${gainCoins}</span>
-              <img class="gems-img" src="./img/magicImg/gem.svg">
-              <span>${gainGems}</span>
-            `
-            openTextBlock4 = awardImg
-          } else {
-            openTextBlock4 = `
-              <img class="coins-img-lg" src="./img/magicImg/coin.svg">
-              <span class="coins-lg">${gainCoins}</span>
-              <br/>
-              <img class="gems-img-lg" src="./img/magicImg/gem.svg">
-              <span class="gems-lg">${gainGems}</span>
-            `
+            gridOpenContainerClass = 'confirm-grid-img-container'
+            awardImg = `<img class="open-award-gift" src="./img/magicImg/award/${gainAwardId}.png">`
           }
 
           popupHtml = `
-            <div class="open-confirm-grid-container">
-              <div class="open-text-block1">
+            <div class="${gridOpenContainerClass} open-award">
+              <div class="content-block1 confirm-popup-title-font">
+                恭喜你獲得了：
               </div>
-              <div class="open-text-block2 confirm-popup-title-font gif-title">恭喜你獲得了
-                ${awardTitle}
+              <div class="content-block2 confirm-popup-title-font">
+                <img class="coins-img" src="./img/magicImg/coin.svg">
+                <span>${gainCoins}</span>
+                <img class="gems-img" src="./img/magicImg/gem.svg">
+                <span>${gainGems}</span>
               </div>
-              <div class="open-text-block3">
-                <p>${openTextBlock3}</p>
-              </div>
-              <div class="open-text-block4">
-                <p>${openTextBlock4}</p>
+              <div class="content-block3">
+                <p>${gainAward}</p>
+                ${awardImg}
               </div>
             </div>
           `
@@ -104,18 +91,21 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
                     finalGems = jsonContent.finalGems
 
                     popupHtml = `
-                      <div class="confirm-grid-gif-img-container lucky-bag-height">
-                        <div class="header-block1 lucky-bag confirm-popup-title-font">
-                          <span>福袋打開囉，得到 </span>
+                      <div class="${gridOpenContainerClass} open-award">
+                        <div class="content-block1 confirm-popup-title-font">
+                          福袋打開囉，得到：
+                        </div>
+                        <div class="content-block2 confirm-popup-title-font">
                           <img class="coins-img" src="./img/magicImg/coin.svg">
                           <span>${gainCoins}</span>
                           <img class="gems-img" src="./img/magicImg/gem.svg">
                           <span>${gainGems}</span>
                         </div>
-                        <div class="content-block1 ">
-                          <img class="confirm-popup-lucky-bag" src="./img/magicImg/award/${gainAwardId}.png">
+                        <div class="content-block3">
+                          <p>gainAward</p>
+                          ${awardImg}
                         </div>
-                      </div> 
+                      </div>
                     `
 
                     confirmPopup.dialog(popupHtml, {

@@ -1,18 +1,18 @@
-.open-confirm-grid-container {
+.confirm-grid-open-container {
   height: 230px;
   width: 100%;
   display: grid;
   display: -ms-grid;
   grid-template-columns: 15% 30% 40% 15%;
   -ms-grid-columns: 15% 30% 40% 15%;
-  grid-template-rows: 20% 15% 70%;
+  grid-template-rows: 15% 15% 70%;
   -ms-grid-rows: 15% 15% 70%;
   font-size: 23px;
   font-weight: bolder;
   grid-gap: 3px;
 }
 
-.open-confirm-grid-container .open-text-block1 {
+.confirm-grid-open-container .open-text-block1 {
   grid-column: 2;
   -ms-grid-column: 2;
   grid-row: 2 / span 3;
@@ -20,12 +20,8 @@
   -ms-grid-row-span: 3;
 }
 
-.open-confirm-grid-container .open-text-block1 .open-gif-chest {
-  width: 200px;
-  height: auto;
-}
 
-.open-confirm-grid-container .open-text-block2 {
+.confirm-grid-open-container .open-text-block2 {
   grid-column: 1 / span 4;
   -ms-grid-column: 1;
   -ms-grid-column-span: 4;
@@ -33,11 +29,11 @@
   -ms-grid-row: 1;
 }
 
-.open-confirm-grid-container .open-text-block2 .gif-title {
+.confirm-grid-open-container .open-text-block2 .gif-title {
   font-size: 22px;
 }
 
-.open-confirm-grid-container .open-text-block3 {
+.confirm-grid-open-container .open-text-block3 {
   font-family: "微軟正黑體", fantasy;
   grid-column: 3;
   -ms-grid-column: 3;
@@ -45,93 +41,84 @@
   -ms-grid-row: 2;
 }
 
-.open-confirm-grid-container .open-text-block3 span {
+.confirm-grid-open-container .open-text-block3 span {
   margin-right: 30px;
 }
 
-.open-confirm-grid-container .open-text-block3 .gems-img,
-.open-confirm-grid-container .open-text-block3 .coins-img {
+.confirm-grid-open-container .open-text-block3 .gems-img,
+.confirm-grid-open-container .open-text-block3 .coins-img {
   width: 35px;
   height: 35px;
 }
 
-.open-confirm-grid-container .open-text-block4 span {
+.confirm-grid-open-container .open-text-block4 span {
   display: inline-block;
   width: 80px;
 }
 
-.open-confirm-grid-container .coins-img-lg {
+.confirm-grid-open-container .coins-img-lg {
   width: 57px;
   height: 57px;
 }
 
-.open-confirm-grid-container .gems-img-lg {
+.confirm-grid-open-container .gems-img-lg {
   width: 50px;
   height: 50px;
 }
 
-.open-confirm-grid-container .coins-lg,
-.open-confirm-grid-container .gems-lg {
+.confirm-grid-open-container .coins-lg,
+.confirm-grid-open-container .gems-lg {
   font-size: 25px;
 }
 
-.open-confirm-grid-container .open-text-block4 {
+.confirm-grid-open-container .open-text-block4 {
   grid-column: 3;
   -ms-grid-column: 3;
   grid-row: 3;
   -ms-grid-row: 3;
 }
 
-.open-confirm-grid-container .open-text-block4 .your-award-gif {
+.confirm-grid-open-container .open-text-block4 .your-award-gif {
   max-height: 80%;
   margin-top: 10px;
 }
 
-.lucky-bag .gems-img,
-.lucky-bag .coins-img {
-  width: 30px;
-  height: 30px;
-}
 
-.confirm-popup-lucky-bag {
-  height: 150px;
-  margin-top: 27px;
-}
 
 @media screen and (max-width: 980px) {
-  .open-confirm-grid-container .open-text-block3 .gems-img,
-  .open-confirm-grid-container .open-text-block3 .coins-img {
+  .confirm-grid-open-container .open-text-block3 .gems-img,
+  .confirm-grid-open-container .open-text-block3 .coins-img {
     width: 25px;
     height: 25px;
   }
 
-  .open-confirm-grid-container {
+  .confirm-grid-open-container {
     grid-template-columns: 8% 37% 47% 8%;
     -ms-grid-columns: 8% 37% 47% 8%;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .open-confirm-grid-container .open-text-block2 .gif-title {
+  .confirm-grid-open-container .open-text-block2 .gif-title {
     font-size: 20px;
   }
 
-  .open-confirm-grid-container .open-text-block2 {
+  .confirm-grid-open-container .open-text-block2 {
     font-size: 20px;
   }
 
-  .open-confirm-grid-container .open-text-block3 .gems-img,
-  .open-confirm-grid-container .open-text-block3 .coins-img {
+  .confirm-grid-open-container .open-text-block3 .gems-img,
+  .confirm-grid-open-container .open-text-block3 .coins-img {
     width: 20px;
     height: 20px;
   }
 
-  .open-confirm-grid-container {
+  .confirm-grid-open-container {
     grid-template-columns: 1px 35% 65% 1px;
     -ms-grid-columns: 1px 35% 65% 1px;
   }
 
-  .open-confirm-grid-container .open-text-block1 .open-gif-chest {
+  .confirm-grid-open-container .open-text-block1 .open-gif-chest {
     width: 180px;
     height: auto;
   }

@@ -66,7 +66,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventTo
       }
 
       awardContent = `
-        <div class="open-confirm-grid-container">
+        <div class="confirm-grid-open-container">
           <div class="open-text-block1">
             <img class="open-gif-chest" src="./img/magicImg/chest/open/openChest${level}.gif">
           </div>
@@ -106,7 +106,7 @@ define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventTo
                 gainCoins = jsonContent.coins
                 gainGems = jsonContent.gems
                 title = `
-                  <div class="lucky-bag">
+                  <div class="open-award">
                     <span>福袋打開囉，得到 </span>
                     <img class="coins-img" src="./img/magicImg/coin.svg">
                     <span>${gainCoins}</span>

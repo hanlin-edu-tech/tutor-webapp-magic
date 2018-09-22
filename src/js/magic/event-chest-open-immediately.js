@@ -51,10 +51,8 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], // eslint-disable-
 
           spendGems = spendGems * cycles
           popupContent = `
-            <p>
-              <div class="confirm-popup-title-font">立即開啟藥水需花費 ${spendGems} 個寶石</div>
-              <h3>確定要立即開啟藥水嗎？</h3>
-            </p>
+            <div class="confirm-popup-title-font">立即開啟藥水需花費 ${spendGems} 個寶石</div>
+            <p>確定要立即開啟藥水嗎？</p>
           `
           confirmPopup.dialog(popupContent,
             {
