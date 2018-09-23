@@ -37,6 +37,8 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => { // eslin
   }
   // confirmPopup.dialog(content, dialog)
 
+  $('.col-12.col-name .user_name').append('你的名字')
+
   // 未登入時  需要隱藏的項目
   // $('#section_titlelist .col-4 img').css('display', 'none')
   // $('#section_titlelist .col-12.col-name').css('display', 'none')

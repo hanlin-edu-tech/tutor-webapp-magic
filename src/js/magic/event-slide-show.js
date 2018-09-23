@@ -58,15 +58,16 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
       let awardNoticeShow = w3.slideshow('.award_note', sec)
 
       // 上一個
-      sectionTarget.find('.previous_btn img').on('click', () => {
+      sectionTarget.find('.col-3.col-sm-4.col-lg-3.previous_btn img').on('click', () => {
         awardPhotoShow.next()
         awardTitleShow.next()
         awardLevelShow.next()
         awardStockShow.next()
         awardNoticeShow.next()
       })
+
       // 下一個
-      sectionTarget.find('.next_btn img').on('click', () => {
+      sectionTarget.find('.col-3.col-sm-4.col-lg-3.next_btn img').on('click', () => {
         awardPhotoShow.previous()
         awardTitleShow.previous()
         awardLevelShow.previous()
