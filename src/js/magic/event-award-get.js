@@ -1,38 +1,95 @@
-define(['jquery', 'ajax', 'w3', 'eventAwardAreZero'], ($, ajax, w3, eventAwardAreZero) => {// eslint-disable-line
+define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'], ($, ajax, w3, eventAwardAreZero, confirmPopup) => { // eslint-disable-line
   return () => {
-    ajax('GET', `/chest/award`)
-      .then((data) => {
-        let awards = data.content
-        let awardId
-        let index = 0
+    $('#my_treasure .book_title').on('click', () => {
+      let popupHtml = `
+          <div class="confirm-grid-start-container">
+            <div class="content-block1 confirm-popup-title-font">
+              <span>目前擁有</span>
+            </div>
+            <div class="img-block-left-btn">
+              <img class="left-btn" src="./img/magicImg/previous.svg">
+            </div>
+            <div class="img-block-right-btn">
+              <img class="right-btn" src="./img/magicImg/next.svg">
+            </div>
+          </div>
+        `
+      let dialog = {
+        customClass: 'my_treasure_message_box modal-popup-start-height',
+        background: '#a6937c',
+        width: '85%',
+        showConfirmButton: true,
+        confirmBtnText: '確定',
+        showCancelButton: false,
+        cancelBtnText: '',
+        confirmButtonClass: 'btn message_box_btn_style',
+        cancelButtonClass: 'btn message_box_btn_style',
+        confirmFn: () => {},
+        onOpenFn: () => {
+          ajax('GET', `/chest/award/`)
+            .then(data => {
+              let awardsQuantity = data.content
+              let limit = 0
+              let awardsCount
+              let awardIdx
+              let awardImgs = ''
+              let awardBlock = ''
 
-        $('.award-box li img').remove()
-        $('.award-box li .awardSum').remove()
+              let composeAwardBlock = (awardIdx, limit, awardId, awardImg) => {
+                switch (awardIdx % limit) {
+                  case (limit - 1):
+                    awardImgs += awardImg
+                    awardBlock += `<div class="img-block-award">${awardImgs}</div>`
+                    awardImgs = ''
+                    break
 
-        for (awardId in awards) {
-          let value = awards[awardId]
-          let awardBlock = $(`.award-box li:eq(${index})`)
-          let awardImg = `<img src='./img/magicImg/award/${awardId}.png' />`
-          awardBlock.append(awardImg)
-          awardBlock.append(`<span class="awardSum">${value}</span>`)
-          index++
+                  default:
+                    awardImgs += awardImg
+                }
+              }
+
+              if (window.matchMedia('(max-width: 500px)').matches) {
+                limit = 1
+              } else if (window.matchMedia('(max-width: 950px)').matches) {
+                limit = 3
+              } else {
+                limit = 5
+              }
+
+              awardsCount = Object.keys(awardsQuantity).length
+              awardIdx = 0
+              for (let awardId in awardsQuantity) {
+                let awardImg = `<div class="start-show-award">
+                  <img class="img-award${awardIdx}" data-award-id="${awardId}" src="./img/award/${awardId}.png">
+                  <div>${awardsQuantity[awardId]}個</div>
+                </div>
+              `
+
+                if (awardIdx === awardsCount - 1) {
+                  awardImgs += awardImg
+                  awardBlock += `<div class="img-block-award">${awardImgs}</div>`
+                } else {
+                  composeAwardBlock(awardIdx, limit, awardId, awardImg)
+                }
+
+                awardIdx++
+              }
+
+              $('.img-block-left-btn').after(awardBlock)
+
+              let slide = w3.slideshow('.img-block-award', 0)
+
+              $('.confirm-grid-start-container .right-btn').on('click', () => {
+                slide.next()
+              })
+
+              $('.confirm-grid-start-container .left-btn').on('click', () => {
+                slide.previous()
+              })
+            })
         }
-      })
-      .then(() => {
-        let slide = w3.slideshow('.block', 0)
-
-        $('.right').off('click').on('click', () => {
-          slide.next()
-        })
-
-        $('.left').off('click').on('click', () => {
-          slide.previous()
-        })
-
-        return ajax('GET', `/chest/award/sufficient`)
-      })
-      .then((jsonData) => {
-        eventAwardAreZero(jsonData.message, jsonData.content)
-      })
+      }
+      confirmPopup.dialog(popupHtml, dialog)
+    })
   }
 })

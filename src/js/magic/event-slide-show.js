@@ -56,10 +56,10 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
         $('#section_middle_part .row.row_gift_content .col-12.title')
           .append(awardTitle)
 
-        $('#section_middle_part .row.row_gift_content .col-5.award_scontnet')
+        $('#section_middle_part .row.row_gift_content .col-6.award_scontnet')
           .append(awardInLv)
 
-        $('#section_middle_part .row.row_gift_content .col-7.award_scontnet')
+        $('#section_middle_part .row.row_gift_content .col-8.award_scontnet')
           .append(awardFactory)
 
         $('#section_middle_part .row.row_gift_content .col-12.notice')
@@ -74,7 +74,7 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
       let awardNoticeShow = w3.slideshow('.award_note', sec)
 
       // 上一個
-      $('#section_middle_part .previous_btn img').on('click', () => {
+      $('#section_middle_part .col-3.col-sm-4.col-lg-3.previous_btn img').on('click', () => {
         awardPhotoShow.next()
         awardTitleShow.next()
         awardLevelShow.next()
@@ -82,7 +82,7 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
         awardNoticeShow.next()
       })
       // 下一個
-      $('#section_middle_part .next_btn img').on('click', () => {
+      $('#section_middle_part .col-3.col-sm-4.col-lg-3.next_btn img').on('click', () => {
         awardPhotoShow.previous()
         awardTitleShow.previous()
         awardLevelShow.previous()
