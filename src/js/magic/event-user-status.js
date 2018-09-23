@@ -37,8 +37,6 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => { // eslin
   }
   // confirmPopup.dialog(content, dialog)
 
-  $('.col-12.col-name .user_name').append('suck my dick')
-
   // 未登入時  需要隱藏的項目
   // $('#section_titlelist .col-4 img').css('display', 'none')
   // $('#section_titlelist .col-12.col-name').css('display', 'none')
@@ -52,7 +50,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => { // eslin
 
       console.log('--------- ' + data.id + ' ----------')
       $('.user-status .login').remove()
-      // $('.col-12.col-name .user_name').append('suck my dick')
+      $('.col-12.col-name .user_name').append(name)
       $('.user-status .student-card').append(`${studentCard}`)
     })
 

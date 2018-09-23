@@ -72,7 +72,6 @@ require(['jquery', 'ajax'], () => {
   require(['eventClickLink'])
   require(['eventSlideShow'])
   require(['eventUserStatus'])
-  require(['eventTotalAssets'])
   // require(['eventAwardGet'], (eventAwardGet) => {
   //   eventAwardGet()
   // })

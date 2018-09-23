@@ -78,10 +78,9 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         .then((jsonData) => {
           let chests = jsonData.content
 
-
           $('#section_middle_part .potion img, #section_novice .potion img').remove()
 
-          if(chests.length > 0) {
+          if (chests.length > 0) {
             let chest = chests[0]
             chestId = chest.id
             user = chest.user
@@ -118,6 +117,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
     /***** step 5 選擇學院完成 *****/
     /* 5_2 正式成為魔藥學學員 */
     let step5_2 = () => {
+
       let popupHtml = `
         <p class="left-align">每一個人都需要為學院盡一份心力！
           未來將會有許多團體戰需要你們一起完成喔～
@@ -211,10 +211,13 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
               academyName: academyName,
               badge: badge
             })
-              .then(() => {
-                  step5_2()
+              .then(jsonData => {
+                let content = jsonData.content
+                if (content) {
+                  $('#badge.col-4').append(`<img src="./img/magicImg/badge_${badge}.png">`)
                 }
-              )
+                step5_2()
+              })
           }
         })
     }
@@ -242,6 +245,9 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
 
     /* 4_5 了解調配藥水所需時間 */
     let step4_5 = () => {
+      noviceTargets.openBtn.css('display', 'none')
+      noviceTargets.platformChest.remove()
+
       let popupHtml = `<p class="common-font left-align">嘿嘿，別睡著了！新手教學即將完成囉～
         你已經很棒了，也學會了如何調配藥水，每一個藥水的調配時間都是固定的，
         越好的藥水調配時間就會越長： 

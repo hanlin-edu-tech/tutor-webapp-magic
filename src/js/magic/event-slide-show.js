@@ -12,6 +12,7 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
   ajax('GET', `/chest/award/conditions`)
     .then(jsonData => {
       let awards = jsonData.content
+      let sectionTarget = $('#section_middle_part, #section_novice')
 
       for (let index in awards) {
         let award = awards[index]
@@ -34,36 +35,19 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
           howMany = '還有貨喔'
         }
 
-        awardImg = `
-              <img class="gift_photo" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${awardId}.png">
-          `
-        awardTitle = `
-              <div class="award_title">${title}</div>
-          `
-        awardInLv = `
-              <div class="award_level">Lv${needChestLv}</div>
-          `
-        awardFactory = `
-              <div class="award_stock">${howMany}</div>
-          `
-        awardNotice = `
-              <div class="award_note">${notice}</div>
-          `
+        awardImg = `<img class="gift_photo" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${awardId}.png">`
+        awardTitle = `<div class="award_title">${title}</div>`
+        awardInLv = `<div class="award_level">Lv${needChestLv}</div>`
+        awardFactory = `<div class="award_stock">${howMany}</div>`
+        awardNotice = `<div class="award_note">${notice}</div>`
 
-        $('#section_middle_part .col-6.col-sm-4.col-lg-6')
-          .append(awardImg)
+        sectionTarget.find('.row_gift_pic .col-6.col-sm-4.col-lg-6').append(awardImg)
 
-        $('#section_middle_part .row.row_gift_content .col-12.title')
-          .append(awardTitle)
-
-        $('#section_middle_part .row.row_gift_content .col-5.award_scontnet')
-          .append(awardInLv)
-
-        $('#section_middle_part .row.row_gift_content .col-7.award_scontnet')
-          .append(awardFactory)
-
-        $('#section_middle_part .row.row_gift_content .col-12.notice')
-          .append(awardNotice)
+        let rowGiftContentTarget = sectionTarget.find('.row.row_gift_content')
+        rowGiftContentTarget.find('.col-12.title').append(awardTitle)
+        rowGiftContentTarget.find('.col-6.award_scontnet').append(awardInLv)
+        rowGiftContentTarget.find('.col-8.award_scontnet').append(awardFactory)
+        rowGiftContentTarget.find('.col-12.notice').append(awardNotice)
       }
 
       let sec = 3000
@@ -74,7 +58,7 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
       let awardNoticeShow = w3.slideshow('.award_note', sec)
 
       // 上一個
-      $('#section_middle_part .previous_btn img').on('click', () => {
+      sectionTarget.find('.previous_btn img').on('click', () => {
         awardPhotoShow.next()
         awardTitleShow.next()
         awardLevelShow.next()
@@ -82,7 +66,7 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
         awardNoticeShow.next()
       })
       // 下一個
-      $('#section_middle_part .next_btn img').on('click', () => {
+      sectionTarget.find('.next_btn img').on('click', () => {
         awardPhotoShow.previous()
         awardTitleShow.previous()
         awardLevelShow.previous()

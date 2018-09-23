@@ -2,7 +2,7 @@ doctype html
 html(lang="en")
     head
         meta(charset='UTF-8')
-        meta(name="viewport" content="width=device-width") 
+        meta(name="viewport" content="width=device-width")
         meta(http-equiv="X-UA-Compatible" content="IE=edge")
         meta(http-equiv="cache-control" content="no-cache")
         meta(http-equiv="pragma" content="no-cache")
@@ -40,23 +40,22 @@ html(lang="en")
                         img(src="./img/magicImg/title.png")
                     .col-4.col-xs-4.col-sm-4.col-lg-3.person_info
                         .row.person_bg
-                            .col-4
-                                img(src="./img/magicImg/badge_rabbit.png")
+                            #badge.col-4
                             .col-8
                                 .row
                                     .col-8
                                         .row
                                             .col-12.col-name
-                                                .user_name 這是我的名字這是我的
+                                                .user_name 你的名字
                                             .col-12.col-coins
                                                 .row
                                                     .col-6
                                                     .col-6
                                                         .row
                                                             .col-12
-                                                                #ecoin 2222
+                                                                #ecoin 0
                                                             .col-12
-                                                                #diamond 35
+                                                                #diamond 0
                                     .col-4
                                         .row
                                             .col-12.col-bank
@@ -68,7 +67,7 @@ html(lang="en")
                                             .col-12.col-login(style="display:none")
                                                 img.login(src="./img/magicImg/login.png")
 
-        #section_middle_part(style="display:none")
+        main#section_middle_part(style="display:none")
             .container-fluid
                 .row
                     .col-3.gift_list
@@ -181,10 +180,28 @@ html(lang="en")
                         a(href="https://www.ehanlin.com.tw/event/line/")
                             img(src="./img/magicImg/menu_btn04.png", alt="Responsive image")
 
-        #section_novice(style="display:none")
+        section#section_novice(style="display:none")
             .container-fluid
                 .row
-                    .col-3
+                    .col-3.gift_list
+                        .row.row_gift_pic
+                            .col-3.col-sm-4.col-lg-3.previous_btn
+                                img(src="./img/magicImg/previous.svg")
+                            .col-6.col-sm-4.col-lg-6
+                            .col-3.col-sm-4.col-lg-3.next_btn
+                                img(src="./img/magicImg/next.svg")
+                        .row.row_gift_content
+                            .col-12.title
+                                //- .award_title 樂事雞汁洋芋片兌換券
+                            .col-6.award_stitle 所在等級：
+                            .col-6.award_scontnet
+                                //- .award_level LV5,6,7,8
+                            .col-4.award_stitle 庫存：
+                            .col-8.award_scontnet
+                                //- .award_stock 還有貨哦
+                            .col-12.notice
+                                //- .award_note 1.本商品券僅限兌換一次<br>2.使用期限及說明請見得獎信件
+
                     .col-6.potion_box
                         .row
                             .col-3.GREEN
@@ -233,7 +250,7 @@ html(lang="en")
             .cat
                 img(src="./img/magicImg/cat.png")
                 .cat_title 近期<br>活動
-        
+
         #my_treasure
             .book
                 img(src="./img/magicImg/book.png")

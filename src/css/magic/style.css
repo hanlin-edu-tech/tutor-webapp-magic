@@ -407,7 +407,8 @@ button, a {
     color: #FFFFFF;
     letter-spacing: 3px;
     text-align: center;
-    text-shadow: 0 0 7px rgba(0, 0, 0, 0.5); }
+    text-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+    cursor: pointer; }
   .function_description .explain_gift {
     position: fixed;
     bottom: 32%;
@@ -828,8 +829,7 @@ button, a {
       position: fixed;
       border: 3px solid #EFD08D;
       font-size: 20px;
-      letter-spacing: 2px;
-      cursor: pointer; }
+      letter-spacing: 2px; }
     .function_description .explain_gift {
       bottom: 32%;
       left: 1%;

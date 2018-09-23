@@ -19,7 +19,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
           let gainCoins = jsonDataContent.coins ? jsonDataContent.coins : 0
           let gainGems = jsonDataContent.gems ? jsonDataContent.gems : 0
           let gainAwardId = jsonDataContent.gainAwardId
-          let gainAward = jsonDataContent.gainAward
+          let gainAward = jsonDataContent.gainAward ? jsonDataContent.gainAward : ''
           let luckyBag = jsonDataContent.luckyBag
           let awardImg = '', // eslint-disable-line
             awardTitle = ''
