@@ -10,7 +10,7 @@ define(['jquery', 'ajax', 'eventCountUp'], ($, ajax, eventCountUp) => {// eslint
       eventCountUp('diamond', 0, finalGems)
 
       let badgeTarget = $('#badge.col-4')
-      badgeTarget.remove()
+      badgeTarget.empty()
       badgeTarget.append(`<img src="./img/magicImg/badge_${academy.badge}.png">`)
     })
 })

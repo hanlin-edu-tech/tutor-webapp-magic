@@ -2,9 +2,11 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'], ($, ajax, 
   return () => {
     $('#my_treasure .book_title').on('click', () => {
       let popupHtml = `
-          <div class="confirm-grid-start-container">
+          <div class="confirm-grid-inception-container">
             <div class="content-block1 confirm-popup-title-font">
               <span>目前擁有</span>
+            </div>
+            <div class="content-block2">
             </div>
             <div class="img-block-left-btn">
               <img class="left-btn" src="./img/magicImg/previous.svg">
@@ -15,7 +17,7 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'], ($, ajax, 
           </div>
         `
       let dialog = {
-        customClass: 'my_treasure_message_box modal-popup-start-height',
+        customClass: 'my_treasure_message_box modal-popup-inception-height',
         background: '#a6937c',
         width: '85%',
         showConfirmButton: true,
@@ -79,11 +81,11 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'], ($, ajax, 
 
               let slide = w3.slideshow('.img-block-award', 0)
 
-              $('.confirm-grid-start-container .right-btn').on('click', () => {
+              $('.confirm-grid-inception-container .right-btn').on('click', () => {
                 slide.next()
               })
 
-              $('.confirm-grid-start-container .left-btn').on('click', () => {
+              $('.confirm-grid-inception-container .left-btn').on('click', () => {
                 slide.previous()
               })
             })

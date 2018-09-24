@@ -72,9 +72,9 @@ require(['jquery', 'ajax'], () => {
   require(['eventClickLink'])
   require(['eventSlideShow'])
   require(['eventUserStatus'])
-  // require(['eventAwardGet'], (eventAwardGet) => {
-  //   eventAwardGet()
-  // })
+  require(['eventAwardGet'], (eventAwardGet) => {
+    eventAwardGet()
+  })
 
   // require(['eventBonusPopup'])
 })

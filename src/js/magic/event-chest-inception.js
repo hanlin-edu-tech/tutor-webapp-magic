@@ -4,7 +4,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
       let popupHtml, classHeight = '', width = ''
       if (chest.level >= 2) {
         classHeight = 'modal-popup-inception-height'
-        width = '85%'
+        width = '90%'
         popupHtml = `
           <div class="confirm-grid-inception-container">
             <div class="content-block1 confirm-popup-title-font">

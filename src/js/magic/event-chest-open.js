@@ -35,7 +35,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
 
           if (gainAwardId) {
             gridOpenContainerClass = 'confirm-grid-img-container'
-            awardImg = `<img class="open-award-gift" src="./img/magicImg/award/${gainAwardId}.png">`
+            awardImg = `<img class="open-award-gift" src="./img/award/${gainAwardId}.png">`
           }
 
           popupHtml = `

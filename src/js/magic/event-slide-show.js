@@ -35,7 +35,7 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
           howMany = '還有貨喔'
         }
 
-        awardImg = `<img class="gift_photo" src="https://d220xxmclrx033.cloudfront.net/event-space/img/award/${awardId}.png">`
+        awardImg = `<img class="gift_photo" src="./img/award/${awardId}.png">`
         awardTitle = `<div class="award_title">${title}</div>`
         awardInLv = `<div class="award_level">Lv${needChestLv}</div>`
         awardFactory = `<div class="award_stock">${howMany}</div>`

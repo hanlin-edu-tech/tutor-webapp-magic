@@ -3,11 +3,11 @@
   display: -ms-grid;
   grid-template-columns: 20% 60% 20%;
   -ms-grid-columns: 20% 60% 20%;
-  grid-template-rows: 15% 20% 65%;
-  -ms-grid-rows: 15% 20% 65%;
-  font-size: 25px;
+  grid-template-rows: 13% 17% 70%;
+  -ms-grid-rows: 13% 17% 70%;
+  font-size: 22px;
   font-weight: normal;
-  height: 180px;
+  height: 245px;
   grid-gap: 3px;
 }
 
@@ -30,17 +30,18 @@
   -ms-grid-column: 2;
   grid-row: 3;
   -ms-grid-row: 3;
+  font-size: 20px;
 }
 
 
 div.open-award .gems-img,
 div.open-award .coins-img {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
 }
 
 .confirm-grid-img-container.open-award .open-award-gift {
-  height: 150px;
+  height: 135px;
 }
 
 @media screen and (max-width: 550px) {
