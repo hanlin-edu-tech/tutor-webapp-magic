@@ -65,8 +65,8 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
               },
 
               cancelFn: afterOpen.bind(afterOpen, finalCoins, finalGems),
-              confirmBtnText: '回填領獎',
-              cancelBtnText: '太好了'
+              confirmButtonText: '回填領獎',
+              cancelButtonText: '太好了'
             }
           } else if (luckyBag === true) {
             dialogAttr = {
@@ -102,25 +102,32 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
                           <span>${gainGems}</span>
                         </div>
                         <div class="content-block3">
-                          <p>gainAward</p>
                           ${awardImg}
                         </div>
                       </div>
                     `
 
                     confirmPopup.dialog(popupHtml, {
+                      customClass: 'confirm_message_box confirm-popup-middle-height',
                       confirmFn: afterOpen.bind(afterOpen, finalCoins, finalGems),
-                      confirmButtonText: '太棒了！'
+                      confirmButtonText: '太棒了！',
+                      showCancelButton: false
                     })
                   })
               },
-              confirmBtnText: '打開福袋'
+              confirmButtonText: '打開福袋',
+              showCancelButton: false
             }
           } else {
             dialogAttr = {
               confirmFn: afterOpen.bind(afterOpen, finalCoins, finalGems),
-              confirmBtnText: '太好了！',
-              showCancelButton: false
+              confirmButtonText: '太好了！',
+              showCancelButton: false,
+              onOpenFn: () => {
+                let openContentBlock2Target = $('.open-award .content-block2')
+                openContentBlock2Target.css({marginTop: '30px'})
+                openContentBlock2Target.find('.coins-img, .gems-img').css({width: '50px'})
+              }
             }
           }
 

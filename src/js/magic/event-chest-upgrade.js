@@ -79,7 +79,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
                 eventCountUp('gems', originalGems, finalGems)
               })
             },
-            confirmBtnText: '太棒了！',
+            confirmButtonText: '太棒了！',
             showCancelButton: false
           })
       })
@@ -117,7 +117,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
         confirmPopup.dialog(popupHtml,
           {
             confirmFn: eventChestUpgrade.process.bind(eventChestUpgrade.process, chest, targets),
-            confirmBtnText: '馬上升級',
+            confirmButtonText: '馬上升級',
           })
       })
   }

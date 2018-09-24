@@ -12,8 +12,7 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
   ajax('GET', `/chest/award/conditions`)
     .then(jsonData => {
       let awards = jsonData.content
-      let sectionTarget = $('#section_middle_part, #section_novice')
-
+      let sectionTarget = $('#section_middle_part')
       for (let index in awards) {
         let award = awards[index]
         let awardContent = award.content
@@ -74,5 +73,7 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
         awardStockShow.previous()
         awardNoticeShow.previous()
       })
+
+      sectionTarget.find('.gift_list .gift_photo').width('115px')
     })
 })

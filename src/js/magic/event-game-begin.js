@@ -8,4 +8,8 @@ define([], () => {
   require(['eventChestGet'], eventChestGet => {
     eventChestGet()
   })
+  require(['eventSlideShow'])
+  require(['eventAwardGet'], (eventAwardGet) => {
+    eventAwardGet()
+  })
 })

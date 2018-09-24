@@ -29,9 +29,9 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     cancelFn = () => {},
     onOpenFn = () => {},
     showConfirmButton = true,
-    confirmBtnText = '確定',
+    confirmButtonText = '確定',
     showCancelButton = true,
-    cancelBtnText = '我再想想',
+    cancelButtonText = '我再想想',
     confirmButtonClass = 'btn_iknow message_box_btn_style',
     cancelButtonClass = 'btn_iknow message_box_btn_style'
   } = {}) => {
@@ -43,8 +43,8 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     dialogStyle.html = popupHtml
     dialogStyle.showCancelButton = showCancelButton
     dialogStyle.showConfirmButton = showConfirmButton
-    dialogStyle.confirmButtonText = confirmBtnText
-    dialogStyle.cancelButtonText = cancelBtnText
+    dialogStyle.confirmButtonText = confirmButtonText
+    dialogStyle.cancelButtonText = cancelButtonText
     dialogStyle.confirmButtonClass = confirmButtonClass
     dialogStyle.cancelButtonClass = cancelButtonClass
     dialogStyle.onOpen = () => {
@@ -84,13 +84,13 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
   confirmPopup.tutorialPrompt = (content, {
     confirmFn = () => {},
     onOpenFn = () => {},
-    confirmBtnText = '知道了',
+    confirmButtonText = '知道了',
     timer = 0
   } = {}) => {
     let tutorialStyle = newTutorialStyle()
     tutorialStyle.title = ''
     tutorialStyle.html = `<p>${content}</p>`
-    tutorialStyle.confirmButtonText = confirmBtnText
+    tutorialStyle.confirmButtonText = confirmButtonText
     tutorialStyle.onOpen = onOpenFn
 
     if (timer > 0) {

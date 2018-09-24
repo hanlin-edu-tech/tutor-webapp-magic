@@ -34,35 +34,40 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
      */
     let comebackExecFunction = progressiveStep => {
       switch (progressiveStep) {
-        case '2_1': {
+        case 'STEP2_1': {
           step2_1()
           break
         }
-        case '3_1': {
+        case 'STEP3_1': {
           step3_1()
           break
         }
-        case '3_4': {
+        case 'STEP3_4': {
           step3_4()
           break
         }
-        case '4_1': {
+        case 'STEP4_1': {
           step4_1()
           break
         }
-        case '4_4': {
+        case 'STEP4_3': {
+          step4_3()
+          break
+        }
+        case 'STEP4_4': {
+          noviceTargets.openBtn.removeAttr('style')
           step4_4()
           break
         }
-        case '4_5': {
+        case 'STEP4_5': {
           step4_5()
           break
         }
-        case '5_1': {
+        case 'STEP5_1': {
           step5_1()
           break
         }
-        case '6_1': {
+        case 'STEP6_1': {
           step6_1()
           break
         }
@@ -101,13 +106,13 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
     /* 6_1 功能介紹 */
     let step6_1 = () => {
       let functionDescTarget = $('.function_description')
-      let progressiveStep = '6_1'
+      let progressiveStep = 'STEP6_1'
       saveCookie(progressiveStep)
 
       functionDescTarget.removeAttr('style')
       functionDescTarget.find('.finish_novice_btn').one('click', () => {
         ajax('PATCH', `/chest/novice/`, {
-          progressiveStep: 'completed'
+          progressiveStep: 'COMPLETED'
         })
         functionDescTarget.fadeOut()
         require(['eventGameBegin'])
@@ -188,7 +193,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
 
       let academyName = ''
       let badge = ''
-      let progressiveStep = '5_1'
+      let progressiveStep = 'STEP5_1'
       saveCookie(progressiveStep)
 
       confirmPopup.dialog(popupHtml,
@@ -238,7 +243,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
           width: '70%',
           confirmFn: step5_1,
           customClass: 'confirm_message_box confirm-popup-middle-height',
-          confirmBtnText: '下一步',
+          confirmButtonText: '下一步',
           showCancelButton: false
         })
     }
@@ -262,19 +267,19 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
           width: '80%',
           customClass: 'confirm_message_box confirm-popup-middle-height',
           confirmFn: step4_5_1,
-          confirmBtnText: '好的',
+          confirmButtonText: '好的',
           showCancelButton: false
         })
     }
 
-    /* 4-4 完成調配 */
+    /* 4-4 完成藥水調配 */
     let step4_4 = () => {
       let popupHtml = `
         太好了！現在可以打開藥水看看調配出什麼東西囉！
         點選<span class="highlight">「調配完成」</span>確認結果吧！～
       `
 
-      /* 開啟藥水 */
+      /* 調配藥水完成，獲得獎勵 (按下調配完成，儲存進度) */
       require(['eventChestOpen'], eventChestOpen => {
         noviceTargets.openBtn.addClass('press_animation')
         noviceTargets.openBtn.off('click')
@@ -286,7 +291,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
 
           allowSamePlatformReOpen = (new Date().getTime() - $(currentTarget).attr('data-lockedAt') > 5000)
           if (!$(currentTarget).attr('data-lockedAt') || allowSamePlatformReOpen) {
-            let progressiveStep = '4_5'
+            let progressiveStep = 'STEP4_5'
             saveCookie(progressiveStep)
             eventChestOpen(noviceTargets.chestInstance, noviceTargets, step4_5)
           }
@@ -301,9 +306,6 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
 
     /* 4-3-2 成功調配藥水 */
     let step4_3_2 = () => {
-      let progressiveStep = '4_4'
-      saveCookie(progressiveStep)
-
       ajax('PATCH', `/chest/open/immediately/${chestId}`, {
         spendGems: 0
       })
@@ -331,7 +333,13 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
       noviceTargets.startBtn.css('display', 'none')
       noviceTargets.readyNowBtn.removeAttr('style')
       noviceTargets.readyNowBtn.addClass('press_animation')
-      noviceTargets.readyNowBtn.one('click', step4_3_2)
+
+      /* 立即完成調配藥水 (按下立即完成，儲存進度) */
+      noviceTargets.readyNowBtn.one('click', () => {
+        let progressiveStep = 'STEP4_4'
+        saveCookie(progressiveStep)
+        step4_3_2()
+      })
 
       confirmPopup.tutorialPrompt(popupHtml)
     }
@@ -344,8 +352,11 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         noviceTargets.startBtn.css({display: '', left: '27%'})
         noviceTargets.startBtn.addClass('press_animation')
         noviceTargets.startBtn.off('click')
-        noviceTargets.startBtn.one('click',
-          eventChestInception.bind(eventChestInception, noviceTargets.chestInstance, noviceTargets, step4_3))
+        noviceTargets.startBtn.one('click', () => {
+          let progressiveStep = 'STEP4_3'
+          saveCookie(progressiveStep)
+          eventChestInception(noviceTargets.chestInstance, noviceTargets, step4_3)
+        })
       })
 
       confirmPopup.tutorialPrompt(popupHtml)
@@ -357,12 +368,12 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         學會升級還不夠喔！
         你必須學會<span class="highlight">「調配藥水」</span>才能成為真正的魔法師。
       `
-      let progressiveStep = '4_1'
+      let progressiveStep = 'STEP4_1'
       saveCookie(progressiveStep)
 
       confirmPopup.tutorialPrompt(popupHtml, {
         confirmFn: step4_2,
-        confirmBtnText: '馬上學'
+        confirmButtonText: '馬上學'
       })
     }
     /*****************************/
@@ -389,7 +400,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
       }
 
       /* 如果升級過程離開，就直接跳到 3_4 */
-      let progressiveStep = '3_4'
+      let progressiveStep = 'STEP3_4'
       saveCookie(progressiveStep)
 
       ajax('POST', `/chest/upgrade/${chestId}`, {user: user})
@@ -426,7 +437,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
             confirmPopup.dialog(popupHtml,
               {
                 confirmFn: step3_4,
-                confirmBtnText: '太棒了！',
+                confirmButtonText: '太棒了！',
                 showCancelButton: false
               })
           }
@@ -459,7 +470,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         confirmPopup.dialog(popupHtml,
           {
             confirmFn: step3_3,
-            confirmBtnText: '馬上升級',
+            confirmButtonText: '馬上升級',
             showCancelButton: false
           })
       })
@@ -475,12 +486,12 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         首先，我們先來學習<span class="highlight">「如何升級」</span>吧！
         第一次升級是免費的唷，快來試試看～
       `
-      let progressiveStep = '3_1'
+      let progressiveStep = 'STEP3_1'
       saveCookie(progressiveStep)
 
       confirmPopup.tutorialPrompt(popupHtml, {
         confirmFn: step3_2,
-        confirmBtnText: '沒問題'
+        confirmButtonText: '沒問題'
       })
     }
     /*****************************/
@@ -504,7 +515,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
       `
 
       confirmPopup.tutorialPrompt(popupHtml, {
-        confirmBtnText: '真的嗎',
+        confirmButtonText: '真的嗎',
         confirmFn: step2_3
       })
     }
@@ -514,7 +525,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
       let popupHtml = `太好了！你獲得了 1 個 Lv1 魔法藥水。未來當你獲得藥水時，就會幫你存放在這裡喔！
                  <span class="highlight">基本上，1 次所能擁有的藥水數量上限是 4 個，超過的話是沒辦法再放進來的！</span>
                  因此，定時回來調配藥水是很重要的！`
-      let progressiveStep = '2_1'
+      let progressiveStep = 'STEP2_1'
       saveCookie(progressiveStep)
 
       confirmPopup.tutorialPrompt(popupHtml, {
@@ -526,7 +537,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
     /***** step 1 初次進入新手教學 *****/
     /* 1_1 發放寶箱 */
     let step1_1 = () => {
-      let popupHtml, progressiveStep = '1_1'
+      let popupHtml, progressiveStep = 'STEP1_1'
       saveCookie(progressiveStep)
 
       popupHtml = `
@@ -543,7 +554,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
           width: '70%',
           confirmFn: step2_1,
           customClass: 'confirm_message_box confirm-popup-middle-height',
-          confirmBtnText: '領取',
+          confirmButtonText: '領取',
           showCancelButton: false
         })
     }
@@ -559,9 +570,9 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
           let progressiveStep = jsonData.content
 
           /* 完成新手教學 */
-          if (progressiveStep === 'completed') {
+          if (progressiveStep === 'COMPLETED') {
             require(['eventGameBegin'])
-          } else if (progressiveStep !== 'initial') { /* 使用者前次新手教學過程中，離開網頁 */
+          } else if (progressiveStep !== 'INITIAL') { /* 使用者前次新手教學過程中，離開網頁 */
             let popupHtml = `
               <span class="confirm-popup-title-font left-align">歡迎回來！</span>
               <p class="common-font left-align">
@@ -572,7 +583,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
             `
 
             confirmPopup.tutorialPrompt(popupHtml, {
-              confirmBtnText: '好的',
+              confirmButtonText: '好的',
               confirmFn: retrieveNoviceChest.bind(retrieveNoviceChest, progressiveStep)
             })
           } else { /* 尚未開始新手教學 */

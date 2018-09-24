@@ -6,12 +6,14 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], // eslint-disable-
         .then(jsonData => {
           let insufficientMessage = jsonData.content
           if (insufficientMessage) {
-            confirmPopup.dialog(insufficientMessage, {
-              title: 'Oooooops 餘額不足喔！',
-              confirmButtonText: '我瞭解了'
-            })
+            confirmPopup.dialog(`<p>${insufficientMessage}</p>`,
+              {
+                confirmButtonText: '我瞭解了',
+                showCancelButton: false
+              })
             return $.Deferred().reject().promise()
-          } else {
+          }
+          else {
             return ajax('PATCH', `/chest/open/immediately/${chest.id}`, {
               spendGems: spendGems
             })
