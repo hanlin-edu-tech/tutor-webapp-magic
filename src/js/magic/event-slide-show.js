@@ -14,7 +14,9 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
       .then(jsonData => {
         let awards = jsonData.content
         let sectionTarget = isNovice ? $('#section_novice') : $('#section_middle_part')
-        let index = 0
+        let index
+
+        c
 
         for (index in awards) {
           let award = awards[index]
