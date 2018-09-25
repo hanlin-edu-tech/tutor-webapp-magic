@@ -4,4 +4,4 @@ dist/
 package-lock.json
 tutor.json
 src/index.html
-src/css/style.css
+src/css/magic/style.css

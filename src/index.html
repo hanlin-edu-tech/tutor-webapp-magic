@@ -18,7 +18,6 @@
         <link href="./css/magic/event-grid-img-popup.css" rel="stylesheet">
         <link href="./css/magic/event-grid-upgrade-popup.css" rel="stylesheet">
         <link href="./css/magic/event-grid-inception-popup.css" rel="stylesheet">
-        <link href="./css/magic/event-grid-open-popup.css" rel="stylesheet">
         <link href="./css/magic/event-grid-academy-popup.css" rel="stylesheet">
         <link href="./css/magic/event-loading.css" rel="stylesheet">
         <link href="./css/magic/event-bonus-popup.css" rel="stylesheet">
@@ -33,13 +32,13 @@
                     <div class="col-4 col-xs-4 col-sm-4 col-lg-6 title"><img src="./img/magicImg/title.png"></div>
                     <div class="col-4 col-xs-4 col-sm-4 col-lg-3 person_info">
                         <div class="row person_bg">
-                            <div class="col-4"><img src="./img/magicImg/badge_rabbit.png"></div>
+                            <div class="col-4" id="badge"></div>
                             <div class="col-8">
                                 <div class="row">
                                     <div class="col-8">
                                         <div class="row">
                                             <div class="col-12 col-name">
-                                                <div class="user_name"></div>
+                                                <div class="user_name">我的名字</div>
                                             </div>
                                             <div class="col-12 col-coins">
                                                 <div class="row">
@@ -74,7 +73,7 @@
                 </div>
             </div>
         </div>
-        <div id="section_middle_part" style="display:none">
+        <main id="section_middle_part" style="display:none">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-3 gift_list">
@@ -138,7 +137,7 @@
                             </div>
                             <div class="col-3 PINK">
                                 <div class="col potion_colum"><img src="./img/magicImg/potion_colum.png">
-                                    <div class="potion platform-PINK"><img src="./img/magicImg/LV2.png"></div>
+                                    <div class="potion platform-PINK"></div>
                                     <div class="count_time"></div>
                                 </div>
                                 <div class="col mix_upgrade">
@@ -152,29 +151,43 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-3 menu"><a href="https://www.ehanlin.com.tw/my/owned/Courses.html"><img src="./img/magicImg/menu_btn01.png" alt="Responsive image"></a><a href="activity-means.html"><img src="./img/magicImg/menu_btn02.png" alt="Responsive image"></a><a href="https://www.ehanlin.com.tw/type/TRIAL/SalesPlans.html"><img src="./img/magicImg/menu_btn03.png" alt="Responsive image"></a><a href="https://www.ehanlin.com.tw/event/line/"><img src="./img/magicImg/menu_btn04.png" alt="Responsive image"></a></div>
+                    <div class="col-3 menu"><a href="https://www.ehanlin.com.tw/my/owned/Courses.html"><img src="./img/magicImg/menu_btn01.png"></a><a href="activity-means.html"><img src="./img/magicImg/menu_btn02.png"></a><a href="https://www.ehanlin.com.tw/type/TRIAL/SalesPlans.html"><img src="./img/magicImg/menu_btn03.png"></a><a href="https://www.ehanlin.com.tw/event/line/"><img src="./img/magicImg/menu_btn04.png"></a></div>
                 </div>
             </div>
-        </div>
-        <div id="section_novice" style="display:none">
+        </main>
+        <section id="section_novice" style="display:none">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-3"></div>
+                    <div class="col-3 gift_list">
+                        <div class="row row_gift_pic">
+                            <div class="col-3 col-sm-4 col-lg-3 previous_btn"><img src="./img/magicImg/previous.svg"></div>
+                            <div class="col-6 col-sm-4 col-lg-6"></div>
+                            <div class="col-3 col-sm-4 col-lg-3 next_btn"><img src="./img/magicImg/next.svg"></div>
+                        </div>
+                        <div class="row row_gift_content">
+                            <div class="col-12 title"></div>
+                            <div class="col-6 award_stitle">所在等級：</div>
+                            <div class="col-6 award_scontnet"></div>
+                            <div class="col-4 award_stitle">庫存：</div>
+                            <div class="col-8 award_scontnet"></div>
+                            <div class="col-12 notice"></div>
+                        </div>
+                    </div>
                     <div class="col-6 potion_box">
                         <div class="row">
                             <div class="col-3 GREEN">
                                 <div class="col potion_colum"><img src="./img/magicImg/potion_colum.png">
                                     <div class="potion platform-GREEN"></div>
                                     <div class="count_time"></div>
-                                    <div class="col mix_upgrade">
-                                        <div class="row">
-                                            <div class="col-6 mix_btn" style="display:none"><img src="./img/magicImg/mix_btn.png"></div>
-                                            <div class="col-6 upgrade_btn" style="display:none"><img src="./img/magicImg/upgrade_btn.png"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col now_finish" style="display:none"><img src="./img/magicImg/now_finish_btn.png"></div>
-                                    <div class="col mix_finish" style="display:none"><img src="./img/magicImg/mix_finish_btn.png"></div>
                                 </div>
+                                <div class="col mix_upgrade">
+                                    <div class="row">
+                                        <div class="col-6 mix_btn" style="display:none"><img src="./img/magicImg/mix_btn.png"></div>
+                                        <div class="col-6 upgrade_btn" style="display:none"><img src="./img/magicImg/upgrade_btn.png"></div>
+                                    </div>
+                                </div>
+                                <div class="col now_finish" style="display:none"><img src="./img/magicImg/now_finish_btn.png"></div>
+                                <div class="col mix_finish" style="display:none"><img src="./img/magicImg/mix_finish_btn.png"></div>
                             </div>
                             <div class="col-3">
                                 <div class="col potion_colum"><img src="./img/magicImg/potion_colum.png">
@@ -196,7 +209,7 @@
                     <div class="col-3 menu"><a href=""><img src="./img/magicImg/menu_btn01.png" alt="Responsive image"></a><a href=""><img src="./img/magicImg/menu_btn02.png" alt="Responsive image"></a><a href=""><img src="./img/magicImg/menu_btn03.png" alt="Responsive image"></a><a href=""><img src="./img/magicImg/menu_btn04.png" alt="Responsive image"></a></div>
                 </div>
             </div>
-        </div>
+        </section>
         <div id="near_activity">
             <div class="cat"><img src="./img/magicImg/cat.png">
                 <div class="cat_title">近期<br>活動</div>
