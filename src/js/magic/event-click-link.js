@@ -26,7 +26,7 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {// eslint-disable-line
           showCancelButton: false
         })
 
-      //window.open('/Events/winner_info.html?id=space', 'returnAward')
+      // window.open('/Events/winner_info.html?id=space', 'returnAward')
       return false
     })
     $('.shareBtn').on('click', () => {
@@ -38,6 +38,13 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {// eslint-disable-line
     })
     $('.bank').on('click', () => {
       window.open('/event/space/currency-bank.html', 'ehanlinBank')
+      return false
+    })
+    $('#near_activity .cat_title').on('click', () => {
+      confirmPopup.dialog('<h1>敬請期待！</h1>',
+        {
+          showCancelButton: false
+        })
       return false
     })
   })

@@ -117,7 +117,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
         confirmPopup.dialog(popupHtml,
           {
             confirmFn: eventChestUpgrade.process.bind(eventChestUpgrade.process, chest, targets),
-            confirmButtonText: '馬上升級',
+            confirmButtonText: '馬上升級'
           })
       })
   }
