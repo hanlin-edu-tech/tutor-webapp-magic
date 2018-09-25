@@ -7,6 +7,7 @@ define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
         }
       } else if (chest.level === 6) {
         targets.startBtn.css({display: '', left: '27%'})
+        targets.upgradeBtn.css({display: 'none'})
       } else {
         targets.startBtn.removeAttr('style')
         targets.upgradeBtn.removeAttr('style')
