@@ -418,7 +418,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
             noviceTargets.chestInstance.level = upLevel
 
             potionTarget.addClass('upgrade_animation')
-            await delay(2000)
+            await delay(1500)
 
             potionTarget.attr('src',
               `./img/magicImg/LV${upLevel}.png`)

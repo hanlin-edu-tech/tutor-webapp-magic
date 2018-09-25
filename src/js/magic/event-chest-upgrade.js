@@ -54,7 +54,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
         }
 
         targets.platformChest.addClass('upgrade_animation')
-        await delay(2000)
+        await delay(1500)
 
         targets.platformChest.attr('src',
           `./img/magicImg/LV${upLevel}.png`)
