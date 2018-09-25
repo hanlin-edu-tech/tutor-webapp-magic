@@ -1,4 +1,4 @@
-define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventTotalAssets'],
+define(['require', 'jquery', 'ajax', 'confirmPopup', 'eventChestCheck'],
   (require, $, ajax, confirmPopup, eventChestCheck) => {
     let autoOpenedFunc = (jsonDataContent, openedChestsIndex, openedChestsCount) => {
       let chestId, level, gainCoins, gainGems, gainAwardId, gainAward, luckyBag

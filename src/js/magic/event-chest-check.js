@@ -8,10 +8,10 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => { // eslint-disable-line
         <p class="common-font">${checkResult}</p>
       `
       confirmPopup.dialog(checkResult, {
-        confirmButtonText: '我瞭解了',
+        confirmButtonText: '看所有課程',
         showCancelButton: false,
         confirmFn: () => {
-          window.location.reload()
+          window.location = `https://www.ehanlin.com.tw/courses_map.html`
         }
       })
     }
