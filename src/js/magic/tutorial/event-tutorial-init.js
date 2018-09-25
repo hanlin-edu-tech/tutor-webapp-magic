@@ -310,7 +310,13 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         spendGems: 0
       })
         .then(() => {
-            let seconds = 0
+            let seconds
+
+            // 儲存進度
+            let progressiveStep = 'STEP4_4'
+            saveCookie(progressiveStep)
+
+            seconds = 0
             /* 倒數計時秒數設定為 0，讓藥水變成 ready 狀態 */
             require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
               let noviceObj = {
@@ -325,7 +331,11 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
 
     /* 4-3 等待調配藥水之時間，且學習立即完成藥水之調配 */
     let step4_3 = () => {
-      let popupHtml = `通常製作藥水都是需要一些時間的唷！
+      let popupHtml
+      let progressiveStep = 'STEP4_3'
+      saveCookie(progressiveStep)
+
+      popupHtml = `通常製作藥水都是需要一些時間的唷！
         <span class="highlight">你也可以花費寶石「立即完成」直接結束倒數！</span>
         為了可以盡快教會你，就再給你一次免費的機會吧！
         馬上點選按鈕試試看～`
@@ -334,10 +344,8 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
       noviceTargets.readyNowBtn.removeAttr('style')
       noviceTargets.readyNowBtn.addClass('press_animation')
 
-      /* 立即完成調配藥水 (按下立即完成，儲存進度) */
+      /* 立即完成調配藥水 */
       noviceTargets.readyNowBtn.one('click', () => {
-        let progressiveStep = 'STEP4_4'
-        saveCookie(progressiveStep)
         step4_3_2()
       })
 
@@ -353,8 +361,6 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         noviceTargets.startBtn.addClass('press_animation')
         noviceTargets.startBtn.off('click')
         noviceTargets.startBtn.one('click', () => {
-          let progressiveStep = 'STEP4_3'
-          saveCookie(progressiveStep)
           eventChestInception(noviceTargets.chestInstance, noviceTargets, step4_3)
         })
       })
@@ -564,6 +570,11 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
     let step0_1 = () => {
       $('#section_middle_part').css({display: 'none'})
       $('#section_novice').removeAttr('style')
+
+      require(['eventSlideShow'], eventSlideShow => {
+        let isNovice = true
+        eventSlideShow(isNovice)
+      })
 
       ajax('GET', `/chest/novice/`)
         .then(jsonData => {

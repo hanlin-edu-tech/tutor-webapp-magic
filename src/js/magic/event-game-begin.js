@@ -5,11 +5,17 @@ define([], () => {
   window.onbeforeunload = null
 
   require(['eventTotalAssets'])
+
+  require(['eventSlideShow'], eventSlideShow => {
+    let isNovice = false
+    eventSlideShow(isNovice)
+  })
+
   require(['eventChestGet'], eventChestGet => {
     eventChestGet()
   })
-  require(['eventSlideShow'])
-  require(['eventAwardGet'], (eventAwardGet) => {
+
+  require(['eventAwardGet'], eventAwardGet => {
     eventAwardGet()
   })
 })

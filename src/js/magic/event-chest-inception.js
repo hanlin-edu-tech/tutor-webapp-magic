@@ -32,14 +32,14 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
           </div>
         `
       }
-
+      
       let dialogAttr = {
         customClass: `my_treasure_message_box ${classHeight}`,
         background: '#a6937c',
         width: width,
         confirmButtonClass: 'btn message_box_btn_style',
         cancelButtonClass: 'btn message_box_btn_style',
-        showCancelButton: !targets.chestInstance['isNovice'],
+        showCancelButton: !targets.chestInstance['novice'],
         confirmFn: () => {
           let statusInfo = {
             status: 'UNLOCKING'
