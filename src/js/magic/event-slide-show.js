@@ -16,8 +16,6 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
         let sectionTarget = isNovice ? $('#section_novice') : $('#section_middle_part')
         let index
 
-        c
-
         for (index in awards) {
           let award = awards[index]
           let awardContent = award.content
