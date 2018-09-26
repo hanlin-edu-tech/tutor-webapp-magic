@@ -49,11 +49,17 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
         }
       })
       .then(async jsonData => {
+        let audioLevelUpTarget
         if (eventChestCheck(jsonData.message, jsonData.content)) {
           return
         }
 
         targets.platformChest.addClass('upgrade_animation')
+
+        /* 升級音效 */
+        audioLevelUpTarget = document.getElementById("audio_level_up");
+        audioLevelUpTarget.play();
+
         await delay(1500)
 
         targets.platformChest.attr('src',
@@ -66,8 +72,8 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
         confirmPopup.dialog(result.html,
           {
             confirmFn: () => {
-              let originalCoins = parseInt($('#coins').text())
-              let originalGems = parseInt($('#gems').text())
+              let originalCoins = parseInt($('#ecoin').text())
+              let originalGems = parseInt($('#diamond').text())
               let spendCoins = result.coins
               let spendGems = result.gems
               let finalCoins = originalCoins - spendCoins

@@ -219,7 +219,8 @@ let uploadGcs = bucketName => {
       './dist/css/**/*.css',
       './dist/js/**/*.js',
       // './dist/lib/**/*.@(js|json)',
-      './dist/img/**/*.@(jpg|png|gif|svg)'
+      './dist/img/**/*.@(jpg|png|gif|svg)',
+      './dist/audio/**/*.mp3'
     ], {
       base: `${__dirname}/dist/`
     })

@@ -1,6 +1,9 @@
 define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'], ($, ajax, w3, eventAwardAreZero, confirmPopup) => { // eslint-disable-line
   return () => {
     $('#my_treasure .book_title').on('click', () => {
+      let audioOpenAwardEventTarget = document.getElementById('audio_open_award_event')
+      audioOpenAwardEventTarget.play()
+
       let popupHtml = `
           <div class="confirm-grid-inception-container">
             <div class="content-block1 confirm-popup-title-font">

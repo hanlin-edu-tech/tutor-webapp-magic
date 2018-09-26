@@ -283,11 +283,16 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         noviceTargets.openBtn.addClass('press_animation')
         noviceTargets.openBtn.off('click')
         noviceTargets.openBtn.one('click', event => {
-          let currentTarget = event.currentTarget
+          let currentTarget
           let allowSamePlatformReOpen
+          let audioButtonTarget
 
           event.preventDefault()
 
+          audioButtonTarget = document.getElementById('audio_button')
+          audioButtonTarget.play()
+
+          currentTarget = event.currentTarget
           allowSamePlatformReOpen = (new Date().getTime() - $(currentTarget).attr('data-lockedAt') > 5000)
           if (!$(currentTarget).attr('data-lockedAt') || allowSamePlatformReOpen) {
             let progressiveStep = 'STEP4_5'
@@ -345,6 +350,8 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
 
       /* 立即完成調配藥水 */
       noviceTargets.readyNowBtn.one('click', () => {
+        let audioButtonTarget = document.getElementById('audio_button')
+        audioButtonTarget.play()
         step4_3_2()
       })
 
@@ -360,6 +367,8 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         noviceTargets.startBtn.addClass('press_animation')
         noviceTargets.startBtn.off('click')
         noviceTargets.startBtn.one('click', () => {
+          let audioButtonTarget = document.getElementById('audio_button')
+          audioButtonTarget.play()
           eventChestInception(noviceTargets.chestInstance, noviceTargets, step4_3)
         })
       })
@@ -412,9 +421,14 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         .then(async jsonData => {
             let upLevel = jsonData.content['upLevel']
             let potionTarget = platformTarget.find('img')
+            let audioLevelUpTarget
 
             // 更新藥水目前等級
             noviceTargets.chestInstance.level = upLevel
+
+            /* 升級音效 */
+            audioLevelUpTarget = document.getElementById('audio_level_up')
+            audioLevelUpTarget.play()
 
             potionTarget.addClass('upgrade_animation')
             await delay(1500)
@@ -472,6 +486,10 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
             </div>
           </div>
         `
+
+        let audioButtonTarget = document.getElementById('audio_button')
+        audioButtonTarget.play()
+
         confirmPopup.dialog(popupHtml,
           {
             confirmFn: step3_3,
