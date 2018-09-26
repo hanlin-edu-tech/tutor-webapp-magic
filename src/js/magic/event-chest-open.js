@@ -5,8 +5,8 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
         require(['eventCountUp'], eventCountUp => {
           targets.openBtn.css('display', 'none')
           targets.platformChest.remove()
-          eventCountUp('coins', parseInt($('#coins').text()), finalCoins)
-          eventCountUp('gems', parseInt($('#gems').text()), finalGems)
+          eventCountUp('ecoin', parseInt($('#ecoin').text()), finalCoins)
+          eventCountUp('diamond', parseInt($('#diamond').text()), finalGems)
         })
       } : afterOpenFn
 

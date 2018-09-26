@@ -75,8 +75,8 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
 
               require(['eventChestGet', 'eventCountUp'], (eventChestGet, eventCountUp) => {
                 eventChestGet()
-                eventCountUp('coins', originalCoins, finalCoins)
-                eventCountUp('gems', originalGems, finalGems)
+                eventCountUp('ecoin', originalCoins, finalCoins)
+                eventCountUp('diamond', originalGems, finalGems)
               })
             },
             confirmButtonText: '太棒了！',

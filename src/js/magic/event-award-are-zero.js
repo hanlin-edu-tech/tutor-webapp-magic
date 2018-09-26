@@ -38,8 +38,8 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {// eslint-disable-line
 
       confirmPopup.awardIsZeroDialog('寶藏已被隊員們探索完畢，請靜待下次開放探索時間<br>總部已將您的藥水結算', popupHtml, () => {
         require(['eventCountUp'], eventCountUp => {
-          eventCountUp('coins', parseInt($('#coins').text()), finalCoins)
-          eventCountUp('gems', parseInt($('#gems').text()), finalGems)
+          eventCountUp('ecoin', parseInt($('#ecoin').text()), finalCoins)
+          eventCountUp('diamond', parseInt($('#diamond').text()), finalGems)
         })
         $('.platform img:not(img[class$=position]), .platform div').remove()
       })

@@ -233,7 +233,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
       let popupHtml = `<p class="common-font left-align">別急別急，我還要送你一份大禮物！
         劈劈啪滋酷酷唷～為了讓魔法學員們更快學會魔藥學，
         <span class="highlight">我將你們前 10 瓶藥水的調配時間大大的縮短了喔！
-        完成新手教學之後趕快前往「我的課程」練題拿寶箱吧！</span>
+        完成新手教學之後趕快前往「我的課程」練題拿藥水吧！</span>
         成為魔法師的第一步驟就是拜師學藝，前往下一步，選擇你想選擇的學院吧！</p>
       `
 
@@ -413,7 +413,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
             let upLevel = jsonData.content['upLevel']
             let potionTarget = platformTarget.find('img')
 
-            // 更新寶箱目前等級
+            // 更新藥水目前等級
             noviceTargets.chestInstance.level = upLevel
 
             potionTarget.addClass('upgrade_animation')
@@ -466,7 +466,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
             <div class="content-block2">
               <p>
                 升級這個藥水需要花費 
-                <span class="highlight">100 個 e 幣、0 個寶石 </span>
+                <span class="highlight">300 個 e 幣、0 個寶石 </span>
                 ，由於這次是你第一次升級，本次費用<span class="highlight">完全免費哦！</span>
               </p>
             </div>
@@ -540,7 +540,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
     /*****************************/
 
     /** *** step 1 初次進入新手教學 *****/
-    /* 1_1 發放寶箱 */
+    /* 1_1 發放藥水 */
     let step1_1 = () => {
       let popupHtml, progressiveStep = 'STEP1_1'
       saveCookie(progressiveStep)

@@ -26,7 +26,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], // eslint-disable-
 
           let finalGems = jsonData.content.finalGems
           require(['eventCountUp'], eventCountUp => {
-            eventCountUp('gems', parseInt($('#gems').text()), finalGems)
+            eventCountUp('diamond', parseInt($('#diamond').text()), finalGems)
           })
 
           /* 倒數計時秒數設定為 1，讓藥水變成 ready 狀態 */

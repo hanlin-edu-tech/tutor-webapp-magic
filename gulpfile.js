@@ -38,7 +38,8 @@ const copyStatic = destination => {
         './src/*.html',
         './src/css/**/*.css',
         './src/js/**/*.js',
-        './src/img/**/*.@(jpg|png|gif|svg)'
+        './src/img/**/*.@(jpg|png|gif|svg)',
+        './src/audio/**/*'
       ], {
         base: './src'
       })
