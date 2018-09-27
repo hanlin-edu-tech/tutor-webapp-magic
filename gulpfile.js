@@ -20,11 +20,11 @@ const gulpSass = require('gulp-sass')
 
 const destination = './dist'
 
-let bucketNameForTest = 'tutor-events-test'
-let bucketNameForProd = 'tutor-events'
+let bucketNameForTest = 'tutor-apps-test'
+let bucketNameForProd = 'tutor-apps'
 let projectId = 'tutor-204108'
 let keyFilename = 'tutor.json'
-let projectName = 'event/space/'
+let projectName = 'app/magic/'
 
 const storage = new Storage({
   projectId: projectId,

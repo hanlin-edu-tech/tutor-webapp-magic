@@ -10,15 +10,34 @@
 
     <link rel="stylesheet" href="./css/lib/bootstrap.min.css">
     <link rel="stylesheet" href="./css/lib/bootstrap-table.min.css">
+    <style>
+      #transactions {
+        color: #5b5859;
+        font-size: 18px;
+        font-weight: 400;
+      }
+
+      #transactions .table-header {
+        background: #776456;
+        font-size: 20px;
+        font-weight: 500;
+        color: white;
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.5)
+      }
+
+      #transactions .row-potion {
+        background: #d2f5de;
+      }
+    </style>
   </head>
 
   <body>
-    <table id="table" class="table-no-bordered">
-      <thead>
-        <tr class="table-primary">
+    <table id="transactions" class="table-no-bordered">
+      <thead class="table-header">
+        <tr>
           <th data-field="actionDesc">動作</th>
           <th data-field="coins">e幣</th>
-          <th data-field="gems">寶石</th>
+          <th data-field="gems">藥水</th>
           <th data-field="detail">事件</th>
           <th data-field="source">來源</th>
           <th data-field="transactionTime">時間</th>

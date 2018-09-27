@@ -9,7 +9,7 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => { // eslint-disable-line
         <p class="common-font">${checkResult}</p>
       `
 
-      if (checkResult.indexOf('不是雲端奇幻魔藥學的正式學員') > 0) {
+      if (checkResult.indexOf('不是雲端奇幻魔藥學的正式學員') >= 0) {
         confirmFn = () => {
           window.location = `https://www.ehanlin.com.tw/courses_map.html`
         }

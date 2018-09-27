@@ -250,7 +250,8 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
     /* 4_5 了解調配藥水所需時間 */
     let step4_5 = () => {
       noviceTargets.openBtn.css('display', 'none')
-      noviceTargets.platformChest.remove()
+      if (noviceTargets.platformChest)
+        noviceTargets.platformChest.remove()
 
       let popupHtml = `<p class="common-font left-align">嘿嘿，別睡著了！新手教學即將完成囉～
         你已經很棒了，也學會了如何調配藥水，每一個藥水的調配時間都是固定的，
