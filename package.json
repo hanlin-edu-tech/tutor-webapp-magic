@@ -4,7 +4,8 @@
   "author": "Aso <aso@ehanlin.com.tw>, Sonic <sonic@ehanlin.com.tw>",
   "version": "1.2.01-SNAPSHOT",
   "scripts": {
-    "buildToTest": "gulp compilePugSass && gulp packageTest && gulp uploadGcsTest"
+    "buildToTest": "gulp compilePugSass && gulp packageTest && gulp uploadGcsTest",
+    "buildToProd": "gulp compilePugSass && gulp packageProd && gulp uploadGcsProd"
   },
   "repository": {
     "type": "git",

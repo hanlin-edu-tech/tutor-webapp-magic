@@ -63,7 +63,7 @@ require.config({
   }
 })
 
-require(['jquery', 'ajax'], () => {
+require([], () => {
   /* 一開始沒有return function的 js 必須在這裡require */
   require(['bluebird'], function (Promise) {
     window.Promise = Promise
@@ -71,4 +71,7 @@ require(['jquery', 'ajax'], () => {
   require(['eventTutorialInit'])
   require(['eventClickLink'])
   require(['eventUserStatus'])
+
+  let audioBackgroundMelodyTarget = document.getElementById('audio_background_melody')
+  audioBackgroundMelodyTarget.play()
 })
