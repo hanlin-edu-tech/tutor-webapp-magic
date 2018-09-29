@@ -24,7 +24,7 @@ gulp packageProd
 ```
 
 ## 架構
-使用 [jQuery v3](https://sweetalert2.github.io) + [RequireJs](http://requirejs.org/)，以 AMD 方式將 JavaScript 模組化，可參考主要程式進入點 [galaxy-space main.js](src/js/galaxy-space/main.js)。
+使用 [jQuery v3](https://sweetalert2.github.io) + [RequireJs](http://requirejs.org/)，以 AMD 方式將 JavaScript 模組化，可參考主要程式進入點 [magic main.js](src/js/magic/main.js)。
 
 ## 好用的第三方元件
 [BootStrap v4](https://getbootstrap.com) 響應式網頁的 UI 框架，用於呈現雲端銀行的交易頁面。    
