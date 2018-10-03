@@ -32,7 +32,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
           </div>
         `
       }
-      
+
       let dialogAttr = {
         customClass: `my_treasure_message_box ${classHeight}`,
         background: '#a6937c',
@@ -41,19 +41,19 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
         cancelButtonClass: 'btn message_box_btn_style',
         showCancelButton: !targets.chestInstance['novice'],
         confirmFn: () => {
-          let statusInfo = {
-            status: 'UNLOCKING'
-          }
-          ajax('POST', `/chest/inception/${chest.id}`, statusInfo)
-            .then(jsonData => {
-              if (eventChestCheck(jsonData.message, jsonData.content)) {
-                return
-              } else if (eventAwardAreZero(jsonData.message, jsonData.content)) {
-                return
-              }
+          ajax('POST', `/chest/inception/${chest.id}`,
+            {
+              status: 'UNLOCKING'
+            }
+          ).then(jsonData => {
+            if (eventChestCheck(jsonData.message, jsonData.content)) {
+              return
+            } else if (eventAwardAreZero(jsonData.message, jsonData.content)) {
+              return
+            }
 
-              eventChestStatusDo.unLocking(chest, targets, beginInceptionFn)
-            })
+            eventChestStatusDo.unLocking(chest, targets, beginInceptionFn)
+          })
         },
 
         onOpenFn: () => {

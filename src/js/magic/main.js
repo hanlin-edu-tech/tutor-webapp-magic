@@ -48,7 +48,7 @@ require.config({
     sweetAlert: ['../lib/sweetalert2.all.min'],
     jqueryCountDown: ['../lib/jquery-time-countdown.min'],
     countUp: ['../lib/countUp.min'],
-    bluebird: ['../lib/bluebird.min'],
+    babelPolyfill: ['../lib/polyfill.min'],
     cookie: ['../lib/js.cookie.min'],
 
     /* 共用元件 */
@@ -65,9 +65,7 @@ require.config({
 
 require([], () => {
   /* 一開始沒有return function的 js 必須在這裡require */
-  require(['bluebird'], function (Promise) {
-    window.Promise = Promise
-  })
+  require(['babelPolyfill'])
   require(['eventTutorialInit'])
   require(['eventClickLink'])
   require(['eventUserStatus'])

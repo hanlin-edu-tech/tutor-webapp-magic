@@ -21,10 +21,8 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
           let gainAwardId = jsonDataContent.gainAwardId
           let gainAward = jsonDataContent.gainAward ? jsonDataContent.gainAward : ''
           let luckyBag = jsonDataContent.luckyBag
-          let awardImg = '', // eslint-disable-line
-            awardTitle = ''
-          let popupHtml, openTextBlock3 = '', // eslint-disable-line
-            openTextBlock4 = '', gridOpenContainerClass = ''
+          let awardImg = ''
+          let popupHtml, gridOpenContainerClass = ''// eslint-disable-line
           let dialogAttr
 
           if (eventChestCheck(jsonData.message, jsonData.content)) {

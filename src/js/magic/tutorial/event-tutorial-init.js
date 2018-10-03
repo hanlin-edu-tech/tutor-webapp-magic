@@ -1,5 +1,5 @@
-define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
-  ($, ajax, Cookie, sweetAlert, confirmPopup) => { // eslint-disable-line
+define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
+  ($, ajax, sweetAlert, confirmPopup) => { // eslint-disable-line
     let chestId, user
     let noviceTargets = {}
     let platformTarget = $('#section_novice .potion.platform-GREEN')
@@ -10,22 +10,19 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
     noviceTargets.upgradeBtn = greenTarget.find('.upgrade_btn')
     noviceTargets.openBtn = greenTarget.find('.mix_finish')
     noviceTargets.readyNowBtn = greenTarget.find('.now_finish')
-    let saveCookie = progressiveStep => {
-      Cookie.set('progressiveStep', progressiveStep, {
-        expire: 1
+    let save = progressiveStep => {
+      ajax('PATCH', `/chest/novice/`, {
+        progressiveStep: progressiveStep
       })
+        .then(() => {
+
+        })
     }
 
     let exitRemind = () => {
       // 監聽使用者離開視窗之事件
       window.onbeforeunload = event => {
-        ajax('PATCH', `/chest/novice/`, {
-          progressiveStep: Cookie.get('progressiveStep')
-        })
-          .then(() => {
-
-          })
-        event.returnValue = false
+        event.returnValue = true
       }
     }
 
@@ -34,31 +31,6 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
      */
     let comebackExecFunction = progressiveStep => {
       switch (progressiveStep) {
-        case 'STEP2_1': {
-          step2_1()
-          break
-        }
-        case 'STEP3_1': {
-          step3_1()
-          break
-        }
-        case 'STEP3_4': {
-          step3_4()
-          break
-        }
-        case 'STEP4_1': {
-          step4_1()
-          break
-        }
-        case 'STEP4_3': {
-          step4_3()
-          break
-        }
-        case 'STEP4_4': {
-          noviceTargets.openBtn.removeAttr('style')
-          step4_4()
-          break
-        }
         case 'STEP4_5': {
           step4_5()
           break
@@ -80,26 +52,55 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
 
     let retrieveNoviceChest = progressiveStep => {
       ajax('GET', `/chest/?isNoviceExisted=true`)
-        .then((jsonData) => {
-          let chests = jsonData.content
+        .then(
+          jsonData => {
+            let chests = jsonData.content
 
-          $('#section_middle_part .potion img, #section_novice .potion img').remove()
+            $('#section_middle_part .potion img, #section_novice .potion img').remove()
 
-          if (chests.length > 0) {
-            let chest = chests[0]
-            chestId = chest.id
-            user = chest.user
-            noviceTargets.chestInstance = chest
-            noviceTargets.platform
-              .append(`<img src="./img/magicImg/LV${chest.level}.png" 
+            if (chests.length > 0) {
+              let chest = chests[0]
+              chestId = chest.id
+              user = chest.user
+              noviceTargets.chestInstance = chest
+              noviceTargets.platform
+                .append(`<img src="./img/magicImg/LV${chest.level}.png" 
                         data-chest-tutorial-id="${chestId}">`)
 
-            noviceTargets.platformChest = greenTarget.find(`.potion.platform-${chest.colorPlatform} img`)
-          }
+              noviceTargets.platformChest = greenTarget.find(`.potion.platform-${chest.colorPlatform} img`)
 
-          comebackExecFunction(progressiveStep)
-          exitRemind()
-        })
+              switch (chest.status) {
+                case 'LOCKED': {
+                  if (chest.level === 1)
+                    step2_1()
+                  else {
+                    step3_4()
+                  }
+                  break
+                }
+                case 'UNLOCKING': {
+                  require(['eventChestStatusDo'], eventChestStatusDo => {
+                    eventChestStatusDo.unLocking(chest, noviceTargets, step4_3)
+                  })
+                  step4_3()
+                  break
+                }
+                case 'READY': {
+                  noviceTargets.openBtn.removeAttr('style')
+                  step4_4()
+                  break
+                }
+                default: {
+
+                }
+              }
+            } else {
+              comebackExecFunction(progressiveStep)
+            }
+
+            exitRemind()
+          }
+        )
     }
 
     /** ******************* 新手村 *********************/
@@ -107,7 +108,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
     let step6_1 = () => {
       let functionDescTarget = $('.function_description')
       let progressiveStep = 'STEP6_1'
-      saveCookie(progressiveStep)
+      save(progressiveStep)
 
       functionDescTarget.removeAttr('style')
       functionDescTarget.find('.finish_novice_btn').one('click', () => {
@@ -141,51 +142,59 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
     /* 5_1 註冊學院 */
     let step5_1 = () => {
       let popupHtml = `
-        <div class="confirm-grid-academy-container">
-          <div class="academy">
-            <img src="./img/magicImg/badge_cat.png">
-            <p><span class="highlight">貝斯坦特</span></p>
-            <p class="left-align">
-              來自在神秘異域國度，嬌小的身軀有著無比敏捷與聰慧的力量。
-              <span class="highlight">唯有精明機智的人才能把握良機</span>
-            </p>
-          </div>
-          <div class="register">
-            <button class="btn message_box_btn_style" data-academy="貝斯坦特" data-badge="cat">選我</button>
-          </div>
-          <div class="academy">
-            <img src="./img/magicImg/badge_lion.png">
-            <p><span class="highlight">格里芬恩</span></p>
-            <p class="left-align">
-              出身於藏寶豐富的草原，有著沉穩的性格和強烈的正義感。
-              <span class="highlight">耐心和毅力引領我們走向王者之路</span>
-            </p>           
-          </div>
-          <div class="register">
-            <button class="btn message_box_btn_style" data-academy="格里芬恩" data-badge="lion">選我</button>
-          </div>
-          <div class="academy">
-            <img src="./img/magicImg/badge_rabbit.png">
-            <p><span class="highlight">加卡洛普</span></p>
-            <p class="left-align">
-              來自繁花盛開的大地，舉止文雅，判斷力強，是幸運的象徵。
-              <span class="highlight">迅速果斷的判斷力是成功的必要條件。</span>
-            </p>
-          </div>
-          <div class="register">
-            <button class="btn message_box_btn_style" data-academy="加卡洛普" data-badge="rabbit">選我</button>
-          </div>
-          <div class="academy">
-            <img src="./img/magicImg/badge_tiger.png">
-            <p><span class="highlight">克拉托斯</span></p>
-            <p class="left-align">
-              生活在荒蕪的叢林之中，雖來去無蹤但無所畏懼、英勇無比。
-              <span class="highlight">前方即使荊棘滿地，也要勇往直前！</span>
-            </p>
-          </div>
-          <div class="register">
-            <button class="btn message_box_btn_style" data-academy="克拉托斯" data-badge="tiger">選我</button>
-          </div>
+        <div class="confirm-grid-academy-container" xmlns="http://www.w3.org/1999/html">
+          <article>
+            <div class="academy">
+              <img src="./img/magicImg/badge_cat.png">
+              <p><span class="highlight">貝斯坦特</span></p>
+              <p class="left-align">
+                來自在神秘異域國度，嬌小的身軀有著無比敏捷與聰慧的力量。
+                <span class="highlight">唯有精明機智的人才能把握良機</span>
+              </p>
+              </div>
+            <div class="register">
+              <button class="btn message_box_btn_style" data-academy="貝斯坦特" data-badge="cat">選我</button>
+            </div>
+          </article>
+          <article>
+            <div class="academy">
+              <img src="./img/magicImg/badge_lion.png">
+              <p><span class="highlight">格里芬恩</span></p>
+              <p class="left-align">
+                出身於藏寶豐富的草原，有著沉穩的性格和強烈的正義感。
+                <span class="highlight">耐心和毅力引領我們走向王者之路</span>
+              </p>           
+            </div>
+            <div class="register">
+              <button class="btn message_box_btn_style" data-academy="格里芬恩" data-badge="lion">選我</button>
+            </div>
+          </article>
+          <article>
+            <div class="academy">
+              <img src="./img/magicImg/badge_rabbit.png">
+              <p><span class="highlight">加卡洛普</span></p>
+              <p class="left-align">
+                來自繁花盛開的大地，舉止文雅，判斷力強，是幸運的象徵。
+                <span class="highlight">迅速果斷的判斷力是成功的必要條件。</span>
+              </p>
+            </div>
+            <div class="register">
+              <button class="btn message_box_btn_style" data-academy="加卡洛普" data-badge="rabbit">選我</button>
+            </div>
+          </article>
+          <article>
+            <div class="academy">
+              <img src="./img/magicImg/badge_tiger.png">
+              <p><span class="highlight">克拉托斯</span></p>
+              <p class="left-align">
+                生活在荒蕪的叢林之中，雖來去無蹤但無所畏懼、英勇無比。
+                <span class="highlight">前方即使荊棘滿地，也要勇往直前！</span>
+              </p>
+            </div>
+            <div class="register">
+              <button class="btn message_box_btn_style" data-academy="克拉托斯" data-badge="tiger">選我</button>
+            </div>
+          </article>
         </div>
         <p class="confirm-popup-small-font">※ 請注意，一但選擇後即無法更改喔！</p>
       `
@@ -193,7 +202,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
       let academyName = ''
       let badge = ''
       let progressiveStep = 'STEP5_1'
-      saveCookie(progressiveStep)
+      save(progressiveStep)
 
       confirmPopup.dialog(popupHtml,
         {
@@ -249,11 +258,15 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
 
     /* 4_5 了解調配藥水所需時間 */
     let step4_5 = () => {
+      let popupHtml
+      let progressiveStep = 'STEP4_5'
+      save(progressiveStep)
+
       noviceTargets.openBtn.css('display', 'none')
       if (noviceTargets.platformChest)
         noviceTargets.platformChest.remove()
 
-      let popupHtml = `<p class="common-font left-align">嘿嘿，別睡著了！新手教學即將完成囉～
+      popupHtml = `<p class="common-font left-align">嘿嘿，別睡著了！新手教學即將完成囉～
         你已經很棒了，也學會了如何調配藥水，每一個藥水的調配時間都是固定的，
         越好的藥水調配時間就會越長： 
         <br/><span class="highlight">Lv1: 1小時；Lv2: 2小時；Lv3: 4小時；</span>
@@ -297,7 +310,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
           allowSamePlatformReOpen = (new Date().getTime() - $(currentTarget).attr('data-lockedAt') > 5000)
           if (!$(currentTarget).attr('data-lockedAt') || allowSamePlatformReOpen) {
             let progressiveStep = 'STEP4_5'
-            saveCookie(progressiveStep)
+            save(progressiveStep)
             eventChestOpen(noviceTargets.chestInstance, noviceTargets, step4_5)
           }
 
@@ -311,34 +324,29 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
 
     /* 4-3-2 成功調配藥水 */
     let step4_3_2 = () => {
-      ajax('PATCH', `/chest/open/immediately/${chestId}`, {
-        spendGems: 0
-      })
-        .then(() => {
-            let seconds
-
-            // 儲存進度
-            let progressiveStep = 'STEP4_4'
-            saveCookie(progressiveStep)
-
-            seconds = 0
-            /* 倒數計時秒數設定為 0，讓藥水變成 ready 狀態 */
-            require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
-              let noviceObj = {
-                isNovice: true,
-                noviceExecFn: step4_4
-              }
-              eventCountdown(seconds, noviceTargets.chestInstance, noviceTargets, eventChestReady, noviceObj)
-            })
-          }
-        )
+      ajax('PATCH', `/chest/open/immediately/${chestId}`,
+        {
+          spendGems: 0
+        }).then(() => {
+          let seconds = 0
+          /* 倒數計時秒數設定為 0，讓藥水變成 ready 狀態 */
+          require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
+            let noviceObj = {
+              isNovice: true,
+              noviceExecFn: step4_4
+            }
+            eventCountdown(seconds, noviceTargets.chestInstance, noviceTargets, eventChestReady, noviceObj)
+          })
+        }
+      )
     }
 
     /* 4-3 等待調配藥水之時間，且學習立即完成藥水之調配 */
     let step4_3 = () => {
       let popupHtml
+      // 儲存進度
       let progressiveStep = 'STEP4_3'
-      saveCookie(progressiveStep)
+      save(progressiveStep)
 
       popupHtml = `通常製作藥水都是需要一些時間的唷！
         <span class="highlight">你也可以花費寶石「立即完成」直接結束倒數！</span>
@@ -384,7 +392,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         你必須學會<span class="highlight">「調配藥水」</span>才能成為真正的魔法師。
       `
       let progressiveStep = 'STEP4_1'
-      saveCookie(progressiveStep)
+      save(progressiveStep)
 
       confirmPopup.tutorialPrompt(popupHtml, {
         confirmFn: step4_2,
@@ -399,6 +407,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
       let popupHtml = `恭喜你升級成功了！想獲得越好的寶藏，就要越努力的升級魔法藥水哦！
       當然，<span class="highlight">每次升級魔法藥水都需要一定數量的資源 (e幣、寶石)</span>。`
 
+      platformTarget.find('img').attr('src', `./img/magicImg/LV2.png`)
       noviceTargets.upgradeBtn.css({display: 'none'})
 
       confirmPopup.tutorialPrompt(popupHtml, {
@@ -414,15 +423,17 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         })
       }
 
-      /* 如果升級過程離開，就直接跳到 3_4 */
-      let progressiveStep = 'STEP3_4'
-      saveCookie(progressiveStep)
-
       ajax('POST', `/chest/upgrade/${chestId}`, {user: user})
         .then(async jsonData => {
             let upLevel = jsonData.content['upLevel']
             let potionTarget = platformTarget.find('img')
             let audioLevelUpTarget
+
+            require(['eventChestCheck'], eventChestCheck => {
+              if (eventChestCheck(jsonData.message, jsonData.content)) {
+                return
+              }
+            })
 
             // 更新藥水目前等級
             noviceTargets.chestInstance.level = upLevel
@@ -510,8 +521,6 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
         首先，我們先來學習<span class="highlight">「如何升級」</span>吧！
         第一次升級是免費的唷，快來試試看～
       `
-      let progressiveStep = 'STEP3_1'
-      saveCookie(progressiveStep)
 
       confirmPopup.tutorialPrompt(popupHtml, {
         confirmFn: step3_2,
@@ -550,7 +559,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
                  <span class="highlight">基本上，1 次所能擁有的藥水數量上限是 4 個，超過的話是沒辦法再放進來的！</span>
                  因此，定時回來調配藥水是很重要的！`
       let progressiveStep = 'STEP2_1'
-      saveCookie(progressiveStep)
+      save(progressiveStep)
 
       confirmPopup.tutorialPrompt(popupHtml, {
         confirmFn: step2_2
@@ -561,10 +570,7 @@ define(['jquery', 'ajax', 'cookie', 'sweetAlert', 'confirmPopup'],
     /** *** step 1 初次進入新手教學 *****/
     /* 1_1 發放藥水 */
     let step1_1 = () => {
-      let popupHtml, progressiveStep = 'STEP1_1'
-      saveCookie(progressiveStep)
-
-      popupHtml = `
+      let popupHtml = `
         <p class="common-font left-align">
           嗨！我是傳奇魔法師 Albi，
           初次見面你好 這學期我們要學習<span class="highlight">奇幻魔藥學哦！</span>

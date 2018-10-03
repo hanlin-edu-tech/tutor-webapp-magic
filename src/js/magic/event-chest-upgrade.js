@@ -38,10 +38,11 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
       .then(jsonData => {
         let insufficientMessage = jsonData.content
         if (insufficientMessage) {
-          confirmPopup.dialog(insufficientMessage, {
-            title: 'Oooooops 餘額不足喔！',
-            confirmButtonText: '我瞭解了'
-          })
+          confirmPopup.dialog(`<p>${insufficientMessage}</p>`,
+            {
+              confirmButtonText: '我瞭解了',
+              showCancelButton: false
+            })
           loadingTarget.css('display', 'none')
           return $.Deferred().reject().promise()
         } else {
@@ -57,8 +58,8 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
         targets.platformChest.addClass('upgrade_animation')
 
         /* 升級音效 */
-        audioLevelUpTarget = document.getElementById("audio_level_up");
-        audioLevelUpTarget.play();
+        audioLevelUpTarget = document.getElementById('audio_level_up')
+        audioLevelUpTarget.play()
 
         await delay(1500)
 

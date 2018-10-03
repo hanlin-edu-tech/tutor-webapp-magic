@@ -36,6 +36,7 @@
 
 div.open-award .gems-img,
 div.open-award .coins-img {
+  height: 35px;
   width: 35px;
 }
 

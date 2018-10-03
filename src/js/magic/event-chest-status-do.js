@@ -20,22 +20,28 @@ define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
       ajax('GET', `/chest/coolDownTime/${chest.id}`)
         .then(data => {
           let seconds = data.content
-          if (beginInceptionFn) {
-            beginInceptionFn()
-          } else {
-            $('.mix_btn').css('display', 'none')
-            $('.upgrade_btn').css('left', '27%')
 
-            targets.startBtn.css('display', 'none')
-            targets.upgradeBtn.css('display', 'none')
-            targets.openBtn.css('display', 'none')
-            targets.readyNowBtn.removeAttr('style')
-            targets.platformChest.css('filter', 'url("#grayscale")')
+          $('.mix_btn').css('display', 'none')
+          $('.upgrade_btn').css('left', '27%')
+
+          targets.startBtn.css('display', 'none')
+          targets.upgradeBtn.css('display', 'none')
+          targets.openBtn.css('display', 'none')
+          targets.readyNowBtn.removeAttr('style')
+          targets.platformChest.css('filter', 'url("#grayscale")')
+
+          // 如果是新手教學，但已達調配時間，則直接再給予 600 秒
+          if (seconds <= 0 && chest.novice) {
+            seconds = 600
+            require(['eventCountdown'], eventCountdown => {
+              eventCountdown(seconds, chest, targets, beginInceptionFn)
+            })
+          } else {
+            require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
+              eventCountdown(seconds, chest, targets, eventChestReady)
+            })
           }
 
-          require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
-            eventCountdown(seconds, chest, targets, eventChestReady)
-          })
         })
     },
 
