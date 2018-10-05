@@ -31,11 +31,15 @@ define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
           targets.platformChest.css('filter', 'url("#grayscale")')
 
           // 如果是新手教學，但已達調配時間，則直接再給予 600 秒
-          if (seconds <= 0 && chest.novice) {
-            seconds = 600
+          if (chest.novice) {
+            if (seconds <= 0) {
+              seconds = 600
+            }
             require(['eventCountdown'], eventCountdown => {
               eventCountdown(seconds, chest, targets, beginInceptionFn)
             })
+            // 執行新手教學的 STEP4_3
+            beginInceptionFn()
           } else {
             require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
               eventCountdown(seconds, chest, targets, eventChestReady)

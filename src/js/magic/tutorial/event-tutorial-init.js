@@ -12,11 +12,11 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
     noviceTargets.readyNowBtn = greenTarget.find('.now_finish')
     let save = progressiveStep => {
       ajax('PATCH', `/chest/novice/`, {
-        progressiveStep: progressiveStep
-      })
-        .then(() => {
+          progressiveStep: progressiveStep
+        }
+      ).then(() => {
 
-        })
+      })
     }
 
     let exitRemind = () => {
@@ -71,9 +71,11 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
 
               switch (chest.status) {
                 case 'LOCKED': {
-                  if (chest.level === 1)
+                  if (chest.level === 1 && progressiveStep === 'STEP2_1') {
                     step2_1()
-                  else {
+                  } else if (chest.level === 1) {
+                    step1_1()
+                  } else {
                     step3_4()
                   }
                   break
@@ -114,9 +116,11 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
       functionDescTarget.find('.finish_novice_btn').one('click', () => {
         ajax('PATCH', `/chest/novice/`, {
           progressiveStep: 'COMPLETED'
-        })
-        functionDescTarget.fadeOut()
-        require(['eventGameBegin'])
+        }).then(() => {
+            functionDescTarget.fadeOut()
+            require(['eventGameBegin'])
+          }
+        )
       })
     }
 
@@ -345,9 +349,6 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
     let step4_3 = () => {
       let popupHtml
       // 儲存進度
-      let progressiveStep = 'STEP4_3'
-      save(progressiveStep)
-
       popupHtml = `通常製作藥水都是需要一些時間的唷！
         <span class="highlight">你也可以花費寶石「立即完成」直接結束倒數！</span>
         為了可以盡快教會你，就再給你一次免費的機會吧！
@@ -391,8 +392,6 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
         學會升級還不夠喔！
         你必須學會<span class="highlight">「調配藥水」</span>才能成為真正的魔法師。
       `
-      let progressiveStep = 'STEP4_1'
-      save(progressiveStep)
 
       confirmPopup.tutorialPrompt(popupHtml, {
         confirmFn: step4_2,
@@ -555,11 +554,13 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
 
     /* 2-1 獲取藥水 */
     let step2_1 = () => {
-      let popupHtml = `太好了！你獲得了 1 個 Lv1 魔法藥水。未來當你獲得藥水時，就會幫你存放在這裡喔！
-                 <span class="highlight">基本上，1 次所能擁有的藥水數量上限是 4 個，超過的話是沒辦法再放進來的！</span>
-                 因此，定時回來調配藥水是很重要的！`
+      let popupHtml
       let progressiveStep = 'STEP2_1'
       save(progressiveStep)
+
+      popupHtml = `太好了！你獲得了 1 個 Lv1 魔法藥水。未來當你獲得藥水時，就會幫你存放在這裡喔！
+                 <span class="highlight">基本上，1 次所能擁有的藥水數量上限是 4 個，超過的話是沒辦法再放進來的！</span>
+                 因此，定時回來調配藥水是很重要的！`
 
       confirmPopup.tutorialPrompt(popupHtml, {
         confirmFn: step2_2
@@ -622,7 +623,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
               confirmFn: retrieveNoviceChest.bind(retrieveNoviceChest, progressiveStep)
             })
           } else { /* 尚未開始新手教學 */
-            retrieveNoviceChest(step1_1)
+            retrieveNoviceChest()
           }
         })
     }

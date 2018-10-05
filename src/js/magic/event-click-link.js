@@ -37,7 +37,7 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {// eslint-disable-line
       window.location = '/event/space/activity-means.html'
     })
     $('.bank').on('click', () => {
-      window.open('/event/space/currency-bank.html', 'ehanlinBank')
+      window.open('/app/magic/currency-bank.html', 'ehanlinBank')
       return false
     })
     $('#near_activity .cat_title').on('click', () => {
