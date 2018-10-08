@@ -2,38 +2,25 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], // eslint-disable-
   ($, ajax, confirmPopup, eventChestCheck) => {
     let eventChestOpenImmediately = {}
     eventChestOpenImmediately.process = (chest, targets, spendGems) => {
-      ajax('GET', `/chest/checkBalance?gems=${spendGems}`)
-        .then(jsonData => {
-          let insufficientMessage = jsonData.content
-          if (insufficientMessage) {
-            confirmPopup.dialog(`<p>${insufficientMessage}</p>`,
-              {
-                confirmButtonText: '我瞭解了',
-                showCancelButton: false
-              })
-            return $.Deferred().reject().promise()
-          }
-          else {
-            return ajax('PATCH', `/chest/open/immediately/${chest.id}`, {
-              spendGems: spendGems
-            })
-          }
-        })
-        .then(jsonData => {
-          if (eventChestCheck(jsonData.message, jsonData.content)) {
-            return
-          }
+      ajax('PATCH', `/chest/open/immediately/${chest.id}`,
+        {
+          spendGems: spendGems
+        }
+      ).then(jsonData => {
+        if (eventChestCheck(jsonData.message, jsonData.content)) {
+          return
+        }
 
-          let finalGems = jsonData.content.finalGems
-          require(['eventCountUp'], eventCountUp => {
-            eventCountUp('diamond', parseInt($('#diamond').text()), finalGems)
-          })
-
-          /* 倒數計時秒數設定為 1，讓藥水變成 ready 狀態 */
-          require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
-            eventCountdown(0, chest, targets, eventChestReady)
-          })
+        let finalGems = jsonData.content.finalGems
+        require(['eventCountUp'], eventCountUp => {
+          eventCountUp('diamond', parseInt($('#diamond').text()), finalGems)
         })
+
+        /* 倒數計時秒數設定為 1，讓藥水變成 ready 狀態 */
+        require(['eventCountdown', 'eventChestReady'], (eventCountdown, eventChestReady) => {
+          eventCountdown(0, chest, targets, eventChestReady)
+        })
+      })
     }
 
     eventChestOpenImmediately.ask = (chest, targets) => {
@@ -54,7 +41,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], // eslint-disable-
           spendGems = spendGems * cycles
           popupContent = `
             <div class="confirm-popup-title-font">立即開啟藥水需花費 ${spendGems} 個寶石</div>
-            <p>確定要立即開啟藥水嗎？</p>
+            <p class="common-font">確定要立即開啟藥水嗎？</p>
           `
           confirmPopup.dialog(popupContent,
             {

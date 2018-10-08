@@ -28,27 +28,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
     let upLevel = chest.level + 1
     let loadingTarget = $('#loading')
     loadingTarget.css('display', '')
-    ajax('GET', `/chest/condition/level${upLevel}`, null)
-      .then(jsonData => {
-        let levelInfo = jsonData.content.content
-        let coins = levelInfo.coins
-        let gems = levelInfo.gems
-        return ajax('GET', `/chest/checkBalance?coins=${coins}&gems=${gems}`, null)
-      })
-      .then(jsonData => {
-        let insufficientMessage = jsonData.content
-        if (insufficientMessage) {
-          confirmPopup.dialog(`<p>${insufficientMessage}</p>`,
-            {
-              confirmButtonText: '我瞭解了',
-              showCancelButton: false
-            })
-          loadingTarget.css('display', 'none')
-          return $.Deferred().reject().promise()
-        } else {
-          return ajax('POST', `/currencyBank/chest/levelUp/${chest.id}`)
-        }
-      })
+    ajax('POST', `/currencyBank/chest/levelUp/${chest.id}`)
       .then(async jsonData => {
         let audioLevelUpTarget
         if (eventChestCheck(jsonData.message, jsonData.content)) {

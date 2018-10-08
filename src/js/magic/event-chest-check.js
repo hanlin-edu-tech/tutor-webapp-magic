@@ -13,6 +13,8 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => { // eslint-disable-line
         confirmFn = () => {
           window.location = `https://www.ehanlin.com.tw/courses_map.html`
         }
+      } else if (checkResult.indexOf('餘額不足喔') >= 0) {
+        confirmFn = () => {}
       } else {
         confirmFn = () => {
           window.location.reload()
