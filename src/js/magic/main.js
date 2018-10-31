@@ -60,7 +60,9 @@ require.config({
     '*': {
       'jQuery': 'jquery'
     }
-  }
+  },
+
+  urlArgs: "t=" + (new Date()).getTime()
 })
 
 require([], () => {
@@ -69,7 +71,34 @@ require([], () => {
   require(['eventTutorialInit'])
   require(['eventClickLink'])
   require(['eventUserStatus'])
+  require(['eventBonusPopup'])
+
+  // 判定使用者裝置
+  let determineDevice = () => {
+    let userAgent = navigator.userAgent;
+    let isMobile = /Android|webOS|iPhone|iPad|BlackBerry|IEMobile|Opera Mini/i.test(
+      userAgent
+    )
+
+    if(isMobile) {
+      document.getElementById('remind-mask').style.fontSize = '26px'
+    }
+  }
+
+  // 判定裝置方向
+  let determineOrientation = () => {
+    let remindMaskTarget = document.getElementById('remind-mask')
+    if (window.innerWidth < window.innerHeight) {
+      remindMaskTarget.style.display = ''
+    } else {
+      remindMaskTarget.style.display = 'none'
+    }
+  }
 
   let audioBackgroundMelodyTarget = document.getElementById('audio_background_melody')
   audioBackgroundMelodyTarget.play()
+
+  determineDevice()
+  determineOrientation()
+  window.addEventListener('resize', determineOrientation)
 })

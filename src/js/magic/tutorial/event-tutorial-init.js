@@ -128,7 +128,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
     /* 5_2 正式成為魔藥學學員 */
     let step5_2 = () => {
       let popupHtml = `
-        <p class="left-align">每一個人都需要為學院盡一份心力！
+        <p class="common-font left-align">每一個人都需要為學院盡一份心力！
           未來將會有許多團體戰需要你們一起完成喔～
           <span class="highlight">最後最後，我們來了解其他重要的功能吧～！</span>
         </p>
@@ -422,35 +422,36 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
         })
       }
 
-      ajax('POST', `/chest/upgrade/${chestId}`, {user: user})
-        .then(async jsonData => {
-            let upLevel = jsonData.content['upLevel']
-            let potionTarget = platformTarget.find('img')
-            let audioLevelUpTarget
+      ajax('POST', `/chest/upgrade/${chestId}`, {
+        originalLevel: 1
+      }).then(async jsonData => {
+          let upLevel = jsonData.content['upLevel']
+          let potionTarget = platformTarget.find('img')
+          let audioLevelUpTarget
 
-            require(['eventChestCheck'], eventChestCheck => {
-              if (eventChestCheck(jsonData.message, jsonData.content)) {
-                return
-              }
-            })
+          require(['eventChestCheck'], eventChestCheck => {
+            if (eventChestCheck(jsonData.message, jsonData.content)) {
+              return
+            }
+          })
 
-            // 更新藥水目前等級
-            noviceTargets.chestInstance.level = upLevel
+          // 更新藥水目前等級
+          noviceTargets.chestInstance.level = upLevel
 
-            /* 升級音效 */
-            audioLevelUpTarget = document.getElementById('audio_level_up')
-            audioLevelUpTarget.play()
+          /* 升級音效 */
+          audioLevelUpTarget = document.getElementById('audio_level_up')
+          audioLevelUpTarget.play()
 
-            potionTarget.addClass('upgrade_animation')
-            await delay(1500)
+          potionTarget.addClass('upgrade_animation')
+          await delay(1500)
 
-            potionTarget.attr('src',
-              `./img/magicImg/LV${upLevel}.png`)
+          potionTarget.attr('src',
+            `./img/magicImg/LV${upLevel}.png`)
 
-            potionTarget.removeClass('upgrade_animation')
-            await delay(500)
+          potionTarget.removeClass('upgrade_animation')
+          await delay(500)
 
-            let popupHtml = `
+          let popupHtml = `
               <div class="confirm-grid-upgrade-container">
                 <div class="image-block1">
                     <img src="./img/magicImg/LV2_box.png">
@@ -464,14 +465,14 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
               </div>
             `
 
-            confirmPopup.dialog(popupHtml,
-              {
-                confirmFn: step3_4,
-                confirmButtonText: '太棒了！',
-                showCancelButton: false
-              })
-          }
-        )
+          confirmPopup.dialog(popupHtml,
+            {
+              confirmFn: step3_4,
+              confirmButtonText: '太棒了！',
+              showCancelButton: false
+            })
+        }
+      )
     }
 
     /* 3-2 確認升級 */
@@ -577,7 +578,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
           初次見面你好 這學期我們要學習<span class="highlight">奇幻魔藥學哦！</span>
           準備好了嗎？首先就讓我送你一個<span class="highlight"> Lv1 魔法藥水 </span>當作見面禮吧！
         </p>
-        <img src="./img/magicImg/LV1.png">
+        <img class="confirm-popup-common-img-small" src="./img/magicImg/LV1.png">
       `
 
       confirmPopup.dialog(popupHtml,

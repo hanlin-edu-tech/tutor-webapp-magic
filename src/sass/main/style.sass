@@ -21,6 +21,32 @@ button, a
     cursor: pointer
     outline: none
 
+#remind-mask
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background: rgba(0, 0, 0, 0.87)
+    z-index: 1500
+    height: 100vh
+    width: 100vw
+    font-weight: 500
+
+    div
+        position: absolute
+        width: 90%
+        color: white
+
+        span
+            display: block
+            text-align: center
+
+.center
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
 .highlight
     color: #FFFD30
     text-shadow: 0 0 3px rgba(#FFFD30, 0.5)
@@ -30,7 +56,7 @@ button, a
     .container-fluid
         .row
             .elogo
-                z-index: 1600
+                z-index: 1500
                 +flexCenter
                 align-items: flex-start
                 padding: 0
@@ -43,7 +69,7 @@ button, a
             .title
                 +flexCenter
                 padding: 0
-                
+
                 img
                     width: 80%
                     height: auto
@@ -92,9 +118,10 @@ button, a
                                                 .row
                                                     .col-12
                                                         #ecoin, #diamond
-                                                            font-size: 12px
+                                                            font-size: 14px
                                                             color: #fff
-                                                            text-shadow: 0 0 6px #333
+                                                            text-shadow: 0 0 10px #270009
+                                                            font-weight: 900
 
                             .col-4
                                 .row
@@ -171,9 +198,9 @@ button, a
                         padding: 0px 1%
                         .gift_photo
                             width: 100%
-                            
+
                 .row_gift_content
-                    padding: 0 10% 
+                    padding: 0 10%
                     text-align: center
                     font-size: 14px
                     color: #41210e
@@ -287,18 +314,18 @@ button, a
 //教學訊息視窗
 .tutorial_message_box.row
     border-top: solid 3px white
-    height: 200px
+    height: 185px
 
     p
         text-align: left
         font-size: 20px
 
-    .col-3
+    .col-2
         +flexCenter
         padding: 0
         position: relative
 
-    .col-9
+    .col-10
         margin-bottom: 20px
 
 @mixin message_content
@@ -306,7 +333,7 @@ button, a
         margin: 0
         color: white
         letter-spacing: 2px
-        line-height: 34px
+        line-height: 31px
         text-shadow: 0 0 4px rgba(255, 255, 255, 0.5)
         font-weight: 400
 
@@ -338,15 +365,18 @@ button, a
     @include message_btn_style
 
     .tutorial_message_box_btn
-        padding: 10px 20px
+        padding: 8px 18px
         margin-bottom: 20px
 
-//近期活動&我的寶藏 視窗
+//近期活動 & 我的寶藏 & 啟動寶箱 視窗
 .my_treasure_message_box
     border: 5px solid #887868
 
     @include message_content
     @include message_btn_style
+
+    .common-font
+        font-size: 19px
 
     //內文
     .text_color
@@ -538,8 +568,8 @@ button, a
                 &:hover
                     -webkit-filter: saturate(1.5) contrast(1.2) brightness(1.1)
                     cursor: pointer
-        
-      
+
+
 
 
 @media screen and (max-width: 1200px)
@@ -576,8 +606,8 @@ button, a
                                                                 -webkit-transform-origin: left
                                                                 -webkit-transform: scale(0.9)
                                                                 white-space: nowrap
-    
-    
+
+
     #section_middle_part, #section_novice
         padding-top: 8%
         .container-fluid
@@ -606,7 +636,7 @@ button, a
                             padding: 0px 1%
                             .gift_photo
                                 width: 100%
-                                
+
                     .row_gift_content
                         font-size: 13px
                         .award_note
@@ -670,7 +700,7 @@ button, a
             height: 13%
         .content_person_info
             top: 3%
-        
+
     #login_dialog
         .login_potion_box
             top: 45%
@@ -696,7 +726,7 @@ button, a
                                         .col-coins
                                             height: 55%
 
-     
+
     #section_middle_part, #section_novice
         padding-top: 0%
         .container-fluid
@@ -706,19 +736,19 @@ button, a
                     background-size: 80% auto
                     .row_gift_pic
                         height: 30%
-                    
+
                         .col-3
                             img
-                                width: 25% 
-                                
+                                width: 25%
+
                     .row_gift_content
                         font-size: 13px
-                        -webkit-transform: scale(0.7) 
+                        -webkit-transform: scale(0.7)
                         -webkit-transform-origin: top
                         .award_note
                             padding-left: 10%
                             margin-top: 0%
-                            -webkit-transform: scale(0.8)  
+                            -webkit-transform: scale(0.8)
                             -webkit-transform-origin: left
                             white-space: nowrap
 
@@ -846,7 +876,7 @@ button, a
                                                         .col-12
                                                             height: 50%
 
-     
+
     #section_middle_part, #section_novice
         padding-top: 0%
         .container-fluid
@@ -875,15 +905,15 @@ button, a
                             padding: 0px 1%
                             .gift_photo
                                 width: 100%
-                                
+
                     .row_gift_content
                         font-size: 13px
-                        -webkit-transform: scale(0.7) 
+                        -webkit-transform: scale(0.7)
                         -webkit-transform-origin: top
                         .award_note
                             padding-left: 10%
                             margin-top: 0%
-                            -webkit-transform: scale(0.7)  
+                            -webkit-transform: scale(0.7)
                             -webkit-transform-origin: left
                             white-space: nowrap
 
@@ -979,7 +1009,36 @@ button, a
             right: 36%
 
 
-@media screen and (max-width: 570px)
+@media screen and (max-width: 580px)
+    .tutorial_message_box.row
+        height: 165px
+        p
+            margin-top: -7px
+            font-size: 15px
+
+        .tutorial_message_box_btn
+            margin-left: 5px
+            padding: 5px 5px
+
+    @mixin message_btn_style_small
+        .message_box_btn_style
+            font-size: 15px
+            margin-right: 3px
+            padding: 0 13px
+
+    .confirm_message_box, .tutorial_message_box, .my_treasure_message_box
+        @include message_btn_style_small
+        p
+            line-height: 26px
+
+        .common-font
+            font-size: 15px
+
+        .btn_iknow
+            border: 2px solid #EFD08D
+            border-radius: 7px
+            font-size: 16px
+
     #section_titlelist
         position: relative
         height: 30%
@@ -997,9 +1056,9 @@ button, a
                                                 -webkit-transform: scale(0.7)
                                                 white-space: nowrap
 
-     
+
     #section_middle_part, #section_novice
-        padding-top: 0%
+        padding-top: 0
         .container-fluid
             .row
                 .gift_list
@@ -1015,7 +1074,7 @@ button, a
                         .col-6
                             .gift_photo
                                 width: 90%
-                                
+
                     .row_gift_content
                         font-size: 12px
                         .award_note
@@ -1036,7 +1095,7 @@ button, a
 
     .function_description
         font-size: 12px
-        
+
         .finish_novice_btn
             padding: 8px
             position: fixed
@@ -1080,7 +1139,7 @@ button, a
 //- 動畫class -//
 .upgrade_animation
     animation: upgrade 1.5s alternate
-    
+
 .finish_animation
     animation: finish 1.5s infinite
 
@@ -1096,7 +1155,7 @@ button, a
         filter: drop-shadow(0px 0px 8px rgba(#fff, 1))
     100%
         filter: drop-shadow(0px 0px 5px rgba(#fff, 0.8))
-    
+
 @keyframes upgrade
     0%
         filter: blur(0px) brightness(1)

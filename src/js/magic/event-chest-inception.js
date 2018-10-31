@@ -4,7 +4,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
       let popupHtml, classHeight = '', width = ''
       if (chest.level >= 2) {
         classHeight = 'modal-popup-inception-height'
-        width = '90%'
+        width = '93%'
         popupHtml = `
           <div class="confirm-grid-inception-container">
             <div class="content-block1 confirm-popup-title-font">
@@ -83,7 +83,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
                 }
               }
 
-              if (window.matchMedia('(max-width: 500px)').matches) {
+              if (window.matchMedia('(max-width: 550px)').matches) {
                 limit = 1
               } else if (window.matchMedia('(max-width: 950px)').matches) {
                 limit = 3

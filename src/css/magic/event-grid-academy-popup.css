@@ -38,6 +38,30 @@
 }
 
 .confirm-grid-academy-container .academy p.left-align {
-  font-size: 17px;
   text-align: left;
+}
+
+@media screen and (max-width: 580px) {
+  .confirm-popup-academy-height {
+    height: 300px;
+  }
+
+  .confirm-grid-academy-container {
+    height: 280px;
+    grid-gap: 0;
+    font-size: 12px;
+  }
+
+  .confirm-grid-academy-container .academy {
+    padding: 0;
+    margin-bottom: 5px;
+  }
+
+  .confirm-grid-academy-container .academy p {
+    line-height: 18px;
+  }
+
+  .confirm-grid-academy-container .academy img {
+    width: 80px;
+  }
 }

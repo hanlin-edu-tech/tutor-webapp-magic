@@ -3,7 +3,7 @@
   background-size: contain;
   height: 650px;
   width: 650px;
-  z-index: 10;
+  z-index: 1700;
   left: 50%;
   top: 10px;
   transform: translateX(-50%) scale(0);

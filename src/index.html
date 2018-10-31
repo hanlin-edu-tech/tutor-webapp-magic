@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="X-UA-Compatible" content="IE=9;IE=10;IE=Edge,chrome=1">
         <meta http-equiv="cache-control" content="no-cache">
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="expires" content="0">
@@ -11,7 +11,8 @@
         <link type="image/png" href="./img/magicImg/favicon.png" rel="icon">
         <link href="./css/lib/animate.min.css" rel="stylesheet">
         <link href="./css/lib/sweetalert2.min.css" rel="stylesheet">
-        <link href="./css/main/style.css" rel="stylesheet"><!-- build:css -->
+        <link href="./css/main/for-ie11.css" rel="stylesheet">
+        <link href="./css/main/style.css?appVersion=201810311946" rel="stylesheet"><!-- build:css -->
         <link href="./css/magic/event-chest.css" rel="stylesheet">
         <link href="./css/magic/event-award.css" rel="stylesheet">
         <link href="./css/magic/event-confirm-popup.css" rel="stylesheet">
@@ -25,10 +26,14 @@
         <title>雲端奇幻魔藥學</title>
     </head>
     <body>
-        <audio src="./audio/background-melody.mp3" autoplay loop></audio>
+        <audio id="audio_background_melody" src="./audio/background-melody.mp3" autoplay loop></audio>
         <audio id="audio_button" src="./audio/button.mp3"></audio>
         <audio id="audio_level_up" src="./audio/level-up.mp3"></audio>
         <audio id="audio_open_award_event" src="./audio/open-award-event.mp3"></audio>
+        <section id="bonus-popup"></section>
+        <div id="remind-mask" style="display:none; font-size:50px">
+            <div class="center"><span>建議您</span><span>為了提供最佳網頁體驗</span><span>請將螢幕調整為</span><span>「橫向顯示」哦！</span></div>
+        </div>
         <div id="section_titlelist">
             <div class="container-fluid">
                 <div class="row">
@@ -64,7 +69,7 @@
                                     <div class="col-4">
                                         <div class="row">
                                             <div class="col-12 col-bank">
-                                                <div class="bank"><a href="https://www.ehanlin.com.tw/index.html"><img src="./img/magicImg/bank.png"></a></div>
+                                                <div class="bank"><img src="./img/magicImg/bank.png"></div>
                                             </div>
                                             <div class="col-12 col-logout"><img class="logout" src="./img/magicImg/logout.png"></div>
                                             <div class="col-12 col-login" style="display:none"><img class="login" src="./img/magicImg/login.png"></div>
@@ -255,6 +260,18 @@
                 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.4 0.2 0 1 0"></feColorMatrix>
             </filter>
         </svg>
-        <script data-main="./js/magic/main" src="./js/lib/require.js"></script>
+        <script src="https://cdn.polyfill.io/v2/polyfill.min.js?appVersion=201810311946"></script>
+        <script data-main="./js/magic/main" src="./js/lib/require.js?appVersion=201810311946"></script>
+        <!-- Google Tag Manager-->
+        <script type="text/javascript">
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MXQFNDH');
+            
+        </script>
+        <!-- GA and FBPixel-->
+        <script src="https://d220xxmclrx033.cloudfront.net/common_webcomponent/current/js/ehanlin-social.js?appVersion=201810311946"></script>
     </body>
 </html>

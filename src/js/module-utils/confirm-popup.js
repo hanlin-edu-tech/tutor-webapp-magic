@@ -6,7 +6,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     animation: false,
     reverseButtons: true,
     onBeforeOpen: () => {
-      //$('html').css({height: '100vh'})
+     
     }
   }
 
@@ -21,7 +21,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
 
   let confirmPopup = {}
   confirmPopup.dialog = (popupHtml, {
-    width = '55%',
+    width = (window.matchMedia('(max-width: 800px)').matches) ? '68%' : '58%',
     customClass = 'confirm_message_box confirm-popup-default-height',
     background = 'rgba(73, 173, 177, 0.9)',
     title = '',
@@ -75,8 +75,8 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     tutorialStyle.confirmButtonClass = 'btn_iknow tutorial_message_box_btn'
     tutorialStyle.onBeforeOpen = () => {
       $('.tutorial_message_box .swal2-header').remove()
-      $('.tutorial_message_box .swal2-content').addClass('col-9')
-      $('.tutorial_message_box .swal2-actions').addClass('col-3')
+      $('.tutorial_message_box .swal2-content').addClass('col-10')
+      $('.tutorial_message_box .swal2-actions').addClass('col-2')
     }
     return tutorialStyle
   }

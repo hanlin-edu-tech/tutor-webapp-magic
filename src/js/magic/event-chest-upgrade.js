@@ -24,52 +24,56 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
     return result
   }
 
-  eventChestUpgrade.process = (chest, targets) => {
+  eventChestUpgrade.process = (chest, targets, spendCoins, spendGems) => {
     let upLevel = chest.level + 1
     let loadingTarget = $('#loading')
     loadingTarget.css('display', '')
-    ajax('POST', `/currencyBank/chest/levelUp/${chest.id}`)
-      .then(async jsonData => {
-        let audioLevelUpTarget
-        if (eventChestCheck(jsonData.message, jsonData.content)) {
-          return
-        }
 
-        targets.platformChest.addClass('upgrade_animation')
+    ajax('POST', `/currencyBank/chest/levelUp/${chest.id}`, {
+      spendCoins: spendCoins,
+      spendGems: spendGems,
+      originalLevel: chest.level
+    }).then(async jsonData => {
+      let audioLevelUpTarget
+      if (eventChestCheck(jsonData.message, jsonData.content)) {
+        return
+      }
 
-        /* 升級音效 */
-        audioLevelUpTarget = document.getElementById('audio_level_up')
-        audioLevelUpTarget.play()
+      targets.platformChest.addClass('upgrade_animation')
 
-        await delay(1500)
+      /* 升級音效 */
+      audioLevelUpTarget = document.getElementById('audio_level_up')
+      audioLevelUpTarget.play()
 
-        targets.platformChest.attr('src',
-          `./img/magicImg/LV${upLevel}.png`)
+      await delay(1500)
 
-        targets.platformChest.removeClass('upgrade_animation')
-        await delay(500)
+      targets.platformChest.attr('src',
+        `./img/magicImg/LV${upLevel}.png`)
 
-        let result = eventChestUpgrade.composeLevelUpResult(jsonData.content)
-        confirmPopup.dialog(result.html,
-          {
-            confirmFn: () => {
-              let originalCoins = parseInt($('#ecoin').text())
-              let originalGems = parseInt($('#diamond').text())
-              let spendCoins = result.coins
-              let spendGems = result.gems
-              let finalCoins = originalCoins - spendCoins
-              let finalGems = originalGems - spendGems
+      targets.platformChest.removeClass('upgrade_animation')
+      await delay(500)
 
-              require(['eventChestGet', 'eventCountUp'], (eventChestGet, eventCountUp) => {
-                eventChestGet()
-                eventCountUp('ecoin', originalCoins, finalCoins)
-                eventCountUp('diamond', originalGems, finalGems)
-              })
-            },
-            confirmButtonText: '太棒了！',
-            showCancelButton: false
-          })
-      })
+      let result = eventChestUpgrade.composeLevelUpResult(jsonData.content)
+      confirmPopup.dialog(result.html,
+        {
+          confirmFn: () => {
+            let originalCoins = parseInt($('#ecoin').text())
+            let originalGems = parseInt($('#diamond').text())
+            let spendCoins = result.coins
+            let spendGems = result.gems
+            let finalCoins = originalCoins - spendCoins
+            let finalGems = originalGems - spendGems
+
+            require(['eventChestGet', 'eventCountUp'], (eventChestGet, eventCountUp) => {
+              eventChestGet()
+              eventCountUp('ecoin', originalCoins, finalCoins)
+              eventCountUp('diamond', originalGems, finalGems)
+            })
+          },
+          confirmButtonText: '太棒了！',
+          showCancelButton: false
+        })
+    })
       .done(() => {
         loadingTarget.css('display', 'none')
       })
@@ -81,8 +85,8 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
     ajax('GET', `/chest/condition/level${upLevel}`, null)
       .then(jsonData => {
         let data = jsonData.content.content
-        let needCoins = data['coins']
-        let needGems = data['gems']
+        let spendCoins = parseInt(data['coins'])
+        let spendGems = parseInt(data['gems'])
         let popupHtml = `
           <div class="confirm-grid-upgrade-container">
             <div class="image-block1">
@@ -94,7 +98,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
             <div class="content-block2">
               <p>  
                 你確定要花費 
-                <span class="highlight"> ${needCoins} 個 e 幣、 ${needGems} 個寶石</span>
+                <span class="highlight"> ${spendCoins} 個 e 幣、 ${spendGems} 個寶石</span>
                 升級至 Lv${upLevel} 藥水嗎？
               </p>
             </div>
@@ -103,7 +107,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
         `
         confirmPopup.dialog(popupHtml,
           {
-            confirmFn: eventChestUpgrade.process.bind(eventChestUpgrade.process, chest, targets),
+            confirmFn: eventChestUpgrade.process.bind(eventChestUpgrade.process, chest, targets, spendCoins, spendGems),
             confirmButtonText: '馬上升級'
           })
       })

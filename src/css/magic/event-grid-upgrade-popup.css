@@ -16,7 +16,6 @@
   grid-row: 1 / span 3;
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
-  width: 90%;
 }
 
 .confirm-grid-upgrade-container .image-block1 img {
@@ -65,9 +64,13 @@
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 580px) {
+  .confirm-grid-upgrade-container .image-block1 img {
+    height: 100px;
+  }
+
   .confirm-grid-upgrade-container {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .confirm-grid-upgrade-container .image-block1-chest {

@@ -5,7 +5,7 @@
   -ms-grid-columns: 20% 60% 20%;
   grid-template-rows: 13% 17% 70%;
   -ms-grid-rows: 13% 17% 70%;
-  font-size: 22px;
+  font-size: 21px;
   font-weight: normal;
   height: 245px;
   grid-gap: 3px;
@@ -30,7 +30,6 @@
   -ms-grid-column: 2;
   grid-row: 3;
   -ms-grid-row: 3;
-  font-size: 20px;
 }
 
 
@@ -44,8 +43,18 @@ div.open-award .coins-img {
   height: 135px;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 580px) {
+  .confirm-grid-img-container {
+    font-size: 18px;
+    height: 225px;
+    grid-gap: 1px;
+  }
+
   .confirm-grid-img-container .header-block1 {
     font-size: 20px;
+  }
+
+  .confirm-grid-img-container.open-award .open-award-gift {
+    height: 115px;
   }
 }

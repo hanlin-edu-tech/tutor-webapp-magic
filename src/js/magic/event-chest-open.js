@@ -41,11 +41,13 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
               <div class="content-block1 confirm-popup-title-font">
                 恭喜你獲得了：
               </div>
-              <div class="content-block2 confirm-popup-title-font">
-                <img class="coins-img" src="./img/magicImg/coin.svg">
-                <span>${gainCoins}</span>
-                <img class="gems-img" src="./img/magicImg/gem.svg">
-                <span>${gainGems}</span>
+              <div class="content-block2">
+                <p class="common-font">
+                  <img class="coins-img" src="./img/magicImg/coin.svg">
+                  <span>${gainCoins}</span>
+                  <img class="gems-img" src="./img/magicImg/gem.svg">
+                  <span>${gainGems}</span>
+                </p>
               </div>
               <div class="content-block3">
                 <p>${gainAward}</p>
@@ -56,6 +58,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
 
           if (gainAwardId && luckyBag === false) {
             dialogAttr = {
+              customClass: 'confirm_message_box confirm-popup-middle-height',
               /* 導頁至領取㽪品 */
               confirmFn: () => {
                 afterOpen(finalCoins, finalGems)
@@ -68,6 +71,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
             }
           } else if (luckyBag === true) {
             dialogAttr = {
+              customClass: 'confirm_message_box confirm-popup-middle-height',
               confirmFn: () => {
                 ajax('POST', `/chest/award/luckyBag/${chest.id}`,
                   {
@@ -93,11 +97,13 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
                         <div class="content-block1 confirm-popup-title-font">
                           福袋打開囉，得到：
                         </div>
-                        <div class="content-block2 confirm-popup-title-font">
-                          <img class="coins-img" src="./img/magicImg/coin.svg">
-                          <span>${gainCoins}</span>
-                          <img class="gems-img" src="./img/magicImg/gem.svg">
-                          <span>${gainGems}</span>
+                        <div class="content-block2">
+                          <p class="common-font">
+                            <img class="coins-img" src="./img/magicImg/coin.svg">
+                            <span>${gainCoins}</span>
+                            <img class="gems-img" src="./img/magicImg/gem.svg">
+                            <span>${gainGems}</span>
+                          </p>
                         </div>
                         <div class="content-block3">
                           ${awardImg}
@@ -129,7 +135,6 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
             }
           }
 
-          dialogAttr.customClass = 'confirm_message_box confirm-popup-middle-height'
           confirmPopup.dialog(popupHtml, dialogAttr)
         })
     }

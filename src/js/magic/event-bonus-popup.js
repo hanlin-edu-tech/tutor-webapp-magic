@@ -3,6 +3,7 @@ define(['jquery', 'cookie', 'ajax'], ($, Cookie, ajax) => { // eslint-disable-li
   let bonusPopupTarget = $('#bonus-popup')
 
   let popupHandler = (image) => {
+
     bonusPopupTarget.css('background-image', `url(${image})`)
     bonusPopupTarget.addClass('bonus-popup-show')
 
@@ -37,7 +38,8 @@ define(['jquery', 'cookie', 'ajax'], ($, Cookie, ajax) => { // eslint-disable-li
           popupHandler(image)
         }
       })
-  } else {
-    Cookie.remove('isBonusPopupImg')
   }
+  // else {
+  //   Cookie.remove('isBonusPopupImg')
+  // }
 })

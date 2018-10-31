@@ -94,11 +94,10 @@ const buildJs = () => {
 }
 
 /* 合併 CSS */
-const concatCss = sourceCss => {
+const concatCss = (sourceCss, timestamp) => {
   return gulp.src(sourceCss, {
     base: './src'
-  })
-    .pipe(concat('ehanlin-magic.css'))
+  }).pipe(concat(`ehanlin-magic-${timestamp}.css`))
     .pipe(cleanCss())
     .pipe(rename(path => {
       path.basename += '.min'
@@ -107,23 +106,32 @@ const concatCss = sourceCss => {
 }
 
 /* 將 index.html include 的所有 CSS 替換為合併後之 CSS */
-const replaceCss = () => {
+const replaceCss = timestamp => {
   return gulp.src('./src/index.html', {
     base: './src'
   })
     .pipe(htmlReplace({
-      'css': './css/event-magic/ehanlin-magic.min.css'
+      'css': `./css/event-magic/ehanlin-magic-${timestamp}.min.css`
     }))
     .pipe(gulp.dest(destination))
 }
 
 const buildCss = () => {
+  let now = new Date()
+  let year = now.getFullYear()
+  let month = now.getMonth() + 1
+  let date = now.getDate()
+  let hour = now.getHours()
+  let minute = now.getMinutes()
+  let timestamp = `${year}${month}${date}${hour}${minute}`
+
   Q.fcall(templateUtil.logPromise.bind(templateUtil.logPromise,
     clean.bind(clean, './dist/css/ehanlin-space-all.min.css')))
     .then(templateUtil.logStream.bind(templateUtil.logStream,
-      concatCss.bind(concatCss, ['./src/css/magic/*.css', './src/css/lib/csspin-balls.css', './src/css/lib/sweetalert2.css'])
+      concatCss.bind(concatCss,
+        ['./src/css/magic/*.css', './src/css/lib/csspin-balls.css', './src/css/lib/sweetalert2.css'], timestamp)
     ))
-    .then(templateUtil.logStream.bind(templateUtil.logStream, replaceCss))
+    .then(templateUtil.logStream.bind(templateUtil.logStream, replaceCss.bind(replaceCss, timestamp)))
     .then(templateUtil.logPromise.bind(templateUtil.logPromise,
       clean.bind(clean, './dist/css/magic')))
 
@@ -132,7 +140,7 @@ const buildCss = () => {
 
 const buildDevToEnv = () => {
   return gulp
-    .src(['./src/js/@(magic|currency-bank)/**/*.js', './src/index.html'], {
+    .src(['./src/js/@(magic|currency-bank)/**/*.js', './src/*.html'], {
       base: './'
     })
     .pipe(
@@ -147,6 +155,26 @@ const buildDevToEnv = () => {
         let buildEnv = `\`/${p2}\``
         console.log(`currencyBank domain => ${match} to ${buildEnv}`)
         return buildEnv
+      })
+    )
+    .pipe(
+      replace(/common_webcomponent\/(current.SNAPSHOT|current)/g, (match) => {
+        let env = `common_webcomponent\/current`
+        console.log(`replace ${match} to ${env}`)
+        return env
+      })
+    )
+    .pipe(
+      replace(/((.js|.css)\?appVersion=)([\d]+)/g, (match, p1, p2, p3) => {
+        let now = new Date()
+        let year = now.getFullYear()
+        let month = now.getMonth() + 1
+        let date = now.getDate()
+        let hour = now.getHours()
+        let minute = now.getMinutes()
+        let timestamp = `${year}${month}${date}${hour}${minute}`
+        console.log(`${p3} to ${timestamp}`)
+        return `${p1}${timestamp}`
       })
     )
     .pipe(gulp.dest('./'))

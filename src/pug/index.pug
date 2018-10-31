@@ -13,8 +13,8 @@ html(lang="en")
 
         link(href="./css/lib/animate.min.css" rel="stylesheet")
         link(href="./css/lib/sweetalert2.min.css" rel="stylesheet")
-        link(href="./css/main/style.css" rel="stylesheet")
         link(href="./css/main/for-ie11.css" rel="stylesheet")
+        link(href="./css/main/style.css?appVersion=20181017" rel="stylesheet")
         <!-- build:css -->
         link(href="./css/magic/event-chest.css" rel="stylesheet")
         link(href="./css/magic/event-award.css" rel="stylesheet")
@@ -33,6 +33,15 @@ html(lang="en")
         audio#audio_button(src="./audio/button.mp3")
         audio#audio_level_up(src="./audio/level-up.mp3")
         audio#audio_open_award_event(src="./audio/open-award-event.mp3")
+
+        section#bonus-popup
+
+        #remind-mask(style="display:none; font-size:50px")
+           .center
+                span 建議您
+                span 為了提供最佳網頁體驗
+                span 請將螢幕調整為
+                span 「橫向顯示」哦！
 
         #section_titlelist
             .container-fluid
@@ -293,8 +302,8 @@ html(lang="en")
             filter(id="silhouette")
                 feColorMatrix(type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.4 0.2 0 1 0")
 
-        script(src="https://cdn.polyfill.io/v2/polyfill.min.js")
-        script(data-main="./js/magic/main" src="./js/lib/require.js")
+        script(src="https://cdn.polyfill.io/v2/polyfill.min.js?appVersion=20181017")
+        script(data-main="./js/magic/main" src="./js/lib/require.js?appVersion=20181017")
         // Google Tag Manager
         script(type='text/javascript').
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -304,5 +313,5 @@ html(lang="en")
           })(window,document,'script','dataLayer','GTM-MXQFNDH');
 
         // GA and FBPixel
-        script(src="https://s3-ap-northeast-1.amazonaws.com/ehanlin-web-resource/common_webcomponent/current/js/ehanlin-social.js")
+        script(src="https://d220xxmclrx033.cloudfront.net/common_webcomponent/current/js/ehanlin-social.js?appVersion=20181017")
 

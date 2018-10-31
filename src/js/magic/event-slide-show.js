@@ -77,7 +77,7 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
           awardNoticeShow.previous()
         })
 
-        sectionTarget.find('.gift_list .gift_photo').width('115px')
+        //sectionTarget.find('.gift_list .gift_photo').width('115px')
       })
   }
 })
