@@ -32,14 +32,9 @@ define(['jquery', 'cookie', 'ajax'], ($, Cookie, ajax) => { // eslint-disable-li
     ajax('GET', `/currencyMission/admin/eventRule`)
       .then(jsonData => {
         let image = jsonData.content
-        if (!image) {
-          generalPopup()
-        } else {
+        if (image) {
           popupHandler(image)
         }
       })
   }
-  // else {
-  //   Cookie.remove('isBonusPopupImg')
-  // }
 })
