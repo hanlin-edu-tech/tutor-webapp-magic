@@ -1,0 +1,53 @@
+#my_treasure .speaker {
+    top: -70px;
+    left: 190px;
+    height: 30px;
+    width: 30px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+#my_treasure .speaker span {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: wheat;
+    margin: 15px 0 0 2px;
+}
+
+#my_treasure .speaker span:after {
+    content: '';
+    position: absolute;
+    width: 2;
+    height: 2;
+    border-style: solid;
+    border-color: transparent wheat transparent transparent;
+    border-width: 10px 14px 10px 18px;
+    left: -16px;
+    top: 11px;
+}
+
+#my_treasure .speaker span:before {
+    transform: rotate(45deg);
+    border-radius: 0 50px 0 0;
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-style: double;
+    border-color: wheat;
+    border-width: 7px 7px 0 0;
+    left: 18px;
+    top: 15px;
+    transition: all 0.2s ease-out;
+}
+
+#my_treasure .speaker:hover span:before {
+    transform: scale(0.8) translate(-3px, 0) rotate(43deg);
+}
+
+#my_treasure .speaker.mute span:before {
+    transform: scale(0.5) translate(-15px, 0) rotate(37deg);
+    opacity: 0;
+}

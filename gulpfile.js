@@ -34,15 +34,15 @@ const storage = new Storage({
 const copyStatic = destination => {
   return gulp
     .src(
-      [
-        './src/*.html',
-        './src/css/**/*.css',
-        './src/js/**/*.js',
-        './src/img/**/*.@(jpg|png|gif|svg)',
-        './src/audio/**/*'
-      ], {
-        base: './src'
-      })
+    [
+      './src/*.html',
+      './src/css/**/*.css',
+      './src/js/**/*.js',
+      './src/img/**/*.@(jpg|png|gif|svg)',
+      './src/audio/**/*'
+    ], {
+      base: './src'
+    })
     .pipe(gulp.dest(destination))
 }
 
@@ -259,7 +259,7 @@ let uploadGcs = bucketName => {
       projectId: projectId,
       public: true,
       metadata: {
-        cacheControl: 'private, no-transform'
+        cacheControl: 'no-store, no-transform'
       }
     }))
 }

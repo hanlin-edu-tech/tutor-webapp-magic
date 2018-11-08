@@ -14,6 +14,7 @@ require.config({
     eventSlideShow: ['./event-slide-show'],
     eventCountdown: ['./event-countdown'],
     eventUserStatus: ['./event-user-status'],
+    eventSliderBar: ['./event-slider-bar'],
 
     /* 取回藥水與判定狀態 */
     eventChestGet: ['./event-chest-get'],
@@ -50,6 +51,7 @@ require.config({
     countUp: ['../lib/countUp.min'],
     babelPolyfill: ['../lib/polyfill.min'],
     cookie: ['../lib/js.cookie.min'],
+    slider: ['../lib/bootstrap-slider.min'],
 
     /* 共用元件 */
     confirmPopup: ['../module-utils/confirm-popup'],
@@ -62,7 +64,7 @@ require.config({
     }
   },
 
-  urlArgs: "t=" + (new Date()).getTime()
+  urlArgs: 't=' + (new Date()).getTime()
 })
 
 require([], () => {
@@ -72,15 +74,16 @@ require([], () => {
   require(['eventClickLink'])
   require(['eventUserStatus'])
   require(['eventBonusPopup'])
+  require(['eventSliderBar'])
 
   // 判定使用者裝置
   let determineDevice = () => {
-    let userAgent = navigator.userAgent;
+    let userAgent = navigator.userAgent
     let isMobile = /Android|webOS|iPhone|iPad|BlackBerry|IEMobile|Opera Mini/i.test(
       userAgent
     )
 
-    if(isMobile) {
+    if (isMobile) {
       document.getElementById('remind-mask').style.fontSize = '26px'
     }
   }
