@@ -98,9 +98,6 @@ require([], () => {
     }
   }
 
-  let audioBackgroundMelodyTarget = document.getElementById('audio_background_melody')
-  audioBackgroundMelodyTarget.play()
-
   determineDevice()
   determineOrientation()
   window.addEventListener('resize', determineOrientation)
