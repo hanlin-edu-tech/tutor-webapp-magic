@@ -12,12 +12,15 @@
     "url": "https://github.com/eHanlin/event-space.git"
   },
   "dependencies": {
+    "@babel/core": "^7.1.2",
     "animate.css": "^3.7.0",
     "csspin": "^1.1.4",
+    "gulp-postcss": "^8.0.0",
     "sweetalert2": "^7.26.28"
   },
   "devDependencies": {
     "@google-cloud/storage": "^1.7.0",
+    "autoprefixer": "^9.3.1",
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
@@ -32,9 +35,9 @@
     "gulp-gcloud-publish": "^2.0.0",
     "gulp-html-replace": "^1.6.2",
     "gulp-imagemin": "^4.1.0",
-    "gulp-rename": "^1.2.2",
+    "gulp-rename": "^1.4.0",
     "gulp-replace": "^0.6.1",
-    "gulp-sass": "^4.0.1",
+    "gulp-sass": "^4.0.2",
     "gulp-template-util": "0.0.2",
     "gulp-uglify-es": "^1.0.4",
     "imagemin-pngquant": "^5.1.0",

@@ -1,0 +1,1194 @@
+//-----小選單-----//
+@mixin inner-tab-click
+    background: #48ABAF
+    border: 3px solid #5D450E
+    box-shadow: inset 0 1px 0 10px #33969A
+    border-radius: 6px
+    color: #fff
+    text-align: center
+    font-weight: 500
+@mixin inner-tab
+    background: #887868
+    border: 3px solid #5D450E
+    box-shadow: inset 0 1px 0 10px #6F5F4E
+    border-radius: 6px
+    color: #fff
+    text-align: center
+    font-weight: 500
+//-----主要四項選單-----//
+@mixin main-selection-tab
+    background: #5C381C
+    border: 2px solid #C8BB9F
+    box-shadow: inset 0 0 0 5px rgba(47,28,8,0.50)
+    border-radius: 10px
+    font-size: 20px
+    color: #fff
+    letter-spacing: 2px
+    text-shadow: 0 2px 4px rgba(0,0,0,0.50)
+    padding: 8px 10px
+
+@mixin main-selection-tab-click
+    background: #AA7337
+    border: 2px solid #C8BB9F
+    box-shadow: inset 0 0 0 5px #89551E
+    border-radius: 10px
+    font-size: 20px
+    color: #fff
+    letter-spacing: 2px
+    text-shadow: 0 2px 4px rgba(0,0,0,0.50)
+    padding: 8px 10px
+
+//-----底版-----//
+@mixin main-bg
+    background: #A6937C
+    border: 10px solid #887868
+@mixin personal-rank-bg
+    background: #49ADB1
+    box-shadow: 0 -7px 0 0 #FFFFFF, 0 7px 0 0 #FFFFFF
+
+
+//-----flex置中-----//
+@mixin flex-center
+    display: flex
+    justify-content: center
+    align-items: center
+
+
+*
+    font-family: 微軟正黑體, monospace
+    //border: 1px solid #000
+    letter-spacing: 1px
+
+html, body
+    width: 100%
+    height: 100%
+    margin: 0
+    position: relative
+
+body
+    background: url("../../img/magicImg/background.png") no-repeat center center
+    background-size: cover
+    display: flex
+    justify-content: center
+    align-items: center
+
+
+//-----實力排行----//  
+.rank-grid-container
+    +main-bg
+    width: 800px
+    height: 550px
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr 1fr 6fr
+    padding: 15px
+
+    //-----標題----//  
+    .content-block1
+        +flex-center
+        .title
+            font-size: 28px
+            color: #fff
+            letter-spacing: 3px
+            font-weight: 700
+
+    //-----四個選單----//  
+    .content-block2
+        +flex-center
+        .nav-list
+            display: flex
+            justify-content: space-evenly
+            list-style: none
+            margin: 0
+            padding: 0
+        li
+            +main-selection-tab
+            margin: 0px 5px
+            color: #fff
+            text-decoration: none
+            font-weight: 500
+            cursor: pointer
+        .active
+            +main-selection-tab-click
+            margin: 0px 5px
+            cursor: pointer
+
+    .content-block3
+        //-----個人榮譽榜----//  
+        #personal-rank
+            margin-top: 10px
+            @import url('https://fonts.googleapis.com/css?family=Passion+One')
+            width: 100%
+            height: 376px
+            .container-rank
+                width: 100%
+                height: 100%
+                display: grid
+                grid-template-columns: 25% 75%
+                grid-template-rows: 1fr
+            
+            .content-option
+                padding: 20px 10px
+                background: #947D66
+                border-radius: 5px
+                margin-right: 10px
+                .btn-my-rank
+                    +inner-tab-click
+                    font-size: 26px
+                    padding: 30px 0px
+                    margin-bottom: 10px
+                .btn-now-rank
+                    +inner-tab
+                    font-size: 26px
+                    padding: 30px 0px
+            
+            .content-no123
+                background: #947D66
+                border-radius: 5px
+                padding: 20px
+
+                //---- 前三名名次
+                .rank
+                    width: 100%
+                    height: 30%
+                    display: grid
+                    grid-template-columns: 1fr 1fr 4fr
+                    grid-template-rows: 1fr
+                    padding: 10px
+                .rank-no1,.rank-no2
+                    margin-bottom: 10px
+                .rank-no1
+                    background: #FFDE51
+                    border: 4px solid #5D450E
+                    box-shadow: inset 0 1px 0 7px rgba(245,171,43,0.50)
+                    border-radius: 15px
+                .rank-no2
+                    background: #E9E9E9
+                    border: 4px solid #5D450E
+                    box-shadow: inset 0 1px 0 7px rgba(174,174,174,0.50)
+                    border-radius: 15px
+                .rank-no3
+                    background: #D7BAB1
+                    border: 4px solid #5D450E
+                    box-shadow: inset 0 1px 0 7px rgba(159,107,107,0.50)
+                    border-radius: 15px
+                .ranking
+                    +flex-center
+                    .bg-circle1
+                        +flex-center
+                        width: 70px
+                        height: 70px
+                        border-radius: 50%
+                        background: #FFCB18
+                        border: 4px solid #FCEE86
+                    .bg-circle2
+                        +flex-center
+                        width: 70px
+                        height: 70px
+                        border-radius: 50%
+                        background: #D5D5D5
+                        border: 4px solid #F4F4F4
+                    .bg-circle3
+                        +flex-center
+                        width: 70px
+                        height: 70px
+                        border-radius: 50%
+                        background: #F7B9A1
+                        border: 4px solid #DE9D9D
+                    .number
+                        font-size: 36px
+                        color: #5D450E
+                        letter-spacing: 1.5px
+                        font-family: 'Passion One', cursive
+
+                //---- 前三名大頭照
+                .pic-no1,.pic-no2,.pic-no3
+                    +flex-center
+                .head-pic
+                    width: 65px
+                    height: 65px
+                    border: 4px solid #FFFFFF
+                    border-radius: 6px
+                .pic-no1
+                    position: relative
+                    .crown
+                        position: absolute
+                        width: 100%
+                        +flex-center
+                        top: -20px
+                        img
+                            width: 60%
+                            left: 50%
+
+                //---- 前三名個人資訊
+                .person-info
+                    display: grid
+                    grid-template-columns: 1fr
+                    grid-template-rows: 1fr 1fr
+                    text-align: center
+                    .name-no1,.name-no2,.name-no3
+                        font-size: 22px
+                        font-weight: 700
+                        color: #5D450E
+                    .score
+                        @import url('https://fonts.googleapis.com/css?family=Bangers')
+                        +flex-center
+                        flex-direction: row
+                        font-size: 22px
+                        font-weight: 700
+                        color: #5D450E
+                        .score-no1,.score-no2,.score-no3
+                            font-family: 'Bangers', cursive
+                            letter-spacing: 2px
+                            font-size: 22px
+                        .score-no1
+                            color: #FF503B
+
+        //-----學院排行榜----// 
+        #school-rank
+            width: 100%
+            height: 376px
+            margin-top: 10px
+            .container-school-rank
+                background: #947D66
+                border-radius: 5px
+                width: 100%
+                height: 100%
+                display: grid
+                grid-template-columns: 24% 60% 16%
+                grid-template-rows: 1fr
+
+            //-----左側選單列----// 
+            .school-rank-option
+                +flex-center
+                flex-direction: column
+                font-size: 16px
+                color: #FFFFFF
+                text-align: center
+            .row-school-rank,.row-school-percent
+                +flex-center
+            .count-date,.count-time,.section-school-rank,.section-school-percent
+                background: #D7B060
+                box-shadow: inset 0 0 0 3px #EFD08D
+                border-radius: 5px
+                padding: 8px
+                width: 80%
+            .count-date,.count-time,.section-school-rank
+                margin-bottom: 15px
+
+            //-----右側獎勵欄----// 
+            .school-rank-no1-gift
+                padding: 20px 10px 20px 0px
+            .container-no1-gift
+                padding: 5px
+                background: #48ABAF
+                border: 3px solid #5D450E
+                box-shadow: inset 0 0 0 4px #33969A
+                border-radius: 10px
+                .no1-gift-list
+                    padding: 20px 0px 5px
+                .no1-gift-title
+                    text-align: center
+                    font-weight: 700
+                    padding: 15px 0px
+                    font-size: 16px
+                    color: #FFFFFF
+                    border-bottom: 5px solid #33969A
+                .row-gift
+                    +flex-center
+                    flex-direction: column
+                    margin-bottom: 10px
+                    img
+                        width: 85%
+                    .no1-gift-name
+                        font-family: 微軟正黑體
+                        font-weight: 500
+                        font-size: 16px
+                        color: #FFFFFF
+                        padding: 2px 0px
+                        display: flex
+
+        //-----歷史紀錄----//
+        #history-record
+            margin-top: 10px
+            width: 100%
+            height: 376px
+            .container-history
+                width: 100%
+                height: 100%
+                display: grid
+                grid-template-columns: 25% 75%
+                grid-template-rows: 1fr
+            .content-option
+                padding: 20px 10px
+                background: #947D66
+                border-radius: 5px
+                margin-right: 10px
+                .btn-my-rank
+                    +inner-tab
+                    font-size: 26px
+                    padding: 30px 0px
+                    margin-bottom: 10px
+                    cursor: pointer
+                .btn-school-rank
+                    +inner-tab
+                    font-size: 26px
+                    padding: 30px 0px
+                    cursor: pointer
+                .history-active
+                    +inner-tab-click
+
+            .content-history-list
+                background: #947D66
+                border-radius: 5px
+                padding: 10px
+            .content-history-my
+                overflow: auto
+                height: 350px
+            .row-item
+                background: #E4E4E4
+                border: 3px solid #A0A0A0
+                box-shadow: inset 0 0 0 3px rgba(221,221,221,0.50)
+                border-radius: 10px
+                text-align: center
+                padding: 0
+                margin: 0 0 5px
+                list-style: none
+                display: grid
+                grid-template-columns: 1fr 1fr 1fr
+                grid-template-rows: 1fr
+                li
+                    padding: 8px
+                    font-size: 16px
+                    color: #636363
+                    font-family: 微軟正黑體
+            .row-my-list,.row-school-list
+                background: #FFFFFF
+                border: 3px solid #A0A0A0
+                box-shadow: inset 0 0 0 3px rgba(221,221,221,0.50)
+                border-radius: 10px
+                padding: 0
+                margin: 0 0 5px
+                list-style: none
+                display: grid
+                grid-template-columns: 1fr 1fr 1fr
+                grid-template-rows: 1fr
+                text-align: center
+                li
+                    padding: 8px
+                    font-size: 16px
+                    color: #636363
+                    font-family: 微軟正黑體
+
+            .content-history-school
+                overflow: auto
+                height: 350px
+                .row-item
+                    grid-template-columns: 1fr 0.9fr 1fr 1.5fr
+                .row-school-list
+                    grid-template-columns: 1fr 0.9fr 1fr 1.5fr
+
+        //-----排行說明----//        
+        #active-explain
+            margin-top: 10px
+            width: 100%
+            height: 376px
+            color: #fff
+            .container-explain
+                background: #947D66
+                border-radius: 5px
+                height: 100%
+                +flex-center
+                .content-explain
+                    width: 85%
+                    height: 340px
+                    overflow: auto
+                    padding: 0px 10px 
+                    ul
+                        font-size: 20px
+                        font-weight: 500
+                        padding: 0
+                        li
+                            list-style: none
+                            font-size: 16px
+                            padding-left: 20px
+                        table
+                            margin-bottom: 20px
+                            color: #947D66
+                            background-color: #fff
+                            text-align: center
+                            width: 95%
+                        .table-school
+                            width: 65%
+                        th
+                            border: 1px solid #fff
+                        td
+                            background: #947D66
+                            color: #fff
+                            border: 1px solid #fff
+                            
+
+//-----我的排行----//    
+#popup-grid-my-rank
+    @import url('https://fonts.googleapis.com/css?family=Passion+One')
+    +personal-rank-bg
+    width: 880px
+    height: 520px
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: 1fr 7fr
+    .content-title
+        grid-column: 1 / span 2
+        +flex-center
+        font-size: 28px
+        color: #FFFFFF
+        .title
+            letter-spacing: 2px
+            font-weight: 500
+    
+    //-----個人資訊----//
+    .content-person-info
+        grid-row: 2 / span 2
+        padding: 15px 5px 15px 15px
+        .container-info
+            padding: 20px 20px 0px
+            background-color: #349B9F
+            width: 100%
+            height: 100%
+            display: grid
+            grid-template-columns: 1fr
+            grid-template-rows: 4fr 3fr
+
+        //-----未登入的個人資訊欄----//
+        .student-info-nologin
+            +flex-center
+            background: #0C6C70
+            box-shadow: inset 0 0 0 4px #095E61
+            border-radius: 10px
+            .nologin-title
+                font-size: 25px
+                color: #FFFFFF
+                font-weight: 700
+
+        //-----已登入的個人資訊欄----//
+        .student-info-login
+            display: grid
+            grid-template-columns: 4fr 5fr
+            grid-template-rows: 1fr
+            background: #0C6C70
+            box-shadow: inset 0 0 0 4px #095E61
+            border-radius: 10px
+            .section-student-pic
+                +flex-center
+                flex-direction: column
+                .student-img
+                    width: 80%
+                    margin-bottom: 15px
+                    img
+                        width: 100%
+                .student-name
+                    text-align: center
+                    width: 70%
+                    font-size: 16px
+                    color: #FFFFFF
+            .section-student-info
+                display: flex
+                justify-content: space-evenly
+                align-items: center
+                flex-direction: column
+                .row-my-rank,.row-my-score,.row-my-score-move
+                    padding: 5px
+                    width: 80%
+                    background: #095E61
+                    border-radius: 5px
+                    padding-left: 10px
+                    display: flex
+                    justify-content: flex-start
+                    color: #fff
+                    
+                .my-rank,.my-score,.my-score-move
+                    font-size: 16px
+                    font-family: 微軟正黑體
+                    letter-spacing: 2px
+                .my-info-list
+                    padding-right: 10px
+                    
+
+
+        //-----倒數區域----//    
+        .count-section
+            @import url('https://fonts.googleapis.com/css?family=Pacifico')
+            padding-top: 30px
+            .count-date,.count-time
+                +flex-center
+                background: #D7B060
+                box-shadow: inset 0 0 0 3px #EFD08D
+                border-radius: 10px
+                font-size: 20px
+                color: #FFFFFF
+                padding: 8px 0px
+                font-weight: 500
+                
+            .myrank-title-date,.myrank-title-time
+                padding-right: 10px
+            .count-date
+                margin-bottom: 15px
+            .myrank-count-time,.myrank-count-date
+                font-family: 微軟正黑體
+                letter-spacing: 2px
+
+    //-----排行列----//  
+    .content-rank-list
+        grid-row: 2 / span 2
+        padding: 15px 15px 15px 5px
+        .container-rank-list
+            width: 100%
+            height: 100%
+            background-color: #349B9F
+            padding: 20px 15px
+        .row-rank-list
+            width: 100%
+            height: 100%
+            overflow-y: auto
+        //-----單個排行列----//
+        .active-my-rank
+            background: #FFEBC0
+            border: 5px solid #F9C33C
+            box-shadow: inset 0 0 0 3px rgba(234,208,79,0.50)
+            .all-bg-circle
+                border: 3px solid #F9C33C !important
+            .bg-line
+                border: 2px solid #F0BC3A !important
+        .rank-list
+            width: 100%
+            height: 16%
+            display: grid
+            grid-template-columns: 1fr 1fr 4fr 1fr
+            grid-template-rows: 1fr
+            background: #FFFFFF
+            border: 4px solid #A0A0A0
+            box-shadow: inset 0 0 0 3px rgba(221,221,221,0.50)
+            border-radius: 10px
+            margin-bottom: 5px
+            //-----名次----//  
+            .ranking
+                +flex-center
+            .all-bg-circle
+                +flex-center
+                width: 50px
+                height: 50px
+                border: 3px solid #DCDCDC;
+                border-radius: 50%
+            .all-number
+                font-family: 'Passion One', cursive
+                font-size: 36px
+                color: #636363
+                letter-spacing: 2px
+            //-----學院徽章----//  
+            .school-stamp
+                +flex-center
+                img
+                    width: 85%
+            //-----個人資訊----//  
+            .student-info
+                height: 100%
+                display: grid
+                grid-template-columns: 1fr
+                grid-template-rows: 1fr 1fr
+                text-align: center
+                .student-name
+                    color: #636363
+                    font-size: 16px
+                    display: flex
+                    justify-content: center
+                    align-items: flex-end
+                    font-weight: 500
+                .score
+                    color: #636363
+                    font-size: 16px
+                    display: flex
+                    justify-content: center
+                    align-items: flex-start
+                    font-weight: 500
+            //-----名次變動----// 
+            .rank-move,.bg-line
+                +flex-center
+            .bg-line
+                width: 40px
+                height: 40px
+                border: 2px solid #979797
+                border-radius: 10px
+                color: #636363
+
+//-----不符合入榜資格popup----//
+#popup-outside-rank
+    +flex-center
+    flex-direction: column
+    width: 470px
+    height: 330px
+    background-color: #DE792F
+    border-radius: 5px
+    font-size: 18px
+    color: #fff
+    .title-now-score
+        display: flex
+        flex-direction: row
+        font-weight: 500
+        .my-score
+            padding-left: 10px
+    .title-reason
+        font-weight: 500
+        margin-bottom: 20px
+        padding: 5px 0px
+
+    .btn-upgrade-course
+        margin-top: 30px
+        background: #FFFFFF
+        border-radius: 10px
+        padding: 10px
+        a
+            font-size: 22px
+            color: #DE792F
+            letter-spacing: 2px
+            font-weight: 500
+            &:hover
+                text-decoration: none
+                color: #ffb847
+
+//-----目前獎勵popup----//
+#popup-now-rank
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr 6fr
+    width: 750px
+    height: 465px
+    background: #49ADB1
+    box-shadow: 0 -7px 0 0 #FFFFFF, 0 7px 0 0 #FFFFFF
+    .now-rank-title
+        +flex-center
+    .title
+        font-size: 28px
+        color: #FFFFFF
+        letter-spacing: 2px
+        font-weight: 500
+    
+    //---目前獎勵popup-未入榜----//
+    .now-rank-outside
+        display: grid
+        grid-template-columns: 1fr
+        grid-template-rows: 1fr 3fr
+        width: 100%
+        height: 100%
+        .now-rank-content
+            +flex-center
+        .content
+            text-align: center
+            font-size: 22px
+            color: #FFFFFF
+            letter-spacing: 1.6px
+        .albi-cry
+            +flex-center
+            img
+                width: 25%
+
+    //---目前獎勵popup-已入榜----//
+    .now-rank-inside
+        width: 100%
+        height: 100%
+        display: grid
+        grid-template-columns: 1fr
+        grid-template-rows: 1fr 4fr 2fr
+        .now-rank-content
+            +flex-center
+        .content
+            text-align: center
+            font-size: 22px
+            color: #FFFFFF
+            letter-spacing: 1.6px
+        .now-rank-gift-list
+            +flex-center
+            .gift-list
+                +flex-center
+                flex-direction: column
+                margin: 0px 10px
+            .gift-pic
+                width: 80%
+                img
+                    width: 100%
+            .gift-name
+                justify-content: center
+                align-items: center
+                display: flex
+                font-size: 22px
+                color: #303030
+                font-weight: 700
+                padding: 5px 0px
+            .gift-sum
+                @import url('https://fonts.googleapis.com/css?family=Concert+One')
+                font-family: 'Concert One', cursive
+                font-size: 26px
+                padding-left: 5px
+        .now-rank-note
+            display: flex
+            justify-content: center
+            align-items: flex-start
+            .rank-note
+                background: #D7B060
+                color: #fff
+                padding: 10px 20px
+
+//-----請先登入查詢獎勵poppup----//    
+#popup-please-login
+    width: 370px
+    height: 220px
+    +flex-center
+    flex-direction: column
+    background: #DE792F
+    border-radius: 5px
+    .please-login-title
+        color: #fff
+        font-size: 18px
+        font-weight: 500
+        margin-bottom: 30px
+    .btn-please-login
+        background: #FFFFFF
+        border-radius: 10px
+        padding: 10px 20px
+        a
+            font-size: 18px
+            color: #DE792F
+            letter-spacing: 2px
+            font-weight: 500
+            &:hover
+                text-decoration: none
+                color: #ffb847
+
+
+@media screen and (max-width: 900px)
+    //-----個人排行榜----//
+    .rank-grid-container
+        width: 450px
+        height: 310px
+        padding: 5px
+        border: 5px solid #887868
+        .content-block1
+            .title
+                font-size: 18px
+
+        .content-block2
+            li
+                +flex-center
+                padding: 2px 5px
+                border: 2px solid #C8BB9F
+                box-shadow: inset 0 0 0 3px rgba(47,28,8,0.50)
+                border-radius: 5px
+                font-size: 14px
+            .active
+                padding: 2px 5px
+                background: #AA7337
+                border: 2px solid #C8BB9F
+                box-shadow: inset 0 0 0 3px #89551E
+                border-radius: 5px
+                font-size: 14px
+        .content-block3
+            //-----個人榮譽榜----//
+            #personal-rank
+                margin-top: 0px
+                height: 235px
+                .container-rank
+                    padding: 5px
+                
+                .content-option
+                    padding: 10px 5px
+                    margin-right: 5px
+                    .btn-my-rank
+                        border: 2px solid #5D450E
+                        box-shadow: inset 0 1px 0 5px #33969A
+                        font-size: 16px
+                        padding: 15px 0px
+                        margin-bottom: 10px
+                    .btn-now-rank
+                        border: 2px solid #5D450E
+                        box-shadow: inset 0 1px 0 5px #6F5F4E
+                        font-size: 16px
+                        padding: 15px 0px
+                
+                .content-no123
+                    padding: 5px
+
+                    //---- 前三名名次
+                    .rank
+                        padding: 5px
+                    .rank-no1,.rank-no2
+                        margin-bottom: 4px
+                    .rank-no1
+                        border: 2px solid #5D450E
+                        box-shadow: inset 0 0 0 5px rgba(245,171,43,0.50)
+                        border-radius: 15px
+                    .rank-no2
+                        border: 2px solid #5D450E
+                        box-shadow: inset 0 0 0 5px rgba(174,174,174,0.50)
+                        border-radius: 15px
+                    .rank-no3
+                        border: 2px solid #5D450E
+                        box-shadow: inset 0 0 0 5px rgba(159,107,107,0.50)
+                        border-radius: 15px
+                    .ranking
+                        .bg-circle1
+                            width: 36px
+                            height: 36px
+                            border: 2px solid #FCEE86
+                        .bg-circle2
+                            width: 36px
+                            height: 36px
+                            border: 2px solid #F4F4F4
+                        .bg-circle3
+                            width: 36px
+                            height: 36px
+                            border: 2px solid #DE9D9D
+                        .number
+                            font-size: 20px
+
+                    //---- 前三名大頭照
+                    .head-pic
+                        width: 38px
+                        height: 38px
+                        border: 2px solid #FFFFFF
+                        border-radius: 6px
+                    .pic-no1
+                        .crown
+                            top: -10px
+
+                    //---- 前三名個人資訊
+                    .person-info
+                        .name-no1,.name-no2,.name-no3
+                            font-size: 12px
+                            line-height: 25px
+                        .score
+                            font-size: 12px
+                            .score-no1,.score-no2,.score-no3
+                                font-size: 14px
+
+            //-----學院排行榜----// 
+            #school-rank
+                margin-top: 0px
+                padding: 5px 0px
+                height: 235px
+                .container-school-rank
+                    grid-template-columns: 26% 58% 16%
+                .school-rank-option
+                    font-size: 12px
+                    padding-left: 5px
+                .count-date,.count-time,.section-school-rank,.section-school-percent
+                    box-shadow: inset 0 0 0 2px #EFD08D
+                    padding: 5px 0px
+                    width: 95%
+                    letter-spacing: normal
+                .count-date,.count-time,.section-school-rank
+                    margin-bottom: 5px
+                .school-rank-no1-gift
+                    padding: 5px 0px
+                    padding-right: 5px
+                .container-no1-gift
+                    padding: 5px
+                    border: 2px solid #5D450E
+                    box-shadow: inset 0 0 0 2px #33969A
+                    .no1-gift-list
+                        padding: 0px
+                    .no1-gift-title
+                        text-align: center
+                        padding: 0px
+                        font-size: 12px
+                        border-bottom: 0px solid #33969A
+                    .row-gift
+                        margin-bottom: 0px
+                        .no1-gift-name
+                            line-height: 14px
+                            text-align: center
+                            font-size: 12px
+                            padding: 2px 0px
+                 
+            //-----歷史紀錄----// 
+            #history-record
+                margin-bottom: 10px
+                margin-top: 5px
+                height: 225px
+                .content-option
+                    padding: 10px 5px
+                    margin-right: 5px
+                    .btn-my-rank,.btn-school-rank
+                        border: 2px solid #5D450E
+                        box-shadow: inset 0 1px 0 5px #6F5F4E
+                        font-size: 16px
+                        padding: 15px 0px
+                    .history-active
+                        border: 2px solid #5D450E
+                        box-shadow: inset 0 1px 0 5px #33969A
+
+                .content-history-list
+                    padding: 10px 5px 5px
+                .content-history-my
+                    overflow: auto
+                    height: 205px
+                .row-item
+                    border: 2px solid #A0A0A0
+                    border-radius: 5px
+                    margin: 0 0 2px
+                    li
+                        padding: 5px
+                        font-size: 12px
+                .row-my-list,.row-school-list
+                    border: 2px solid #A0A0A0
+                    border-radius: 5px
+                    margin: 0 0 2px
+                    li
+                        padding: 5px
+                        font-size: 12px
+
+                .content-history-school
+                    overflow: auto
+                    height: 205px
+                    .row-item
+                        grid-template-columns: 1fr 0.9fr 1fr 1.5fr
+                        li
+                            padding: 5px
+                            font-size: 12px
+                            letter-spacing: normal
+                            white-space: nowrap
+                            -webkit-transform-origin: center
+                            -webkit-transform: scale(0.9)
+                    .row-school-list
+                        grid-template-columns: 1fr 0.9fr 1fr 1.5fr
+                        li
+                            text-align: center
+                            padding: 5px
+                            font-size: 12px
+                            letter-spacing: normal
+                            white-space: nowrap
+                            -webkit-transform-origin: center
+                            -webkit-transform: scale(0.9)
+
+            //-----排行說明----//        
+            #active-explain
+                margin-top: 5px
+                height: 225px
+                .container-explain
+                    .content-explain
+                        width: 100%
+                        height: 190px
+                        padding: 0px 5px 
+                        ul
+                            font-size: 14px
+                            li
+                                font-size: 12px
+                            table
+                                margin-bottom: 5px
+                                width: 100%
+
+    //-----我的排行----//
+    #popup-grid-my-rank
+        width: 470px
+        height: 265px
+        box-shadow: 0 -4px 0 0 #FFFFFF, 0 4px 0 0 #FFFFFF
+        .content-title
+            font-size: 18px
+        
+        //-----個人資訊----//
+        .content-person-info
+            padding: 5px
+            padding-right: 2px
+            .container-info
+                padding: 5px 5px 0px
+                grid-template-columns: 1fr
+                grid-template-rows: 4fr 3fr
+
+            //-----未登入的個人資訊欄----//
+            .student-info-nologin
+                box-shadow: inset 0 0 0 3px #095E61
+                border-radius: 10px
+                .nologin-title
+                    font-size: 16px
+            //-----已登入的個人資訊欄----//
+            .student-info-login
+                display: grid
+                grid-template-columns: 4fr 6fr
+                grid-template-rows: 1fr
+                background: #0C6C70
+                box-shadow: inset 0 0 0 4px #095E61
+                border-radius: 10px
+                .section-student-pic
+                    +flex-center
+                    flex-direction: column
+                    .student-img
+                        width: 80%
+                        margin-bottom: 5px
+                        img
+                            width: 100%
+                    .student-name
+                        letter-spacing: normal
+                        width: 95%
+                        font-size: 12px
+                .section-student-info
+                    .row-my-rank,.row-my-score,.row-my-score-move
+                        padding: 5px
+                        width: 90%
+                        background: #095E61
+                        border-radius: 5px
+                        padding-left: 5px
+                        display: flex
+                        justify-content: flex-start
+                        color: #fff
+                        
+                    .my-rank,.my-score,.my-score-move
+                        font-size: 12px
+                        font-family: 微軟正黑體
+                        letter-spacing: 2px
+                    .my-info-list
+                        padding-right: 5px
+                        font-size: 12px
+                        
+
+            //-----倒數區域----//    
+            .count-section
+                padding-top: 10px
+                .count-date,.count-time
+                    box-shadow: inset 0 0 0 2px #EFD08D
+                    border-radius: 5px
+                    font-size: 12px
+                    padding: 5px 0px
+                    
+                .myrank-title-date,.myrank-title-time
+                    padding-right: 5px
+                .count-date
+                    margin-bottom: 5px
+        //-----排行列----//  
+        .content-rank-list
+            padding: 5px
+            padding-left: 2px
+            .container-rank-list
+                padding: 5px
+
+            //-----單個排行列----//
+            .active-my-rank
+                background: #FFEBC0
+                border: 2px solid #F9C33C
+                box-shadow: inset 0 0 0 3px rgba(234,208,79,0.50)
+                .all-bg-circle
+                    border: 2px solid #F9C33C !important
+                .bg-line
+                    border: 1px solid #F0BC3A !important
+            .rank-list
+                width: 100%
+                height: 20%
+                border: 2px solid #A0A0A0
+                box-shadow: inset 0 0 0 3px rgba(221,221,221,0.50)
+                border-radius: 5px
+                margin-bottom: 2px
+                //-----名次----//  
+                .all-bg-circle
+                    width: 25px
+                    height: 25px
+                    border: 2px solid #DCDCDC
+                .all-number
+                    font-family: 'Passion One', cursive
+                    font-size: 18px
+                //-----學院徽章----//  
+                .school-stamp
+                    img
+                        width: 95%
+                //-----個人資訊----//  
+                .student-info
+                    .student-name
+                        font-size: 12px
+                        justify-content: flex-start
+                        align-items: flex-end
+                        overflow: hidden
+                    .score
+                        font-size: 12px
+                    .name,.list-title,.my-score
+                        letter-spacing: normal
+                        white-space: nowrap
+                //-----名次變動----// 
+                .bg-line
+                    width: 25px
+                    height: 25px
+                    border: 1px solid #979797
+                    border-radius: 5px
+                .move-number
+                    font-size: 12px
+                    letter-spacing: -1px
+
+    //-----不符合入榜資格popup----//
+    #popup-outside-rank
+        width: 330px
+        height: 230px
+        font-size: 14px
+        .title-reason
+            margin-bottom: 15px
+            padding: 0
+        .btn-upgrade-course
+            margin-top: 15px
+            background: #FFFFFF
+            border-radius: 10px
+            padding: 10px
+            a
+                font-size: 16px
+
+    //-----目前獎勵popup----//
+    #popup-now-rank
+        width: 450px
+        height: 280px
+        background: #49ADB1
+        box-shadow: 0 -4px 0 0 #FFFFFF, 0 4px 0 0 #FFFFFF
+        .title
+            font-size: 18px
+        
+        //---目前獎勵popup-未入榜----//
+        .now-rank-outside
+            .content
+                font-size: 13px
+
+        //---目前獎勵popup-已入榜----//
+        .now-rank-inside
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 3fr 2fr
+            .content
+                font-size: 13px
+            .now-rank-gift-list
+                .gift-list
+                    margin: 0px 5px
+                    width: 20%
+                    height: 100%
+                .gift-pic
+                    width: 80%
+                    img
+                        width: 100%
+                .gift-name
+                    font-size: 12px
+                    color: #303030
+                    font-weight: 700
+                    padding: 5px 0px
+                .gift-sum
+                    font-size: 14px
+                    padding-left: 2px
+            .now-rank-note
+                display: flex
+                justify-content: center
+                align-items: flex-start
+                .rank-note
+                    background: #D7B060
+                    color: #fff
+                    padding: 5px 10px
+                    font-size: 12px
+
+    //-----請先登入查詢獎勵poppup----//    
+    #popup-please-login
+        width: 245px
+        height: 150px
+        .please-login-title
+            font-size: 12px
+            margin-bottom: 20px
+        .btn-please-login
+            padding: 6px 10px
+            a
+                font-size: 14px

@@ -17,6 +17,8 @@ const templateUtil = require('gulp-template-util')
 const es = require('event-stream')
 const pug = require('pug')
 const gulpSass = require('gulp-sass')
+const autoprefixer = require('autoprefixer')
+const postcss = require('gulp-postcss')
 
 const destination = './dist'
 
@@ -288,8 +290,12 @@ let htmlTask = () => {
 
 let styleTask = () => {
   return () => {
+    var processors = [
+      autoprefixer({ grid: true, browsers: ['last 2 version','ie 11','>1%']})
+    ];
     return gulp.src('./src/sass/**/*.sass', {base: './src/sass'})
       .pipe(gulpSass())
+      .pipe(postcss(processors))
       .pipe(rename({extname: '.css'}))
       .pipe(gulp.dest(`./src/css/`))
   }
