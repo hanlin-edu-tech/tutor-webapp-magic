@@ -25,6 +25,7 @@ define(['jquery', 'slider'], ($, slider) => {
     $(this).toggleClass('mute')
 
     if (className.match(/mute/g)) {
+      melodyTarget.play()
       melodyTarget.volume = 1
     } else {
       melodyTarget.volume = 0
