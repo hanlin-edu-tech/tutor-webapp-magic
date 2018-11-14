@@ -271,8 +271,9 @@ html(lang="en")
             .book
                 img(src="./img/magicImg/book.png")
                 .book_title 我的<br>寶藏
-            a(class="speaker mute" href="#")
-                span
+            .speaker-field
+                a(class="speaker mute")
+                    span
         
         //- #sound_bar
         //-     .slider
@@ -315,8 +316,8 @@ html(lang="en")
             filter(id="silhouette")
                 feColorMatrix(type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.4 0.2 0 1 0")
 
-        script(src="https://cdn.polyfill.io/v2/polyfill.min.js?appVersion=20181191443")
-        script(data-main="./js/magic/main" src="./js/lib/require.js?appVersion=20181191443")
+        script(src="https://cdn.polyfill.io/v2/polyfill.min.js?appVersion=201811121129")
+        script(data-main="./js/magic/main" src="./js/lib/require.js?appVersion=201811121129")
         // Google Tag Manager
         script(type='text/javascript').
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -326,5 +327,5 @@ html(lang="en")
           })(window,document,'script','dataLayer','GTM-MXQFNDH');
 
         // GA and FBPixel
-        script(src="https://d220xxmclrx033.cloudfront.net/common_webcomponent/current.SNAPSHOT/js/ehanlin-social.js?appVersion=20181191443")
+        script(src="https://d220xxmclrx033.cloudfront.net/common_webcomponent/current.SNAPSHOT/js/ehanlin-social.js?appVersion=201811121129")
 

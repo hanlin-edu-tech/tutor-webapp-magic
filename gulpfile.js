@@ -291,8 +291,8 @@ let htmlTask = () => {
 let styleTask = () => {
   return () => {
     var processors = [
-      autoprefixer({ grid: true, browsers: ['last 2 version','ie 11','>1%']})
-    ];
+      autoprefixer({ grid: true, browsers: ['last 2 version', 'ie 11', '>1%']})
+    ]
     return gulp.src('./src/sass/**/*.sass', {base: './src/sass'})
       .pipe(gulpSass())
       .pipe(postcss(processors))
