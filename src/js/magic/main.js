@@ -62,10 +62,35 @@ require.config({
     '*': {
       'jQuery': 'jquery'
     }
-  },
+  }
 
-  urlArgs: 't=' + (new Date()).getTime()
+  // urlArgs: (id, url) => {
+  //   /* 時間格式轉換為：yyyyMMddHHmm */
+  //   let now = new Date()
+  //   let year = now.getFullYear()
+  //   let month = now.getMonth() + 1
+  //   let date = now.getDate()
+  //   let hour = now.getHours()
+  //   let minute = now.getMinutes()
+  //   let timestamp = `${year}${month}${date}${hour}${minute}`
+  //   let appVersion = `appVersion=${timestamp}`
+  //   return (url.indexOf('?') === -1 ? '?' : '&') + appVersion
+  // }
 })
+
+var load = require.load
+require.load = (context, moduleId, url) => {
+  let now = new Date()
+  let year = now.getFullYear()
+  let month = now.getMonth() + 1
+  let date = now.getDate()
+  let hour = now.getHours()
+  let minute = now.getMinutes()
+  let timestamp = `${year}${month}${date}${hour}${minute}`
+  let appVersion = `appVersion=${timestamp}`
+  url = `${url}?${appVersion}`
+  load(context, moduleId, url)
+}
 
 require([], () => {
   /* 一開始沒有return function的 js 必須在這裡require */

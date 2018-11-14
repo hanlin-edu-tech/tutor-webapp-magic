@@ -1,9 +1,9 @@
 #my_treasure .speaker {
-    top: -70px;
-    left: 190px;
+    top: 220px;
+    left: 230px;
     height: 30px;
     width: 30px;
-    position: relative;
+    position: absolute;
     overflow: hidden;
     display: inline-block;
 }

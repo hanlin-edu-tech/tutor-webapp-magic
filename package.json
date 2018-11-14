@@ -15,7 +15,6 @@
     "@babel/core": "^7.1.2",
     "animate.css": "^3.7.0",
     "csspin": "^1.1.4",
-    "gulp-postcss": "^8.0.0",
     "sweetalert2": "^7.26.28"
   },
   "devDependencies": {
@@ -35,6 +34,7 @@
     "gulp-gcloud-publish": "^2.0.0",
     "gulp-html-replace": "^1.6.2",
     "gulp-imagemin": "^4.1.0",
+    "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^0.6.1",
     "gulp-sass": "^4.0.2",
