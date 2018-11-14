@@ -40,12 +40,9 @@ define(['jquery', 'confirmPopup'], ($, confirmPopup) => {// eslint-disable-line
       window.open('/app/magic/currency-bank.html', 'ehanlinBank')
       return false
     })
+
     $('#near_activity .cat_title').on('click', () => {
-      confirmPopup.dialog('<h1>敬請期待！</h1>',
-        {
-          showCancelButton: false
-        })
-      return false
+
     })
   })
 })

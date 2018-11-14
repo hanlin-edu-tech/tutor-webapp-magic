@@ -6,9 +6,9 @@ define([], () => {
 
   require(['eventTotalAssets'])
 
-  require(['eventSlideShow'], eventSlideShow => {
+  require(['eventSlideAwardsShow'], eventSlideAwardsShow => {
     let isNovice = false
-    eventSlideShow(isNovice)
+    eventSlideAwardsShow(isNovice)
   })
 
   require(['eventChestGet'], eventChestGet => {

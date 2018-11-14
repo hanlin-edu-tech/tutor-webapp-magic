@@ -11,24 +11,24 @@ require.config({
     /* 銀河星際初始化 */
     eventClickLink: ['./event-click-link'],
     eventTotalAssets: ['./event-total-assets'],
-    eventSlideShow: ['./event-slide-show'],
+    eventSlideAwardsShow: ['./event-slider-awards-show'],
+    eventSliderAudioBar: ['./event-slider-audio-bar'],
     eventCountdown: ['./event-countdown'],
     eventUserStatus: ['./event-user-status'],
-    eventSliderBar: ['./event-slider-bar'],
 
     /* 取回藥水與判定狀態 */
-    eventChestGet: ['./event-chest-get'],
-    eventChestDetermine: ['./event-chest-determine'],
-    eventChestBtnOn: ['./event-chest-btn-on'],
-    eventChestStatusDo: ['./event-chest-status-do'],
+    eventChestGet: ['./chest/event-chest-get'],
+    eventChestDetermine: ['./chest/event-chest-determine'],
+    eventChestBtnOn: ['./chest/event-chest-btn-on'],
+    eventChestStatusDo: ['./chest/event-chest-status-do'],
 
     /* 藥水 action */
-    eventChestUpgrade: ['./event-chest-upgrade'],
-    eventChestInception: ['./event-chest-inception'],
-    eventChestReady: ['./event-chest-ready'],
-    eventChestOpenImmediately: ['./event-chest-open-immediately'],
-    eventChestOpen: ['./event-chest-open'],
-    eventChestCheck: ['./event-chest-check'],
+    eventChestUpgrade: ['./chest/event-chest-upgrade'],
+    eventChestInception: ['./chest/event-chest-inception'],
+    eventChestReady: ['./chest/event-chest-ready'],
+    eventChestOpenImmediately: ['./chest/event-chest-open-immediately'],
+    eventChestOpen: ['./chest/event-chest-open'],
+    eventChestCheck: ['./chest/event-chest-check'],
 
     eventAwardAreZero: ['./event-award-are-zero'],
     eventAwardGet: ['./event-award-get'],
@@ -39,6 +39,10 @@ require.config({
 
     /* 雲端奇幻魔藥學 */
     eventTutorialInit: ['./tutorial/event-tutorial-init'],
+
+    /* 雲端排行榜 */
+    eventRankPopup: ['./rank/event-rank-popup'],
+    eventRankSchool: ['./rank/event-rank-school'],
 
     /* 初始化 */
     eventGameBegin: ['./event-game-begin'],
@@ -74,7 +78,8 @@ require([], () => {
   require(['eventClickLink'])
   require(['eventUserStatus'])
   require(['eventBonusPopup'])
-  require(['eventSliderBar'])
+  require(['eventRankPopup'])
+  require(['eventSliderAudioBar'])
 
   // 判定使用者裝置
   let determineDevice = () => {

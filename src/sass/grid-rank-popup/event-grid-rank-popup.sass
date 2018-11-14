@@ -53,37 +53,23 @@
     justify-content: center
     align-items: center
 
-
 *
     font-family: 微軟正黑體, monospace
     //border: 1px solid #000
     letter-spacing: 1px
 
-html, body
-    width: 100%
-    height: 100%
-    margin: 0
-    position: relative
+.modal-popup-rank-height
+    height: 580px
 
-body
-    background: url("../../img/magicImg/background.png") no-repeat center center
-    background-size: cover
-    display: flex
-    justify-content: center
-    align-items: center
-
-
-//-----實力排行----//  
+//-----實力排行----//
 .rank-grid-container
-    +main-bg
-    width: 800px
     height: 550px
     display: grid
     grid-template-columns: 1fr
     grid-template-rows: 1fr 1fr 6fr
     padding: 15px
 
-    //-----標題----//  
+    //-----標題----//
     .content-block1
         +flex-center
         .title
@@ -92,7 +78,7 @@ body
             letter-spacing: 3px
             font-weight: 700
 
-    //-----四個選單----//  
+    //-----四個選單----//
     .content-block2
         +flex-center
         .nav-list
@@ -114,7 +100,7 @@ body
             cursor: pointer
 
     .content-block3
-        //-----個人榮譽榜----//  
+        //-----個人榮譽榜----//
         #personal-rank
             margin-top: 10px
             @import url('https://fonts.googleapis.com/css?family=Passion+One')
@@ -126,7 +112,7 @@ body
                 display: grid
                 grid-template-columns: 25% 75%
                 grid-template-rows: 1fr
-            
+
             .content-option
                 padding: 20px 10px
                 background: #947D66
@@ -141,7 +127,7 @@ body
                     +inner-tab
                     font-size: 26px
                     padding: 30px 0px
-            
+
             .content-no123
                 background: #947D66
                 border-radius: 5px
@@ -244,7 +230,7 @@ body
                         .score-no1
                             color: #FF503B
 
-        //-----學院排行榜----// 
+        //-----學院排行榜----//
         #school-rank
             width: 100%
             height: 376px
@@ -258,7 +244,7 @@ body
                 grid-template-columns: 24% 60% 16%
                 grid-template-rows: 1fr
 
-            //-----左側選單列----// 
+            //-----左側選單列----//
             .school-rank-option
                 +flex-center
                 flex-direction: column
@@ -276,7 +262,7 @@ body
             .count-date,.count-time,.section-school-rank
                 margin-bottom: 15px
 
-            //-----右側獎勵欄----// 
+            //-----右側獎勵欄----//
             .school-rank-no1-gift
                 padding: 20px 10px 20px 0px
             .container-no1-gift
@@ -388,7 +374,7 @@ body
                 .row-school-list
                     grid-template-columns: 1fr 0.9fr 1fr 1.5fr
 
-        //-----排行說明----//        
+        //-----排行說明----//
         #active-explain
             margin-top: 10px
             width: 100%
@@ -403,7 +389,7 @@ body
                     width: 85%
                     height: 340px
                     overflow: auto
-                    padding: 0px 10px 
+                    padding: 0px 10px
                     ul
                         font-size: 20px
                         font-weight: 500
@@ -426,7 +412,7 @@ body
                             background: #947D66
                             color: #fff
                             border: 1px solid #fff
-                            
+
 
 //-----我的排行----//    
 #popup-grid-my-rank
@@ -445,7 +431,7 @@ body
         .title
             letter-spacing: 2px
             font-weight: 500
-    
+
     //-----個人資訊----//
     .content-person-info
         grid-row: 2 / span 2
@@ -505,17 +491,17 @@ body
                     display: flex
                     justify-content: flex-start
                     color: #fff
-                    
+
                 .my-rank,.my-score,.my-score-move
                     font-size: 16px
                     font-family: 微軟正黑體
                     letter-spacing: 2px
                 .my-info-list
                     padding-right: 10px
-                    
 
 
-        //-----倒數區域----//    
+
+        //-----倒數區域----//
         .count-section
             @import url('https://fonts.googleapis.com/css?family=Pacifico')
             padding-top: 30px
@@ -528,7 +514,7 @@ body
                 color: #FFFFFF
                 padding: 8px 0px
                 font-weight: 500
-                
+
             .myrank-title-date,.myrank-title-time
                 padding-right: 10px
             .count-date
@@ -537,7 +523,7 @@ body
                 font-family: 微軟正黑體
                 letter-spacing: 2px
 
-    //-----排行列----//  
+    //-----排行列----//
     .content-rank-list
         grid-row: 2 / span 2
         padding: 15px 15px 15px 5px
@@ -570,26 +556,26 @@ body
             box-shadow: inset 0 0 0 3px rgba(221,221,221,0.50)
             border-radius: 10px
             margin-bottom: 5px
-            //-----名次----//  
+            //-----名次----//
             .ranking
                 +flex-center
             .all-bg-circle
                 +flex-center
                 width: 50px
                 height: 50px
-                border: 3px solid #DCDCDC;
+                border: 3px solid #DCDCDC
                 border-radius: 50%
             .all-number
                 font-family: 'Passion One', cursive
                 font-size: 36px
                 color: #636363
                 letter-spacing: 2px
-            //-----學院徽章----//  
+            //-----學院徽章----//
             .school-stamp
                 +flex-center
                 img
                     width: 85%
-            //-----個人資訊----//  
+            //-----個人資訊----//
             .student-info
                 height: 100%
                 display: grid
@@ -610,7 +596,7 @@ body
                     justify-content: center
                     align-items: flex-start
                     font-weight: 500
-            //-----名次變動----// 
+            //-----名次變動----//
             .rank-move,.bg-line
                 +flex-center
             .bg-line
@@ -671,7 +657,7 @@ body
         color: #FFFFFF
         letter-spacing: 2px
         font-weight: 500
-    
+
     //---目前獎勵popup-未入榜----//
     .now-rank-outside
         display: grid
@@ -765,6 +751,9 @@ body
 
 
 @media screen and (max-width: 900px)
+    .modal-popup-rank-height
+        height: 320px
+
     //-----個人排行榜----//
     .rank-grid-container
         width: 450px
@@ -797,7 +786,7 @@ body
                 height: 235px
                 .container-rank
                     padding: 5px
-                
+
                 .content-option
                     padding: 10px 5px
                     margin-right: 5px
@@ -812,7 +801,7 @@ body
                         box-shadow: inset 0 1px 0 5px #6F5F4E
                         font-size: 16px
                         padding: 15px 0px
-                
+
                 .content-no123
                     padding: 5px
 
@@ -869,7 +858,7 @@ body
                             .score-no1,.score-no2,.score-no3
                                 font-size: 14px
 
-            //-----學院排行榜----// 
+            //-----學院排行榜----//
             #school-rank
                 margin-top: 0px
                 padding: 5px 0px
@@ -907,8 +896,8 @@ body
                             text-align: center
                             font-size: 12px
                             padding: 2px 0px
-                 
-            //-----歷史紀錄----// 
+
+            //-----歷史紀錄----//
             #history-record
                 margin-bottom: 10px
                 margin-top: 5px
@@ -968,7 +957,7 @@ body
                             -webkit-transform-origin: center
                             -webkit-transform: scale(0.9)
 
-            //-----排行說明----//        
+            //-----排行說明----//
             #active-explain
                 margin-top: 5px
                 height: 225px
@@ -976,7 +965,7 @@ body
                     .content-explain
                         width: 100%
                         height: 190px
-                        padding: 0px 5px 
+                        padding: 0px 5px
                         ul
                             font-size: 14px
                             li
@@ -992,7 +981,7 @@ body
         box-shadow: 0 -4px 0 0 #FFFFFF, 0 4px 0 0 #FFFFFF
         .content-title
             font-size: 18px
-        
+
         //-----個人資訊----//
         .content-person-info
             padding: 5px
@@ -1038,7 +1027,7 @@ body
                         display: flex
                         justify-content: flex-start
                         color: #fff
-                        
+
                     .my-rank,.my-score,.my-score-move
                         font-size: 12px
                         font-family: 微軟正黑體
@@ -1046,9 +1035,9 @@ body
                     .my-info-list
                         padding-right: 5px
                         font-size: 12px
-                        
 
-            //-----倒數區域----//    
+
+            //-----倒數區域----//
             .count-section
                 padding-top: 10px
                 .count-date,.count-time
@@ -1056,12 +1045,12 @@ body
                     border-radius: 5px
                     font-size: 12px
                     padding: 5px 0px
-                    
+
                 .myrank-title-date,.myrank-title-time
                     padding-right: 5px
                 .count-date
                     margin-bottom: 5px
-        //-----排行列----//  
+        //-----排行列----//
         .content-rank-list
             padding: 5px
             padding-left: 2px
@@ -1084,7 +1073,7 @@ body
                 box-shadow: inset 0 0 0 3px rgba(221,221,221,0.50)
                 border-radius: 5px
                 margin-bottom: 2px
-                //-----名次----//  
+                //-----名次----//
                 .all-bg-circle
                     width: 25px
                     height: 25px
@@ -1092,11 +1081,11 @@ body
                 .all-number
                     font-family: 'Passion One', cursive
                     font-size: 18px
-                //-----學院徽章----//  
+                //-----學院徽章----//
                 .school-stamp
                     img
                         width: 95%
-                //-----個人資訊----//  
+                //-----個人資訊----//
                 .student-info
                     .student-name
                         font-size: 12px
@@ -1108,7 +1097,7 @@ body
                     .name,.list-title,.my-score
                         letter-spacing: normal
                         white-space: nowrap
-                //-----名次變動----// 
+                //-----名次變動----//
                 .bg-line
                     width: 25px
                     height: 25px
@@ -1142,7 +1131,7 @@ body
         box-shadow: 0 -4px 0 0 #FFFFFF, 0 4px 0 0 #FFFFFF
         .title
             font-size: 18px
-        
+
         //---目前獎勵popup-未入榜----//
         .now-rank-outside
             .content
@@ -1181,7 +1170,7 @@ body
                     padding: 5px 10px
                     font-size: 12px
 
-    //-----請先登入查詢獎勵poppup----//    
+    //-----請先登入查詢獎勵poppup----//
     #popup-please-login
         width: 245px
         height: 150px

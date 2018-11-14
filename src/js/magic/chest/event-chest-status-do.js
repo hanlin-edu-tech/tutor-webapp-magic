@@ -18,8 +18,8 @@ define(['jquery', 'ajax'], ($, ajax) => {// eslint-disable-line
       targets.platformChest.attr('data-status', 'UNLOCKING')
 
       ajax('GET', `/chest/coolDownTime/${chest.id}`)
-        .then(data => {
-          let seconds = data.content
+        .then(jsonData => {
+          let seconds = jsonData.content
 
           $('.mix_btn').css('display', 'none')
           $('.upgrade_btn').css('left', '27%')

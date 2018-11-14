@@ -597,9 +597,9 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
       $('#section_middle_part').css({display: 'none'})
       $('#section_novice').removeAttr('style')
 
-      require(['eventSlideShow'], eventSlideShow => {
+      require(['eventSlideAwardsShow'], eventSlideAwardsShow => {
         let isNovice = true
-        eventSlideShow(isNovice)
+        eventSlideAwardsShow(isNovice)
       })
 
       ajax('GET', `/chest/novice/`)
