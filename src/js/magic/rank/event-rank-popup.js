@@ -1,5 +1,5 @@
-define(['jquery', 'ajax', 'confirmPopup'], // eslint-disable-line
-  ($, ajax, confirmPopup) => {
+define(['jquery', 'ajax', 'confirmPopup'],
+  ($, ajax, confirmPopup) => { // eslint-disable-line
     let popupHtml = `
       <div class="rank-grid-container">
         <div class="content-block1">
@@ -370,21 +370,9 @@ define(['jquery', 'ajax', 'confirmPopup'], // eslint-disable-line
             .hide()
         })
 
-        ajax('GET', `/chest/ranking/top3`)
-          .then(jsonData => {
-            let top3ranking = jsonData.content
-            let i
-            for (i = 0; i < top3ranking.length; i++) {
-              let specificRankingInfo = top3ranking[i]
-              console.log(specificRankingInfo)
-              let personInfoTarget = $('.person-info')
-              let userNameElement = personInfoTarget.find('div[class^=name-no]')[i]
-              let sumPointsElement = personInfoTarget.find('div[class^=score-no]')[i]
-              $(userNameElement).text(specificRankingInfo.userName)
-              $(sumPointsElement).text(specificRankingInfo.sumPoints)
-            }
-
-          })
+        require(['eventRankTopRanking'])
+        require(['eventRankMyRanking'], eventRankMyRanking => $('.btn-my-rank').on('click', eventRankMyRanking))
+        require(['eventRankReward'], eventRankReward => $('.btn-now-rank').on('click', eventRankReward))
       }
     }
 

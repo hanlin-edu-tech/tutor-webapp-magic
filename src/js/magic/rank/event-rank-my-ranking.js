@@ -1,4 +1,4 @@
-define(['jquery', 'ajax', 'confirmPopup'],
+define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
   ($, ajax, confirmPopup) => { // eslint-disable-line
     return () => {
       let composeSpecificUserInfo = (specificRanking, rankingDifference) => {
@@ -34,9 +34,10 @@ define(['jquery', 'ajax', 'confirmPopup'],
             <div class="nologin-title">馬上登入<br>查看排行</div>
           </div>
         `
-        let selectedUserClass = ''
+
         let i
         for (i = 0; i < specificRankingsRange.length; i++) {
+          let selectedUserClass
           let specificRanking = specificRankingsRange[i]
           let rankingDifference = specificRanking['rankingDifference']
           if (rankingDifference === 0) {
@@ -47,6 +48,7 @@ define(['jquery', 'ajax', 'confirmPopup'],
             rankingDifference = '⬇' + rankingDifference
           }
 
+          selectedUserClass = ''
           if (specificRanking['selectedUser'] === true) {
             selectedUserClass = 'active-my-rank'
             specificUserInfo = composeSpecificUserInfo(specificRanking, rankingDifference)
@@ -89,7 +91,7 @@ define(['jquery', 'ajax', 'confirmPopup'],
                 </div>
                 <div class="count-time">
                   <div class="myrank-title-time">距離結算還有</div>
-                  <div class="myrank-count-time">08天07時41分</div>
+                  <div class="myrank-count-time"></div>
                 </div>
               </div>
             </div>
@@ -117,10 +119,10 @@ define(['jquery', 'ajax', 'confirmPopup'],
         `
       }
 
-      let composeRankingDialogAttr = () => {
+      let composeMyRankingDialogAttr = () => {
         return {
           customClass: `confirm_message_box modal-popup-rank-height`,
-          width: '835px',
+          width: '820px'
         }
       }
 
@@ -130,32 +132,30 @@ define(['jquery', 'ajax', 'confirmPopup'],
           jsonData => {
             let rankingInfo = jsonData.content
             let flag = rankingInfo['flag']
-            switch (flag) {
-              case 'NOT_LOGIN': {
-                popupHtml = popupMyRanking(rankingInfo)
-                dialogAttr = composeRankingDialogAttr()
-                break
-              }
-              case 'QUALIFIED': {
-                popupHtml = popupMyRanking(rankingInfo)
-                dialogAttr = {
-                  customClass: `confirm_message_box modal-popup-rank-height`,
-                  width: '835px',
-                  onOpenFn: () => {
-
-                  }
-                }
-                break
-              }
-              default: {
-                popupHtml = ''
-              }
+            if (flag === 'UNQUALIFIED') {
+              require(['eventRankUnqualifiedRanking'], eventRankUnqualifiedRanking => {
+                popupHtml = eventRankUnqualifiedRanking.retrievePopupHtml(rankingInfo['sumPoints'])
+                dialogAttr = eventRankUnqualifiedRanking.composeDialogAttr()
+              })
+            } else {
+              popupHtml = popupMyRanking(rankingInfo)
+              dialogAttr = composeMyRankingDialogAttr()
             }
 
-            return ''
+            return rankingInfo['remainingSeconds']
           }
         )
-        .then(() => {
+        .then(remainingSeconds => {
+          dialogAttr.onOpenFn = () => {
+            let rankingCountDownTarget = $('.myrank-count-time')
+            if (rankingCountDownTarget) {
+              rankingCountDownTarget.countDown({
+                timeInSecond: remainingSeconds,
+                displayTpl: '{hour}時 {minute}分 {second}秒',
+                limit: 'hour'
+              })
+            }
+          }
           confirmPopup.dialog(popupHtml, dialogAttr)
         })
     }
