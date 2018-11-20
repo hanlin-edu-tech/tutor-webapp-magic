@@ -9,17 +9,18 @@
   letter-spacing: 1px; }
 
 .modal-popup-rank-height {
-  height: 580px; }
+  height: 560px; }
 
 .rank-grid-container {
-  height: 550px;
+  width: 800px;
+  height: 515px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
   -ms-grid-rows: 1fr 1fr 6fr;
       grid-template-rows: 1fr 1fr 6fr;
-  padding: 15px; }
+  padding: 12px; }
   .rank-grid-container .content-block1 {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -338,6 +339,82 @@
       width: 80%; }
     .rank-grid-container .content-block3 #school-rank .count-date, .rank-grid-container .content-block3 #school-rank .count-time, .rank-grid-container .content-block3 #school-rank .section-school-rank {
       margin-bottom: 15px; }
+    .rank-grid-container .content-block3 #school-rank .school-rank-sandglass {
+      padding: 15px;
+      width: 100%;
+      height: 100%;
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 1fr 1fr 1fr 1fr;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+      -ms-grid-rows: 1fr;
+          grid-template-rows: 1fr; }
+      .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-cat, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-lion, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-rabbit, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-tiger {
+        width: 100%;
+        height: 100%;
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: 1fr;
+            grid-template-columns: 1fr;
+        -ms-grid-rows: 20% 10% 60% 10%;
+            grid-template-rows: 20% 10% 60% 10%; }
+        .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-cat img, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-lion img, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-rabbit img, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-tiger img {
+          width: 75%;
+          height: auto;
+          z-index: 100; }
+        .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-cat .sandglass-school-pic img, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-lion .sandglass-school-pic img, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-rabbit .sandglass-school-pic img, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-tiger .sandglass-school-pic img {
+          width: 65%; }
+      .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-school-pic, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-school-content, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-school-rank, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-school-score {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        position: relative; }
+      .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-school-rank {
+        font-weight: 500;
+        font-size: 22px;
+        color: #fff; }
+      .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-school-score {
+        font-weight: 500;
+        font-size: 22px;
+        color: #fff;
+        letter-spacing: normal; }
+      .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .effect-rank-no1 {
+        -webkit-animation: finish 1s infinite;
+                animation: finish 1s infinite; }
+      .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .cat-progress {
+        position: absolute;
+        bottom: 10%;
+        width: 40%;
+        height: 30%;
+        background: -webkit-gradient(linear, left top, right top, from(#7925a6), color-stop(40%, #be48e6), color-stop(50%, #c953f3), color-stop(60%, #be48e6), to(#7925a6));
+        background: linear-gradient(to right, #7925a6 0%, #be48e6 40%, #c953f3 50%, #be48e6 60%, #7925a6 100%); }
+      .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .lion-progress {
+        position: absolute;
+        bottom: 10%;
+        width: 40%;
+        height: 30%;
+        background: -webkit-gradient(linear, left top, right top, from(#1447aa), color-stop(40%, #3188cc), color-stop(50%, #3795d2), color-stop(60%, #3188cc), to(#1447aa));
+        background: linear-gradient(to right, #1447aa 0%, #3188cc 40%, #3795d2 50%, #3188cc 60%, #1447aa 100%); }
+      .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .rabbit-progress {
+        position: absolute;
+        bottom: 10%;
+        width: 40%;
+        height: 30%;
+        background: -webkit-gradient(linear, left top, right top, from(#3b8e0b), color-stop(30%, #80bb1c), color-stop(50%, #99cb29), color-stop(70%, #80bb1c), to(#3b8e0b));
+        background: linear-gradient(to right, #3b8e0b 0%, #80bb1c 30%, #99cb29 50%, #80bb1c 70%, #3b8e0b 100%); }
+      .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .tiger-progress {
+        position: absolute;
+        bottom: 10%;
+        width: 40%;
+        height: 30%;
+        background: -webkit-gradient(linear, left top, right top, from(#a36f1d), color-stop(30%, #c09b25), color-stop(50%, #ceb52b), color-stop(70%, #c09b25), to(#a36f1d));
+        background: linear-gradient(to right, #a36f1d 0%, #c09b25 30%, #ceb52b 50%, #c09b25 70%, #a36f1d 100%); }
     .rank-grid-container .content-block3 #school-rank .school-rank-no1-gift {
       padding: 20px 10px 20px 0px; }
     .rank-grid-container .content-block3 #school-rank .container-no1-gift {
@@ -539,11 +616,7 @@
             border: 1px solid #fff; }
 
 #popup-grid-my-rank {
-  background: #49ADB1;
-  -webkit-box-shadow: 0 -7px 0 0 #FFFFFF, 0 7px 0 0 #FFFFFF;
-          box-shadow: 0 -7px 0 0 #FFFFFF, 0 7px 0 0 #FFFFFF;
-  width: 880px;
-  height: 520px;
+  height: 510px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
@@ -605,8 +678,8 @@
     #popup-grid-my-rank .content-person-info .student-info-login {
       display: -ms-grid;
       display: grid;
-      -ms-grid-columns: 4fr 5fr;
-          grid-template-columns: 4fr 5fr;
+      -ms-grid-columns: 42% 58%;
+          grid-template-columns: 42% 58%;
       -ms-grid-rows: 1fr;
           grid-template-rows: 1fr;
       background: #0C6C70;
@@ -635,7 +708,8 @@
         #popup-grid-my-rank .content-person-info .student-info-login .section-student-pic .student-name {
           text-align: center;
           width: 70%;
-          font-size: 16px;
+          font-size: 17px;
+          font-weight: bolder;
           color: #FFFFFF; }
       #popup-grid-my-rank .content-person-info .student-info-login .section-student-info {
         display: -webkit-box;
@@ -650,13 +724,14 @@
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
             -ms-flex-direction: column;
-                flex-direction: column; }
+                flex-direction: column;
+        font-size: 17px;
+        font-weight: bolder; }
         #popup-grid-my-rank .content-person-info .student-info-login .section-student-info .row-my-rank, #popup-grid-my-rank .content-person-info .student-info-login .section-student-info .row-my-score, #popup-grid-my-rank .content-person-info .student-info-login .section-student-info .row-my-score-move {
-          padding: 5px;
           width: 80%;
           background: #095E61;
           border-radius: 5px;
-          padding-left: 10px;
+          padding: 5px 5px 5px 10px;
           display: -webkit-box;
           display: -ms-flexbox;
           display: flex;
@@ -665,8 +740,6 @@
                   justify-content: flex-start;
           color: #fff; }
         #popup-grid-my-rank .content-person-info .student-info-login .section-student-info .my-rank, #popup-grid-my-rank .content-person-info .student-info-login .section-student-info .my-score, #popup-grid-my-rank .content-person-info .student-info-login .section-student-info .my-score-move {
-          font-size: 16px;
-          font-family: 微軟正黑體;
           letter-spacing: 2px; }
         #popup-grid-my-rank .content-person-info .student-info-login .section-student-info .my-info-list {
           padding-right: 10px; }
@@ -722,7 +795,7 @@
         border: 2px solid #F0BC3A !important; }
     #popup-grid-my-rank .content-rank-list .rank-list {
       width: 100%;
-      height: 16%;
+      height: 18%;
       display: -ms-grid;
       display: grid;
       -ms-grid-columns: 1fr 1fr 4fr 1fr;
@@ -827,6 +900,10 @@
         border: 2px solid #979797;
         border-radius: 10px;
         color: #636363; }
+        #popup-grid-my-rank .content-rank-list .rank-list .bg-line .move-number {
+          font-size: 20px;
+          font-weight: bolder;
+          letter-spacing: -1px; }
 
 #popup-outside-rank {
   display: -webkit-box;
@@ -1206,6 +1283,12 @@
             text-align: center;
             font-size: 12px;
             padding: 2px 0px; }
+      .rank-grid-container .content-block3 #school-rank .school-rank-sandglass {
+        padding: 10px; }
+        .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-school-rank {
+          font-size: 16px; }
+        .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-school-score {
+          font-size: 14px; }
     .rank-grid-container .content-block3 #history-record {
       margin-bottom: 10px;
       margin-top: 5px;
@@ -1418,9 +1501,9 @@
           height: 25px;
           border: 1px solid #979797;
           border-radius: 5px; }
-        #popup-grid-my-rank .content-rank-list .rank-list .move-number {
-          font-size: 12px;
-          letter-spacing: -1px; }
+          #popup-grid-my-rank .content-rank-list .rank-list .bg-line .move-number {
+            font-size: 12px;
+            letter-spacing: -1px; }
   #popup-outside-rank {
     width: 330px;
     height: 230px;
@@ -1493,3 +1576,25 @@
       padding: 6px 10px; }
       #popup-please-login .btn-please-login a {
         font-size: 14px; } }
+
+@-webkit-keyframes finish {
+  0% {
+    -webkit-filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8));
+            filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8)); }
+  50% {
+    -webkit-filter: drop-shadow(0px 0px 8px white);
+            filter: drop-shadow(0px 0px 8px white); }
+  100% {
+    -webkit-filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8));
+            filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8)); } }
+
+@keyframes finish {
+  0% {
+    -webkit-filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8));
+            filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8)); }
+  50% {
+    -webkit-filter: drop-shadow(0px 0px 8px white);
+            filter: drop-shadow(0px 0px 8px white); }
+  100% {
+    -webkit-filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8));
+            filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8)); } }
