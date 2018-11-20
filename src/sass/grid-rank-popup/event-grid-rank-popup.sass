@@ -63,6 +63,7 @@
 
 //-----實力排行----//
 .rank-grid-container
+    width: 800px
     height: 515px
     display: grid
     grid-template-columns: 1fr
@@ -261,6 +262,74 @@
                 width: 80%
             .count-date,.count-time,.section-school-rank
                 margin-bottom: 15px
+
+            //-----中間排行列----//
+            .school-rank-sandglass
+                padding: 15px
+                width: 100%
+                height: 100%
+                display: grid
+                grid-template-columns: 1fr 1fr 1fr 1fr
+                grid-template-rows: 1fr
+                .sandglass-cat,.sandglass-lion,.sandglass-rabbit,.sandglass-tiger
+                    width: 100%
+                    height: 100%
+                    display: grid
+                    grid-template-columns: 1fr
+                    grid-template-rows: 20% 10% 60% 10%
+                    img
+                        width: 75%
+                        height: auto
+                        z-index: 100
+                    .sandglass-school-pic
+                        img
+                            width: 65%
+                .sandglass-school-pic,.sandglass-school-content,.sandglass-school-rank,.sandglass-school-score
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    position: relative
+                .sandglass-school-rank
+                    font-weight: 500
+                    font-size: 22px
+                    color: #fff
+                .sandglass-school-score
+                    font-weight: 500
+                    font-size: 22px
+                    color: #fff
+                    letter-spacing: normal
+
+                //------第一名的特效------//
+                .effect-rank-no1
+                    animation: finish 1s infinite
+
+                .cat-progress
+                    position: absolute
+                    bottom: 10%
+                    width: 40%
+                    height: 30%
+                    background: linear-gradient(to right, #7925a6 0%,#be48e6 40%,#c953f3 50%,#be48e6 60%,#7925a6 100%)
+                
+                .lion-progress
+                    position: absolute
+                    bottom: 10%
+                    width: 40%
+                    height: 30%
+                    background: linear-gradient(to right, #1447aa 0%,#3188cc 40%,#3795d2 50%,#3188cc 60%,#1447aa 100%)
+
+                .rabbit-progress
+                    position: absolute
+                    bottom: 10%
+                    width: 40%
+                    height: 30%
+                    background: linear-gradient(to right, #3b8e0b 0%,#80bb1c 30%,#99cb29 50%,#80bb1c 70%,#3b8e0b 100%)
+
+                .tiger-progress
+                    position: absolute
+                    bottom: 10%
+                    width: 40%
+                    height: 30%
+                    background: linear-gradient(to right, #a36f1d 0%,#c09b25 30%,#ceb52b 50%,#c09b25 70%,#a36f1d 100%)
 
             //-----右側獎勵欄----//
             .school-rank-no1-gift
@@ -899,6 +968,12 @@
                             text-align: center
                             font-size: 12px
                             padding: 2px 0px
+                .school-rank-sandglass
+                    padding: 10px
+                    .sandglass-school-rank
+                        font-size: 16px
+                    .sandglass-school-score
+                        font-size: 14px
 
             //-----歷史紀錄----//
             #history-record
@@ -1185,3 +1260,14 @@
             padding: 6px 10px
             a
                 font-size: 14px
+
+
+//- keyframes -//
+
+@keyframes finish
+    0%
+        filter: drop-shadow(0px 0px 8px rgba(#fff, 0.8))
+    50%
+        filter: drop-shadow(0px 0px 8px rgba(#fff, 1))
+    100%
+        filter: drop-shadow(0px 0px 8px rgba(#fff, 0.8))

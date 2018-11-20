@@ -485,6 +485,32 @@ button, a {
         cursor: pointer;
         color: #efffd6; }
 
+#power_rank {
+  z-index: 1000;
+  position: absolute;
+  bottom: 0%;
+  left: 25%;
+  width: 11%;
+  height: auto; }
+  #power_rank .hat {
+    position: relative; }
+    #power_rank .hat img {
+      width: 100%; }
+    #power_rank .hat .hat_title {
+      white-space: nowrap;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+              transform: translateX(-50%);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 500;
+      text-shadow: 0px 0px 15px black; }
+      #power_rank .hat .hat_title:hover {
+        cursor: pointer;
+        color: #f4eaff; }
+
 .function_description {
   position: absolute;
   top: 0;
@@ -708,6 +734,12 @@ button, a {
       right: 12%;
       font-size: 18px;
       line-height: 22px; }
+  #power_rank {
+    bottom: 13%;
+    left: 22%;
+    width: 15%; }
+    #power_rank .hat .hat_title {
+      font-size: 18px; }
   .function_description .explain_gift {
     bottom: 38%;
     left: 1%;
@@ -816,6 +848,12 @@ button, a {
       right: 10%;
       font-size: 13px;
       line-height: 17px; }
+  #power_rank {
+    bottom: 0%;
+    left: 25%;
+    width: 10%; }
+    #power_rank .hat .hat_title {
+      font-size: 12px; }
   #login_dialog .login_potion_box {
     top: 48%; }
   .function_description {
@@ -994,6 +1032,12 @@ button, a {
       right: 10%;
       font-size: 13px;
       line-height: 17px; }
+  #power_rank {
+    bottom: 5%;
+    left: 26%;
+    width: 12%; }
+    #power_rank .hat .hat_title {
+      font-size: 12px; }
   #login_dialog .login_potion_box {
     top: 48%; }
   .function_description {

@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <meta http-equiv="X-UA-Compatible" content="IE=9;IE=10;IE=Edge,chrome=1">
-        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="cache-control" content="no-store">
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="expires" content="0">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -13,8 +13,8 @@
         <link href="./css/lib/sweetalert2.min.css" rel="stylesheet">
         <link href="./css/lib/bootstrap-slider.min.css" rel="stylesheet">
         <link href="./css/main/for-ie11.css" rel="stylesheet">
-        <link href="./css/main/style.css?appVersion=201811141813" rel="stylesheet">
-        <link href="./css/grid-rank-popup/event-grid-rank-popup.css?appVersion=201811141813" rel="stylesheet"><!-- build:css -->
+        <link href="./css/main/style.css?appVersion=20181191443" rel="stylesheet">
+        <link href="./css/grid-rank-popup/event-grid-rank-popup.css?appVersion=20181191443" rel="stylesheet"><!-- build:css -->
         <link href="./css/magic/event-chest.css" rel="stylesheet">
         <link href="./css/magic/event-award.css" rel="stylesheet">
         <link href="./css/magic/event-confirm-popup.css" rel="stylesheet">
@@ -230,7 +230,13 @@
         <div id="my_treasure">
             <div class="book"><img src="./img/magicImg/book.png">
                 <div class="book_title">我的<br>寶藏</div>
-            </div><a class="speaker mute" href="#"><span></span></a>
+            </div>
+            <div class="speaker-field"><a class="speaker mute"><span></span></a></div>
+        </div>
+        <div id="power_rank">
+            <div class="hat"><img src="./img/magicImg/rank.png">
+                <div class="hat_title">實力排行</div>
+            </div>
         </div>
         <div class="function_description" style="display:none">
             <div class="finish_novice_btn">完成教學</div>
@@ -263,8 +269,8 @@
                 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.4 0.2 0 1 0"></feColorMatrix>
             </filter>
         </svg>
-        <script src="https://cdn.polyfill.io/v2/polyfill.min.js?appVersion=201811141813"></script>
-        <script data-main="./js/magic/main" src="./js/lib/require.js?appVersion=201811141813"></script>
+        <script src="https://cdn.polyfill.io/v2/polyfill.min.js?appVersion=201811121129"></script>
+        <script data-main="./js/magic/main" src="./js/lib/require.js?appVersion=201811121129"></script>
         <!-- Google Tag Manager-->
         <script type="text/javascript">
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -275,6 +281,6 @@
             
         </script>
         <!-- GA and FBPixel-->
-        <script src="https://d220xxmclrx033.cloudfront.net/common_webcomponent/current/js/ehanlin-social.js?appVersion=201811141813"></script>
+        <script src="https://d220xxmclrx033.cloudfront.net/common_webcomponent/current.SNAPSHOT/js/ehanlin-social.js?appVersion=201811121129"></script>
     </body>
 </html>

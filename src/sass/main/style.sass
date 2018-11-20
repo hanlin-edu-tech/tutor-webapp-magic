@@ -442,6 +442,32 @@ button, a
                 cursor: pointer
                 color: #efffd6
 
+//實力排行(帽子)
+#power_rank
+    z-index: 1000
+    position: absolute
+    bottom: 0%
+    left: 25%
+    width: 11%
+    height: auto
+    .hat
+        position: relative
+        img
+            width: 100%
+        .hat_title
+            white-space: nowrap
+            position: absolute
+            top: 60%
+            left: 50%
+            transform: translateX(-50%)
+            color: #fff
+            font-size: 20px
+            font-weight: 500
+            text-shadow: 0px 0px 15px black
+            &:hover
+                cursor: pointer
+                color: #f4eaff
+
 //功能說明
 .function_description
     position: absolute
@@ -669,6 +695,13 @@ button, a
                 right: 12%
                 font-size: 18px
                 line-height: 22px
+    #power_rank
+        bottom: 13%
+        left: 22%
+        width: 15%
+        .hat
+            .hat_title
+                font-size: 18px
 
     .function_description
         .explain_gift
@@ -792,6 +825,13 @@ button, a
                 right: 10%
                 font-size: 13px
                 line-height: 17px
+    #power_rank
+        bottom: 0%
+        left: 25%
+        width: 10%
+        .hat
+            .hat_title
+                font-size: 12px
 
     #login_dialog
         .login_potion_box
@@ -966,6 +1006,13 @@ button, a
                 right: 10%
                 font-size: 13px
                 line-height: 17px
+    #power_rank
+        bottom: 5%
+        left: 26%
+        width: 12%
+        .hat
+            .hat_title
+                font-size: 12px
 
     #login_dialog
         .login_potion_box

@@ -25,7 +25,7 @@ html(lang="en")
                     li.nav-tab(data-type='active-explain') 排行說明
 
             .content-block3
-                .tab-content#personal-rank.default
+                //.tab-content#personal-rank.default
                     .container-rank
                         .content-option
                             .btn-my-rank 我的排行
@@ -90,6 +90,38 @@ html(lang="en")
                                     .school-percent 33
                                     .rank-option-title %)
                         .school-rank-sandglass
+                            .sandglass-cat
+                                .sandglass-school-pic
+                                    img.no1-gift-pic(src="./img/magicImg/badge_cat.png")
+                                .sandglass-school-rank 1st
+                                .sandglass-school-content
+                                    img.no1-gift-pic(src="./img/magicImg/sandglass-cat.png")
+                                    .cat-progress
+                                .sandglass-school-score.school-score-cat 12455
+                            .sandglass-lion
+                                .sandglass-school-pic
+                                    img.no1-gift-pic(src="./img/magicImg/badge_lion.png")
+                                .sandglass-school-rank 2nd
+                                .sandglass-school-content
+                                    img.no1-gift-pic(src="./img/magicImg/sandglass-lion.png")
+                                    .lion-progress
+                                .sandglass-school-score.school-score-lion 12455
+                            .sandglass-rabbit
+                                .sandglass-school-pic
+                                    img.no1-gift-pic(src="./img/magicImg/badge_rabbit.png")
+                                .sandglass-school-rank 3rd
+                                .sandglass-school-content
+                                    img.no1-gift-pic(src="./img/magicImg/sandglass-rabbit.png")
+                                    .rabbit-progress
+                                .sandglass-school-score.school-score-rabbit 12455
+                            .sandglass-tiger
+                                .sandglass-school-pic
+                                    img.no1-gift-pic(src="./img/magicImg/badge_tiger.png")
+                                .sandglass-school-rank 4th
+                                .sandglass-school-content
+                                    img.no1-gift-pic(src="./img/magicImg/sandglass-tiger.png")
+                                    .tiger-progress
+                                .sandglass-school-score.school-score-tiger 12455
                         .school-rank-no1-gift
                             .container-no1-gift
                                 .no1-gift-title 第一名獎勵
@@ -104,7 +136,7 @@ html(lang="en")
                                         .no1-gift-name
                                             .no1-diamond-title 寶石
                                             .school-no1-diamond 50
-                .tab-content#history-record
+                //.tab-content#history-record
                     .container-history
                         .content-option
                             .tab-option.btn-my-rank.history-active(data-type="history-my-rank") 個人排行
@@ -194,7 +226,7 @@ html(lang="en")
                                         li.school-rank 3
                                         li.school-in-rank 20
                                         li.school-get-gift e幣1200、寶石100
-                .tab-content#active-explain
+                //.tab-content#active-explain
                     .container-explain
                         .content-explain
                             ul 1.積分說明：
@@ -261,7 +293,7 @@ html(lang="en")
                             
 
 
-        #popup-grid-my-rank
+        //#popup-grid-my-rank
             .content-title
                 .title 我的排行
             .content-person-info
@@ -399,7 +431,7 @@ html(lang="en")
                                 .bg-line
                                     .move-number -
 
-        #popup-outside-rank
+        //#popup-outside-rank
             .title-now-score
                 .now-score 你目前的積分為
                 .my-score 34分
@@ -408,7 +440,7 @@ html(lang="en")
             .btn-upgrade-course 
                 a(href="") 升級課程
 
-        #popup-now-rank
+        //#popup-now-rank
             .now-rank-title 
                 .title 目前獎勵
             .now-rank-outside
@@ -430,7 +462,7 @@ html(lang="en")
                     .rank-note
                         .note 請注意：目前顯示獎勵在結算之前都會因你的排名<br>隨時變動，不代表最終結算獎勵
 
-        #popup-please-login
+        //#popup-please-login
             .please-login-title 請先登入方能查詢目前獎勵
             .btn-please-login
                 a(href="/Users/login.html?redirect=/tutor/webapp-magic/") 馬上登入
