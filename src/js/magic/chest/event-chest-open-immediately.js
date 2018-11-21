@@ -2,7 +2,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], // eslint-disable-
   ($, ajax, confirmPopup, eventChestCheck) => {
     let eventChestOpenImmediately = {}
     eventChestOpenImmediately.process = (chest, targets, spendGems) => {
-      ajax('PATCH', `/chest/open/immediately/${chest.id}`,
+      ajax('POST', `/chest/open/immediately/${chest.id}`,
         {
           spendGems: spendGems
         }

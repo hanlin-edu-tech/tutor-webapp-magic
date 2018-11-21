@@ -11,7 +11,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
     noviceTargets.openBtn = greenTarget.find('.mix_finish')
     noviceTargets.readyNowBtn = greenTarget.find('.now_finish')
     let save = progressiveStep => {
-      ajax('PATCH', `/chest/novice/`, {
+      ajax('POST', `/chest/novice/`, {
           progressiveStep: progressiveStep
         }
       ).then(() => {
@@ -114,7 +114,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
 
       functionDescTarget.removeAttr('style')
       functionDescTarget.find('.finish_novice_btn').one('click', () => {
-        ajax('PATCH', `/chest/novice/`, {
+        ajax('POST', `/chest/novice/`, {
           progressiveStep: 'COMPLETED'
         }).then(() => {
             functionDescTarget.fadeOut()
@@ -328,7 +328,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
 
     /* 4-3-2 成功調配藥水 */
     let step4_3_2 = () => {
-      ajax('PATCH', `/chest/open/immediately/${chestId}`,
+      ajax('POST', `/chest/open/immediately/${chestId}`,
         {
           spendGems: 0
         }).then(() => {

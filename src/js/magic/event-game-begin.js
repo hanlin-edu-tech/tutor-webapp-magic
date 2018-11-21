@@ -15,7 +15,4 @@ define([], () => {
     eventChestGet()
   })
 
-  require(['eventAwardGet'], eventAwardGet => {
-    eventAwardGet()
-  })
 })

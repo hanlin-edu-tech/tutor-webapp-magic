@@ -3,5 +3,5 @@ node_modules/
 dist/
 package-lock.json
 tutor.json
-src/index.html
-src/css/magic/style.css
+index.html
+style.css

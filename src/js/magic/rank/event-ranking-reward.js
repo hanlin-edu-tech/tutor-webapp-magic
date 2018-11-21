@@ -1,9 +1,9 @@
 define(['jquery', 'ajax', 'confirmPopup'],
   ($, ajax, confirmPopup) => { // eslint-disable-line
     return () => {
-      let popupRewardInfo = rewardInfo => {
+      let composeRewardInfo = rewardInfo => {
         return `
-          <div class="now-rank-inside" style="display:none">
+          <div class="now-rank-inside">
             <div class="now-rank-content">
               <div class="content">${rewardInfo['desc']}</div>
             </div>
@@ -31,28 +31,45 @@ define(['jquery', 'ajax', 'confirmPopup'],
       let composeRewardDialogAttr = (heightClass = '') => {
         return {
           customClass: `confirm_message_box ${heightClass}`,
+          width: '700px'
         }
       }
 
       let popupHtml, dialogAttr
-      ajax('GET', `http://localhost:8080/chest/ranking/reward/specificUser`)
+      ajax('GET', `/chest/ranking/reward/specificUser`)
         .then(
           jsonData => {
-            let rankingInfo = jsonData.content
-            let flag = rankingInfo['flag']
+            let rewardInfo = jsonData.content
+            let flag = rewardInfo['flag']
             switch (flag) {
               case 'QUALIFIED': {
-                popupHtml = popupRewardInfo(rankingInfo)
-                dialogAttr = composeRewardDialogAttr()
+                popupHtml = `
+                  <div id="popup-now-rank">
+                    <div class="now-rank-title">
+                      <div class="title">目前獎勵</div>
+                    </div>
+                    ${composeRewardInfo(rewardInfo)}
+                  </div>
+                `
+                dialogAttr = composeRewardDialogAttr('modal-popup-rank-reward-height')
                 break
               }
               case 'UNQUALIFIED': {
                 popupHtml = `
-                  <div class="now-rank-outside">
-                    <div class="now-rank-content">
-                      <div class="content">你還有很大的進步空間呢！再接再厲！</div>
+                  <div id="popup-now-rank">
+                    <div class="now-rank-title">
+                      <div class="title">目前獎勵</div>
                     </div>
-                    <div class="albi-cry"><img src="./img/magicImg/albi-cry.png"></div>
+                    <div class="now-rank-outside">
+                      <div class="now-rank-content">
+                        <div class="content">
+                          你還有很大的進步空間呢！再接再厲！
+                        </div>
+                      </div>
+                      <div class="albi-cry">
+                        <img src="./img/magicImg/albi-cry.png">
+                      </div>
+                    </div>
                   </div>
                 `
                 dialogAttr = composeRewardDialogAttr('confirm-popup-middle-height')
@@ -69,6 +86,7 @@ define(['jquery', 'ajax', 'confirmPopup'],
                 break
               }
             }
+
             confirmPopup.dialog(popupHtml, dialogAttr)
           }
         )

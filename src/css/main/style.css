@@ -266,14 +266,13 @@ button, a {
     height: 400px;
     background-size: 100% auto;
     background-repeat: no-repeat;
-    padding: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    padding-top: 5%; }
+    padding: 5% 0 0; }
     #section_middle_part .container-fluid .row .potion_box .row, #section_novice .container-fluid .row .potion_box .row {
       margin: 0;
       width: 90%; }
@@ -406,6 +405,7 @@ button, a {
 .confirm_message_box .message_box_btn_style, .tutorial_message_box .message_box_btn_style {
   font-size: 20px;
   margin-right: 5px;
+  margin-bottom: 8px;
   padding: 0 24px; }
 
 .confirm_message_box .tutorial_message_box_btn, .tutorial_message_box .tutorial_message_box_btn {
@@ -424,6 +424,7 @@ button, a {
   .my_treasure_message_box .message_box_btn_style {
     font-size: 20px;
     margin-right: 5px;
+    margin-bottom: 8px;
     padding: 0 24px; }
   .my_treasure_message_box .common-font {
     font-size: 19px; }
@@ -486,7 +487,6 @@ button, a {
         color: #efffd6; }
 
 #power_rank {
-  z-index: 1000;
   position: absolute;
   bottom: 0%;
   left: 25%;
@@ -1088,6 +1088,7 @@ button, a {
   .confirm_message_box .message_box_btn_style, .tutorial_message_box .message_box_btn_style, .my_treasure_message_box .message_box_btn_style {
     font-size: 15px;
     margin-right: 3px;
+    margin-bottom: 5px;
     padding: 0 13px; }
   .confirm_message_box p, .tutorial_message_box p, .my_treasure_message_box p {
     line-height: 26px; }

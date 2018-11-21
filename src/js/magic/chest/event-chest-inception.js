@@ -94,10 +94,11 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
               awardsCount = Object.keys(awardsQuantity).length
               awardIndex = 0
               for (let awardId in awardsQuantity) {
-                let awardImage = `<div class="start-show-award">
-                  <img class="img-award${awardIndex}" data-award-id="${awardId}" src="./img/award/${awardId}.png">
-                </div>
-              `
+                let awardImage = `
+                  <div class="start-show-award">
+                    <img class="img-award${awardIndex}" data-award-id="${awardId}" src="./img/award/${awardId}.png">
+                  </div>
+                `
 
                 if (awardIndex === awardsCount - 1) {
                   awardImages += awardImage

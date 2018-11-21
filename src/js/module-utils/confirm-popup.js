@@ -6,7 +6,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     animation: false,
     reverseButtons: true,
     onBeforeOpen: () => {
-     
+
     }
   }
 
@@ -27,6 +27,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     title = '',
     confirmFn = () => {},
     cancelFn = () => {},
+    onBeforeOpenFn = () => {},
     onOpenFn = () => {},
     showConfirmButton = true,
     confirmButtonText = '確定',
@@ -37,9 +38,9 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
   } = {}) => {
     let dialogStyle = cloneConstantStyle()
     dialogStyle.width = width
-    dialogStyle.customClass = `animated zoomInUp fast ${customClass}`
+    dialogStyle.customClass = `animated zoomInUp fast ${ customClass }`
     dialogStyle.background = background
-    dialogStyle.title = title ? `<span class="confirm-popup-title-font">${title}</span>` : ''
+    dialogStyle.title = title ? `<span class="confirm-popup-title-font">${ title }</span>` : ''
     dialogStyle.html = popupHtml
     dialogStyle.showCancelButton = showCancelButton
     dialogStyle.showConfirmButton = showConfirmButton
@@ -47,6 +48,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     dialogStyle.cancelButtonText = cancelButtonText
     dialogStyle.confirmButtonClass = confirmButtonClass
     dialogStyle.cancelButtonClass = cancelButtonClass
+    dialogStyle.onBeforeOpen = onBeforeOpenFn
     dialogStyle.onOpen = () => {
       $('.swal2-header').remove()
       onOpenFn()
@@ -89,7 +91,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
   } = {}) => {
     let tutorialStyle = newTutorialStyle()
     tutorialStyle.title = ''
-    tutorialStyle.html = `<p>${content}</p>`
+    tutorialStyle.html = `<p>${ content }</p>`
     tutorialStyle.confirmButtonText = confirmButtonText
     tutorialStyle.onOpen = onOpenFn
 
@@ -108,8 +110,8 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
   confirmPopup.awardIsZeroDialog = (title, content, awardIsZeroFun, buttonText) => {
     let awardIsZeroDialogStyle = cloneConstantStyle()
     awardIsZeroDialogStyle.customClass = 'award-are-zero-confirm-popup-modal'
-    awardIsZeroDialogStyle.title = `<span class="awards-are-zero-title">${title}</span>`
-    awardIsZeroDialogStyle.html = `<div style="font-weight: bolder">${content}</div>`
+    awardIsZeroDialogStyle.title = `<span class="awards-are-zero-title">${ title }</span>`
+    awardIsZeroDialogStyle.html = `<div style="font-weight: bolder">${ content }</div>`
     awardIsZeroDialogStyle.confirmButtonText = buttonText || '好的'
     awardIsZeroDialogStyle.onOpen = () => {
       $('.swal2-content').append(
@@ -122,11 +124,11 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
       )
       for (let index = 1; index < 31; index++) {
         $('.shining-block .shining-coins')
-          .append(`<img class="coins${index}" src="./img/magicImg/coinGif.gif">`)
+          .append(`<img class="coins${ index }" src="./img/magicImg/coinGif.gif">`)
       }
       for (let index = 1; index < 21; index++) {
         $('.shining-block .shining-gems')
-          .append(`<img class="gems${index}" src="./img/magicImg/gemGif.gif">`)
+          .append(`<img class="gems${ index }" src="./img/magicImg/gemGif.gif">`)
       }
     }
 

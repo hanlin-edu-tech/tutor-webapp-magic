@@ -1,6 +1,6 @@
-define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'], ($, ajax, w3, eventAwardAreZero, confirmPopup) => { // eslint-disable-line
-  return () => {
-    $('#my_treasure .book_title').on('click', () => {
+define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'],
+  ($, ajax, w3, eventAwardAreZero, confirmPopup) => { // eslint-disable-line
+    return () => {
       let audioOpenAwardEventTarget = document.getElementById('audio_open_award_event')
       audioOpenAwardEventTarget.play()
 
@@ -23,13 +23,9 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'], ($, ajax, 
         customClass: 'my_treasure_message_box modal-popup-inception-height',
         background: '#a6937c',
         width: '85%',
-        showConfirmButton: true,
         confirmButtonText: '寶藏尚未開放領取',
         showCancelButton: false,
-        cancelButtonText: '',
         confirmButtonClass: 'btn message_box_btn_style',
-        cancelButtonClass: 'btn message_box_btn_style',
-        confirmFn: () => {},
         onOpenFn: () => {
           ajax('GET', `/chest/award/`)
             .then(data => {
@@ -44,7 +40,7 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'], ($, ajax, 
                 switch (awardIdx % limit) {
                   case (limit - 1):
                     awardImgs += awardImg
-                    awardBlock += `<div class="img-block-award">${awardImgs}</div>`
+                    awardBlock += `<div class="img-block-award">${ awardImgs }</div>`
                     awardImgs = ''
                     break
 
@@ -64,15 +60,17 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'], ($, ajax, 
               awardsCount = Object.keys(awardsQuantity).length
               awardIdx = 0
               for (let awardId in awardsQuantity) {
-                let awardImg = `<div class="start-show-award">
-                  <img class="img-award${awardIdx}" data-award-id="${awardId}" src="./img/award/${awardId}.png">
-                  <div>${awardsQuantity[awardId]}個</div>
-                </div>
-              `
+                let awardImg = `
+                  <div class="start-show-award">
+                    <img class="img-award${ awardIdx }" data-award-id="${ awardId }" src="./img/award/${ awardId }.png">
+                    <hr style="margin: 7px"/>
+                    <p>${ awardsQuantity[awardId] }個</p>
+                  </div>
+                `
 
                 if (awardIdx === awardsCount - 1) {
                   awardImgs += awardImg
-                  awardBlock += `<div class="img-block-award">${awardImgs}</div>`
+                  awardBlock += `<div class="img-block-award">${ awardImgs }</div>`
                 } else {
                   composeAwardBlock(awardIdx, limit, awardId, awardImg)
                 }
@@ -95,6 +93,5 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'], ($, ajax, 
         }
       }
       confirmPopup.dialog(popupHtml, dialog)
-    })
-  }
-})
+    }
+  })

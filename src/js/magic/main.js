@@ -41,8 +41,12 @@ require.config({
     eventTutorialInit: ['./tutorial/event-tutorial-init'],
 
     /* 雲端排行榜 */
-    eventRankPopup: ['./rank/event-rank-popup'],
-    eventRankSchool: ['./rank/event-rank-school'],
+    eventRankingPopup: ['./rank/event-ranking-popup'],
+    eventRankingTop: ['./rank/event-ranking-top'],
+    eventRankingAcademy: ['./rank/event-ranking-academy'],
+    eventRankingMy: ['./rank/event-ranking-my'],
+    eventRankingUnqualified: ['./rank/event-ranking-unqualified'],
+    eventRankingReward: ['./rank/event-ranking-reward'],
 
     /* 初始化 */
     eventGameBegin: ['./event-game-begin'],
@@ -67,22 +71,9 @@ require.config({
       'jQuery': 'jquery'
     }
   }
-
-  // urlArgs: (id, url) => {
-  //   /* 時間格式轉換為：yyyyMMddHHmm */
-  //   let now = new Date()
-  //   let year = now.getFullYear()
-  //   let month = now.getMonth() + 1
-  //   let date = now.getDate()
-  //   let hour = now.getHours()
-  //   let minute = now.getMinutes()
-  //   let timestamp = `${year}${month}${date}${hour}${minute}`
-  //   let appVersion = `appVersion=${timestamp}`
-  //   return (url.indexOf('?') === -1 ? '?' : '&') + appVersion
-  // }
 })
 
-var load = require.load
+let requireLoad = require.load
 require.load = (context, moduleId, url) => {
   let now = new Date()
   let year = now.getFullYear()
@@ -93,7 +84,7 @@ require.load = (context, moduleId, url) => {
   let timestamp = `${year}${month}${date}${hour}${minute}`
   let appVersion = `appVersion=${timestamp}`
   url = `${url}?${appVersion}`
-  load(context, moduleId, url)
+  requireLoad(context, moduleId, url)
 }
 
 require([], () => {
@@ -103,7 +94,6 @@ require([], () => {
   require(['eventClickLink'])
   require(['eventUserStatus'])
   require(['eventBonusPopup'])
-  require(['eventRankPopup'])
   require(['eventSliderAudioBar'])
 
   // 判定使用者裝置
