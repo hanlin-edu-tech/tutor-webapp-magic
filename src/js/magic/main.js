@@ -45,7 +45,6 @@ require.config({
     eventRankingTop: ['./rank/event-ranking-top'],
     eventRankingAcademy: ['./rank/event-ranking-academy'],
     eventRankingMy: ['./rank/event-ranking-my'],
-    eventRankingUnqualified: ['./rank/event-ranking-unqualified'],
     eventRankingReward: ['./rank/event-ranking-reward'],
 
     /* 初始化 */

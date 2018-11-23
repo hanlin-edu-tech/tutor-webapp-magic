@@ -1,6 +1,30 @@
 define(['jquery', 'ajax'], ($, ajax) => { // eslint-disable-line
   return async () => {
-    let composeAcademyRankingInfo = rankingInfo => {
+    let composeAcademyRankingInfo = (rankingInfo, perSandglass) => {
+      let userBelongAcademy = ''
+      if (rankingInfo['flag'] === 'QUALIFIED') {
+        userBelongAcademy = `
+          <div class="section-school-rank">
+            <div class="rank-option-title">你的學院目前為</div>
+            <div class="row-school-rank">
+              <div class="rank-option-title">第</div>
+              <div class="school-rank">${ rankingInfo['academySumRank'] }</div>
+              <div class="rank-option-title">名</div>
+            </div>
+          </div>
+          <div class="section-school-percent">
+            <div class="rank-option-title">你在 ${ rankingInfo['academyBadgeName'] }</div>
+            <div class="row-school-percent">
+              <div class="rank-option-title">第</div>
+              <div class="school-no">${ rankingInfo['academyRank'] }</div>
+              <div class="rank-option-title">名(</div>
+              <div class="school-percent">${ rankingInfo['academySumPointsPercent'] }</div>
+              <div class="rank-option-title">)</div>
+            </div>
+          </div>
+        `
+      }
+
       return `
         <div class="tab-content" id="school-rank">
           <div class="container-school-rank">
@@ -11,99 +35,64 @@ define(['jquery', 'ajax'], ($, ajax) => { // eslint-disable-line
               </div>
               <div class="count-time">
                 <div class="rank-option-title">距離結算還有</div>
-                <div class="myrank-count-time"></div>
+                <div class="myrank-count-time">${ rankingInfo['remainingSeconds']}</div>
               </div>
-              <div class="section-school-rank">
-                <div class="rank-option-title">你的學院目前為</div>
-                <div class="row-school-rank">
-                  <div class="rank-option-title">第</div>
-                  <div class="school-rank">${ rankingInfo['academyRankOrder'] }</div>
-                  <div class="rank-option-title">名</div>
-                </div>
-              </div>
-              <div class="section-school-percent">
-                <div class="rank-option-title">你目前為學院中</div>
-                <div class="row-school-percent">
-                  <div class="rank-option-title">第</div>
-                  <div class="school-no">${ rankingInfo['academyRank'] }</div>
-                  <div class="rank-option-title">名(</div>
-                  <div class="school-percent">${ rankingInfo['academyRanPercent'] }</div>
-                  <div class="rank-option-title">%)</div>
-                </div>
-              </div>
+              ${ userBelongAcademy }
             </div>
             <div class="school-rank-sandglass">
-              <div class="sandglass-cat">
-                <div class="sandglass-school-pic">
-                  <img class="no1-gift-pic" src="./img/magicImg/badge_cat.png">
-                </div>
-                <div class="sandglass-school-rank">1st</div>
-                <div class="sandglass-school-content">
-                  <img class="no1-gift-pic" src="./img/magicImg/sandglass-cat.png">
-                  <div class="cat-progress"></div>
-                </div>
-                <div class="sandglass-school-score school-score-cat">${ rankingInfo['catSumPoints'] }</div>
-              </div>
-              <div class="sandglass-lion">
-                <div class="sandglass-school-pic">
-                  <img class="no1-gift-pic" src="./img/magicImg/badge_lion.png">
-                </div>
-                <div class="sandglass-school-rank">2nd</div>
-                <div class="sandglass-school-content">
-                  <img class="no1-gift-pic" src="./img/magicImg/sandglass-lion.png">
-                  <div class="lion-progress"></div>
-                </div>
-                <div class="sandglass-school-score school-score-lion">${ rankingInfo['lionSumPoints'] }</div>
-              </div>
-              <div class="sandglass-rabbit">
-                <div class="sandglass-school-pic">
-                  <img class="no1-gift-pic" src="./img/magicImg/badge_rabbit.png">
-                </div>
-                <div class="sandglass-school-rank">3rd</div>
-                <div class="sandglass-school-content">
-                  <img class="no1-gift-pic" src="./img/magicImg/sandglass-rabbit.png">
-                  <div class="rabbit-progress"></div>
-                </div>
-                <div class="sandglass-school-score school-score-rabbit">${ rankingInfo['rabbitSumPoints'] }</div>
-              </div>
-              <div class="sandglass-tiger">
-                <div class="sandglass-school-pic">
-                  <img class="no1-gift-pic" src="./img/magicImg/badge_tiger.png"></div>
-                <div class="sandglass-school-rank">4th</div>
-                <div class="sandglass-school-content">
-                  <img class="no1-gift-pic" src="./img/magicImg/sandglass-tiger.png">
-                  <div class="tiger-progress"></div>
-                </div>
-                <div class="sandglass-school-score school-score-tiger">${ rankingInfo['tigerSumPoints'] }</div>
-              </div>
+              ${ perSandglass }
             </div>
             <div class="school-rank-no1-gift">
               <div class="container-no1-gift">
-                <div class="no1-gift-title">第一名獎勵</div>
+                <div class="no1-gift-title">第1名獎勵</div>
                 <div class="no1-gift-list">
-                  <div class="row-gift"><img class="no1-gift-pic" src="./img/magicImg/ecoin_box.png">
+                  <div class="row-gift">
+                    <img class="no1-gift-pic" src="./img/magicImg/ecoin_box.png">
                     <div class="no1-gift-name">
                       <div class="no1-ecoin-title">e幣</div>
-                      <div class="school-no1-ecoin">1500</div>
+                      <div class="school-no1-ecoin">${ rankingInfo['coins'] }</div>
                     </div>
                   </div>
-                  <div class="row-gift"><img class="no1-gift-pic" src="./img/magicImg/diamond_box_get.png">
+                  <div class="row-gift">
+                    <img class="no1-gift-pic" src="./img/magicImg/diamond_box_get.png">
                     <div class="no1-gift-name">
                       <div class="no1-diamond-title">寶石</div>
-                      <div class="school-no1-diamond">50</div>
+                      <div class="school-no1-diamond">${ rankingInfo['gems'] }</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>  
+          </div>  
+        </div>
       `
     }
 
     let jsonData = await ajax('GET', `/chest/rank/academyRanking/specificUser`)
     let rankingInfo = jsonData.content
-    return composeAcademyRankingInfo(rankingInfo)
+    let perAcademyRankingsInfo = rankingInfo['perAcademyRankingsInfo']
+    let perSandglass = ''
+    const SANDGLASS_LIMIT = 80
+    for (let i = 0; i < perAcademyRankingsInfo.length; i++) {
+      let perAcademyRanking = perAcademyRankingsInfo[i]
+      let perAcademyBadge = perAcademyRanking['academyBadge']
+      let sandglassHeight = SANDGLASS_LIMIT * (perAcademyRanking['academySumPoints'] / rankingInfo ['allPoints'])
+      perSandglass += `
+        <div class="sandglass-${ perAcademyBadge }">
+          <div class="sandglass-school-pic">
+            <img class="no1-gift-pic" src="./img/magicImg/badge_${ perAcademyBadge }.png">
+          </div>
+          <div class="sandglass-school-rank">${ perAcademyRanking['academyBadgeName'] }</div>
+          <div class="sandglass-school-content">
+            <img class="no1-gift-pic" src="./img/magicImg/sandglass-${ perAcademyBadge }.png">
+            <div class="${ perAcademyBadge }-progress" style="height: ${ sandglassHeight }%"></div>
+          </div>
+          <div class="sandglass-school-score school-score-cat">${ perAcademyRanking['academySumPoints'] }</div>
+        </div>    
+      `
+    }
+
+    return composeAcademyRankingInfo(rankingInfo, perSandglass)
   }
 })
 

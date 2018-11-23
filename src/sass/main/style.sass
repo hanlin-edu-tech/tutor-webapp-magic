@@ -310,6 +310,9 @@ button, a
     .left-align
         text-align: left
 
+.orange_message_box
+    border-radius: 5px
+
 //教學訊息視窗
 .tutorial_message_box.row
     border-top: solid 3px white
@@ -343,7 +346,7 @@ button, a
         margin-bottom: 8px
         padding: 0 24px
 
-.confirm_message_box, .tutorial_message_box
+.confirm_message_box, .tutorial_message_box, .orange_message_box
     @include message_content
 
     .btn_iknow
@@ -1073,7 +1076,7 @@ button, a
             margin-bottom: 5px
             padding: 0 13px
 
-    .confirm_message_box, .tutorial_message_box, .my_treasure_message_box
+    .confirm_message_box, .tutorial_message_box, .my_treasure_message_box, .orange_message_box
         @include message_btn_style_small
         p
             line-height: 26px

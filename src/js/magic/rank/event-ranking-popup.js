@@ -1,4 +1,4 @@
-define(['jquery', 'ajax', 'confirmPopup'],
+define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
   ($, ajax, confirmPopup) => {// eslint-disable-line
     return () => {
       let composeRankingPopupHtml = (topRanking, academyRanking) => {
@@ -32,6 +32,7 @@ define(['jquery', 'ajax', 'confirmPopup'],
                           <li>獲得名次</li>
                           <li>獲得獎勵</li>
                         </ul>
+                        <!--
                         <ul class="row-my-list">
                           <li class="my-enter-time">2018.10.10</li>
                           <li class="my-rank">20</li>
@@ -77,6 +78,7 @@ define(['jquery', 'ajax', 'confirmPopup'],
                           <li class="my-rank">20</li>
                           <li class="my-get-gift">寶石100</li>
                         </ul>
+                        -->
                       </div>
                     </div>
                     <div class="tab-option-content history-school-rank">
@@ -87,6 +89,7 @@ define(['jquery', 'ajax', 'confirmPopup'],
                           <li>學院內名次</li>
                           <li>獲得獎勵</li>
                         </ul>
+                        <!--
                         <ul class="row-school-list">
                           <li class="school-enter-time">2018.10.10</li>
                           <li class="school-rank">3</li>
@@ -129,6 +132,7 @@ define(['jquery', 'ajax', 'confirmPopup'],
                           <li class="school-in-rank">20</li>
                           <li class="school-get-gift">e幣1200、寶石100</li>
                         </ul>
+                        -->
                       </div>
                     </div>
                   </div>
@@ -148,49 +152,37 @@ define(['jquery', 'ajax', 'confirmPopup'],
                       <li>結算當天中午12點為最終排名，獎勵將於16:00前系統自動歸戶，歸戶後請至活動頁領取對應獎勵。</li>
                     </ul>
                     <ul>4.排行榜獎勵：
-                      <li>(1)個人榮譽榜獎勵：結算排名在前20%符合資格之會員，可獲得以下獎勵</li>
+                      <li>(1)個人榮譽榜獎勵：結算排名在前 100 名符合資格之會員，可獲得以下獎勵：</li>
                         <li>
                         <table>
                           <tr>
                             <th>名次</th>
                             <th>獎勵</th>
-                            <th>備註</th>
                           </tr>
                           <tr>
                           <tr>
                             <td>1</td>
-                            <td>Lv3藥水*1個、超多寶石の福袋*1個</td>
-                            <td></td>
+                            <td>寶石 200</td>
                           </tr>
                           <tr>
                             <td>2</td>
-                            <td>Lv2藥水*1個、超多寶石の福袋*1個</td>
-                            <td></td>
+                            <td>寶石 100</td>
                           </tr>
                           <tr>
                             <td>3</td>
-                            <td>Lv2藥水*1個、很多寶石の福袋*1個</td>
-                            <td></td>
+                            <td>寶石 80</td>
                           </tr>
                           <tr>
-                            <td>前3%</td>
-                            <td>Lv1藥水*1個、有點多寶石の福袋*1個</td>
-                            <td>此區間自第4名起算</td>
+                            <td>4 ~ 20</td>
+                            <td>寶石 60</td>
                           </tr>
                           <tr>
-                            <td>前10%</td>
-                            <td>一般多寶石の福袋*1個</td>
-                            <td></td>
-                          </tr>
-                          <tr>
-                            <td>前20%</td>
-                            <td>一點點寶石の福袋*1個</td>
-                            <td></td>
-                          </tr>
+                            <td>21 ~ 100</td>
+                            <td>寶石 50</td>
                           </tr>
                         </table>
                       </li>
-                      <li>(2)學院排行榜獎勵：經結算排名，除第一名學院中貢獻排名前6%的學員可獲得對應獎勵外，為獎勵有為了各學院努力付出之學員，將給予其他學院貢獻排名前2%之學院特別獎勵：</li>
+                      <li>學院排行獎勵：經結算排名，為獎勵每一學院前 20 名貢獻，將給予特別獎勵：</li>
                       <li>
                         <table class="table-school">
                           <tr>
@@ -200,19 +192,19 @@ define(['jquery', 'ajax', 'confirmPopup'],
                           <tr>
                           <tr>
                             <td>1</td>
-                            <td>Lv2藥水*1、超多e幣の福袋*1</td>
+                            <td>e 幣 1500、寶石 50</td>
                           </tr>
                           <tr>
                             <td>2</td>
-                            <td>Lv1藥水*1、很多e幣の福袋*1</td>
+                            <td>e 幣 1000、寶石 25</td>
                           </tr>
                           <tr>
                             <td>3</td>
-                            <td>一般量e幣の福袋*1</td>
+                            <td>e 幣 500、寶石 10</td>
                           </tr>
                           <tr>
                             <td>4</td>
-                            <td>一點點e幣の福袋*1</td>
+                            <td>e 幣 300</td>
                           </tr>
                           </tr>
                         </table>
@@ -262,13 +254,21 @@ define(['jquery', 'ajax', 'confirmPopup'],
               .hide()
           })
 
-          require(['eventRankingMy'], eventRankingMy => $('.btn-my-rank').on('click', eventRankingMy))
-          require(['eventRankingReward'], eventRankReward => $('.btn-now-rank').on('click', eventRankReward))
+          let rankingCountDownTarget = $('#school-rank .myrank-count-time')
+          if (rankingCountDownTarget) {
+            rankingCountDownTarget.countDown({
+              timeInSecond: rankingCountDownTarget.text(),
+              displayTpl: '{hour}時 {minute}分 {second}秒',
+              limit: 'hour'
+            })
+          }
+
+          require(['eventRankingMy'], eventRankingMy => $('#personal-rank .btn-my-rank').on('click', eventRankingMy))
+          require(['eventRankingReward'], eventRankReward => $('#personal-rank .btn-now-rank').on('click', eventRankReward))
         }
       }
 
       require(['eventRankingTop', 'eventRankingAcademy'], (eventRankingTop, eventRankingAcademy) => {
-        console.log(eventRankingAcademy())
         Promise.all([eventRankingTop(), eventRankingAcademy()])
           .then((relativeRanking) => {
             let topRanking = relativeRanking[0]

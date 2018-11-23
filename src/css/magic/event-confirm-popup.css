@@ -2,8 +2,12 @@
   height: 270px
 }
 
+.confirm-popup-mini-height {
+  height: 220px
+}
+
 .confirm-popup-middle-height {
-  height: 310px;
+  height: 320px;
 }
 
 .confirm-popup-common-img-small {
@@ -24,6 +28,10 @@
 @media screen and (max-width: 580px) {
   .confirm-popup-default-height {
     height: 250px
+  }
+
+  .confirm-popup-mini-height {
+    height: 200px;
   }
 
   .confirm-popup-middle-height {

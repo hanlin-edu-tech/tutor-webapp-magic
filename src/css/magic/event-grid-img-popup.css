@@ -8,7 +8,7 @@
   font-size: 21px;
   font-weight: normal;
   height: 228px;
-  grid-gap: 5px;
+  grid-gap: 3px;
 }
 
 .confirm-grid-img-container .content-block1 {
@@ -40,7 +40,7 @@ div.open-award .coins-img {
 }
 
 .confirm-grid-img-container.open-award .open-award-gift {
-  height: 125px;
+  height: 122px;
 }
 
 @media screen and (max-width: 580px) {

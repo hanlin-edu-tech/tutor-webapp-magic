@@ -244,7 +244,7 @@
                 width: 100%
                 height: 100%
                 display: grid
-                grid-template-columns: 24% 60% 16%
+                grid-template-columns: 26% 59% 15%
                 grid-template-rows: 1fr
 
             //-----左側選單列----//
@@ -257,6 +257,7 @@
             .row-school-rank,.row-school-percent
                 +flex-center
             .count-date,.count-time,.section-school-rank,.section-school-percent
+                font-weight: 700
                 background: #D7B060
                 box-shadow: inset 0 0 0 3px #EFD08D
                 border-radius: 5px
@@ -293,7 +294,7 @@
                     position: relative
                 .sandglass-school-rank
                     font-weight: 500
-                    font-size: 22px
+                    font-size: 20px
                     color: #fff
                 .sandglass-school-score
                     font-weight: 500
@@ -309,28 +310,24 @@
                     position: absolute
                     bottom: 10%
                     width: 40%
-                    height: 30%
                     background: linear-gradient(to right, #7925a6 0%,#be48e6 40%,#c953f3 50%,#be48e6 60%,#7925a6 100%)
                 
                 .lion-progress
                     position: absolute
                     bottom: 10%
                     width: 40%
-                    height: 30%
                     background: linear-gradient(to right, #1447aa 0%,#3188cc 40%,#3795d2 50%,#3188cc 60%,#1447aa 100%)
 
                 .rabbit-progress
                     position: absolute
                     bottom: 10%
                     width: 40%
-                    height: 30%
                     background: linear-gradient(to right, #3b8e0b 0%,#80bb1c 30%,#99cb29 50%,#80bb1c 70%,#3b8e0b 100%)
 
                 .tiger-progress
                     position: absolute
                     bottom: 10%
                     width: 40%
-                    height: 30%
                     background: linear-gradient(to right, #a36f1d 0%,#c09b25 30%,#ceb52b 50%,#c09b25 70%,#a36f1d 100%)
 
             //-----右側獎勵欄----//
@@ -489,7 +486,7 @@
     @import url('https://fonts.googleapis.com/css?family=Passion+One')
     height: 485px
     display: grid
-    grid-template-columns: 1fr 1fr
+    grid-template-columns: 49% 51%
     grid-template-rows: 13% 77%
     .content-title
         grid-column: 1 / span 2
@@ -676,7 +673,7 @@
                 border-radius: 10px
                 color: #636363
                 .move-number
-                    font-size: 20px
+                    font-size: 16px
                     font-weight: bolder
                     letter-spacing: -1px
 
@@ -684,22 +681,23 @@
 #popup-outside-rank
     +flex-center
     flex-direction: column
-    width: 470px
-    height: 330px
-    background-color: #DE792F
     border-radius: 5px
     font-size: 18px
     color: #fff
     .title-now-score
         display: flex
         flex-direction: row
-        font-weight: 500
+        font-weight: 700
         .my-score
             padding-left: 10px
     .title-reason
         font-weight: 500
         margin-bottom: 20px
-        padding: 5px 0px
+        padding: 5px 0
+
+    .two-reasons
+        font-weight: 500
+        line-height: 35px
 
     .btn-upgrade-course
         margin-top: 30px
@@ -747,7 +745,7 @@
         .albi-cry
             +flex-center
             img
-                width: 25%
+                width: 30%
 
     //---目前獎勵popup-已入榜----//
     .now-rank-inside
@@ -796,18 +794,18 @@
                 color: #fff
                 font-weight: bolder
                 padding: 10px 20px
+        .albi-cry
+            +flex-center
+            img
+                width: 30%
 
 //-----請先登入查詢獎勵poppup----//    
 #popup-please-login
-    width: 370px
-    height: 220px
     +flex-center
     flex-direction: column
-    background: #DE792F
-    border-radius: 5px
     .please-login-title
         color: #fff
-        font-size: 18px
+        font-size: 20px
         font-weight: 500
         margin-bottom: 30px
     .btn-please-login
@@ -824,7 +822,7 @@
                 color: #ffb847
 
 
-@media screen and (max-width: 900px)
+@media screen and (max-width: 800px)
     .modal-popup-rank-height
         height: 320px
 
@@ -938,13 +936,13 @@
                 padding: 5px 0px
                 height: 235px
                 .container-school-rank
-                    grid-template-columns: 26% 58% 16%
+                    grid-template-columns: 27% 59% 15%
                 .school-rank-option
                     font-size: 12px
                     padding-left: 5px
                 .count-date,.count-time,.section-school-rank,.section-school-percent
                     box-shadow: inset 0 0 0 2px #EFD08D
-                    padding: 5px 0px
+                    padding: 5px 0
                     width: 95%
                     letter-spacing: normal
                 .count-date,.count-time,.section-school-rank
@@ -1185,13 +1183,11 @@
                     border-radius: 5px
 
                     .move-number
-                        font-size: 12px
+                        font-size: 11px
                         letter-spacing: -1px
 
     //-----不符合入榜資格popup----//
     #popup-outside-rank
-        width: 330px
-        height: 230px
         font-size: 14px
         .title-reason
             margin-bottom: 15px
@@ -1237,7 +1233,7 @@
                     font-size: 12px
                     color: #303030
                     font-weight: 700
-                    padding: 5px 0px
+                    padding: 5px 0
                 .gift-sum
                     font-size: 14px
                     padding-left: 2px
@@ -1253,8 +1249,6 @@
 
     //-----請先登入查詢獎勵poppup----//
     #popup-please-login
-        width: 245px
-        height: 150px
         .please-login-title
             font-size: 12px
             margin-bottom: 20px

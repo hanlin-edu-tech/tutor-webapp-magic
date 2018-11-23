@@ -1,42 +1,69 @@
 define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
   ($, ajax, confirmPopup) => { // eslint-disable-line
     return () => {
-      let composeSpecificUserInfo = (specificRanking, rankingDifference) => {
-        return `
-          <div class="student-info-login">
-            <div class="section-student-pic">
-              <div class="student-img"><img src="./img/magicImg/badge_cat.png"></div>
-              <div class="student-name">${ specificRanking['userName'] }</div>
-            </div>
-            <div class="section-student-info">
-              <div class="row-my-rank">
-                <div class="my-info-list">我的名次</div>
-                <div class="my-rank">${ specificRanking['sumPointsRank'] }</div>
+      let composeSpecificUserInfo =
+        ({
+           academyBadgeImg = '',
+           userName = '',
+           sumPointsRank = '',
+           sumPoints = 0,
+           rankingDifference = '',
+         }) => {
+          return `
+            <div class="student-info-login">
+              <div class="section-student-pic">
+                <div class="student-img">
+                  ${ academyBadgeImg }
+                </div>
+                <div class="student-name">${ userName }</div>
               </div>
-              <div class="row-my-score">
-                <div class="my-info-list">我的積分</div>
-                <div class="my-score">${ specificRanking['sumPoints'] }</div>
+              <div class="section-student-info">
+                <div class="row-my-rank">
+                  <div class="my-info-list">我的名次</div>
+                  <div class="my-rank">${ sumPointsRank }</div>
+                </div>
+                <div class="row-my-score">
+                  <div class="my-info-list">我的積分</div>
+                  <div class="my-score">${ sumPoints }</div>
+                </div>
+                <div class="row-my-score-move">
+                <div class="my-info-list">名次變化</div>
+                <div class="my-score-move">${ rankingDifference }</div>
               </div>
-              <div class="row-my-score-move">
-              <div class="my-info-list">名次變化</div>
-              <div class="my-score-move">${ rankingDifference }</div>
+              </div>
             </div>
-            </div>
-          </div>
-        `
-      }
+          `
+        }
 
-      let composeRankingInfo = rankingInfo => {
+      let composeMyRankingInfo = (rankingInfo, flag) => {
         let specificRankingsRange = rankingInfo['specificRankingsRange']
-        let rankInfo, rankItem = ''
-        let specificUserInfo = `
-          <div class="student-info-nologin">
-            <div class="nologin-title">馬上登入<br>查看排行</div>
-          </div>
-        `
+        let myRankingInfo, myRankingDetail = ''
 
-        let i
-        for (i = 0; i < specificRankingsRange.length; i++) {
+        let specificUserInfo
+        if (flag === 'NOT_LOGIN') {
+          specificUserInfo = `
+            <div class="student-info-nologin">
+              <div class="nologin-title">馬上登入<br>查看排行</div>
+            </div>
+          `
+        } else if (flag === 'UNQUALIFIED') {
+          specificUserInfo = `
+            <div id="popup-outside-rank">
+              <div class="title-now-score">
+                <div class="now-score">你目前的積分為</div>
+                <div class="my-score">${ rankingInfo['sumPoints'] }</div>
+              </div>
+              <div class="title-reason">不符合入榜資格，可能原因如下：</div>
+              <div class="two-reasons">
+                1. 還不是正式會員喔！<br/>
+                2. 這兩週是不是沒有調配 或 升級過任何一個藥水呢！<br/>
+                3. 這兩週還尚未參與任一測驗喔！
+              </div>
+            </div>
+          `
+        }
+
+        for (let i = 0; i < specificRankingsRange.length; i++) {
           let selectedUserClass
           let specificRanking = specificRankingsRange[i]
           let rankingDifference = specificRanking['rankingDifference']
@@ -50,18 +77,28 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
 
           selectedUserClass = ''
           if (specificRanking['selectedUser'] === true) {
+            let academyBadgeImg = ''
             selectedUserClass = 'active-my-rank'
-            specificUserInfo = composeSpecificUserInfo(specificRanking, rankingDifference)
+            if (specificRanking['academyBadge']) {
+              academyBadgeImg = `<img src="./img/magicImg/badge_${ specificRanking['academyBadge'] }.png">`
+            }
+            specificUserInfo = composeSpecificUserInfo({
+              academyBadgeImg: academyBadgeImg,
+              userName: specificRanking['userName'],
+              sumPointsRank: specificRanking['sumPointsRank'],
+              sumPoints: specificRanking['sumPoints'],
+              rankingDifference: rankingDifference
+            })
           }
 
-          rankItem += `
+          myRankingDetail += `
             <div class="rank-list ${ selectedUserClass }">
               <div class="ranking">
                 <div class="all-bg-circle">
                   <div class="all-number">${ specificRanking['sumPointsRank'] }</div>
                 </div>
               </div>
-              <div class="school-stamp"><img src="./img/magicImg/badge_cat.png"></div>
+              <div class="school-stamp"><img src="./img/magicImg/badge_${ specificRanking['academyBadge'] }.png"></div>
               <div class="student-info">
                 <div class="student-name">
                   <div class="name">${ specificRanking['userName'] }</div>
@@ -80,7 +117,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
           `
         }
 
-        rankInfo = `
+        myRankingInfo = `
           <div class="content-person-info">
             <div class="container-info">  
               ${ specificUserInfo }
@@ -99,22 +136,22 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
           <div class="content-rank-list">
             <div class="container-rank-list">
               <div class="row-rank-list">
-                ${ rankItem }        
+                ${ myRankingDetail }        
               </div>
             </div>
           </div>
         `
 
-        return rankInfo
+        return myRankingInfo
       }
 
-      let popupMyRanking = rankingInfo => {
+      let popupMyRanking = (rankingInfo, flag) => {
         return `
           <div id="popup-grid-my-rank">
             <div class="content-title">
               <div class="title">我的排行</div>
             </div>
-            ${ composeRankingInfo(rankingInfo) }
+            ${ composeMyRankingInfo(rankingInfo, flag) }
           </div>
         `
       }
@@ -122,14 +159,14 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
       let composeMyRankingDialogAttr = () => {
         return {
           customClass: `confirm_message_box modal-popup-rank-height`,
-          width: '820px',
+          width: '850px',
           showCancelButton: true,
           confirmButtonText: '我知道了',
           cancelButtonText: '返回',
           cancelFn: () => {
             /* 排行榜 */
-            require(['eventRankingPopup'], eventRankPopup => {
-              eventRankPopup()
+            require(['eventRankingPopup'], eventRankingPopup => {
+              eventRankingPopup()
             })
           }
         }
@@ -141,31 +178,33 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
           jsonData => {
             let rankingInfo = jsonData.content
             let flag = rankingInfo['flag']
-            if (flag === 'UNQUALIFIED') {
-              require(['eventRankingUnqualified'], eventRankUnqualifiedRanking => {
-                popupHtml = eventRankUnqualifiedRanking.retrievePopupHtml(rankingInfo['sumPoints'])
-                dialogAttr = eventRankUnqualifiedRanking.composeDialogAttr()
-              })
-            } else {
-              popupHtml = popupMyRanking(rankingInfo)
-              dialogAttr = composeMyRankingDialogAttr()
+            popupHtml = popupMyRanking(rankingInfo, flag)
+            dialogAttr = composeMyRankingDialogAttr()
+            dialogAttr.onOpenFn = () => {
+              let rankingCountDownTarget = $('#popup-grid-my-rank .myrank-count-time')
+              if (rankingCountDownTarget) {
+                rankingCountDownTarget.countDown({
+                  timeInSecond: rankingInfo['remainingSeconds'],
+                  displayTpl: '{hour}時 {minute}分 {second}秒',
+                  limit: 'hour'
+                })
+              }
             }
 
-            return rankingInfo['remainingSeconds']
+            if (flag === 'UNQUALIFIED') {
+              dialogAttr.confirmButtonText = '升級課程'
+              dialogAttr.cancelButtonText = '前往活動頁'
+              dialogAttr.confirmFn = () => {
+                window.location = `https://www.ehanlin.com.tw/courses_map.html`
+              }
+              dialogAttr.cancelFn = () => {
+                window.location = `https://www.ehanlin.com.tw/app/magic`
+              }
+            }
+
+            confirmPopup.dialog(popupHtml, dialogAttr)
+            return rankingInfo
           }
         )
-        .then(remainingSeconds => {
-          dialogAttr.onOpenFn = () => {
-            let rankingCountDownTarget = $('.myrank-count-time')
-            if (rankingCountDownTarget) {
-              rankingCountDownTarget.countDown({
-                timeInSecond: remainingSeconds,
-                displayTpl: '{hour}時 {minute}分 {second}秒',
-                limit: 'hour'
-              })
-            }
-          }
-          confirmPopup.dialog(popupHtml, dialogAttr)
-        })
     }
   })
