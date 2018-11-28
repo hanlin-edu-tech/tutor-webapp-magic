@@ -46,7 +46,7 @@ button, a {
   text-shadow: 0 0 3px rgba(255, 253, 48, 0.5); }
 
 #section_titlelist .container-fluid .row .elogo {
-  z-index: 1500;
+  z-index: 1000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

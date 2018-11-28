@@ -41,11 +41,11 @@ require.config({
     eventTutorialInit: ['./tutorial/event-tutorial-init'],
 
     /* 雲端排行榜 */
-    eventRankingPopup: ['./rank/event-ranking-popup'],
-    eventRankingTop: ['./rank/event-ranking-top'],
-    eventRankingAcademy: ['./rank/event-ranking-academy'],
-    eventRankingMy: ['./rank/event-ranking-my'],
-    eventRankingReward: ['./rank/event-ranking-reward'],
+    eventRankingPopup: ['./ranking/event-ranking-popup'],
+    eventRankingTop: ['./ranking/event-ranking-top'],
+    eventRankingAcademy: ['./ranking/event-ranking-academy'],
+    eventRankingMy: ['./ranking/event-ranking-my'],
+    eventRankingReward: ['./ranking/event-ranking-reward'],
 
     /* 初始化 */
     eventGameBegin: ['./event-game-begin'],

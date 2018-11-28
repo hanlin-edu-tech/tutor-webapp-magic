@@ -37,7 +37,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
 
       let composeMyRankingInfo = (rankingInfo, flag) => {
         let specificRankingsRange = rankingInfo['specificRankingsRange']
-        let myRankingInfo, myRankingDetail = ''
+        let myRankingInfo, perRanking
 
         let specificUserInfo
         if (flag === 'NOT_LOGIN') {
@@ -63,6 +63,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
           `
         }
 
+        perRanking = specificRankingsRange.length > 0 ? '' : '<p>積分排名統計中</p>'
         for (let i = 0; i < specificRankingsRange.length; i++) {
           let selectedUserClass
           let specificRanking = specificRankingsRange[i]
@@ -91,7 +92,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
             })
           }
 
-          myRankingDetail += `
+          perRanking += `
             <div class="rank-list ${ selectedUserClass }">
               <div class="ranking">
                 <div class="all-bg-circle">
@@ -136,7 +137,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
           <div class="content-rank-list">
             <div class="container-rank-list">
               <div class="row-rank-list">
-                ${ myRankingDetail }        
+                ${ perRanking }        
               </div>
             </div>
           </div>

@@ -18,7 +18,7 @@ define(['jquery', 'ajax'], ($, ajax) => { // eslint-disable-line
 
     let jsonData = await ajax('GET', `/chest/rank/top`)
     let topRankings = jsonData.content
-    let rankingList = ''
+    let rankingList = topRankings.length > 0 ? '' : '<p>積分排名統計中</p>'
     for (let i = 0; i < topRankings.length; i++) {
       let topRanking = topRankings[i]
       let rank = i + 1
@@ -33,7 +33,7 @@ define(['jquery', 'ajax'], ($, ajax) => { // eslint-disable-line
             <div class="crown">
               <img src="./img/magicImg/crown.png">
             </div>
-            <img class="head-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPI5YJuAZV9Ie979IQa-LoX5z4OLMwsnG3X9jzDguKiyYc6Aap">
+            <img class="head-pic" src="${ topRanking['userAvatar'] }">
           </div>
           <div class="person-info">
             <div class="name-no1">${ topRanking['userName'] }</div>

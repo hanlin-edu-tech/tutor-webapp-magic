@@ -6,7 +6,7 @@ define(['jquery', 'ajax', 'confirmPopup'],
         let coins = rewardInfo['coins']
 
         let individualReward = ''
-        if(gems !== 0 || coins !== 0) {
+        if (gems !== 0 || coins !== 0) {
           individualReward = `
             <div class="now-rank-gift-list">
               <div class="gift-list">
@@ -39,7 +39,7 @@ define(['jquery', 'ajax', 'confirmPopup'],
             <div class="now-rank-content">
               <div class="content">${ rewardInfo['desc'] }</div>
             </div>
-            ${individualReward}
+            ${ individualReward }
           </div>
         `
       }
@@ -110,6 +110,9 @@ define(['jquery', 'ajax', 'confirmPopup'],
                   width: '37%',
                   background: '#DE792F',
                   confirmButtonText: '登入',
+                  confirmFn: () => {
+                    window.location.href = '/Users/login.html'
+                  },
                   showCancelButton: false
                 }
                 break

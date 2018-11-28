@@ -182,7 +182,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
                           </tr>
                         </table>
                       </li>
-                      <li>學院排行獎勵：經結算排名，為獎勵每一學院前 20 名貢獻，將給予特別獎勵：</li>
+                      <li>學院排行獎勵：經結算排名，為獎勵每一學院 ** 積分前20名的同學 **，將給予特別獎勵：</li>
                       <li>
                         <table class="table-school">
                           <tr>
@@ -254,7 +254,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
               .hide()
           })
 
-          let rankingCountDownTarget = $('#school-rank .myrank-count-time')
+          let rankingCountDownTarget = $('#school-ranking .myrank-count-time')
           if (rankingCountDownTarget) {
             rankingCountDownTarget.countDown({
               timeInSecond: rankingCountDownTarget.text(),
@@ -263,8 +263,8 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
             })
           }
 
-          require(['eventRankingMy'], eventRankingMy => $('#personal-rank .btn-my-rank').on('click', eventRankingMy))
-          require(['eventRankingReward'], eventRankReward => $('#personal-rank .btn-now-rank').on('click', eventRankReward))
+          require(['eventRankingMy'], eventRankingMy => $('#personal-ranking .btn-my-ranking').on('click', eventRankingMy))
+          require(['eventRankingReward'], eventRankReward => $('#personal-ranking .btn-now-ranking').on('click', eventRankReward))
         }
       }
 
