@@ -1,4 +1,4 @@
-define(['jquery', 'ajax'], ($, ajax) => { // eslint-disable-line
+define(['ajax'], ajax => { // eslint-disable-line
   return async () => {
     let composeTopRankingInfo = rankingList => {
       return `
@@ -16,12 +16,13 @@ define(['jquery', 'ajax'], ($, ajax) => { // eslint-disable-line
       `
     }
 
-    let jsonData = await ajax('GET', `/chest/rank/top`)
+    let jsonData = await ajax('GET', `/chest/ranking/top`)
     let topRankings = jsonData.content
     let rankingList = topRankings.length > 0 ? '' : '<p>積分排名統計中</p>'
     for (let i = 0; i < topRankings.length; i++) {
       let topRanking = topRankings[i]
       let rank = i + 1
+      let crownImg = (rank === 1) ? `<div class="crown"><img src="./img/magicImg/crown.png"></div>` : ''
       rankingList += `
         <div class="rank rank-no${ rank }">
           <div class="ranking">
@@ -30,9 +31,7 @@ define(['jquery', 'ajax'], ($, ajax) => { // eslint-disable-line
             </div>
           </div>
           <div class="pic-no1">
-            <div class="crown">
-              <img src="./img/magicImg/crown.png">
-            </div>
+            ${ crownImg }
             <img class="head-pic" src="${ topRanking['userAvatar'] }">
           </div>
           <div class="person-info">

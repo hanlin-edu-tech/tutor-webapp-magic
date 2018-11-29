@@ -11,11 +11,12 @@ html(lang="en")
         link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous")
         link(type='image/png', href='./img/magicImg/favicon.png', rel='icon')
 
-        link(href="./css/lib/animate.min.css" rel="stylesheet")
         link(href="./css/lib/sweetalert2.min.css" rel="stylesheet")
+        link(href="./css/lib/animate.min.css" rel="stylesheet")
         link(href="./css/lib/bootstrap-slider.min.css" rel="stylesheet")
         link(href="./css/main/for-ie11.css" rel="stylesheet")
         link(href="./css/main/style.css?appVersion=20181191443" rel="stylesheet")
+        link(href="./css/main/loading.css?" rel="stylesheet")
         link(href="./css/grid-rank-popup/event-grid-rank-popup.css?appVersion=20181191443" rel="stylesheet")
         <!-- build:css -->
         link(href="./css/magic/event-chest.css" rel="stylesheet")
@@ -45,6 +46,9 @@ html(lang="en")
                 span 為了提供最佳網頁體驗
                 span 請將螢幕調整為
                 span 「橫向顯示」哦！
+
+        #loading-mask(style="display:none;")
+            .loading
 
         #section_titlelist
             .container-fluid

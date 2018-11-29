@@ -60,7 +60,7 @@ define(['jquery', 'ajax', 'confirmPopup'],
       }
 
       let popupHtml, dialogAttr
-      ajax('GET', `/chest/rank/reward/specificUser`)
+      ajax('GET', `/chest/ranking/reward`)
         .then(
           jsonData => {
             let rewardInfo = jsonData.content

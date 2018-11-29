@@ -1,7 +1,7 @@
 define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
   ($, ajax, confirmPopup) => {// eslint-disable-line
     return () => {
-      let composeRankingPopupHtml = (topRanking, academyRanking) => {
+      let composeRankingPopupHtml = (topRanking, academyRanking, history) => {
         return `
           <div class="rank-grid-container">
             <div class="content-block1">
@@ -18,126 +18,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
             <div class="content-block3">
               ${ topRanking }
               ${ academyRanking }
-              <div class="tab-content" id="history-record">
-                <div class="container-history">
-                  <div class="content-option">
-                    <div class="tab-option btn-my-rank history-active" data-type="history-my-rank">個人排行</div>
-                    <div class="tab-option btn-school-rank" data-type="history-school-rank">學院榮譽</div>
-                  </div>
-                  <div class="content-history-list">
-                    <div class="tab-option-content history-my-rank default">
-                      <div class="content-history-my">
-                        <ul class="row-item">
-                          <li>入榜時間</li>
-                          <li>獲得名次</li>
-                          <li>獲得獎勵</li>
-                        </ul>
-                        <!--
-                        <ul class="row-my-list">
-                          <li class="my-enter-time">2018.10.10</li>
-                          <li class="my-rank">20</li>
-                          <li class="my-get-gift">寶石100</li>
-                        </ul>
-                        <ul class="row-my-list">
-                          <li class="my-enter-time">2018.10.10</li>
-                          <li class="my-rank">20</li>
-                          <li class="my-get-gift">寶石100</li>
-                        </ul>
-                        <ul class="row-my-list">
-                          <li class="my-enter-time">2018.10.10</li>
-                          <li class="my-rank">20</li>
-                          <li class="my-get-gift">寶石100</li>
-                        </ul>
-                        <ul class="row-my-list">
-                          <li class="my-enter-time">2018.10.10</li>
-                          <li class="my-rank">20</li>
-                          <li class="my-get-gift">寶石100</li>
-                        </ul>
-                        <ul class="row-my-list">
-                          <li class="my-enter-time">2018.10.10</li>
-                          <li class="my-rank">20</li>
-                          <li class="my-get-gift">寶石100</li>
-                        </ul>
-                        <ul class="row-my-list">
-                          <li class="my-enter-time">2018.10.10</li>
-                          <li class="my-rank">20</li>
-                          <li class="my-get-gift">寶石100</li>
-                        </ul>
-                        <ul class="row-my-list">
-                          <li class="my-enter-time">2018.10.10</li>
-                          <li class="my-rank">20</li>
-                          <li class="my-get-gift">寶石100</li>
-                        </ul>
-                        <ul class="row-my-list">
-                          <li class="my-enter-time">2018.10.10</li>
-                          <li class="my-rank">20</li>
-                          <li class="my-get-gift">寶石100</li>
-                        </ul>
-                        <ul class="row-my-list">
-                          <li class="my-enter-time">2018.10.10</li>
-                          <li class="my-rank">20</li>
-                          <li class="my-get-gift">寶石100</li>
-                        </ul>
-                        -->
-                      </div>
-                    </div>
-                    <div class="tab-option-content history-school-rank">
-                      <div class="content-history-school">
-                        <ul class="row-item">
-                          <li>入榜時間</li>
-                          <li>學院名次</li>
-                          <li>學院內名次</li>
-                          <li>獲得獎勵</li>
-                        </ul>
-                        <!--
-                        <ul class="row-school-list">
-                          <li class="school-enter-time">2018.10.10</li>
-                          <li class="school-rank">3</li>
-                          <li class="school-in-rank">20</li>
-                          <li class="school-get-gift">e幣1200、寶石100</li>
-                        </ul>
-                        <ul class="row-school-list">
-                          <li class="school-enter-time">2018.10.10</li>
-                          <li class="school-rank">3</li>
-                          <li class="school-in-rank">20</li>
-                          <li class="school-get-gift">e幣1200、寶石100</li>
-                        </ul>
-                        <ul class="row-school-list">
-                          <li class="school-enter-time">2018.10.10</li>
-                          <li class="school-rank">3</li>
-                          <li class="school-in-rank">20</li>
-                          <li class="school-get-gift">e幣1200、寶石100</li>
-                        </ul>
-                        <ul class="row-school-list">
-                          <li class="school-enter-time">2018.10.10</li>
-                          <li class="school-rank">3</li>
-                          <li class="school-in-rank">20</li>
-                          <li class="school-get-gift">e幣1200、寶石100</li>
-                        </ul>
-                        <ul class="row-school-list">
-                          <li class="school-enter-time">2018.10.10</li>
-                          <li class="school-rank">3</li>
-                          <li class="school-in-rank">20</li>
-                          <li class="school-get-gift">e幣1200、寶石100</li>
-                        </ul>
-                        <ul class="row-school-list">
-                          <li class="school-enter-time">2018.10.10</li>
-                          <li class="school-rank">3</li>
-                          <li class="school-in-rank">20</li>
-                          <li class="school-get-gift">e幣1200、寶石100</li>
-                        </ul>
-                        <ul class="row-school-list">
-                          <li class="school-enter-time">2018.10.10</li>
-                          <li class="school-rank">3</li>
-                          <li class="school-in-rank">20</li>
-                          <li class="school-get-gift">e幣1200、寶石100</li>
-                        </ul>
-                        -->
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ${ history }
               <div class="tab-content" id="active-explain">
                 <div class="container-explain">
                   <div class="content-explain">
@@ -220,6 +101,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
           </div>
         `
       }
+
       let dialogAttr = {
         customClass: `my_treasure_message_box modal-popup-rank-height`,
         background: '#a6937c',
@@ -254,7 +136,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
               .hide()
           })
 
-          let rankingCountDownTarget = $('#school-ranking .myrank-count-time')
+          let rankingCountDownTarget = $('#school-rank .myrank-count-time')
           if (rankingCountDownTarget) {
             rankingCountDownTarget.countDown({
               timeInSecond: rankingCountDownTarget.text(),
@@ -263,18 +145,21 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
             })
           }
 
-          require(['eventRankingMy'], eventRankingMy => $('#personal-ranking .btn-my-ranking').on('click', eventRankingMy))
-          require(['eventRankingReward'], eventRankReward => $('#personal-ranking .btn-now-ranking').on('click', eventRankReward))
+          require(['eventRankingMy'], eventRankingMy => $('#personal-rank .btn-my-rank').on('click', eventRankingMy))
+          require(['eventRankingReward'], eventRankReward => $('#personal-rank .btn-now-rank').on('click', eventRankReward))
         }
       }
 
-      require(['eventRankingTop', 'eventRankingAcademy'], (eventRankingTop, eventRankingAcademy) => {
-        Promise.all([eventRankingTop(), eventRankingAcademy()])
-          .then((relativeRanking) => {
+      require(['eventRankingTop', 'eventRankingAcademy', 'eventRankingHistory'],
+        (eventRankingTop, eventRankingAcademy, eventRankingHistory) => {
+          Promise.all(
+            [eventRankingTop(), eventRankingAcademy(), eventRankingHistory.retrieveRankingRewardHistory()]
+          ).then(relativeRanking => {
             let topRanking = relativeRanking[0]
             let academyRanking = relativeRanking[1]
-            confirmPopup.dialog(composeRankingPopupHtml(topRanking, academyRanking), dialogAttr)
+            let history = relativeRanking[2]
+            confirmPopup.dialog(composeRankingPopupHtml(topRanking, academyRanking, history), dialogAttr)
           })
-      })
+        })
     }
   })

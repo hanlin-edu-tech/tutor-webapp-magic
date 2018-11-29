@@ -1,4 +1,4 @@
-define(['jquery', 'ajax'], ($, ajax) => { // eslint-disable-line
+define(['ajax'], ajax => { // eslint-disable-line
   return async () => {
     let composeAcademyRankingInfo = (rankingInfo, perSandglass) => {
       let userBelongAcademy = ''
@@ -13,13 +13,12 @@ define(['jquery', 'ajax'], ($, ajax) => { // eslint-disable-line
             </div>
           </div>
           <div class="section-school-percent">
-            <div class="rank-option-title">你在 ${ rankingInfo['academyBadgeName'] }</div>
+            <div class="rank-option-title">你在${ rankingInfo['academyBadgeName'] }</div>
             <div class="row-school-percent">
               <div class="rank-option-title">第</div>
               <div class="school-no">${ rankingInfo['academyRank'] }</div>
-              <div class="rank-option-title">名(</div>
+              <div class="rank-option-title">名 </div>
               <div class="school-percent">${ rankingInfo['academySumPointsPercent'] }</div>
-              <div class="rank-option-title">)</div>
             </div>
           </div>
         `
@@ -35,7 +34,7 @@ define(['jquery', 'ajax'], ($, ajax) => { // eslint-disable-line
               </div>
               <div class="count-time">
                 <div class="rank-option-title">距離結算還有</div>
-                <div class="myrank-count-time">${ rankingInfo['remainingSeconds']}</div>
+                <div class="myrank-count-time">${ rankingInfo['remainingSeconds'] }</div>
               </div>
               ${ userBelongAcademy }
             </div>
@@ -68,7 +67,7 @@ define(['jquery', 'ajax'], ($, ajax) => { // eslint-disable-line
       `
     }
 
-    let jsonData = await ajax('GET', `/chest/rank/academyRanking/specificUser`)
+    let jsonData = await ajax('GET', `/chest/ranking/academy`)
     let rankingInfo = jsonData.content
     let perAcademyRankingsInfo = rankingInfo['perAcademyRankingsInfo']
     let perSandglass = perAcademyRankingsInfo.length > 0 ? '' : '<p>積分排名統計中</p>'
