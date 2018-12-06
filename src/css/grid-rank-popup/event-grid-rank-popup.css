@@ -11,15 +11,17 @@
 .modal-popup-rank-height {
   height: 560px; }
 
+.modal-popup-rank-reward-height {
+  height: 480px; }
+
 .rank-grid-container {
-  width: 800px;
-  height: 515px;
+  height: 500px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
-  -ms-grid-rows: 1fr 1fr 6fr;
-      grid-template-rows: 1fr 1fr 6fr;
+  -ms-grid-rows: 10% 12% 78%;
+      grid-template-rows: 10% 12% 78%;
   padding: 12px; }
   .rank-grid-container .content-block1 {
     display: -webkit-box;
@@ -113,8 +115,9 @@
         text-align: center;
         font-weight: 500;
         font-size: 26px;
-        padding: 30px 0px;
-        margin-bottom: 10px; }
+        padding: 30px 0;
+        margin-bottom: 10px;
+        cursor: pointer; }
       .rank-grid-container .content-block3 #personal-rank .content-option .btn-now-rank {
         background: #887868;
         border: 3px solid #5D450E;
@@ -125,7 +128,8 @@
         text-align: center;
         font-weight: 500;
         font-size: 26px;
-        padding: 30px 0px; }
+        padding: 30px 0;
+        cursor: pointer; }
     .rank-grid-container .content-block3 #personal-rank .content-no123 {
       background: #947D66;
       border-radius: 5px;
@@ -299,8 +303,8 @@
       height: 100%;
       display: -ms-grid;
       display: grid;
-      -ms-grid-columns: 24% 60% 16%;
-          grid-template-columns: 24% 60% 16%;
+      -ms-grid-columns: 27% 58% 15%;
+          grid-template-columns: 27% 58% 15%;
       -ms-grid-rows: 1fr;
           grid-template-rows: 1fr; }
     .rank-grid-container .content-block3 #school-rank .school-rank-option {
@@ -331,6 +335,7 @@
           -ms-flex-align: center;
               align-items: center; }
     .rank-grid-container .content-block3 #school-rank .count-date, .rank-grid-container .content-block3 #school-rank .count-time, .rank-grid-container .content-block3 #school-rank .section-school-rank, .rank-grid-container .content-block3 #school-rank .section-school-percent {
+      font-weight: 700;
       background: #D7B060;
       -webkit-box-shadow: inset 0 0 0 3px #EFD08D;
               box-shadow: inset 0 0 0 3px #EFD08D;
@@ -377,7 +382,7 @@
         position: relative; }
       .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-school-rank {
         font-weight: 500;
-        font-size: 22px;
+        font-size: 20px;
         color: #fff; }
       .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-school-score {
         font-weight: 500;
@@ -391,32 +396,28 @@
         position: absolute;
         bottom: 10%;
         width: 40%;
-        height: 30%;
         background: -webkit-gradient(linear, left top, right top, from(#7925a6), color-stop(40%, #be48e6), color-stop(50%, #c953f3), color-stop(60%, #be48e6), to(#7925a6));
         background: linear-gradient(to right, #7925a6 0%, #be48e6 40%, #c953f3 50%, #be48e6 60%, #7925a6 100%); }
       .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .lion-progress {
         position: absolute;
         bottom: 10%;
         width: 40%;
-        height: 30%;
         background: -webkit-gradient(linear, left top, right top, from(#1447aa), color-stop(40%, #3188cc), color-stop(50%, #3795d2), color-stop(60%, #3188cc), to(#1447aa));
         background: linear-gradient(to right, #1447aa 0%, #3188cc 40%, #3795d2 50%, #3188cc 60%, #1447aa 100%); }
       .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .rabbit-progress {
         position: absolute;
         bottom: 10%;
         width: 40%;
-        height: 30%;
         background: -webkit-gradient(linear, left top, right top, from(#3b8e0b), color-stop(30%, #80bb1c), color-stop(50%, #99cb29), color-stop(70%, #80bb1c), to(#3b8e0b));
         background: linear-gradient(to right, #3b8e0b 0%, #80bb1c 30%, #99cb29 50%, #80bb1c 70%, #3b8e0b 100%); }
       .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .tiger-progress {
         position: absolute;
         bottom: 10%;
         width: 40%;
-        height: 30%;
         background: -webkit-gradient(linear, left top, right top, from(#a36f1d), color-stop(30%, #c09b25), color-stop(50%, #ceb52b), color-stop(70%, #c09b25), to(#a36f1d));
         background: linear-gradient(to right, #a36f1d 0%, #c09b25 30%, #ceb52b 50%, #c09b25 70%, #a36f1d 100%); }
     .rank-grid-container .content-block3 #school-rank .school-rank-no1-gift {
-      padding: 20px 10px 20px 0px; }
+      padding: 20px 10px 20px 0; }
     .rank-grid-container .content-block3 #school-rank .container-no1-gift {
       padding: 5px;
       background: #48ABAF;
@@ -425,7 +426,7 @@
               box-shadow: inset 0 0 0 4px #33969A;
       border-radius: 10px; }
       .rank-grid-container .content-block3 #school-rank .container-no1-gift .no1-gift-list {
-        padding: 20px 0px 5px; }
+        padding: 20px 0 5px; }
       .rank-grid-container .content-block3 #school-rank .container-no1-gift .no1-gift-title {
         text-align: center;
         font-weight: 700;
@@ -451,7 +452,7 @@
         .rank-grid-container .content-block3 #school-rank .container-no1-gift .row-gift img {
           width: 85%; }
         .rank-grid-container .content-block3 #school-rank .container-no1-gift .row-gift .no1-gift-name {
-          font-family: 微軟正黑體;
+          font-family: 微軟正黑體, monospace;
           font-weight: 500;
           font-size: 16px;
           color: #FFFFFF;
@@ -538,7 +539,7 @@
         padding: 8px;
         font-size: 16px;
         color: #636363;
-        font-family: 微軟正黑體; }
+        font-family: 微軟正黑體, monospace; }
     .rank-grid-container .content-block3 #history-record .row-my-list, .rank-grid-container .content-block3 #history-record .row-school-list {
       background: #FFFFFF;
       border: 3px solid #A0A0A0;
@@ -559,7 +560,7 @@
         padding: 8px;
         font-size: 16px;
         color: #636363;
-        font-family: 微軟正黑體; }
+        font-family: 微軟正黑體, monospace; }
     .rank-grid-container .content-block3 #history-record .content-history-school {
       overflow: auto;
       height: 350px; }
@@ -591,7 +592,7 @@
         width: 85%;
         height: 340px;
         overflow: auto;
-        padding: 0px 10px; }
+        padding: 0 10px; }
         .rank-grid-container .content-block3 #active-explain .container-explain .content-explain ul {
           font-size: 20px;
           font-weight: 500;
@@ -616,13 +617,13 @@
             border: 1px solid #fff; }
 
 #popup-grid-my-rank {
-  height: 510px;
+  height: 485px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 1fr 7fr;
-      grid-template-rows: 1fr 7fr; }
+  -ms-grid-columns: 48% 52%;
+      grid-template-columns: 48% 52%;
+  -ms-grid-rows: 13% 77%;
+      grid-template-rows: 13% 77%; }
   #popup-grid-my-rank .content-title {
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
@@ -647,7 +648,7 @@
     grid-row: 2 / span 2;
     padding: 15px 5px 15px 15px; }
     #popup-grid-my-rank .content-person-info .container-info {
-      padding: 20px 20px 0px;
+      padding: 20px 20px 0;
       background-color: #349B9F;
       width: 100%;
       height: 100%;
@@ -759,7 +760,7 @@
         -webkit-box-shadow: inset 0 0 0 3px #EFD08D;
                 box-shadow: inset 0 0 0 3px #EFD08D;
         border-radius: 10px;
-        font-size: 20px;
+        font-size: 18px;
         color: #FFFFFF;
         padding: 8px 0px;
         font-weight: 500; }
@@ -768,7 +769,7 @@
       #popup-grid-my-rank .content-person-info .count-section .count-date {
         margin-bottom: 15px; }
       #popup-grid-my-rank .content-person-info .count-section .myrank-count-time, #popup-grid-my-rank .content-person-info .count-section .myrank-count-date {
-        font-family: 微軟正黑體;
+        font-family: 微軟正黑體, monospace;
         letter-spacing: 2px; }
   #popup-grid-my-rank .content-rank-list {
     -ms-grid-row: 2;
@@ -834,9 +835,9 @@
         border-radius: 50%; }
       #popup-grid-my-rank .content-rank-list .rank-list .all-number {
         font-family: 'Passion One', cursive;
-        font-size: 36px;
+        font-size: 30px;
         color: #636363;
-        letter-spacing: 2px; }
+        letter-spacing: 1px; }
       #popup-grid-my-rank .content-rank-list .rank-list .school-stamp {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -901,7 +902,7 @@
         border-radius: 10px;
         color: #636363; }
         #popup-grid-my-rank .content-rank-list .rank-list .bg-line .move-number {
-          font-size: 20px;
+          font-size: 16px;
           font-weight: bolder;
           letter-spacing: -1px; }
 
@@ -919,9 +920,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 470px;
-  height: 330px;
-  background-color: #DE792F;
   border-radius: 5px;
   font-size: 18px;
   color: #fff; }
@@ -933,13 +931,16 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    font-weight: 500; }
+    font-weight: 700; }
     #popup-outside-rank .title-now-score .my-score {
       padding-left: 10px; }
   #popup-outside-rank .title-reason {
     font-weight: 500;
     margin-bottom: 20px;
-    padding: 5px 0px; }
+    padding: 5px 0; }
+  #popup-outside-rank .two-reasons {
+    font-weight: 500;
+    line-height: 35px; }
   #popup-outside-rank .btn-upgrade-course {
     margin-top: 30px;
     background: #FFFFFF;
@@ -961,11 +962,7 @@
       grid-template-columns: 1fr;
   -ms-grid-rows: 1fr 6fr;
       grid-template-rows: 1fr 6fr;
-  width: 750px;
-  height: 465px;
-  background: #49ADB1;
-  -webkit-box-shadow: 0 -7px 0 0 #FFFFFF, 0 7px 0 0 #FFFFFF;
-          box-shadow: 0 -7px 0 0 #FFFFFF, 0 7px 0 0 #FFFFFF; }
+  height: 400px; }
   #popup-now-rank .now-rank-title {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1016,7 +1013,7 @@
           -ms-flex-align: center;
               align-items: center; }
       #popup-now-rank .now-rank-outside .albi-cry img {
-        width: 25%; }
+        width: 30%; }
   #popup-now-rank .now-rank-inside {
     width: 100%;
     height: 100%;
@@ -1039,6 +1036,7 @@
     #popup-now-rank .now-rank-inside .content {
       text-align: center;
       font-size: 22px;
+      font-weight: bolder;
       color: #FFFFFF;
       letter-spacing: 1.6px; }
     #popup-now-rank .now-rank-inside .now-rank-gift-list {
@@ -1065,7 +1063,7 @@
         -webkit-box-direction: normal;
             -ms-flex-direction: column;
                 flex-direction: column;
-        margin: 0px 10px; }
+        margin: 0 10px; }
       #popup-now-rank .now-rank-inside .now-rank-gift-list .gift-pic {
         width: 80%; }
         #popup-now-rank .now-rank-inside .now-rank-gift-list .gift-pic img {
@@ -1083,7 +1081,7 @@
         font-size: 22px;
         color: #303030;
         font-weight: 700;
-        padding: 5px 0px; }
+        padding: 5px 0; }
       #popup-now-rank .now-rank-inside .now-rank-gift-list .gift-sum {
         font-family: 'Concert One', cursive;
         font-size: 26px;
@@ -1101,11 +1099,22 @@
       #popup-now-rank .now-rank-inside .now-rank-note .rank-note {
         background: #D7B060;
         color: #fff;
+        font-weight: bolder;
         padding: 10px 20px; }
+    #popup-now-rank .now-rank-inside .albi-cry {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      #popup-now-rank .now-rank-inside .albi-cry img {
+        width: 30%; }
 
 #popup-please-login {
-  width: 370px;
-  height: 220px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1118,12 +1127,10 @@
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
-          flex-direction: column;
-  background: #DE792F;
-  border-radius: 5px; }
+          flex-direction: column; }
   #popup-please-login .please-login-title {
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
     margin-bottom: 30px; }
   #popup-please-login .btn-please-login {
@@ -1139,7 +1146,7 @@
         text-decoration: none;
         color: #ffb847; }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 800px) {
   .modal-popup-rank-height {
     height: 320px; }
   .rank-grid-container {
@@ -1248,15 +1255,15 @@
       padding: 5px 0px;
       height: 235px; }
       .rank-grid-container .content-block3 #school-rank .container-school-rank {
-        -ms-grid-columns: 26% 58% 16%;
-            grid-template-columns: 26% 58% 16%; }
+        -ms-grid-columns: 27% 59% 15%;
+            grid-template-columns: 27% 59% 15%; }
       .rank-grid-container .content-block3 #school-rank .school-rank-option {
         font-size: 12px;
         padding-left: 5px; }
       .rank-grid-container .content-block3 #school-rank .count-date, .rank-grid-container .content-block3 #school-rank .count-time, .rank-grid-container .content-block3 #school-rank .section-school-rank, .rank-grid-container .content-block3 #school-rank .section-school-percent {
         -webkit-box-shadow: inset 0 0 0 2px #EFD08D;
                 box-shadow: inset 0 0 0 2px #EFD08D;
-        padding: 5px 0px;
+        padding: 5px 0;
         width: 95%;
         letter-spacing: normal; }
       .rank-grid-container .content-block3 #school-rank .count-date, .rank-grid-container .content-block3 #school-rank .count-time, .rank-grid-container .content-block3 #school-rank .section-school-rank {
@@ -1301,11 +1308,13 @@
           -webkit-box-shadow: inset 0 1px 0 5px #6F5F4E;
                   box-shadow: inset 0 1px 0 5px #6F5F4E;
           font-size: 16px;
-          padding: 15px 0px; }
+          padding: 15px 0;
+          cursor: pointer; }
         .rank-grid-container .content-block3 #history-record .content-option .history-active {
           border: 2px solid #5D450E;
           -webkit-box-shadow: inset 0 1px 0 5px #33969A;
-                  box-shadow: inset 0 1px 0 5px #33969A; }
+                  box-shadow: inset 0 1px 0 5px #33969A;
+          cursor: pointer; }
       .rank-grid-container .content-block3 #history-record .content-history-list {
         padding: 10px 5px 5px; }
       .rank-grid-container .content-block3 #history-record .content-history-my {
@@ -1434,7 +1443,7 @@
           color: #fff; }
         #popup-grid-my-rank .content-person-info .student-info-login .section-student-info .my-rank, #popup-grid-my-rank .content-person-info .student-info-login .section-student-info .my-score, #popup-grid-my-rank .content-person-info .student-info-login .section-student-info .my-score-move {
           font-size: 12px;
-          font-family: 微軟正黑體;
+          font-family: 微軟正黑體, monospace;
           letter-spacing: 2px; }
         #popup-grid-my-rank .content-person-info .student-info-login .section-student-info .my-info-list {
           padding-right: 5px;
@@ -1502,11 +1511,9 @@
           border: 1px solid #979797;
           border-radius: 5px; }
           #popup-grid-my-rank .content-rank-list .rank-list .bg-line .move-number {
-            font-size: 12px;
+            font-size: 11px;
             letter-spacing: -1px; }
   #popup-outside-rank {
-    width: 330px;
-    height: 230px;
     font-size: 14px; }
     #popup-outside-rank .title-reason {
       margin-bottom: 15px;
@@ -1547,7 +1554,7 @@
         font-size: 12px;
         color: #303030;
         font-weight: 700;
-        padding: 5px 0px; }
+        padding: 5px 0; }
       #popup-now-rank .now-rank-inside .now-rank-gift-list .gift-sum {
         font-size: 14px;
         padding-left: 2px; }
@@ -1566,16 +1573,13 @@
           color: #fff;
           padding: 5px 10px;
           font-size: 12px; }
-  #popup-please-login {
-    width: 245px;
-    height: 150px; }
-    #popup-please-login .please-login-title {
-      font-size: 12px;
-      margin-bottom: 20px; }
-    #popup-please-login .btn-please-login {
-      padding: 6px 10px; }
-      #popup-please-login .btn-please-login a {
-        font-size: 14px; } }
+  #popup-please-login .please-login-title {
+    font-size: 12px;
+    margin-bottom: 20px; }
+  #popup-please-login .btn-please-login {
+    padding: 6px 10px; }
+    #popup-please-login .btn-please-login a {
+      font-size: 14px; } }
 
 @-webkit-keyframes finish {
   0% {

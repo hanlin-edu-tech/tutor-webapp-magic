@@ -30,6 +30,59 @@
   -ms-grid-row: 2;
 }
 
+.waiting-btn {
+  position: relative;
+  float: left;
+  width: 200px;
+  left: 200px;
+}
+
+.sending-btn {
+  position: relative;
+  float: left;
+  width: 200px;
+  left: 210px;
+}
+
+.all-award-btn {
+  position: relative;
+  float: left;
+  width: 200px;
+  left: 225px;
+}
+
+.waiting-btn,
+.sending-btn,
+.all-award-btn {
+  border-radius: 5px;
+  font-size: 18px;
+  color: black;
+  background-color: #96d66d;
+  border: 2px solid #57962e;
+  outline: none !important;
+}
+
+.sending-btn:hover,
+.all-award-btn:hover {
+  border-radius: 5px;
+  font-size: 16px;
+  color: black;
+  background-color: #c3dbb3;
+  border: 2px solid #63ad34;
+  outline: none !important;
+}
+
+.waiting-btn.waiting,
+.sending-btn.sending,
+.all-award-btn.all-award {
+  border-radius: 5px;
+  font-size: 16px;
+  color: black;
+  background-color: #c3dbb3;
+  border: 2px solid #63ad34;
+  outline: none !important;
+}
+
 .confirm-grid-inception-container .img-block-award {
   grid-column: 1 / span 5;
   -ms-grid-column: 1;
