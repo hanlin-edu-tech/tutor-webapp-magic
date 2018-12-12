@@ -1,17 +1,41 @@
 define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'],
   ($, ajax, w3, eventAwardAreZero, confirmPopup) => { // eslint-disable-line
     return () => {
-      let audioOpenAwardEventTarget = document.getElementById('audio_open_award_event')
-      audioOpenAwardEventTarget.play()
+      // let audioOpenAwardEventTarget = document.getElementById('audio_open_award_event')
+      // audioOpenAwardEventTarget.play()
 
       let popupHtml = `
+          <div class="confirm-grid-inception-container">
+              <div class="content-block1 confirm-popup-title-font">
+                  <span>目前擁有</span>
+              </div>
+              <div class="content-block2">
+                  <div>
+                    <button class="waiting-btn waiting" type="button">待領取</button>
+                  </div>
+                  <div>
+                    <button class="sending-btn" type="button">出貨中</button>
+                  </div>
+                  <div>
+                    <button class="all-award-btn" type="button">所有寶藏</button>
+                  </div>
+              </div>
+              <div class="img-block-left-btn">
+                  <img class="left-btn" src="./img/magicImg/previous.svg">
+              </div>
+              <div class="img-block-right-btn">
+                  <img class="right-btn" src="./img/magicImg/next.svg">
+              </div>
+          </div>
+        `
+      let sendingPopupHtml = `
           <div class="confirm-grid-inception-container">
             <div class="content-block1 confirm-popup-title-font">
               <span>目前擁有</span>
             </div>
             <div class="content-block2">
               <div>
-                <button class="waiting-btn waiting" type="button">待領取</button>
+                <button class="waiting-btn" type="button">待領取</button>
               </div>
               <div>
                 <button class="sending-btn" type="button">出貨中</button>
@@ -26,37 +50,13 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'],
             <div class="img-block-right-btn">
               <img class="right-btn" src="./img/magicImg/next.svg">
             </div>
+            <div class="sending-desc">
+              在點選領取按鈕後，約7-14天工作天為你寄出寶藏喔！
+            </div>
           </div>
         `
-      let sendingPopupHtml = `
-        <div class="confirm-grid-inception-container">
-          <div class="content-block1 confirm-popup-title-font">
-            <span>目前擁有</span>
-          </div>
-          <div class="content-block2">
-            <div>
-              <button class="waiting-btn" type="button">待領取</button>
-            </div>
-            <div>
-              <button class="sending-btn" type="button">出貨中</button>
-            </div>
-            <div>
-              <button class="all-award-btn" type="button">所有寶藏</button>
-            </div>
-          </div>
-          <div class="img-block-left-btn">
-            <img class="left-btn" src="./img/magicImg/previous.svg">
-          </div>
-          <div class="img-block-right-btn">
-            <img class="right-btn" src="./img/magicImg/next.svg">
-          </div>
-          <div class="sending-desc">
-            在點選領取按鈕後，約7-14天工作天為你寄出寶藏喔！
-          </div>
-        </div>
-      `
 
-      let getAwardsOnOpenFunc = (awardQuantity) => {
+      let getAwardsOnOpenFunc = (awardQuantity, textDesc, textDescSec) => {
         ajax('GET', `/chest/award/`)
           .then(data => {
             let awardsQuantity = data.content
@@ -103,7 +103,7 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'],
                 <div class="start-show-award">
                   <img class="img-award${awardIdx}" data-award-id="${awardId}" src="./img/award/${awardId}.png">
                   <hr style="margin: 7px"/>
-                  <p>${showAwards[awardId]}個</p>
+                  <p>${textDesc}:${showAwards[awardId]}個</p>${textDescSec}
                 </div>
               `
 
@@ -141,29 +141,41 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'],
         onOpenFn: () => {
           $('.waiting-btn').on('click', () => {
             $('.img-block-award').remove()
+            $('.sending-desc').remove()
+            let textDesc = '尚未領取'
             let awardQuantity = 'remainingAwards'
             $('.waiting-btn').addClass('waiting')
             $('.sending-btn').removeClass('sending')
             $('.all-award-btn').removeClass('all-award')
-            getAwardsOnOpenFunc(awardQuantity)
+            $('.swal2-confirm.btn.message_box_btn_style').show()
+            getAwardsOnOpenFunc(awardQuantity, textDesc, '')
           })
 
           $('.sending-btn').on('click', () => {
             $('.img-block-award').remove()
+            $('.sending-desc').remove()
+            let textDesc = '本次寄送'
             let awardQuantity = 'existAwards'
             $('.waiting-btn').removeClass('waiting')
             $('.sending-btn').addClass('sending')
             $('.all-award-btn').removeClass('all-award')
-            getAwardsOnOpenFunc(awardQuantity)
+            $('.swal2-confirm.btn.message_box_btn_style').hide()
+            $('.swal2-actions').append(
+              `<div class="sending-desc">在點選領取按鈕後，約7-14天工作天為你寄出寶藏喔！</div>`)
+            getAwardsOnOpenFunc(awardQuantity, textDesc, '')
           })
 
           $('.all-award-btn').on('click', () => {
             $('.img-block-award').remove()
+            $('.sending-desc').remove()
+            let textDesc = '已獲得'
+            let textDescSec = '已領取?個'
             let awardQuantity = 'allAwards'
             $('.waiting-btn').removeClass('waiting')
             $('.sending-btn').removeClass('sending')
             $('.all-award-btn').addClass('all-award')
-            getAwardsOnOpenFunc(awardQuantity)
+            $('.swal2-confirm.btn.message_box_btn_style').hide()
+            getAwardsOnOpenFunc(awardQuantity, textDesc, textDescSec)
           })
 
           $('.waiting-btn').trigger('click')

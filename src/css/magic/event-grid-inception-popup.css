@@ -83,6 +83,12 @@
   outline: none !important;
 }
 
+.sending-desc {
+  color: #96d66d;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+}
+
 .confirm-grid-inception-container .img-block-award {
   grid-column: 1 / span 5;
   -ms-grid-column: 1;
@@ -134,6 +140,12 @@
 .confirm-grid-inception-container .start-show-award {
   position: relative;
   display: inline-block;
+  font-size: 15px;
+  color: white;
+  letter-spacing: 2px;
+  line-height: 31px;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+  font-weight: 400;
 }
 
 .confirm-grid-inception-container .award-zero {
