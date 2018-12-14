@@ -1,16 +1,18 @@
 @charset "UTF-8";
 * {
-  font-family: 微軟正黑體, monospace; }
+  font-family: 微軟正黑體, monospace;
+  border: 0.5px solid #fff; }
 
 html, body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0;
   position: relative; }
 
 body {
   background: url("../../img/magicImg/background.png") no-repeat center center;
-  background-size: cover; }
+  background-size: cover;
+  overflow: auto; }
 
 button, a {
   cursor: pointer;
@@ -453,9 +455,9 @@ button, a {
 #near_activity {
   z-index: 1000;
   position: absolute;
-  bottom: 0%;
+  bottom: 0;
   left: 7%;
-  width: 11%;
+  width: 8%;
   height: auto; }
   #near_activity .cat img {
     width: 100%; }
@@ -464,10 +466,10 @@ button, a {
     top: 57%;
     right: 11%;
     color: #fff;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
     letter-spacing: 2px;
-    line-height: 23px;
+    line-height: 20px;
     text-shadow: 0px 0px 15px black; }
     #near_activity .cat .cat_title:hover {
       cursor: pointer;
@@ -477,8 +479,8 @@ button, a {
   z-index: 1000;
   position: absolute;
   bottom: 10%;
-  right: 5%;
-  width: 15%;
+  right: 10%;
+  width: 11%;
   height: auto; }
   #my_treasure .book {
     position: relative; }
@@ -491,11 +493,11 @@ button, a {
       top: 24%;
       right: 4%;
       color: #fff;
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 400;
       letter-spacing: 2px;
-      line-height: 23px;
-      padding: 12px; }
+      line-height: 20px;
+      padding: 8px; }
       #my_treasure .book .book_title:hover {
         cursor: pointer;
         color: #efffd6; }
@@ -504,7 +506,7 @@ button, a {
   position: absolute;
   bottom: 0%;
   left: 25%;
-  width: 11%;
+  width: 9%;
   height: auto; }
   #power_rank .hat {
     position: relative; }
@@ -518,7 +520,7 @@ button, a {
       -webkit-transform: translateX(-50%);
               transform: translateX(-50%);
       color: #fff;
-      font-size: 20px;
+      font-size: 15px;
       font-weight: 500;
       text-shadow: 0px 0px 15px black; }
       #power_rank .hat .hat_title:hover {
@@ -660,6 +662,8 @@ button, a {
           cursor: pointer; }
 
 @media screen and (max-width: 1200px) {
+  html, body {
+    height: 100vh; }
   #section_titlelist .container-fluid .row .title img {
     width: 90%;
     height: auto;
@@ -679,7 +683,7 @@ button, a {
       -webkit-transform: scale(0.9);
       white-space: nowrap; }
   #section_middle_part, #section_novice {
-    padding-top: 8%; }
+    padding-top: 5vh; }
     #section_middle_part .container-fluid .row .gift_list, #section_novice .container-fluid .row .gift_list {
       padding: 0 2%;
       background-size: 90% auto; }
@@ -730,30 +734,33 @@ button, a {
           margin-right: 5%;
           margin-top: 0%;
           -webkit-transform: scale(0.85); }
-    #section_middle_part .container-fluid .row .potion_box .row .col-3 .potion_colum .count_time, #section_novice .container-fluid .row .potion_box .row .col-3 .potion_colum .count_time {
-      font-size: 13px;
-      line-height: 30px; }
+    #section_middle_part .container-fluid .row .potion_box, #section_novice .container-fluid .row .potion_box {
+      height: 50vh; }
+      #section_middle_part .container-fluid .row .potion_box .row .col-3 .potion_colum .count_time, #section_novice .container-fluid .row .potion_box .row .col-3 .potion_colum .count_time {
+        font-size: 13px;
+        line-height: 30px; }
   #my_treasure {
-    width: 18%; }
+    width: 11%; }
     #my_treasure .book .book_title {
-      line-height: 20px;
+      line-height: 18px;
       top: 18%;
       right: 0%;
-      font-size: 18px;
-      padding: 15px; }
+      font-size: 15px;
+      padding: 8px; }
   #near_activity {
-    width: 16%; }
+    width: 11%;
+    left: 3%; }
     #near_activity .cat .cat_title {
       top: 56%;
       right: 12%;
-      font-size: 18px;
-      line-height: 22px; }
+      font-size: 15px;
+      line-height: 20px; }
   #power_rank {
-    bottom: 13%;
+    bottom: 0%;
     left: 22%;
-    width: 15%; }
+    width: 11%; }
     #power_rank .hat .hat_title {
-      font-size: 18px; }
+      font-size: 15px; }
   .function_description .explain_gift {
     bottom: 38%;
     left: 1%;
@@ -786,30 +793,34 @@ button, a {
   #login_dialog .login_potion_box {
     top: 45%; } }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 992px) {
+  html, body {
+    height: 110vh; }
   #section_titlelist {
-    height: 28%; }
+    height: 25%; }
     #section_titlelist .container-fluid {
       height: 100%; }
-      #section_titlelist .container-fluid .row .title {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        -webkit-box-align: start;
-            -ms-flex-align: start;
-                align-items: flex-start; }
-      #section_titlelist .container-fluid .row .person_info .row.person_bg {
-        height: 70%; }
-        #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-name {
-          height: 52%; }
-        #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-coins {
-          height: 55%; }
+      #section_titlelist .container-fluid .row {
+        height: 100%; }
+        #section_titlelist .container-fluid .row .title {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          -webkit-box-align: start;
+              -ms-flex-align: start;
+                  align-items: flex-start; }
+        #section_titlelist .container-fluid .row .person_info .row.person_bg {
+          height: 100%; }
+          #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-name {
+            height: 52%; }
+          #section_titlelist .container-fluid .row .person_info .row.person_bg .col-8 .row .col-8 .row .col-coins {
+            height: 55%; }
   #section_middle_part, #section_novice {
     padding-top: 0%; }
     #section_middle_part .container-fluid .row .gift_list, #section_novice .container-fluid .row .gift_list {
@@ -838,7 +849,7 @@ button, a {
       letter-spacing: 0px; }
     #section_middle_part .container-fluid .row .menu a, #section_novice .container-fluid .row .menu a {
       width: 40%;
-      height: 5.2%;
+      height: 6vh;
       text-align: right;
       margin-right: -15px;
       -webkit-transition: 0.3s;
@@ -911,6 +922,8 @@ button, a {
       right: 36%; } }
 
 @media screen and (max-width: 768px) {
+  html, body {
+    height: 110vh; }
   #section_titlelist {
     position: relative;
     height: 30%; }
@@ -996,7 +1009,7 @@ button, a {
           -webkit-transform-origin: left;
           white-space: nowrap; }
     #section_middle_part .container-fluid .row .potion_box, #section_novice .container-fluid .row .potion_box {
-      height: 250px; }
+      height: 50vh; }
       #section_middle_part .container-fluid .row .potion_box .row .col-3 .potion_colum .count_time, #section_novice .container-fluid .row .potion_box .row .col-3 .potion_colum .count_time {
         -webkit-text-stroke: 0.2px #000;
         font-size: 12px;
@@ -1024,7 +1037,7 @@ button, a {
               align-items: flex-end; }
       #section_middle_part .container-fluid .row .menu a, #section_novice .container-fluid .row .menu a {
         width: 40%;
-        height: 8%;
+        height: 6vh;
         text-align: right;
         margin-right: -15px;
         -webkit-transition: 0.3s;
@@ -1034,10 +1047,12 @@ button, a {
         #section_middle_part .container-fluid .row .menu a img, #section_novice .container-fluid .row .menu a img {
           width: 100%;
           height: auto; }
-  #my_treasure .book .book_title {
-    line-height: 15px;
-    font-size: 12px;
-    padding: 6px; }
+  #my_treasure {
+    bottom: 10%; }
+    #my_treasure .book .book_title {
+      line-height: 15px;
+      font-size: 12px;
+      padding: 6px; }
   #near_activity {
     left: 9%;
     width: 13%; }
