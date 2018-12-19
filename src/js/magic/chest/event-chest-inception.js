@@ -119,9 +119,6 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
                 /* 如果禮物為 0，在禮物圖附加上送完的註記 */
                 if (quantity === 0) {
                   $(element)
-                    .addClass('zero-quantity')
-
-                  $(element)
                     .parent('div.start-show-award')
                     .append('<img class="award-zero" src="./img/magicImg/soldout.png">')
                 }

@@ -1,15 +1,15 @@
 .modal-popup-inception-height {
-  height: 350px;
+  height: 380px;
 }
 
 .confirm-grid-inception-container {
-  height: 260px;
+  height: 285px;
   display: grid;
   display: -ms-grid;
   grid-template-columns: 1% 5% 88% 5% 1%;
   -ms-grid-columns: 1% 5% 88% 5% 1%;
-  grid-template-rows: 16% 11% 55% 18%;
-  -ms-grid-rows: 16% 11% 55% 18%;
+  grid-template-rows: 16% 13% 54% 17%;
+  -ms-grid-rows: 16% 13% 54% 17%;
   font-size: 21px;
   grid-gap: 3px;
 }
@@ -28,65 +28,6 @@
   -ms-grid-column-span: 5;
   grid-row: 2;
   -ms-grid-row: 2;
-}
-
-.waiting-btn {
-  position: relative;
-  float: left;
-  width: 200px;
-  left: 200px;
-}
-
-.sending-btn {
-  position: relative;
-  float: left;
-  width: 200px;
-  left: 210px;
-}
-
-.all-award-btn {
-  position: relative;
-  float: left;
-  width: 200px;
-  left: 225px;
-}
-
-.waiting-btn,
-.sending-btn,
-.all-award-btn {
-  border-radius: 5px;
-  font-size: 18px;
-  color: black;
-  background-color: #96d66d;
-  border: 2px solid #57962e;
-  outline: none !important;
-}
-
-.sending-btn:hover,
-.all-award-btn:hover {
-  border-radius: 5px;
-  font-size: 16px;
-  color: black;
-  background-color: #c3dbb3;
-  border: 2px solid #63ad34;
-  outline: none !important;
-}
-
-.waiting-btn.waiting,
-.sending-btn.sending,
-.all-award-btn.all-award {
-  border-radius: 5px;
-  font-size: 16px;
-  color: black;
-  background-color: #c3dbb3;
-  border: 2px solid #63ad34;
-  outline: none !important;
-}
-
-.sending-desc {
-  color: #96d66d;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 18px;
 }
 
 .confirm-grid-inception-container .img-block-award {
@@ -131,10 +72,6 @@
 .confirm-grid-inception-container .img-block-right-btn .right-btn {
   height: 30px;
   width: 30px;
-}
-
-.confirm-grid-inception-container img[class^=img-award].zero-quantity {
-  filter: url(#grayscale);
 }
 
 .confirm-grid-inception-container .start-show-award {

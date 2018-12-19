@@ -1,0 +1,169 @@
+.confirm-grid-awards-treasure-container {
+  height: 370px;
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 1% 5% 88% 5% 1%;
+  -ms-grid-columns: 1% 5% 88% 5% 1%;
+  grid-template-rows: 16% 14% 60% 10%;
+  -ms-grid-rows: 16% 14% 60% 10%;
+  font-size: 21px;
+  grid-gap: 3px;
+}
+
+.confirm-grid-awards-treasure-container .content-block1 {
+  grid-column: 1 / span 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-row: 1;
+  -ms-grid-row: 1;
+}
+
+.confirm-grid-awards-treasure-container .content-block2 {
+  grid-column: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-row: 2;
+  -ms-grid-row: 2;
+}
+
+.confirm-grid-awards-treasure-container .img-block-award {
+  grid-column: 1 / span 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-row: 3;
+  -ms-grid-row: 3;
+}
+
+.confirm-grid-awards-treasure-container .content-block4 {
+  grid-column: 1 / span 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-row: 4;
+  -ms-grid-row: 4;
+  text-align: center;
+}
+
+.confirm-grid-awards-treasure-container img[class^="img-award"] {
+  margin-top: 5px;
+  height: 130px;
+}
+
+.confirm-grid-awards-treasure-container .img-block-left-btn {
+  grid-column: 2;
+  -ms-grid-column: 2;
+  grid-row: 3;
+  -ms-grid-row: 3;
+  margin-top: 50%;
+}
+
+.confirm-grid-awards-treasure-container .img-block-right-btn {
+  grid-column: 4;
+  -ms-grid-column: 4;
+  grid-row: 3;
+  -ms-grid-row: 3;
+  margin-top: 50%;
+}
+
+.confirm-grid-awards-treasure-container .img-block-left-btn .left-btn,
+.confirm-grid-awards-treasure-container .img-block-right-btn .right-btn {
+  height: 30px;
+  width: 30px;
+}
+
+.confirm-grid-awards-treasure-container .start-show-award {
+  position: relative;
+  display: inline-block;
+  font-size: 15px;
+  color: white;
+  letter-spacing: 2px;
+  line-height: 31px;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
+
+.waiting-btn,
+.sending-btn,
+.all-award-btn {
+  width: 200px;
+  border-radius: 5px;
+  font-size: 18px;
+  color: black;
+  background-color: #96d66d;
+  border: 2px solid #57962e;
+  outline: none !important;
+}
+
+.sending-btn:hover,
+.all-award-btn:hover {
+  border-radius: 5px;
+  font-size: 16px;
+  color: black;
+  background-color: #c3dbb3;
+  border: 2px solid #63ad34;
+  outline: none !important;
+}
+
+.waiting-btn.waiting,
+.sending-btn.sending,
+.all-award-btn.all-award {
+  border-radius: 5px;
+  font-size: 16px;
+  color: black;
+  background-color: #c3dbb3;
+  border: 2px solid #63ad34;
+  outline: none !important;
+}
+
+.sending-desc {
+  color: #acf182;
+  font-family: '微軟正黑體', monospace;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 900px) {
+  .confirm-grid-awards-treasure-container {
+    font-size: 20px;
+  }
+
+  .confirm-grid-awards-treasure-container .content-block2 {
+    font-size: 19px;
+  }
+
+  .confirm-grid-awards-treasure-container .img-block-left-btn .left-btn,
+  .confirm-grid-awards-treasure-container .img-block-right-btn .right-btn {
+    height: 25px;
+    width: 25px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .modal-popup-inception-height {
+    height: 300px;
+  }
+
+  .confirm-grid-awards-treasure-container {
+    height: 230px;
+    font-size: 16px;
+    grid-gap: 1px;
+  }
+
+  .confirm-grid-awards-treasure-container .content-block1 {
+    font-size: 18px;
+  }
+
+  .confirm-grid-awards-treasure-container .content-block2 {
+    font-size: 15px;
+  }
+
+  .confirm-grid-awards-treasure-container .img-block-left-btn .left-btn,
+  .confirm-grid-awards-treasure-container .img-block-right-btn .right-btn {
+    height: 22px;
+    width: 22px;
+  }
+
+  .confirm-grid-awards-treasure-container img[class^="img-award"] {
+    margin-top: 20px;
+    height: 100px;
+  }
+}

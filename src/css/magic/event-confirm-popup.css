@@ -10,6 +10,10 @@
   height: 320px;
 }
 
+.confirm-popup-large-height {
+  height: 435px;
+}
+
 .confirm-popup-common-img-small {
   height: 130px;
 }

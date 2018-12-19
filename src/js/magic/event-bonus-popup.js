@@ -1,39 +1,42 @@
-define(['jquery', 'cookie', 'ajax'], ($, Cookie, ajax) => { // eslint-disable-line
+define(['jquery', 'cookie', 'ajax', 'confirmPopup'], ($, Cookie, ajax, confirmPopup) => { // eslint-disable-line
   let isBonusPopupImg = Cookie.get('isBonusPopupImg')
   let bonusPopupTarget = $('#bonus-popup')
+  let nearActivityTarget = $('#near_activity .cat')
 
-  let popupHandler = (image) => {
-    bonusPopupTarget.css('background-image', `url(${image})`)
-    bonusPopupTarget.addClass('bonus-popup-show')
-
-    $('#bonus-popup').on('click', event => {
-      $(event.currentTarget).remove()
+  bonusPopupTarget.hide()
+  nearActivityTarget.on('click', () => {
+    let eventEmptyHtml = `<div class="confirm-popup-title-font">活動尚未開始喔！</div>`
+    confirmPopup.dialog(eventEmptyHtml, {
+      confirmButtonText: '好的',
+      showCancelButton: false
     })
+  })
 
-    Cookie.set('isBonusPopupImg', true, {
-      expire: 1
+  ajax('GET', `/currencyMission/admin/eventRule`)
+    .then(jsonData => {
+      let image = jsonData.content
+      if (image) {
+        bonusPopupTarget.on('click', event => {
+          $(event.currentTarget).fadeOut()
+        })
+        nearActivityTarget.off('click')
+        nearActivityTarget.on('click', () => {
+          let existedBonusImage = bonusPopupTarget.css('background-image')
+          if (existedBonusImage === 'none') {
+            bonusPopupTarget.css({'background-image': `url(${ image })`})
+          }
+          bonusPopupTarget.fadeIn()
+        })
+
+        if (!isBonusPopupImg) {
+          bonusPopupTarget.css({'background-image': `url(${ image })`})
+          bonusPopupTarget.fadeIn()
+          Cookie.set('isBonusPopupImg', true, {
+            expire: 1
+          })
+        } else {
+
+        }
+      }
     })
-  }
-
-  let generalPopup = () => {
-    ajax('GET', `/chest/condition/popup`)
-      .then(jsonData => {
-        let popup = jsonData.content
-        let image = popup.content.image
-        if (!image) {
-          return
-        }
-        popupHandler(image)
-      })
-  }
-
-  if (!isBonusPopupImg) {
-    ajax('GET', `/currencyMission/admin/eventRule`)
-      .then(jsonData => {
-        let image = jsonData.content
-        if (image) {
-          popupHandler(image)
-        }
-      })
-  }
 })
