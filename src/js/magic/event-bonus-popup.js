@@ -23,13 +23,13 @@ define(['jquery', 'cookie', 'ajax', 'confirmPopup'], ($, Cookie, ajax, confirmPo
         nearActivityTarget.on('click', () => {
           let existedBonusImage = bonusPopupTarget.css('background-image')
           if (existedBonusImage === 'none') {
-            bonusPopupTarget.css({'background-image': `url(${ image })`})
+            bonusPopupTarget.css({'background-image': `url(${image})`})
           }
           bonusPopupTarget.fadeIn()
         })
 
         if (!isBonusPopupImg) {
-          bonusPopupTarget.css({'background-image': `url(${ image })`})
+          bonusPopupTarget.css({'background-image': `url(${image})`})
           bonusPopupTarget.fadeIn()
           Cookie.set('isBonusPopupImg', true, {
             expire: 1

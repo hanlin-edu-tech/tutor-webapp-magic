@@ -132,6 +132,7 @@
 
   .confirm-grid-awards-treasure-container .img-block-left-btn .left-btn,
   .confirm-grid-awards-treasure-container .img-block-right-btn .right-btn {
+    cursor: pointer;
     height: 25px;
     width: 25px;
   }

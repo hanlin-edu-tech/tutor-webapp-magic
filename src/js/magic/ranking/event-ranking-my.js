@@ -13,22 +13,22 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
             <div class="student-info-login">
               <div class="section-student-pic">
                 <div class="student-img">
-                  ${ academyBadgeImg }
+                  ${academyBadgeImg}
                 </div>
-                <div class="student-name">${ userName }</div>
+                <div class="student-name">${userName}</div>
               </div>
               <div class="section-student-info">
                 <div class="row-my-rank">
                   <div class="my-info-list">我的名次</div>
-                  <div class="my-rank">${ sumPointsRank }</div>
+                  <div class="my-rank">${sumPointsRank}</div>
                 </div>
                 <div class="row-my-score">
                   <div class="my-info-list">我的積分</div>
-                  <div class="my-score">${ sumPoints }</div>
+                  <div class="my-score">${sumPoints}</div>
                 </div>
                 <div class="row-my-score-move">
                 <div class="my-info-list">名次變化</div>
-                <div class="my-score-move">${ rankingDifference }</div>
+                <div class="my-score-move">${rankingDifference}</div>
               </div>
               </div>
             </div>
@@ -51,7 +51,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
             <div id="popup-outside-rank">
               <div class="title-now-score">
                 <div class="now-score">你目前的積分為</div>
-                <div class="my-score">${ rankingInfo['sumPoints'] }</div>
+                <div class="my-score">${rankingInfo['sumPoints']}</div>
               </div>
               <div class="title-reason">不符合入榜資格，可能原因如下：</div>
               <div class="two-reasons">
@@ -81,7 +81,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
             let academyBadgeImg = ''
             selectedUserClass = 'active-my-rank'
             if (specificRanking['academyBadge']) {
-              academyBadgeImg = `<img src="./img/magicImg/badge_${ specificRanking['academyBadge'] }.png">`
+              academyBadgeImg = `<img src="./img/magicImg/badge_${specificRanking['academyBadge']}.png">`
             }
             specificUserInfo = composeSpecificUserInfo({
               academyBadgeImg: academyBadgeImg,
@@ -93,25 +93,25 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
           }
 
           perRanking += `
-            <div class="rank-list ${ selectedUserClass }">
+            <div class="rank-list ${selectedUserClass}">
               <div class="ranking">
                 <div class="all-bg-circle">
-                  <div class="all-number">${ specificRanking['sumPointsRank'] }</div>
+                  <div class="all-number">${specificRanking['sumPointsRank']}</div>
                 </div>
               </div>
-              <div class="school-stamp"><img src="./img/magicImg/badge_${ specificRanking['academyBadge'] }.png"></div>
+              <div class="school-stamp"><img src="./img/magicImg/badge_${specificRanking['academyBadge']}.png"></div>
               <div class="student-info">
                 <div class="student-name">
-                  <div class="name">${ specificRanking['userName'] }</div>
+                  <div class="name">${specificRanking['userName']}</div>
                 </div>
                 <div class="score">
                   <div class="list-title">積分：</div>
-                  <div class="my-score">${ specificRanking['sumPoints'] }</div>
+                  <div class="my-score">${specificRanking['sumPoints']}</div>
                 </div>
               </div>
               <div class="rank-move">
                 <div class="bg-line">
-                  <div class="move-number">${ rankingDifference }</div>
+                  <div class="move-number">${rankingDifference}</div>
                 </div>
               </div>
             </div>
@@ -121,11 +121,11 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
         myRankingInfo = `
           <div class="content-person-info">
             <div class="container-info">  
-              ${ specificUserInfo }
+              ${specificUserInfo}
               <div class="count-section">
                 <div class="count-date">
                   <div class="myrank-title-date">本次結算時間</div>
-                  <div class="myrank-count-date">${ rankingInfo['rankingEndTime'] }</div>
+                  <div class="myrank-count-date">${rankingInfo['rankingEndTime']}</div>
                 </div>
                 <div class="count-time">
                   <div class="myrank-title-time">距離結算還有</div>
@@ -137,7 +137,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
           <div class="content-rank-list">
             <div class="container-rank-list">
               <div class="row-rank-list">
-                ${ perRanking }        
+                ${perRanking}        
               </div>
             </div>
           </div>
@@ -152,7 +152,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
             <div class="content-title">
               <div class="title">我的排行</div>
             </div>
-            ${ composeMyRankingInfo(rankingInfo, flag) }
+            ${composeMyRankingInfo(rankingInfo, flag)}
           </div>
         `
       }

@@ -70,6 +70,7 @@
 
 .confirm-grid-inception-container .img-block-left-btn .left-btn,
 .confirm-grid-inception-container .img-block-right-btn .right-btn {
+  cursor: pointer;
   height: 30px;
   width: 30px;
 }

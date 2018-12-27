@@ -1,15 +1,15 @@
 define(['jquery', 'slider'], ($, slider) => {
-    //   $('#sliderBar').slider()
-    //   $('#sliderBar').slider({
-    //     reversed: true
-    //   })
+  //   $('#sliderBar').slider()
+  //   $('#sliderBar').slider({
+  //     reversed: true
+  //   })
 
-    //   $('#sliderBar').on('slide', function (slideEvt) {
-    //     $('#SliderVal').text(slideEvt.value)
-    //     let melody = document.getElementById('audio_background_melody')
-    //     let sliVal = slideEvt.value / 100
-    //     melody.volume = sliVal
-    //   })
+  //   $('#sliderBar').on('slide', function (slideEvt) {
+  //     $('#SliderVal').text(slideEvt.value)
+  //     let melody = document.getElementById('audio_background_melody')
+  //     let sliVal = slideEvt.value / 100
+  //     melody.volume = sliVal
+  //   })
 
   let melodyTarget = document.getElementById('audio_background_melody')
   if (melodyTarget.paused) {
