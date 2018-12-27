@@ -91,11 +91,11 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'],
 
             let slide = w3.slideshow('.img-block-award', 0)
 
-            $('.confirm-grid-inception-container .right-btn').on('click', () => {
+            $('.confirm-grid-awards-treasure-container .right-btn').on('click', () => {
               slide.next()
             })
 
-            $('.confirm-grid-inception-container .left-btn').on('click', () => {
+            $('.confirm-grid-awards-treasure-container .left-btn').on('click', () => {
               slide.previous()
             })
           })

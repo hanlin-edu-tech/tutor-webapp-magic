@@ -1,35 +1,39 @@
 define(['ajax'], ajax => { // eslint-disable-line
   let eventRankingHistory = {}
   eventRankingHistory.retrieveIndividualRankingTransactions = async () => {
-    let jsonData = await ajax('GET', `/chest/ranking/history?rewardCategory=INDIVIDUAL`)
-    let individualRankingTransactions = jsonData.content
-    let transactionsList = ''
-
-    for (let i = 0; i < individualRankingTransactions.length; i++) {
-      let transaction = individualRankingTransactions[i]
-      let memo = transaction['memo']
-      let currencyQuantity = transaction['currencyQuantity']
-      transactionsList += `
+    let jsonData, individualRankingTransactions, transactionsList = ''
+    try {
+      jsonData = await ajax('GET', `/chest/ranking/history?rewardCategory=INDIVIDUAL`)
+      individualRankingTransactions = jsonData.content
+      for (let i = 0; i < individualRankingTransactions.length; i++) {
+        let transaction = individualRankingTransactions[i]
+        let memo = transaction['memo']
+        let currencyQuantity = transaction['currencyQuantity']
+        transactionsList += `
           <ul class="row-my-list">
             <li class="my-enter-time">${ memo['startTime'] }</li>
             <li class="my-rank">${ memo['sumPointsRank'] }</li>
             <li class="my-get-gift">寶石 ${ currencyQuantity['gems'] }</li>
           </ul>
         `
+      }
+    } catch (e) {
+
     }
 
     return transactionsList
   }
-  eventRankingHistory.retrieveAcademyRankingTransactions = async () => {
-    let jsonData = await ajax('GET', `/chest/ranking/history?rewardCategory=ACADEMY`)
-    let academyRankingTransactions = jsonData.content
-    let transactionsList = ''
 
-    for (let i = 0; i < academyRankingTransactions.length; i++) {
-      let transaction = academyRankingTransactions[i]
-      let memo = transaction['memo']
-      let currencyQuantity = transaction['currencyQuantity']
-      transactionsList += `
+  eventRankingHistory.retrieveAcademyRankingTransactions = async () => {
+    let jsonData, academyRankingTransactions, transactionsList = ''
+    try {
+      jsonData = await ajax('GET', `/chest/ranking/history?rewardCategory=ACADEMY`)
+      academyRankingTransactions = jsonData.content
+      for (let i = 0; i < academyRankingTransactions.length; i++) {
+        let transaction = academyRankingTransactions[i]
+        let memo = transaction['memo']
+        let currencyQuantity = transaction['currencyQuantity']
+        transactionsList += `
           <ul class="row-school-list">
             <li class="school-enter-time">${ memo['startTime'] }</li>
             <li class="school-rank">${ memo['academySumRank'] }</li>
@@ -37,10 +41,14 @@ define(['ajax'], ajax => { // eslint-disable-line
             <li class="school-get-gift">e幣 ${ currencyQuantity['coins'] }、寶石 ${ currencyQuantity['gems'] }</li>
           </ul>
         `
+      }
+    } catch (e) {
+
     }
 
     return transactionsList
   }
+
   eventRankingHistory.retrieveRankingRewardHistory = async () => {
     let individualRankingTransactions = await eventRankingHistory.retrieveIndividualRankingTransactions()
     let academyRankingTransactions = await eventRankingHistory.retrieveAcademyRankingTransactions()
