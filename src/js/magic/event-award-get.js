@@ -26,7 +26,7 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'],
           </div>
         `
 
-      let getAwardsOnOpenFunc = (awardQuantity, textDesc, textDescSec) => {
+      let getAwardsOnOpenFunc = (awardsQuantity, textDesc, textDescSec) => {
         ajax('GET', `/chest/award/`)
           .then(data => {
             let awardsQuantity = data.content
@@ -41,7 +41,7 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'],
               switch (awardIdx % limit) {
                 case (limit - 1):
                   awardImgs += awardImg
-                  awardBlock += `<div class="img-block-award">${ awardImgs }</div>`
+                  awardBlock += `<div class="img-block-award">${awardImgs}</div>`
                   awardImgs = ''
                   break
 
@@ -58,12 +58,25 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'],
               limit = 5
             }
 
-            if (awardQuantity === 'remainingAwards') {
-              showAwards = awardsQuantity.remainingAwards
-            } else if (awardQuantity === 'exitAwards') {
-              showAwards = awardsQuantity.exitAwards
-            } else if (awardQuantity === 'allAwards') {
-              showAwards = awardsQuantity.allAwards
+            switch (awardsQuantity) {
+              case 'remainingAwards' : {
+                showAwards = awardsQuantity.remainingAwards
+                break
+              }
+              case 'exitAwards': {
+                showAwards = awardsQuantity.exitAwards
+                break
+              }
+              case 'allAwards': {
+                showAwards = awardsQuantity.allAwards
+                break
+              }
+              default: {
+                confirmPopup.dialog('系統忙碌中...請稍候！', {
+                  showCancelButton: false
+                })
+                return
+              }
             }
 
             awardsCount = Object.keys(showAwards).length
@@ -71,15 +84,15 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'],
             for (let awardId in showAwards) {
               let awardImg = `
                 <div class="start-show-award">
-                  <img class="img-award${ awardIdx }" data-award-id="${ awardId }" src="./img/award/${ awardId }.png">
+                  <img class="img-award${awardIdx}" data-award-id="${awardId}" src="./img/award/${awardId}.png">
                   <hr style="margin: 7px"/>
-                  <p>${ textDesc }:${ showAwards[awardId] }個</p>${ textDescSec }
+                  <p>${textDesc}:${showAwards[awardId]}個</p>${textDescSec}
                 </div>
               `
 
               if (awardIdx === awardsCount - 1) {
                 awardImgs += awardImg
-                awardBlock += `<div class="img-block-award">${ awardImgs }</div>`
+                awardBlock += `<div class="img-block-award">${awardImgs}</div>`
               } else {
                 composeAwardBlock(awardIdx, limit, awardId, awardImg)
               }
@@ -114,7 +127,7 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'],
                 if (betweenDays < month && betweenDays !== -1) {
                   let disableReceiveAward = `
                     <div class="confirm-popup-title-font">還不能領取寶藏喔 !!!</div>
-                    <p class="common-font">一個月只能領取寶藏 1 次，距離下次領獎還有 ${ month - betweenDays } 天</p>
+                    <p class="common-font">一個月只能領取寶藏 1 次，距離下次領獎還有 ${month - betweenDays} 天</p>
                   `
                   confirmPopup.dialog(disableReceiveAward, {
                     confirmButtonText: '好的',
