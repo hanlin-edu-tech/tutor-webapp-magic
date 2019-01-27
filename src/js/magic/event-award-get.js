@@ -26,7 +26,7 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'],
           </div>
         `
 
-      let getAwardsOnOpenFunc = (awardsQuantity, textDesc, textDescSec) => {
+      let getAwardsOnOpenFunc = (awardsType, textDesc, textDescSec) => {
         ajax('GET', `/chest/award/`)
           .then(data => {
             let awardsQuantity = data.content
@@ -58,7 +58,7 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'],
               limit = 5
             }
 
-            switch (awardsQuantity) {
+            switch (awardsType) {
               case 'remainingAwards' : {
                 showAwards = awardsQuantity.remainingAwards
                 break
@@ -72,7 +72,7 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'],
                 break
               }
               default: {
-                confirmPopup.dialog('系統忙碌中...請稍候！', {
+                confirmPopup.dialog('<p class="common-font">系統忙碌中...請稍候！</p>', {
                   showCancelButton: false
                 })
                 return
@@ -154,19 +154,19 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'],
 
           waitingBtnTarget.on('click', event => {
             let textDesc = '尚未領取'
-            let awardQuantity = 'remainingAwards'
+            let awardType = 'remainingAwards'
             initialEmptyAwardsInfo()
 
             $(event.currentTarget).addClass('waiting')
             sendingBtnTarget.removeClass('sending')
             allAwardBtnTarget.removeClass('all-award')
             receiveAwardsBtnTarget.show()
-            getAwardsOnOpenFunc(awardQuantity, textDesc, '')
+            getAwardsOnOpenFunc(awardType, textDesc, '')
           })
 
           sendingBtnTarget.on('click', event => {
             let textDesc = '本次寄送'
-            let awardQuantity = 'exitAwards'
+            let awardType = 'exitAwards'
             initialEmptyAwardsInfo()
 
             $(event.currentTarget).addClass('sending')
@@ -174,20 +174,20 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup'],
             allAwardBtnTarget.removeClass('all-award')
             $('.content-block4').show()
             receiveAwardsBtnTarget.hide()
-            getAwardsOnOpenFunc(awardQuantity, textDesc, '')
+            getAwardsOnOpenFunc(awardType, textDesc, '')
           })
 
           allAwardBtnTarget.on('click', event => {
             let textDesc = '已獲得'
             let textDescSec = '已領取？個'
-            let awardQuantity = 'allAwards'
+            let awardType = 'allAwards'
             initialEmptyAwardsInfo()
 
             $(event.currentTarget).addClass('all-award')
             waitingBtnTarget.removeClass('waiting')
             sendingBtnTarget.removeClass('sending')
             receiveAwardsBtnTarget.hide()
-            getAwardsOnOpenFunc(awardQuantity, textDesc, textDescSec)
+            getAwardsOnOpenFunc(awardType, textDesc, textDescSec)
           })
 
           waitingBtnTarget.trigger('click')
