@@ -29,6 +29,8 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     cancelFn = () => {},
     onBeforeOpenFn = () => {},
     onOpenFn = () => {},
+    onCloseFn = () => {},
+    afterAnimationFn = () => {},
     showConfirmButton = true,
     confirmButtonText = '確定',
     showCancelButton = true,
@@ -52,7 +54,9 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
     dialogStyle.onOpen = () => {
       $('.swal2-header').remove()
       onOpenFn()
+      setTimeout(afterAnimationFn, 1000)
     }
+    dialogStyle.onClose = onCloseFn
 
     sweetAlert(dialogStyle)
       .then((result) => {

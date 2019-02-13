@@ -68,7 +68,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
           },
           confirmButtonText: '太棒了！',
           showCancelButton: false,
-          onOpenFn: () => {
+          afterAnimationFn: () => {
             require(['eventChestGet'], eventChestGet => {
               eventChestGet()
             })
