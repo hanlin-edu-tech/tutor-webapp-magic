@@ -10,19 +10,18 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
       }
     })
 
-    ajax('GET', `/chest/award/conditions`)
+    ajax('GET', `/chest/award/awardConditions`)
       .then(jsonData => {
-        let awards = jsonData.content
+        let awardConditions = jsonData.content
         let sectionTarget = isNovice ? $('#section_novice') : $('#section_middle_part')
 
-        for (let index in awards) {
-          let award = awards[index]
-          let awardContent = award.content
-          let title = awardContent.title
-          let quantity = parseInt(awardContent.quantity)
-          let needChestLv = awardContent.needChestLv
-          let notice = awardContent.notice
-          let awardId = award.id
+        for (let index in awardConditions) {
+          let awardCondition = awardConditions[index]
+          let title = awardCondition.title
+          let quantity = parseInt(awardCondition.quantity)
+          let needChestLv = awardCondition.needChestLv
+          let notice = awardCondition.notice
+          let awardId = awardCondition.id
           let howMany
           let awardImg
           let awardTitle

@@ -198,9 +198,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
               dialogAttr.confirmFn = () => {
                 window.location = `https://www.ehanlin.com.tw/courses_map.html`
               }
-              dialogAttr.cancelFn = () => {
-                window.location = `https://www.ehanlin.com.tw/app/magic`
-              }
+              dialogAttr.cancelFn = () => {}
             }
 
             confirmPopup.dialog(popupHtml, dialogAttr)

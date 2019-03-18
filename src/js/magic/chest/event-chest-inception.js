@@ -59,7 +59,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
         onOpenFn: () => {
           if (chest.level < 2) return
 
-          ajax('GET', `/chest/showAwardsWhenStart/chest${chest.level}`)
+          ajax('GET', `/chest/showAwardsWhenStart/${chest.level}`)
             .then(data => {
               let awardsQuantity = data.content
               let limit = 0

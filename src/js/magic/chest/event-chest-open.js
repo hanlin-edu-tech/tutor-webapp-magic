@@ -10,7 +10,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
         })
       } : afterOpenFn
 
-      ajax('POST', `/chest/open/${ chest.id }`)
+      ajax('POST', `/chest/open/${chest.id}`)
         .then((jsonData) => {
           let jsonDataContent = jsonData.content
           let finalCoins = jsonDataContent.finalCoins
@@ -33,25 +33,25 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
 
           if (gainAwardId) {
             gridOpenContainerClass = 'confirm-grid-img-container'
-            awardImg = `<img class="open-award-gift" src="./img/award/${ gainAwardId }.png">`
+            awardImg = `<img class="open-award-gift" src="./img/award/${gainAwardId}.png">`
           }
 
           popupHtml = `
-            <div class="${ gridOpenContainerClass } open-award">
+            <div class="${gridOpenContainerClass} open-award">
               <div class="content-block1 confirm-popup-title-font">
                 恭喜你獲得了：
               </div>
               <div class="content-block2">
                 <p class="common-font">
                   <img class="coins-img" src="./img/magicImg/coin.svg">
-                  <span>${ gainCoins }</span>
+                  <span>${gainCoins}</span>
                   <img class="gems-img" src="./img/magicImg/gem.svg">
-                  <span>${ gainGems }</span>
+                  <span>${gainGems}</span>
                 </p>
               </div>
               <div class="content-block3">
-                <p>${ gainAward }</p>
-                ${ awardImg }
+                <p>${gainAward}</p>
+                ${awardImg}
               </div>
             </div>
           `
@@ -73,7 +73,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
             dialogAttr = {
               customClass: 'confirm_message_box confirm-popup-middle-height',
               confirmFn: () => {
-                ajax('POST', `/chest/award/luckyBag/${ chest.id }`,
+                ajax('POST', `/chest/award/luckyBag/${chest.id}`,
                   {
                     awardId: gainAwardId,
                     chestId: chest.id,
@@ -93,20 +93,20 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
                     finalGems = jsonContent.finalGems
 
                     popupHtml = `
-                      <div class="${ gridOpenContainerClass } open-award">
+                      <div class="${gridOpenContainerClass} open-award">
                         <div class="content-block1 confirm-popup-title-font">
                           福袋打開囉，得到：
                         </div>
                         <div class="content-block2">
                           <p class="common-font">
                             <img class="coins-img" src="./img/magicImg/coin.svg">
-                            <span>${ gainCoins }</span>
+                            <span>${gainCoins}</span>
                             <img class="gems-img" src="./img/magicImg/gem.svg">
-                            <span>${ gainGems }</span>
+                            <span>${gainGems}</span>
                           </p>
                         </div>
                         <div class="content-block3">
-                          ${ awardImg }
+                          ${awardImg}
                         </div>
                       </div>
                     `
@@ -129,8 +129,8 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
               showCancelButton: false,
               onOpenFn: () => {
                 let openContentBlock2Target = $('.open-award .content-block2')
-                openContentBlock2Target.css({marginTop: '30px'})
-                openContentBlock2Target.find('.coins-img, .gems-img').css({width: '50px'})
+                openContentBlock2Target.css({ marginTop: '30px' })
+                openContentBlock2Target.find('.coins-img, .gems-img').css({ width: '50px' })
               }
             }
           }
