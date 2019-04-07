@@ -63,7 +63,8 @@ require.config({
 
     /* 共用元件 */
     confirmPopup: ['../module-utils/confirm-popup'],
-    ajax: ['../module-utils/ajax']
+    ajax: ['../module-utils/ajax'],
+    commonUtil: ['../module-utils/common-util']
   },
 
   map: {

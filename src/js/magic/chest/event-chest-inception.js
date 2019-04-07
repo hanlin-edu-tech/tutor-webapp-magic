@@ -1,5 +1,6 @@
-define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChestCheck', 'eventAwardAreZero'], // eslint-disable-line
-  ($, ajax, confirmPopup, eventChestStatusDo, w3, eventChestCheck, eventAwardAreZero) => {
+define(['jquery', 'ajax', 'confirmPopup', 'commonUtil',
+    'eventChestStatusDo', 'w3', 'eventChestCheck', 'eventAwardAreZero'], // eslint-disable-line
+  ($, ajax, confirmPopup, commonUtil, eventChestStatusDo, w3, eventChestCheck, eventAwardAreZero) => {
     return (chest, targets, beginInceptionFn) => {
       let popupHtml, classHeight = '', width = ''
       if (chest.level >= 2) {
@@ -62,7 +63,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
           ajax('GET', `/chest/showAwardsWhenStart/${chest.level}`)
             .then(data => {
               let awardsQuantity = data.content
-              let limit = 0
+              let limit = commonUtil.determineAwardCountDisplay()
               let awardsCount
               let quantity
               let awardIndex
@@ -81,14 +82,6 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestStatusDo', 'w3', 'eventChes
                   default:
                     awardImages += awardImage
                 }
-              }
-
-              if (window.matchMedia('(max-width: 550px)').matches) {
-                limit = 1
-              } else if (window.matchMedia('(max-width: 950px)').matches) {
-                limit = 3
-              } else {
-                limit = 5
               }
 
               awardsCount = Object.keys(awardsQuantity).length

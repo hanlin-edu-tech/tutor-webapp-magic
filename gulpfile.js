@@ -23,7 +23,7 @@ const postcss = require('gulp-postcss')
 const destination = './dist'
 
 let bucketNameForTest = 'tutor-apps-test'
-let bucketNameForProd = 'tutor-apps'
+let bucketNameForProduction = 'tutor-apps'
 let projectId = 'tutor-204108'
 let keyFilename = 'tutor.json'
 let projectName = 'app/magic/'
@@ -314,13 +314,13 @@ gulp.task('babelJs',
   babelJs.bind(babelJs, './dist/js/@(magic|currency-bank|module-utils)/*.js'))
 
 gulp.task('packageTest', packageProject.bind(packageProject, 'current.SNAPSHOT'))
-gulp.task('packageProd', packageProject.bind(packageProject, 'current'))
+gulp.task('packageProduction', packageProject.bind(packageProject, 'current'))
 
 /* upload to test */
 gulp.task('uploadGcsTest', uploadGcs.bind(uploadGcs, bucketNameForTest))
 
 /* upload to prod */
-gulp.task('uploadGcsProd', uploadGcs.bind(uploadGcs, bucketNameForProd))
+gulp.task('uploadGcsProduction', uploadGcs.bind(uploadGcs, bucketNameForProduction))
 
 /* 編譯 pug sass */
 gulp.task('style', styleTask())
