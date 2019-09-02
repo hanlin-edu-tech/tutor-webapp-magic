@@ -16,7 +16,7 @@ define(['ajax'], ajax => { // eslint-disable-line
       `
     }
 
-    let jsonData = await ajax('GET', `/chest/ranking/top`)
+    let jsonData = await ajax('GET', `http://localhost:8080/chest/ranking/top`)
     let topRankings = jsonData.content
     let rankingList = topRankings.length > 0 ? '' : '<p>積分排名統計中</p>'
     for (let i = 0; i < topRankings.length; i++) {

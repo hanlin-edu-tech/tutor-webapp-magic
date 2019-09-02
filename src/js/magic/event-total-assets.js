@@ -1,5 +1,5 @@
 define(['jquery', 'ajax', 'eventCountUp'], ($, ajax, eventCountUp) => {// eslint-disable-line
-  ajax('GET', `/currencyBank/totalAssets`)
+  ajax('GET', `http://localhost:9090/currencyBank/totalAssets`)
     .then(jsonData => {
       let content = jsonData.content
       let finalCoins = content.coins

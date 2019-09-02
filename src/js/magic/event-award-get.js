@@ -27,7 +27,7 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup', 'commonUtil
         `
 
       let getAwardsOnOpenFunc = async (awardsType, textDesc) => {
-        ajax('GET', `/chest/award/`)
+        ajax('GET', `http://localhost:8080/chest/award/`)
           .then(data => {
             let awardsQuantity = data.content
             let showAwards
@@ -112,7 +112,7 @@ define(['jquery', 'ajax', 'w3', 'eventAwardAreZero', 'confirmPopup', 'commonUtil
         width: '85%',
         confirmButtonText: '領取獎品',
         confirmFn: () => {
-          ajax('GET', `/chest/award/calculateDaysDuringLastTime`)
+          ajax('GET', `http://localhost:8080/chest/award/calculateDaysDuringLastTime`)
             .then(jsonData => {
                 let betweenDays = jsonData.content
                 const month = 30

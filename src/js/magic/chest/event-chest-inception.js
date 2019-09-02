@@ -42,7 +42,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'commonUtil',
         cancelButtonClass: 'btn message_box_btn_style',
         showCancelButton: !targets.chestInstance['novice'],
         confirmFn: () => {
-          ajax('POST', `/chest/inception/${chest.id}`,
+          ajax('POST', `http://localhost:8080/chest/inception/${chest.id}`,
             {
               status: 'UNLOCKING'
             }
@@ -60,7 +60,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'commonUtil',
         onOpenFn: () => {
           if (chest.level < 2) return
 
-          ajax('GET', `/chest/showAwardsWhenStart/${chest.level}`)
+          ajax('GET', `http://localhost:8080/chest/showAwardsWhenStart/${chest.level}`)
             .then(data => {
               let awardsQuantity = data.content
               let limit = commonUtil.determineAwardCountDisplay()

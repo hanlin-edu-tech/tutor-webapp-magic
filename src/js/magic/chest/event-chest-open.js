@@ -10,7 +10,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
         })
       } : afterOpenFn
 
-      ajax('POST', `/chest/open/${chest.id}`)
+      ajax('POST', `http://localhost:8080/chest/open/${chest.id}`)
         .then((jsonData) => {
           let jsonDataContent = jsonData.content
           let finalCoins = jsonDataContent.finalCoins
@@ -73,7 +73,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck', 'eventAwardAreZero'
             dialogAttr = {
               customClass: 'confirm_message_box confirm-popup-middle-height',
               confirmFn: () => {
-                ajax('POST', `/chest/award/luckyBag/${chest.id}`,
+                ajax('POST', `http://localhost:8080/chest/award/luckyBag/${chest.id}`,
                   {
                     awardId: gainAwardId,
                     chestId: chest.id,

@@ -174,7 +174,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'jqueryCountDown'],
       }
 
       let popupHtml, dialogAttr
-      ajax('GET', `/chest/ranking/my`)
+      ajax('GET', `http://localhost:8080/chest/ranking/my`)
         .then(
           jsonData => {
             let rankingInfo = jsonData.content

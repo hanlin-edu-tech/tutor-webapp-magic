@@ -3,7 +3,7 @@ define(['ajax'], ajax => { // eslint-disable-line
   eventRankingHistory.retrieveIndividualRankingTransactions = async () => {
     let jsonData, individualRankingTransactions, transactionsList = ''
     try {
-      jsonData = await ajax('GET', `/chest/ranking/history?rewardCategory=INDIVIDUAL`)
+      jsonData = await ajax('GET', `http://localhost:8080/chest/ranking/history?rewardCategory=INDIVIDUAL`)
       individualRankingTransactions = jsonData.content
       for (let i = 0; i < individualRankingTransactions.length; i++) {
         let transaction = individualRankingTransactions[i]
@@ -27,7 +27,7 @@ define(['ajax'], ajax => { // eslint-disable-line
   eventRankingHistory.retrieveAcademyRankingTransactions = async () => {
     let jsonData, academyRankingTransactions, transactionsList = ''
     try {
-      jsonData = await ajax('GET', `/chest/ranking/history?rewardCategory=ACADEMY`)
+      jsonData = await ajax('GET', `http://localhost:8080/chest/ranking/history?rewardCategory=ACADEMY`)
       academyRankingTransactions = jsonData.content
       for (let i = 0; i < academyRankingTransactions.length; i++) {
         let transaction = academyRankingTransactions[i]

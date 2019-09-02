@@ -1,6 +1,6 @@
 define(['jquery', 'ajax', 'eventChestBtnOn'], ($, ajax, eventChestBtnOn) => {// eslint-disable-line
   return (noviceObj = {}) => {
-    let uri = noviceObj.isNovice ? `/chest/?isNoviceExisted=true` : `/chest/`
+    let uri = noviceObj.isNovice ? `http://localhost:8080/chest/?isNoviceExisted=true` : `http://localhost:8080/chest/`
 
     ajax('GET', uri)
       .then((jsonData) => {

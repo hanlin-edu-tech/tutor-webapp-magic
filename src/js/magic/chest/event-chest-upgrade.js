@@ -26,7 +26,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
 
   eventChestUpgrade.process = (chest, targets, spendCoins, spendGems) => {
     let upLevel = chest.level + 1
-    ajax('POST', `/currencyBank/chest/levelUp/${chest.id}`, {
+    ajax('POST', `http://localhost:9090/currencyBank/chest/levelUp/${chest.id}`, {
       spendCoins: spendCoins,
       spendGems: spendGems,
       originalLevel: chest.level
@@ -80,7 +80,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
   eventChestUpgrade.ask = (chest, targets) => {
     let upLevel = chest.level + 1
 
-    ajax('GET', `/chest/condition/level${upLevel}`, null)
+    ajax('GET', `http://localhost:8080/chest/condition/level${upLevel}`, null)
       .then(jsonData => {
         let data = jsonData.content.content
         let spendCoins = parseInt(data['coins'])

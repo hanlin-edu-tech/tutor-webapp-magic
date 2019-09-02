@@ -55,9 +55,9 @@ html(lang="en")
                 .row
                     .col-4.col-xs-4.col-sm-4.col-lg-3.elogo
                         a(href="https://www.ehanlin.com.tw/index.html")
-                            img(src="./img/magicImg/elogo.png")
+                            img(src="./img/fairytaleImg/elogo.png")
                     .col-4.col-xs-4.col-sm-4.col-lg-6.title
-                        img(src="./img/magicImg/title.png")
+                        img(src="./img/fairytaleImg/title.png")
                     .col-4.col-xs-4.col-sm-4.col-lg-3.person_info
                         .row.person_bg
                             #badge.col-4
@@ -92,22 +92,22 @@ html(lang="en")
                 .row
                     .col-3.gift_list
                         .row.row_gift_pic
-                            .col-3.col-sm-4.col-lg-3.previous_btn
-                                img(src="./img/magicImg/previous.svg")
-                            .col-6.col-sm-4.col-lg-6
-                            .col-3.col-sm-4.col-lg-3.next_btn
-                                img(src="./img/magicImg/next.svg")
+                            .previous_btn
+                                img(src="./img/fairytaleImg/arrow-l.png")
+                            
+                            .next_btn
+                                img(src="./img/fairytaleImg/arrow-r.png")
                         .row.row_gift_content
-                            .col-12.title
-                                //- .award_title 樂事雞汁洋芋片兌換券
-                            .col-6.award_stitle 所在等級：
-                            .col-6.award_scontnet
-                                //- .award_level LV5,6,7,8
-                            .col-4.award_stitle 庫存：
-                            .col-8.award_scontnet
-                                //- .award_stock 還有貨哦
-                            .col-12.notice
-                                //- .award_note 1.本商品券僅限兌換一次<br>2.使用期限及說明請見得獎信件
+                            .title-row
+                                .award_title 樂事雞汁洋芋片兌換券
+                            .award_stitle 所在等級：
+                            .award_scontnet
+                                .award_level LV5,6,7,8
+                            .award_stitle 庫存：
+                            .award_scontnet
+                                .award_stock 還有貨哦
+                            .notice
+                                .award_note 1.本商品券僅限兌換一次<br>2.使用期限及說明請見得獎信件
 
                     .col-6.potion_box
                         .row
@@ -203,29 +203,31 @@ html(lang="en")
             .container-fluid
                 .row
                     .col-3.gift_list
-                        .row.row_gift_pic
-                            .col-3.col-sm-4.col-lg-3.previous_btn
-                                img(src="./img/magicImg/previous.svg")
-                            .col-6.col-sm-4.col-lg-6
-                            .col-3.col-sm-4.col-lg-3.next_btn
-                                img(src="./img/magicImg/next.svg")
-                        .row.row_gift_content
-                            .col-12.title
-                                //- .award_title 樂事雞汁洋芋片兌換券
-                            .col-6.award_stitle 所在等級：
-                            .col-6.award_scontnet
-                                //- .award_level LV5,6,7,8
-                            .col-4.award_stitle 庫存：
-                            .col-8.award_scontnet
-                                //- .award_stock 還有貨哦
-                            .col-12.notice
-                                //- .award_note 1.本商品券僅限兌換一次<br>2.使用期限及說明請見得獎信件
+                        .mirror
+                            img(src="./img/fairytaleImg/mirror.png") 
+                            .previous_btn
+                                img(src="./img/fairytaleImg/arrow-l.png")     
+                            .next_btn
+                                img(src="./img/fairytaleImg/arrow-r.png")
+                            .row.row_gift_content
+                                .gift_photo
+                                    //img(src="./img/award/award24.png", alt="")
+                                .title-row
+                                    //.award_title 樂事雞汁洋芋片兌換券樂事雞汁洋芋片兌換券
+                                .award_stitle 所在等級：
+                                .award_scontnet
+                                    //.award_level LV5,6,7,8
+                                .award_stitle 庫存：
+                                .award_scontnet
+                                    //.award_stock 還有貨哦
+                                .notice
+                                    //.award_note 1.本商品券僅限兌換一次<br>2.使用期限及說明請見得獎信件
 
                     .col-6.potion_box
                         .row
                             .col-3.GREEN
                                 .col.potion_colum
-                                    img(src="./img/magicImg/potion_colum.png")
+                                    //img(src="./img/magicImg/potion_colum.png")
                                     .potion.platform-GREEN
                                     .count_time
 
@@ -244,19 +246,19 @@ html(lang="en")
 
                             .col-3
                                 .col.potion_colum
-                                    img(src="./img/magicImg/potion_colum.png")
+                                    //img(src="./img/magicImg/potion_colum.png")
                                     .potion
 
                             .col-3
                                 .col.potion_colum
-                                    img(src="./img/magicImg/potion_colum.png")
+                                    //img(src="./img/magicImg/potion_colum.png")
                                     .potion
 
                             .col-3
                                 .col.potion_colum
-                                    img(src="./img/magicImg/potion_colum.png")
+                                    //img(src="./img/magicImg/potion_colum.png")
                                     .potion
-                    .col-3.menu
+                    .menu
                         a(href="https://www.ehanlin.com.tw/my/owned/Courses.html")
                             img(src="./img/magicImg/menu_btn01.png")
                         a(href="activity-means.html")
@@ -266,15 +268,14 @@ html(lang="en")
                         a(href="https://www.ehanlin.com.tw/event/line/")
                             img(src="./img/magicImg/menu_btn04.png")
 
-        #near_activity
-            .cat
-                img(src="./img/magicImg/cat.png")
-                .cat_title 近期<br>活動
+        //- #near_activity
+        //-     .cat
+        //-         img(src="./img/magicImg/cat.png")
+        //-         .cat_title 近期<br>活動
 
         #my_treasure
             .book
-                img(src="./img/magicImg/book.png")
-                .book_title 我的<br>寶藏
+                img(src="./img/fairytaleImg/book.png")
 
             .speaker-field
                 a(class="speaker mute")
@@ -282,8 +283,7 @@ html(lang="en")
 
         #power_rank
             .hat
-                img(src="./img/magicImg/rank.png")
-                .hat_title 實力排行
+                img(src="./img/fairytaleImg/rank.png")
         
         //- #sound_bar
         //-     .slider

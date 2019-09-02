@@ -40,7 +40,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
   } = {}) => {
     let dialogStyle = cloneConstantStyle()
     dialogStyle.width = width
-    dialogStyle.customClass = `animated zoomInUp fast ${ customClass }`
+    dialogStyle.customClass = `animated fadeIn fast ${ customClass }`
     dialogStyle.background = background
     dialogStyle.title = title ? `<span class="confirm-popup-title-font">${ title }</span>` : ''
     dialogStyle.html = popupHtml
@@ -75,7 +75,7 @@ define(['jquery', 'sweetAlert'], ($, sweetAlert) => { // eslint-disable-line
       tutorialStyle[attr] = constantStyle[attr]
     }
     tutorialStyle.position = 'bottom'
-    tutorialStyle.customClass = 'animated slideInLeft fast tutorial_message_box row'
+    tutorialStyle.customClass = 'animated fadeIn fast tutorial_message_box row'
     tutorialStyle.background = 'rgba(73, 173, 177, 0.9)'
     tutorialStyle.width = '100%'
     tutorialStyle.confirmButtonClass = 'btn_iknow tutorial_message_box_btn'

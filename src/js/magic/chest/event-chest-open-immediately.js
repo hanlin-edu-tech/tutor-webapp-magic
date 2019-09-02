@@ -2,7 +2,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], // eslint-disable-
   ($, ajax, confirmPopup, eventChestCheck) => {
     let eventChestOpenImmediately = {}
     eventChestOpenImmediately.process = (chest, targets, spendGems) => {
-      ajax('POST', `/chest/open/immediately/${chest.id}`,
+      ajax('POST', `http://localhost:8080/chest/open/immediately/${chest.id}`,
         {
           spendGems: spendGems
         }
@@ -25,10 +25,10 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], // eslint-disable-
 
     eventChestOpenImmediately.ask = (chest, targets) => {
       let seconds
-      ajax('GET', `/chest/coolDownTime/${chest.id}`)
+      ajax('GET', `http://localhost:8080/chest/coolDownTime/${chest.id}`)
         .then(jsonData => {
           seconds = jsonData.content
-          return ajax('GET', `/chest/condition/openImmediately`)
+          return ajax('GET', `http://localhost:8080/chest/condition/openImmediately`)
         })
         .then(jsonData => {
           let openImmediatelyData = jsonData.content

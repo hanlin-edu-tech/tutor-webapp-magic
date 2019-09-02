@@ -67,7 +67,7 @@ define(['ajax'], ajax => { // eslint-disable-line
       `
     }
 
-    let jsonData = await ajax('GET', `/chest/ranking/academy`)
+    let jsonData = await ajax('GET', `http://localhost:8080/chest/ranking/academy`)
     let rankingInfo = jsonData.content
     let perAcademyRankingsInfo = rankingInfo['perAcademyRankingsInfo']
     let perSandglass = perAcademyRankingsInfo.length > 0 ? '' : '<p>積分排名統計中</p>'

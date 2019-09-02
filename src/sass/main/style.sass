@@ -10,11 +10,12 @@
 html, body
     width: 100%
     height: 100vh
+    min-height: 650px
     margin: 0
     position: relative
 
 body
-    background: url("../../img/magicImg/background.png") no-repeat center center
+    background: url("../../img/fairytaleImg/background.png") no-repeat center center
     background-size: cover
     overflow: auto
 button, a
@@ -181,72 +182,138 @@ button, a
 //藥水清單,藥水欄,選單
 #section_middle_part, #section_novice
     position: relative
-    overflow: hidden
+    //overflow: hidden
     .container-fluid
         .row
             .gift_list
-                padding: 0 5%
-                z-index: 1001
-                background-image: url(../../img/magicImg/paper.png)
-                background-size: 85% auto
-                background-position: center 0
-                background-repeat: no-repeat
-                .row_gift_pic
-                    height: 35%
-                    .col-3
-                        cursor: pointer
-                        padding: 5px
-                        img
-                            width: 40%
-                    .previous_btn
-                        display: flex
-                        align-items: center
-                        justify-content: flex-end
-                    .next_btn
-                        display: flex
-                        align-items: center
-                        justify-content: flex-start
-                    .col-6
-                        +flexCenter
-                        align-items: center
-                        padding: 0px 1%
-                        .gift_photo
-                            width: 100%
+                //padding: 0 5%
+                //z-index: 1001
+                // background-image: url(../../img/fairytaleImg/mirror.png)
+                // background-size: 85% auto
+                // background-position: center 0
+                // background-repeat: no-repeat
+                position: relative
+                display: flex
+                justify-content: center
+                align-items: center
+                transform: translateY(-20%)
 
+
+                // -- 童話重寫 -- //
+                .mirror
+                    min-width: 306px
+                    width: 100%
+                    position: relative
+                    img
+                        width: 100%
+                .previous_btn
+                    width: 10%
+                    position: absolute
+                    left: 5%
+                    top: 50%
+                    transform: scale(1) translateY(-50%)
+                    transition: 0.2s
+                    cursor: pointer
+                    &:hover
+                        transform: scale(1.1) translateY(-50%)
+                    img
+                        width: 100%
+                        
+                .next_btn
+                    position: absolute
+                    right: 5%
+                    width: 10%
+                    top: 50%
+                    transform: scale(1) translateY(-50%)
+                    transition: 0.2s
+                    cursor: pointer
+                    &:hover
+                        transform: scale(1.1) translateY(-50%)
+                    img
+                        width: 100%
+
+                // 獎品內容
                 .row_gift_content
-                    padding: 0 10%
-                    text-align: center
-                    font-size: 14px
-                    color: #41210e
-                    .award_title
-                        padding: 2% 0
-                        font-weight: 700
-                    .col-12,.col-4,.col-6,.col-8
-                        padding: 0
-                    .award_stitle
-                        text-align: right
-                    .award_scontnet
-                        text-align: left
-                        .award_stock
-                            color: #ff1616
-                            text-shadow: 0px 0px 12px #fff8e8
-                    .award_note
-                        padding-left: 5%
-                        margin-top: 3%
-                        text-align: left
+                    position: absolute
+                    width: 50%
+                    height: 70%
+                    top: 15%
+                    left: 30%
+                    .gift_photo
+                        width: 75%
+                        margin-left: auto
+                        margin-right: auto
+                    .title-row
+                        font-size: 14px
+                        font-weight: 500
+                        color: #7E3A00
+                    .award_stitle,.award_scontnet
                         font-size: 12px
+                    .notice
+                        font-size: 12px
+                    .award_stock
+                        color: #ff1616
+                    
+
+
+                // .row_gift_pic
+                //     height: 35%
+                //     .col-3
+                //         cursor: pointer
+                //         padding: 5px
+                //         img
+                //             width: 40%
+                //     .previous_btn
+                //         display: flex
+                //         align-items: center
+                //         justify-content: flex-end
+                //     .next_btn
+                //         display: flex
+                //         align-items: center
+                //         justify-content: flex-start
+                //     .col-6
+                //         +flexCenter
+                //         align-items: center
+                //         padding: 0px 1%
+                //         .gift_photo
+                //             width: 100%
+
+                // .row_gift_content
+                //     padding: 0 10%
+                //     text-align: center
+                //     font-size: 14px
+                //     color: #41210e
+                //     .award_title
+                //         padding: 2% 0
+                //         font-weight: 700
+                //     .col-12,.col-4,.col-6,.col-8
+                //         padding: 0
+                //     .award_stitle
+                //         text-align: right
+                //     .award_scontnet
+                //         text-align: left
+                //         .award_stock
+                //             color: #ff1616
+                //             text-shadow: 0px 0px 12px #fff8e8
+                //     .award_note
+                //         padding-left: 5%
+                //         margin-top: 3%
+                //         text-align: left
+                //         font-size: 12px
 
             .potion_box
-                background-image: url("../../img/magicImg/potion_box.png")
-                height: 400px
+                min-width: 770px
+                width: 770px
+                background-image: url("../../img/fairytaleImg/crystal-box.png")
+                //height: 420px
                 background-size: 100% auto
                 background-repeat: no-repeat
                 display: flex
                 justify-content: center
-                padding: 5% 0 0
+                padding: 0
                 .row
-                    margin: 0
-                    width: 90%
+                    margin-top: 7%
+                    width: 88%
                     .col-3
                         height: 200px
                         padding: 6px
@@ -296,6 +363,11 @@ button, a
                                 white-space: nowrap
 
             .menu
+                width: 25%
+                top: 200px
+                right: 0
+                position: fixed
+                overflow: hidden
                 display: flex
                 flex-direction: column
                 padding: 0
@@ -436,53 +508,61 @@ button, a
     z-index: 1000
     position: absolute
     bottom: 10%
-    right: 10%
-    width: 11%
+    right: 5%
+    width: 15%
     height: auto
     .book
         position: relative
         img
             width: 100%
-        .book_title
-            background-color: #2d933b
-            border-radius: 50%
-            position: absolute
-            top: 24%
-            right: 4%
-            color: #fff
-            font-size: 16px
-            font-weight: 400
-            letter-spacing: 2px
-            line-height: 20px
-            padding: 8px
+            transition: 0.2s
+            cursor: pointer
             &:hover
-                cursor: pointer
-                color: #efffd6
+                transform: scale(1.05)
+        // .book_title
+        //     background-color: #2d933b
+        //     border-radius: 50%
+        //     position: absolute
+        //     top: 24%
+        //     right: 4%
+        //     color: #fff
+        //     font-size: 16px
+        //     font-weight: 400
+        //     letter-spacing: 2px
+        //     line-height: 20px
+        //     padding: 8px
+        //     &:hover
+        //         cursor: pointer
+        //         color: #efffd6
 
 //實力排行(帽子)
 #power_rank
     position: absolute
     bottom: 0%
-    left: 25%
-    width: 9%
+    left: 12%
+    width: 15%
     height: auto
     .hat
         position: relative
         img
             width: 100%
-        .hat_title
-            white-space: nowrap
-            position: absolute
-            top: 60%
-            left: 50%
-            transform: translateX(-50%)
-            color: #fff
-            font-size: 15px
-            font-weight: 500
-            text-shadow: 0px 0px 15px black
+            transition: 0.2s
+            cursor: pointer
             &:hover
-                cursor: pointer
-                color: #f4eaff
+                transform: scale(1.05)
+        // .hat_title
+        //     white-space: nowrap
+        //     position: absolute
+        //     top: 60%
+        //     left: 50%
+        //     transform: translateX(-50%)
+        //     color: #fff
+        //     font-size: 15px
+        //     font-weight: 500
+        //     text-shadow: 0px 0px 15px black
+        //     &:hover
+        //         cursor: pointer
+        //         color: #f4eaff
 
 //功能說明
 .function_description

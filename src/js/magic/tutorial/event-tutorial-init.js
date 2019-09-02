@@ -11,7 +11,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
     noviceTargets.openBtn = greenTarget.find('.mix_finish')
     noviceTargets.readyNowBtn = greenTarget.find('.now_finish')
     let save = progressiveStep => {
-      ajax('POST', `/chest/novice/`, {
+      ajax('POST', `http://localhost:8080/chest/novice/`, {
           progressiveStep: progressiveStep
         }
       ).then(() => {
@@ -51,7 +51,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
     }
 
     let retrieveNoviceChest = progressiveStep => {
-      ajax('GET', `/chest/?isNoviceExisted=true`)
+      ajax('GET', `http://localhost:8080/chest/?isNoviceExisted=true`)
         .then(
           jsonData => {
             let chests = jsonData.content
@@ -114,7 +114,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
 
       functionDescTarget.removeAttr('style')
       functionDescTarget.find('.finish_novice_btn').one('click', () => {
-        ajax('POST', `/chest/novice/`, {
+        ajax('POST', `http://localhost:8080/chest/novice/`, {
           progressiveStep: 'COMPLETED'
         }).then(() => {
             functionDescTarget.fadeOut()
@@ -224,7 +224,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
             })
           },
           confirmFn: () => {
-            ajax('POST', `/currencyBank/totalAssets/academy`, {
+            ajax('POST', `http://localhost:9090/currencyBank/totalAssets/academy`, {
               academyName: academyName,
               badge: badge
             })
@@ -328,7 +328,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
 
     /* 4-3-2 成功調配藥水 */
     let step4_3_2 = () => {
-      ajax('POST', `/chest/open/immediately/${chestId}`,
+      ajax('POST', `http://localhost:8080/chest/open/immediately/${chestId}`,
         {
           spendGems: 0
         }).then(() => {
@@ -422,7 +422,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
         })
       }
 
-      ajax('POST', `/chest/upgrade/${chestId}`, {
+      ajax('POST', `http://localhost:8080/chest/upgrade/${chestId}`, {
         originalLevel: 1
       }).then(async jsonData => {
           let upLevel = jsonData.content['upLevel']
@@ -602,7 +602,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
         eventSlideAwardsShow(isNovice)
       })
 
-      ajax('GET', `/chest/novice/`)
+      ajax('GET', `http://localhost:8080/chest/novice/`)
         .then(jsonData => {
           let progressiveStep = jsonData.content
 
