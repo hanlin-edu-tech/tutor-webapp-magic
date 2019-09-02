@@ -3,6 +3,7 @@ node_modules/
 dist/
 package-lock.json
 tutor.json
+tutor-test.json
 src/index.html
 src/activity-means.html
 src/event-grid-rank-popup.html

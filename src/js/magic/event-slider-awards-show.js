@@ -41,13 +41,13 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
           awardFactory = `<div class="award_stock">${howMany}</div>`
           awardNotice = `<div class="award_note">${notice}</div>`
 
-          sectionTarget.find('.row_gift_pic .col-6.col-sm-4.col-lg-6').append(awardImg)
+          sectionTarget.find('.gift_photo').append(awardImg)
 
           let rowGiftContentTarget = sectionTarget.find('.row.row_gift_content')
-          rowGiftContentTarget.find('.col-12.title').append(awardTitle)
-          rowGiftContentTarget.find('.col-6.award_scontnet').append(awardInLv)
-          rowGiftContentTarget.find('.col-8.award_scontnet').append(awardFactory)
-          rowGiftContentTarget.find('.col-12.notice').append(awardNotice)
+          rowGiftContentTarget.find('.title-row').append(awardTitle)
+          rowGiftContentTarget.find('.award_scontnet').append(awardInLv)
+          rowGiftContentTarget.find('.award_scontnet').append(awardFactory)
+          rowGiftContentTarget.find('.notice').append(awardNotice)
         }
 
         let sec = 3000
@@ -58,7 +58,7 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
         let awardNoticeShow = w3.slideshow('.award_note', sec)
 
         // 上一個
-        sectionTarget.find('.col-3.col-sm-4.col-lg-3.previous_btn img').on('click', () => {
+        sectionTarget.find('.previous_btn img').on('click', () => {
           awardPhotoShow.next()
           awardTitleShow.next()
           awardLevelShow.next()
@@ -67,7 +67,7 @@ define(['jquery', 'ajax', 'w3'], ($, ajax, w3) => { // eslint-disable-line
         })
 
         // 下一個
-        sectionTarget.find('.col-3.col-sm-4.col-lg-3.next_btn img').on('click', () => {
+        sectionTarget.find('.next_btn img').on('click', () => {
           awardPhotoShow.previous()
           awardTitleShow.previous()
           awardLevelShow.previous()
