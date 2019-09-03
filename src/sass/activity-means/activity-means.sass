@@ -1,52 +1,74 @@
-html
+html,body
     width: 100%
+    height: 100%
     
 body
-    background-image: url("../../img/magicImg/activityMeans/background.png")
-    background-size: contain
+    background-image: url("../../img/fairytaleImg/background.png")
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center center
 *
     //border: .5px solid #000
     letter-spacing: 1px
     color: #422700
     font-size: 14px
     font-family: 微軟正黑體
-
-section#section_title
+.white-opacity
+    width: 100%
+    height: 100%
+    background-color: rgba(255,255,255,0.8)
+    position: absolute
+    z-index: -100
+.ehanlin-logo
+    display: none
+.content-logo
+    display: none
+.fairytale-logo
+    display: block
+    width: 100%
+    height: 200px
+    background-image: url("../../img/fairytaleImg/title.png")
+    background-size: contain
+    background-repeat: no-repeat
+.content-box
+    max-height: 85%
+    overflow: scroll
+    position: relative
+    top: 40px
+hr
+    margin-top: 0rem
+#section_title
     .container-fluid
         .row
             .col-12
                 .title
+                    width: 200px
                     border: 3px solid #422700
                     border-radius: 25px
-                    background-color: rgba(#fff,0.8)
                     text-align: center
-                    margin: 0
-                    margin: 10px
+                    margin: 0px auto 20px auto
                     font-size: 24px
                     font-weight: 700
                     padding: 5px 0px
-                p
-                    font-size: 12px
-                    line-height: 18px
-
                 .title_content
-                    font-size: 15px
-                    margin-bottom: 15px
-                    background-color: rgba(#fff,0.5)
-                    padding: 5px
+                    margin-bottom: 20px
+                    background-color: #ffffff
+                    border-radius: 10px
+                    box-shadow: 0px 0px 10px rgba(0,0,0,0.2)
+                    padding: 8px 16px
                     color: #9b551b
                     span
                         color: #9b551b
-                        font-size: 15px
                         img
-                            width: 15px
-                            height: 15px
+                            width: 14px
+                            height: 14px
 
-section#section_part1
+#section_part1
     .container-fluid
         .row
             .col-12
-                padding-bottom: 15px
+                .stitle
+                    margin-bottom: 16px
                 span
                     img
                         width: 15px
@@ -54,7 +76,7 @@ section#section_part1
                 .red_content
                     color: #ff1414
 
-section#section_part2
+#section_part2
     .container-fluid
         .row
             .stitle
@@ -74,62 +96,33 @@ section#section_part2
                             width: 90%
                             height: auto
                         .potion_time
-                            border-radius: 15px
+                            border-radius: 20px
                             border: 2px solid #422700
                             padding: 2px 12px
                             margin: 5px 0px
                             background-color: #fff
 
-            .col-tac
-                text-align: center  
-
-section#section_part3
-    .container-fluid
-        .row
-            .col-12
-                .stitle
-                    margin-bottom: 15px
-                p
-                    font-size: 12px
-
-            .col-12
-                .row
-                    padding: 0px 15px
-                    margin-bottom: 10px
-                    .col-6
-                        background-color: rgba(#fff,0.7)
-                        border: 1px solid #422700
-                        font-size: 12px
-                        padding: 0px 5px
+#section_part3
+    .stitle
+        margin-bottom: 15px
+    p
+        font-size: 12px
+    .red_content
+        font-size: 12px
+        color: #ff1414
                     
-section#section_part4
-    .container-fluid
-        .row
-            .col-12
-                .stitle
-                    margin-bottom: 15px
-                .qa_content
-                    margin-bottom: 15px
-
-section#section_part5
-    .container-fluid
-        .row
-            .col-12
-                .stitle
-                    margin-bottom: 15px
-                .part5_content
-                    font-size: 12px
-                    margin-bottom: 15px
-
-section#section_part6
-    .container-fluid
-        .row
-            .col-12
-                .stitle 
-                    margin-bottom: 15px
-                .part5_content
-                    font-size: 12px
-                    margin-bottom: 70px
+#section_part4
+    .stitle
+        margin-bottom: 15px
+    p
+        font-size: 12px
+#section_part5, #section_part6
+    .stitle
+        margin-bottom: 15px
+    .part5_content
+        padding-left: 22px
+        li
+            font-size: 12px
 
 .goback_btn
     display: flex
@@ -143,8 +136,8 @@ section#section_part6
     border-top: 6px solid #EFD08D
     box-shadow: 0 4px 10px 0 rgba(152, 90, 16, 0.50)
     font-size: 25px
-    
-
+    h3
+        margin: 0px
     a
         color: #FFFFFF
         letter-spacing: 3px
@@ -155,306 +148,80 @@ section#section_part6
 
 @media screen and (min-width: 768px)
     *
-        font-size: 18px
-    
-    section#section_title
-        padding: 0px 10%
-        .container-fluid
-            .row
-                .col-12
-                    .title
-                        border: 3px solid #422700
-                        border-radius: 30px
-                        background-color: rgba(#fff,0.8)
-                        text-align: center
-                        margin: 0
-                        margin: 20px 15%
-                        font-size: 32px
-                        font-weight: 700
-                        padding: 5px 0px
-                    p
-                        font-size: 15px
-                        line-height: 22px
-
-                    .title_content
-                        border-radius: 10px
-                        font-size: 18px
-                        margin-bottom: 25px
-                        background-color: rgba(#fff,0.5)
-                        padding: 15px
-                        color: #9b551b
-                        span
-                            color: #9b551b
-                            font-size: 18px
-                            img
-                                width: 18px
-                                height: 18px
-
-    section#section_part1
-        padding: 0 10%
-        .container-fluid
-            .row
-                .col-12
-                    padding-bottom: 25px
-                    .red_content
-                        color: #ff1414
-                    .stitle
-                        span
-                            img
-                                width: 18px
-                                height: 18px
-
-    section#section_part2
-        padding: 0px 10%
-        padding-bottom: 20px
-        .container-fluid
-            .row
-                .col-12
-                    p
-                        margin-bottom: 10px
-                .stitle
-                    margin-bottom: 15px
-                .upgrade_content
-                    padding: 0px 35px
-                    p
-                        font-size: 14px
-                        margin-bottom: 10px
-                    span
-                        color: #ff1414
-                        font-size: 14px
-                .col-4
-                    .row
-                        margin-bottom: 15px
-                        .col-12
-                            display: flex
-                            justify-content: center
-                            align-items: center
-                            padding: 3px 7px
-                            img
-                                width: 90%
-                                height: auto
-                            .potion_time
-                                font-size: 15px
-                                border-radius: 15px
-                                border: 2px solid #422700
-                                padding: 0px 10px
-                                margin: 5px 0px
-                                background-color: #fff
-
-                .col-tac
-                    text-align: center  
-
-    section#section_part3
-        padding: 0px 10%
-        padding-bottom: 20px
-        .container-fluid
-            .row
-                .col-12
-                    .stitle
-                        margin-bottom: 15px
-                    p
-                        font-size: 16px
-
-                .col-12
-                    .row
-                        padding: 0px 15px
-                        margin-bottom: 10px
-                        .col-6
-                            letter-spacing: 0px
-                            text-align: center
-                            background-color: rgba(#fff,0.7)
-                            border: 1px solid #422700
-                            font-size: 15px
-                            padding: 10px 0px
-                        
-    section#section_part4
-        padding: 0px 10%
-        padding-bottom: 20px
-        .container-fluid
-            .row
-                .col-12
-                    .stitle
-                        margin-bottom: 15px
-                    .qa_content
-                        margin-bottom: 15px
-
-    section#section_part5
-        padding: 0px 10%
-        padding-bottom: 20px
-        .container-fluid
-            .row
-                .col-12
-                    .stitle
-                        margin-bottom: 15px
-                    .part5_content
-                        font-size: 15px
-                        margin-bottom: 15px
-
-    section#section_part6
-        padding: 0px 10%
-        padding-bottom: 100px
-        .container-fluid
-            .row
-                .col-12
-                    .stitle 
-                        margin-bottom: 15px
-                    .part5_content
-                        font-size: 15px
-                        margin-bottom: 25px
-
+        font-size: 16px
+    .ehanlin-logo
+        display: none
+    .content-logo
+        display: none
+    #section_part3
+        p
+            font-size: 14px
+        .red_content
+            font-size: 14px
+    #section_part4
+        p
+            font-size: 14px
+    #section_part5, #section_part6
+        .part5_content
+            li
+                font-size: 14px
     .goback_btn
-        height: 80px
-        font-size: 25px
+        height: 60px
+        h3
+            font-size: 24px
         
 @media screen and (min-width: 1200px)
     *
         font-size: 18px
-    
-    section#section_title
-        padding: 20px 20%
-        .container-fluid
-            .row
-                .col-12
-                    .title
-                        border: 3px solid #422700
-                        border-radius: 34px
-                        background-color: rgba(#fff,0.8)
-                        text-align: center
-                        margin: 0
-                        margin: 5% 15%
-                        font-size: 36px
-                        font-weight: 700
-                        padding: 5px 0px
-                    p
-                        font-size: 18px
-                        line-height: 25px
-
-                    .title_content
-                        border-radius: 10px
-                        font-size: 20px
-                        margin: 20px 0px
-                        background-color: rgba(#fff,0.5)
-                        padding: 15px
-                        color: #9b551b
-                        span
-                            color: #9b551b
-                            font-size: 20px
-                            img
-                                width: 20px
-                                height: 20px
-
-    section#section_part1
-        padding: 0 20%
-        .container-fluid
-            .row
-                .col-12
-                    padding-bottom: 40px
-                    .red_content
-                        color: #ff1414
-                    
-
-    section#section_part2
-        padding: 0px 20%
-        padding-bottom: 40px
-        .container-fluid
-            .row
-                .stitle
-                    margin-bottom: 15px
-                .upgrade_content
-                    padding: 0px 35px
-                    p
-                        font-size: 18px
-                    span
-                        color: #ff1414
-                        font-size: 18px
-                .col-4
-                    .row
-                        margin-bottom: 30px
-                        .col-12
-                            display: flex
-                            justify-content: center
-                            align-items: center
-                            padding: 3px 7px
-                            img
-                                width: 90%
-                                height: auto
-                            .potion_time
-                                font-size: 18px
-                                border-radius: 18px
-                                border: 2px solid #422700
-                                padding: 3px 15px
-                                margin: 5px 0px
-                                background-color: #fff
-
-                .col-tac
-                    text-align: center  
-    section#section_part3
-        padding: 0px 20%
-        padding-bottom: 40px
-        .container-fluid
-            .row
-                .col-12
-                    .stitle
-                        margin-bottom: 15px
-                    p
-                        font-size: 18px
-
-                .col-12
-                    .row
-                        padding: 0px 20px
-                        margin-bottom: 10px
-                        .col-6
-                            letter-spacing: 0px
-                            text-align: center
-                            background-color: rgba(#fff,0.7)
-                            border: 1px solid #422700
-                            font-size: 18px
-                            padding: 10px 0px
-                        
-    section#section_part4
-        padding: 0px 20%
-        padding-bottom: 40px
-        .container-fluid
-            .row
-                .col-12
-                    .stitle
-                        margin-bottom: 15px
-                    .qa_content
-                        margin-bottom: 15px
-
-    section#section_part5
-        padding: 0px 20%
-        padding-bottom: 40px
-        .container-fluid
-            .row
-                .col-12
-                    .stitle
-                        margin-bottom: 15px
-                    .part5_content
-                        font-size: 15px
-                        margin-bottom: 15px
-
-    section#section_part6
-        padding: 0px 20%
-        padding-bottom: 50px
-        .container-fluid
-            .row
-                .col-12
-                    .stitle 
-                        margin-bottom: 15px
-                    .part5_content
-                        font-size: 15px
-                        margin-bottom: 25px
-
+    .white-opacity
+        display: none
+    .ehanlin-logo
+        display: block
+        width: 350px
+        height: 46px
+        background-image: url("../../img/fairytaleImg/elogo.png")
+        background-size: contain
+        background-repeat: no-repeat
+        position: absolute
+        top: 20px
+        left: 20px
+    .content-logo
+        display: flex
+        justify-content: center
+        align-items: flex-end
+        height: 32%
+        margin-bottom: 20px
+    .fairytale-logo
+        width: 50%
+        height: 160px
+    .content-box
+        background-color: rgba(255,255,255,0.8)
+        border-radius: 30px
+        border: solid 30px rgba(255,255,255,0)
+        box-sizing: border-box
+        max-height: 60%
+        overflow: scroll
+        top: 0px
+    #section_part3
+        p
+            font-size: 16px
+        .red_content
+            font-size: 16px
+    #section_part4
+        p
+            font-size: 16px
+    #section_part5, #section_part6
+        .part5_content
+            li
+                font-size: 16px
     .goback_btn
         width: 13%
-        bottom: 70%
+        top: 20%
         height: 60px
         right: 0
         border: 3px solid #EFD08D
         border-right: none
-        font-size: 22px
         border-radius: 10px 0px 0px 10px
         h3
+            font-size: 28px
             letter-spacing: 5px
-            margin: 0
