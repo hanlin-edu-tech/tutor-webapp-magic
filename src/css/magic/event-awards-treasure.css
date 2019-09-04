@@ -68,6 +68,13 @@
 .confirm-grid-awards-treasure-container .img-block-right-btn .right-btn {
   height: 30px;
   width: 30px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.confirm-grid-awards-treasure-container .img-block-left-btn .left-btn:hover,
+.confirm-grid-awards-treasure-container .img-block-right-btn .right-btn:hover {
+  transform: scale(1.1);
 }
 
 .confirm-grid-awards-treasure-container .start-show-award {
@@ -87,19 +94,21 @@
   width: 200px;
   border-radius: 5px;
   font-size: 18px;
-  color: black;
-  background-color: #96d66d;
-  border: 2px solid #57962e;
+  color: #fff;
+  background-color: #887868;
+  border: 2px solid #5D450E;
   outline: none !important;
+  padding: 5px 0px;
+  cursor: pointer;
 }
 
 .sending-btn:hover,
 .all-award-btn:hover {
   border-radius: 5px;
-  font-size: 16px;
-  color: black;
-  background-color: #c3dbb3;
-  border: 2px solid #63ad34;
+  font-size: 18px;
+  color: #fff;
+  background-color: #48ABAF;
+  border: 2px solid #33969A;
   outline: none !important;
 }
 
@@ -107,17 +116,17 @@
 .sending-btn.sending,
 .all-award-btn.all-award {
   border-radius: 5px;
-  font-size: 16px;
-  color: black;
-  background-color: #c3dbb3;
-  border: 2px solid #63ad34;
+  font-size: 18px;
+  color: #fff;
+  background-color: #48ABAF;
+  border: 2px solid #33969A;
   outline: none !important;
 }
 
 .sending-desc {
-  color: #acf182;
-  font-family: '微軟正黑體', monospace;
-  font-weight: 500;
+  color: #fff;
+  font-family: '微軟正黑體';
+  font-weight: normal;
   font-size: 18px;
 }
 

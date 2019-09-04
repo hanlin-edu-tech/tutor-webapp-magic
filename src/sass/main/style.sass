@@ -4,13 +4,13 @@
     align-items: center
 
 *
-    font-family: 微軟正黑體, monospace
+    font-family: 微軟正黑體, sans-serif
     //border: 0.5px solid #fff
 
 html, body
     width: 100%
     height: 100vh
-    min-height: 650px
+    min-height: 670px
     margin: 0
     position: relative
 
@@ -84,14 +84,15 @@ button, a
                 padding: 0
 
                 img
-                    width: 80%
+                    width: 85%
                     height: auto
-                    padding-bottom: 2%
+                    padding-top: 2%
             .person_info
                 z-index: 1000
                 padding: 0px
                 .row.person_bg
-                    height: 65%
+                    min-height: 120px
+                    height: 50%
                     background: url("../../img/magicImg/person_info.png") no-repeat
                     background-size: 100% auto
                     margin: 0
@@ -182,7 +183,6 @@ button, a
 //藥水清單,藥水欄,選單
 #section_middle_part, #section_novice
     position: relative
-    z-index: 100
     //overflow: hidden
     .container-fluid
         .row
@@ -193,11 +193,12 @@ button, a
                 // background-size: 85% auto
                 // background-position: center 0
                 // background-repeat: no-repeat
-                position: relative
                 display: flex
                 justify-content: center
                 align-items: center
                 transform: translateY(-20%)
+                z-index: 1001
+                position: relative
 
 
                 // -- 童話重寫 -- //
@@ -208,6 +209,7 @@ button, a
                     position: relative
                     img
                         width: 100%
+                        
                 .previous_btn
                     width: 10%
                     position: absolute
@@ -249,6 +251,11 @@ button, a
                         font-size: 14px
                         font-weight: 500
                         color: #7E3A00
+                    
+                    .row_stitle
+                        width: 100%
+                        display: flex
+
                     .award_stitle,.award_scontnet
                         font-size: 12px
                     .notice
@@ -307,7 +314,7 @@ button, a
                 min-width: 770px
                 width: 770px
                 background-image: url("../../img/fairytaleImg/crystal-box.png")
-                //height: 420px
+                z-index: 100
                 background-size: 100% auto
                 background-repeat: no-repeat
                 display: flex
@@ -429,10 +436,10 @@ button, a
 
 @mixin message_btn_style
     .message_box_btn_style
-        font-size: 20px
-        margin-right: 5px
-        margin-bottom: 8px
-        padding: 0 24px
+        font-size: 18px
+        margin-right: 10px
+        //margin-bottom: 8px
+        //padding: 0 24px
 
 .confirm_message_box, .tutorial_message_box, .orange_message_box
     @include message_content
@@ -478,7 +485,11 @@ button, a
         color: white
         background-color: #6E5537
         border: 3px solid #4A382A
+        padding: 5px 10px
         outline: none
+        transition: 0.2s
+        &:hover
+            background-color: #4A382A
 
 //近期活動(貓)
 #near_activity
@@ -544,7 +555,7 @@ button, a
 
 //實力排行(帽子)
 #power_rank
-    z-index: 10
+    z-index: 510
     position: absolute
     bottom: 0%
     left: 12%
@@ -602,17 +613,20 @@ button, a
         cursor: pointer
 
     .explain_gift
-        position: fixed
-        bottom: 27%
-        left: 1%
-        width: 21%
-        height: 46%
+        min-width: 320px
+        max-width: 320px
+        min-height: 385px 
+        position: absolute
+        top: 100px
+        left: 1vw
+        width: 23%
+        height: 58%
         border: 3px solid #fff
     .content_gift
-        position: fixed
+        position: absolute
         display: block
         bottom: 55%
-        left: 23%
+        left: 25%
         width: 17%
 
     .explain_cat
@@ -626,7 +640,7 @@ button, a
         position: absolute
         display: block
         bottom: 7%
-        left: 20%
+        left: 28%
         width: 16%
     .explain_treasure
         position: fixed
@@ -639,7 +653,7 @@ button, a
         position: absolute
         display: block
         bottom: 23%
-        right: 20%
+        right: 15%
         width: 16%
     .explain_person_info
         position: absolute
@@ -660,16 +674,16 @@ button, a
     position: absolute
     width: 100%
     height: 100%
-    background-color: rgba(#222,0.7)
+    background-color: rgba(#000,0.7)
     top: 0
     .login_potion_box
         z-index: 1001
         position: fixed
-        left: 50%
+        left: 55%
         top: 52%
-        width: 55%
-        height: 50%
-        background-image: url("../../img/magicImg/login_potion_box.png")
+        width: 850px
+        height: 400px
+        background-image: url("../../img/fairytaleImg/crystal-box.png")
         background-repeat: no-repeat
         background-position: center center
         background-size: contain
@@ -678,11 +692,11 @@ button, a
         align-items: center
         justify-content: center
         flex-direction: column
-        padding: 0px 3%
+        padding: 0px 4%
         .row
             width: 100%
             text-align: center
-            padding-top: 4%
+            padding-top: 2%
             .col-3
                 padding: 0px 10px
                 a
@@ -692,7 +706,7 @@ button, a
             img
                 width: 100%
         .row_nothanks_btn
-            padding-top: 4%
+            padding-top: 3%
             img
                 width: 50%
                 height: auto
@@ -702,9 +716,9 @@ button, a
 
 // 音量鍵
 #speaker
-    position: fixed
+    position: absolute
     right: 2%
-    top: 120px
+    top: 130px
     z-index: 1000
     .speaker-field
         display: flex
@@ -731,8 +745,7 @@ button, a
             transform: scale(1.05)
     .mute
         background-image: url('../../img/fairytaleImg/mute.svg')
-    
-        
+      
 
 // 數
 .tree
@@ -745,9 +758,29 @@ button, a
         width: 100%
 
 
+// 螢幕橫向提示
+.center
+    font-size: 24px
+
+
+// popup強制調整
+.swal2-popup
+    .swal2-actions
+        margin: 0 !important
+        padding: 0px 0px 10px
+
+.swal2-container.swal2-shown
+    background-color: rgba(0,0,0,.7) !important
+
+@media screen and (max-width: 1300px)
+    #login_dialog
+        .login_potion_box
+            left: 59%
+
+
 @media screen and (max-width: 1200px)
     html,body
-        height: 100vh
+        min-height: 600px
     #section_titlelist
         .container-fluid
             .row
@@ -759,7 +792,7 @@ button, a
                 .person_info
                     .row.person_bg
                         .col-8
-                            height: 100%
+                            height: 92%
                             .row
                                 .col-8
                                     .row
@@ -785,43 +818,52 @@ button, a
 
 
     #section_middle_part, #section_novice
-        padding-top: 5vh
+        //padding-top: 5vh
         .container-fluid
             .row
                 .gift_list
                     padding: 0 2%
-                    background-size: 90% auto
-                    .row_gift_pic
-                        height: 32%
-                        .col-3
-                            cursor: pointer
-                            padding: 5px
-                            img
-                                width: 30%
-                        .previous_btn
-                            display: flex
-                            align-items: center
-                            justify-content: flex-end
-                        .next_btn
-                            display: flex
-                            align-items: center
-                            justify-content: flex-start
-                        .col-6
-                            +flexCenter
-                            align-items: center
-                            padding: 0px 1%
-                            .gift_photo
-                                width: 100%
 
+                    // -- 童話重寫 -- //
+                    .mirror
+                        min-width: 270px
+                        max-width: 270px
+                        width: 100%
+
+                    // 獎品內容
                     .row_gift_content
-                        font-size: 13px
-                        .award_note
-                            margin-right: 5%
-                            margin-top: 0%
-                            -webkit-transform: scale(0.85)
+                        width: 50%
+                        height: 70%
+                        top: 15%
+                        left: 30%
+                        .gift_photo
+                            width: 65%
+                        .title-row
+                            font-size: 12px
+                        .award_stitle,.award_scontnet
+                            font-size: 12px
+                            transform: scale(0.9)
+                            transform-origin: 0 0
+                            line-height: 12px
+                            //white-space: nowrap
+                        .award_level
+                            //line-height: 12px
+                            //white-space: nowrap
+
+                        .notice
+                            font-size: 12px
+                            width: 95%
+                            margin-left: 4%
+                            .award_note
+                                width: 115%
+                                transform: scale(0.85)
+                                transform-origin: 0 0
+                                letter-spacing: normal !important
+                        
 
                 .potion_box
-                    height: 50vh
+                    min-width: 700px
+                    //height: 50vh
                     .row
                         .col-3
                             .potion_colum
@@ -830,31 +872,29 @@ button, a
                                     line-height: 30px
 
     #my_treasure
-        width: 11%
-        .book
-            .book_title
-                line-height: 18px
-                top: 18%
-                right: 0%
-                font-size: 15px
-                padding: 8px
-    #near_activity
-        width: 11%
-        left: 3%
-        .cat
-            .cat_title
-                top: 56%
-                right: 12%
-                font-size: 15px
-                line-height: 20px
+        bottom: 5%
+        right: 0%
+        max-width: 210px
+        width: 12%
+        // .book
+        //     .book_title
+        //         line-height: 18px
+        //         top: 18%
+        //         right: 0%
+        //         font-size: 15px
+        //         padding: 8px
+    // #near_activity
+    //     width: 11%
+    //     left: 3%
+    //     .cat
+    //         .cat_title
+    //             top: 56%
+    //             right: 12%
+    //             font-size: 15px
+    //             line-height: 20px
     #power_rank
-        bottom: 0%
-        left: 22%
-        width: 11%
-        .hat
-            .hat_title
-                font-size: 15px
-
+        left: 14%
+        width: 12%
     .function_description
         .explain_gift
             bottom: 38%
@@ -888,20 +928,36 @@ button, a
 
     #login_dialog
         .login_potion_box
-            top: 45%
+            left: 58%
+            top: 52%
+            width: 720px
+            //height: 400px
+
+    #speaker
+        top: 110px
+
+
+@media screen and (max-width: 1050px)
+    #login_dialog
+        .login_potion_box
+            left: 60%
+
 
 @media screen and (max-width: 992px)
     html,body
-        height: 110vh
+        min-height: 500px
     #section_titlelist
-        height: 25%
+        height: 130px
         .container-fluid
             height: 100%
             .row
                 height: 100%
+                .elogo,.title,.person_info
+                    height: 100%
                 .title
                     +flexCenter
-                    align-items: flex-start
+                    img
+                        width: 100%
                 .person_info
                     .row.person_bg
                         height: 100%
@@ -920,27 +976,55 @@ button, a
         .container-fluid
             .row
                 .gift_list
-                    padding: 0 2%
-                    background-size: 80% auto
-                    .row_gift_pic
-                        height: 30%
+                    padding: 0
+                    // -- 童話重寫 -- //
+                    .mirror
+                        min-width: 220px
+                        max-width: 220px
+                        width: 100%
 
-                        .col-3
-                            img
-                                width: 25%
-
+                    // 獎品內容
                     .row_gift_content
-                        font-size: 13px
-                        -webkit-transform: scale(0.7)
-                        -webkit-transform-origin: top
-                        .award_note
-                            padding-left: 10%
-                            margin-top: 0%
-                            -webkit-transform: scale(0.8)
-                            -webkit-transform-origin: left
+                        width: 51%
+                        left: 31%
+                        .gift_photo
+                            width: 70%
+                            margin-top: 3px
+                            margin-bottom: 3px
+                        .title-row
+                            font-size: 12px
+                            
+                            .award_title
+                                transform: scale(0.9)
+                                transform-origin: 0 0
+                                width: 110%
+                                letter-spacing: normal
+
+                        .award_stitle,.award_scontnet
+                            font-size: 12px
+                            transform: scale(0.8)
+                            transform-origin: 0 0
+                            line-height: 12px
                             white-space: nowrap
 
+                        .award_scontnet
+                            transform: scale(0.8) translateX(-10px)
+                        .award_level
+                            //line-height: 12px
+                            //white-space: nowrap
+
+                        .notice
+                            font-size: 12px
+                            width: 95%
+                            margin-left: 4%
+                            .award_note
+                                width: 135%
+                                transform: scale(0.75)
+                                transform-origin: 0 0
+                                letter-spacing: normal !important
+
                 .potion_box
+                    min-width: 600px
                     .row
                         .col-3
                             .potion_colum
@@ -954,7 +1038,7 @@ button, a
                 .menu
                     a
                         width: 40%
-                        height: 6vh
+                        height: 25px
                         text-align: right
                         margin-right: -15px
                         transition: 0.3s
@@ -965,32 +1049,19 @@ button, a
                             height: auto
 
     #my_treasure
-        bottom: 2%
-        .book
-            .book_title
-                line-height: 15px
-                font-size: 12px
-                padding: 6px
-    #near_activity
-        left: 9%
-        width: 11%
-        .cat
-            .cat_title
-                top: 53%
-                right: 10%
-                font-size: 13px
-                line-height: 17px
+        bottom: 8%
+        width: 14%
+
     #power_rank
-        bottom: 0%
-        left: 25%
-        width: 10%
-        .hat
-            .hat_title
-                font-size: 12px
+        bottom: 5%
+        left: 11%
+        width: 15%
 
     #login_dialog
         .login_potion_box
-            top: 48%
+            left: 60%
+            top: 50%
+            width: 650px
 
     .function_description
         font-size: 12px
@@ -1033,13 +1104,50 @@ button, a
             top: 3%
             right: 36%
 
+    #speaker
+        right: 2%
+        top: 110px
+        h3
+            font-size: 14px
+            text-shadow: 0px 0px 5px rgba(#000,0.8)
+        a
+            width: 25px
+            height: 25px
+
+@media screen and (max-width: 880px)
+    html,body
+        min-height: 480px
+
+    #section_titlelist
+        height: 130px
+        .container-fluid
+            .row
+                .person_info
+                    .row.person_bg
+                        .col-8
+                            height: 82%
+
+    #section_middle_part, #section_novice
+        padding-top: 0%
+        .container-fluid
+            .row
+                .potion_box
+                    min-width: 520px
+
+    #login_dialog
+        .login_potion_box
+            left: 62%
+            top: 55%
+            width: 560px
+
 
 @media screen and (max-width: 768px)
     html,body
-        height: 110vh
+        min-height: 400px
+        //height: 110vh
     #section_titlelist
         position: relative
-        height: 30%
+        height: 110px
         .container-fluid
             height: 100%
             .row
@@ -1049,9 +1157,13 @@ button, a
                     align-items: flex-start
                 .person_info
                     .row.person_bg
-                        height: 72%
+                        max-height: 100px
+                        height: 100px
+                        #badge
+                            img
+                                transform: translateY(-15px)
                         .col-8
-                            height: 100%
+                            height: 80%
                             .row
                                 .col-8
                                     .row
@@ -1080,43 +1192,54 @@ button, a
         .container-fluid
             .row
                 .gift_list
-                    padding: 0 2%
-                    background-size: 88% auto
-                    .row_gift_pic
-                        height: 35%
-                        .col-3
-                            cursor: pointer
-                            padding: 5px
-                            img
-                                width: 25%
-                        .previous_btn
-                            display: flex
-                            align-items: center
-                            justify-content: flex-end
-                        .next_btn
-                            display: flex
-                            align-items: center
-                            justify-content: flex-start
-                        .col-6
-                            +flexCenter
-                            align-items: center
-                            padding: 0px 1%
-                            .gift_photo
-                                width: 100%
+                    padding: 0
 
+                    // -- 童話重寫 -- //
+                    .mirror
+                        min-width: 170px
+                        max-width: 170px
+
+                    // 獎品內容
                     .row_gift_content
-                        font-size: 13px
-                        -webkit-transform: scale(0.7)
-                        -webkit-transform-origin: top
-                        .award_note
-                            padding-left: 10%
-                            margin-top: 0%
-                            -webkit-transform: scale(0.7)
-                            -webkit-transform-origin: left
+                        width: 52%
+                        left: 32%
+                        .gift_photo
+                            width: 60%
+                        .title-row
+                            font-size: 12px
+                            max-height: 30px
+                            .award_title
+                                transform: scale(0.7)
+                                transform-origin: 0 0
+                                width: 140%
+                                letter-spacing: normal
+
+                        .award_stitle,.award_scontnet
+                            font-size: 12px
+                            transform: scale(0.6)
+                            transform-origin: 0 0
+                            line-height: 12px
                             white-space: nowrap
 
+                        .award_scontnet
+                            transform: scale(0.6) translateX(-40px)
+                        .award_level
+                            //line-height: 12px
+                            //white-space: nowrap
+
+                        .notice
+                            font-size: 12px
+                            width: 95%
+                            margin-left: 4%
+                            .award_note
+                                width: 160%
+                                transform: scale(0.6)
+                                transform-origin: 0 0
+                                letter-spacing: normal !important
+
+
                 .potion_box
-                    height: 50vh
+                    min-width: 450px
                     .row
                         .col-3
                             .potion_colum
@@ -1133,13 +1256,14 @@ button, a
                                     padding-left: 8%
                                     filter: drop-shadow(2px 0px 3px #000)
                 .menu
+                    top: 150px
                     display: flex
                     flex-direction: column
                     padding: 0
                     align-items: flex-end
                     a
-                        width: 40%
-                        height: 6vh
+                        width: 75px
+                        height: 21px
                         text-align: right
                         margin-right: -15px
                         transition: 0.3s
@@ -1147,35 +1271,20 @@ button, a
                             margin-right: 0px
                         img
                             width: 100%
-                            height: auto
 
     #my_treasure
         bottom: 10%
-        .book
-            .book_title
-                line-height: 15px
-                font-size: 12px
-                padding: 6px
-    #near_activity
-        left: 9%
-        width: 13%
-        .cat
-            .cat_title
-                top: 53%
-                right: 10%
-                font-size: 13px
-                line-height: 17px
+    
     #power_rank
-        bottom: 5%
-        left: 26%
-        width: 12%
-        .hat
-            .hat_title
-                font-size: 12px
+        bottom: 6%
+        left: 12%
+        width: 14%
 
     #login_dialog
         .login_potion_box
-            top: 48%
+            left: 62%
+            top: 55%
+            width: 70%
 
     .function_description
         font-size: 12px
@@ -1214,6 +1323,58 @@ button, a
             top: 3%
             right: 36%
 
+
+    #speaker
+        right: 2%
+        top: 90px
+        h3
+            font-size: 12px
+            text-shadow: 0px 0px 5px rgba(#000,0.8)
+        a
+            width: 20px
+            height: 20px
+
+
+@media screen and (max-width: 670px)
+    html,body
+        min-height: 360px
+
+    #section_titlelist
+        .container-fluid
+            height: 100%
+            .row
+                height: 100%
+                .person_info
+                    .row.person_bg
+                        .col-8
+                            height: 65%
+                            .row
+                                .col-8
+                                    .row
+                                        
+                                        .col-name
+                                            padding: 11px 0px
+                                        .col-coins
+                                            .row
+                                                .col-6
+                                                    height: 32px
+                                                    font-size: 12px
+                                                    transform: scale(0.86) translateX(-6px)
+
+    #section_middle_part, #section_novice
+        padding-top: 0%
+        .container-fluid
+            .row
+                .potion_box
+                    min-width: 400px
+                .menu
+                    top: 130px
+
+    #my_treasure
+        bottom: 3%
+    
+    #power_rank
+        bottom: 0%
 
 @media screen and (max-width: 580px)
     .tutorial_message_box.row
@@ -1348,7 +1509,7 @@ button, a
 
 @media (min-height: 450px) and (max-height: 550px)
     html,body
-        height: 120vh
+        //height: 120vh
 
 
 //- 動畫class -//
