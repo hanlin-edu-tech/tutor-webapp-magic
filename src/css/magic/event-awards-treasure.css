@@ -117,6 +117,7 @@
 .all-award-btn.all-award {
   border-radius: 5px;
   font-size: 18px;
+  
   color: #fff;
   background-color: #48ABAF;
   border: 2px solid #33969A;
@@ -137,6 +138,8 @@
 
   .confirm-grid-awards-treasure-container .content-block2 {
     font-size: 19px;
+    display: flex;
+    justify-content: center;
   }
 
   .confirm-grid-awards-treasure-container .img-block-left-btn .left-btn,
@@ -144,6 +147,19 @@
     cursor: pointer;
     height: 25px;
     width: 25px;
+  }
+
+  .waiting-btn,
+  .sending-btn,
+  .all-award-btn {
+    width: 30%;
+  }
+
+  .waiting-btn.waiting,
+  .waiting-btn,
+  .sending-btn.sending,
+  .sending-btn {
+    margin-right: 10px;
   }
 }
 
