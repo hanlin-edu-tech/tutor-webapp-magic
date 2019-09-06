@@ -42,7 +42,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'eventChestCheck'], ($, ajax, confirmP
       audioLevelUpTarget = document.getElementById('audio_level_up')
       audioLevelUpTarget.play()
 
-      await delay(1500)
+      await delay(700)
 
       targets.platformChest.attr('src',
         `./img/magicImg/LV${upLevel}.png`)
