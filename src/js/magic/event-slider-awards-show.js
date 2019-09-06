@@ -42,7 +42,7 @@ define(["jquery", "ajax", "w3"], ($, ajax, w3) => {
 
                 // sectionTarget.find('.gift_photo').append(awardImg)
 
-                let rowGiftContentTarget = sectionTarget.find(".row.row_gift_content");
+                let rowGiftContentTarget = sectionTarget.find(".row_gift_content");
                 rowGiftContentTarget.find(".title-row").append(awardImg);
                 rowGiftContentTarget.find(".title-row").append(awardTitle);
                 rowGiftContentTarget.find(".award_scontnet").append(awardInLv);
