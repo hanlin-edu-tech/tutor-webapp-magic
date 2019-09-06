@@ -34,7 +34,6 @@ define(["jquery", "ajax", "w3"], ($, ajax, w3) => {
                 } else if (quantity > 0) {
                     howMany = "還有貨喔";
                 }
-                console.log(awardId);
                 awardImg = `<img class="gift_photo" src="./img/award/${awardId}.png">`;
                 awardTitle = `<div class="award_title">${title}</div>`;
                 awardInLv = `<div class="award_level">Lv${needChestLv}</div>`;
