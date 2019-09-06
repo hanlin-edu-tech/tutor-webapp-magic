@@ -46,7 +46,7 @@ define(["jquery", "ajax", "w3"], ($, ajax, w3) => {
                 rowGiftContentTarget.find(".title-row").append(awardImg);
                 rowGiftContentTarget.find(".title-row").append(awardTitle);
                 rowGiftContentTarget.find(".award_scontnet").append(awardInLv);
-                rowGiftContentTarget.find(".award_scontnet").append(awardFactory);
+                rowGiftContentTarget.find(".award_scontnet_sec").append(awardFactory);
                 rowGiftContentTarget.find(".notice").append(awardNotice);
             }
 

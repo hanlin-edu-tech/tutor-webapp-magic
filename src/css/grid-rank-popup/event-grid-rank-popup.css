@@ -19,9 +19,9 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
-  grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
   -ms-grid-rows: 10% 12% 78%;
-  grid-template-rows: 10% 12% 78%;
+      grid-template-rows: 10% 12% 78%;
   padding: 12px; }
   .rank-grid-container .content-block1 {
     display: -webkit-box;
@@ -97,9 +97,9 @@
       display: -ms-grid;
       display: grid;
       -ms-grid-columns: 25% 75%;
-      grid-template-columns: 25% 75%;
+          grid-template-columns: 25% 75%;
       -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr; }
+          grid-template-rows: 1fr; }
     .rank-grid-container .content-block3 #personal-rank .content-option {
       padding: 20px 10px;
       background: #947D66;
@@ -140,9 +140,9 @@
         display: -ms-grid;
         display: grid;
         -ms-grid-columns: 1fr 1fr 4fr;
-        grid-template-columns: 1fr 1fr 4fr;
+            grid-template-columns: 1fr 1fr 4fr;
         -ms-grid-rows: 1fr;
-        grid-template-rows: 1fr;
+            grid-template-rows: 1fr;
         padding: 10px; }
       .rank-grid-container .content-block3 #personal-rank .content-no123 .rank-no1, .rank-grid-container .content-block3 #personal-rank .content-no123 .rank-no2 {
         margin-bottom: 10px; }
@@ -261,9 +261,9 @@
         display: -ms-grid;
         display: grid;
         -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+            grid-template-columns: 1fr;
         -ms-grid-rows: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
         text-align: center; }
         .rank-grid-container .content-block3 #personal-rank .content-no123 .person-info .name-no1, .rank-grid-container .content-block3 #personal-rank .content-no123 .person-info .name-no2, .rank-grid-container .content-block3 #personal-rank .content-no123 .person-info .name-no3 {
           font-size: 22px;
@@ -304,9 +304,9 @@
       display: -ms-grid;
       display: grid;
       -ms-grid-columns: 27% 58% 15%;
-      grid-template-columns: 27% 58% 15%;
+          grid-template-columns: 27% 58% 15%;
       -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr; }
+          grid-template-rows: 1fr; }
     .rank-grid-container .content-block3 #school-rank .school-rank-option {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -351,18 +351,18 @@
       display: -ms-grid;
       display: grid;
       -ms-grid-columns: 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
       -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr; }
+          grid-template-rows: 1fr; }
       .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-cat, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-lion, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-rabbit, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-tiger {
         width: 100%;
         height: 100%;
         display: -ms-grid;
         display: grid;
         -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+            grid-template-columns: 1fr;
         -ms-grid-rows: 20% 10% 60% 10%;
-        grid-template-rows: 20% 10% 60% 10%; }
+            grid-template-rows: 20% 10% 60% 10%; }
         .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-cat img, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-lion img, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-rabbit img, .rank-grid-container .content-block3 #school-rank .school-rank-sandglass .sandglass-tiger img {
           width: 75%;
           height: auto;
@@ -470,9 +470,9 @@
       display: -ms-grid;
       display: grid;
       -ms-grid-columns: 25% 75%;
-      grid-template-columns: 25% 75%;
+          grid-template-columns: 25% 75%;
       -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr; }
+          grid-template-rows: 1fr; }
     .rank-grid-container .content-block3 #history-record .content-option {
       padding: 20px 10px;
       background: #947D66;
@@ -532,9 +532,9 @@
       display: -ms-grid;
       display: grid;
       -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+          grid-template-columns: 1fr 1fr 1fr;
       -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr; }
+          grid-template-rows: 1fr; }
       .rank-grid-container .content-block3 #history-record .row-item li {
         padding: 8px;
         font-size: 16px;
@@ -552,9 +552,9 @@
       display: -ms-grid;
       display: grid;
       -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+          grid-template-columns: 1fr 1fr 1fr;
       -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+          grid-template-rows: 1fr;
       text-align: center; }
       .rank-grid-container .content-block3 #history-record .row-my-list li, .rank-grid-container .content-block3 #history-record .row-school-list li {
         padding: 8px;
@@ -566,10 +566,10 @@
       height: 350px; }
       .rank-grid-container .content-block3 #history-record .content-history-school .row-item {
         -ms-grid-columns: 1fr 0.9fr 1fr 1.5fr;
-        grid-template-columns: 1fr 0.9fr 1fr 1.5fr; }
+            grid-template-columns: 1fr 0.9fr 1fr 1.5fr; }
       .rank-grid-container .content-block3 #history-record .content-history-school .row-school-list {
         -ms-grid-columns: 1fr 0.9fr 1fr 1.5fr;
-        grid-template-columns: 1fr 0.9fr 1fr 1.5fr; }
+            grid-template-columns: 1fr 0.9fr 1fr 1.5fr; }
   .rank-grid-container .content-block3 #active-explain {
     margin-top: 10px;
     width: 100%;
@@ -621,9 +621,9 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 48% 52%;
-  grid-template-columns: 48% 52%;
+      grid-template-columns: 48% 52%;
   -ms-grid-rows: 13% 77%;
-  grid-template-rows: 13% 77%; }
+      grid-template-rows: 13% 77%; }
   #popup-grid-my-rank .content-title {
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
@@ -655,9 +655,9 @@
       display: -ms-grid;
       display: grid;
       -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+          grid-template-columns: 1fr;
       -ms-grid-rows: 4fr 3fr;
-      grid-template-rows: 4fr 3fr; }
+          grid-template-rows: 4fr 3fr; }
     #popup-grid-my-rank .content-person-info .student-info-nologin {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -680,9 +680,9 @@
       display: -ms-grid;
       display: grid;
       -ms-grid-columns: 42% 58%;
-      grid-template-columns: 42% 58%;
+          grid-template-columns: 42% 58%;
       -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+          grid-template-rows: 1fr;
       background: #0C6C70;
       -webkit-box-shadow: inset 0 0 0 4px #095E61;
               box-shadow: inset 0 0 0 4px #095E61;
@@ -800,9 +800,9 @@
       display: -ms-grid;
       display: grid;
       -ms-grid-columns: 1fr 1fr 4fr 1fr;
-      grid-template-columns: 1fr 1fr 4fr 1fr;
+          grid-template-columns: 1fr 1fr 4fr 1fr;
       -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+          grid-template-rows: 1fr;
       background: #FFFFFF;
       border: 4px solid #A0A0A0;
       -webkit-box-shadow: inset 0 0 0 3px rgba(221, 221, 221, 0.5);
@@ -855,9 +855,9 @@
         display: -ms-grid;
         display: grid;
         -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+            grid-template-columns: 1fr;
         -ms-grid-rows: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
         text-align: center; }
         #popup-grid-my-rank .content-rank-list .rank-list .student-info .student-name {
           color: #636363;
@@ -959,9 +959,9 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
-  grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
   -ms-grid-rows: 1fr 6fr;
-  grid-template-rows: 1fr 6fr;
+      grid-template-rows: 1fr 6fr;
   height: 400px; }
   #popup-now-rank .now-rank-title {
     display: -webkit-box;
@@ -982,9 +982,9 @@
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     -ms-grid-rows: 1fr 3fr;
-    grid-template-rows: 1fr 3fr;
+        grid-template-rows: 1fr 3fr;
     width: 100%;
     height: 100%; }
     #popup-now-rank .now-rank-outside .now-rank-content {
@@ -1020,9 +1020,9 @@
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     -ms-grid-rows: 1fr 4fr 2fr;
-    grid-template-rows: 1fr 4fr 2fr; }
+        grid-template-rows: 1fr 4fr 2fr; }
     #popup-now-rank .now-rank-inside .now-rank-content {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -1256,7 +1256,7 @@
       height: 235px; }
       .rank-grid-container .content-block3 #school-rank .container-school-rank {
         -ms-grid-columns: 27% 59% 15%;
-        grid-template-columns: 27% 59% 15%; }
+            grid-template-columns: 27% 59% 15%; }
       .rank-grid-container .content-block3 #school-rank .school-rank-option {
         font-size: 12px;
         padding-left: 5px; }
@@ -1339,7 +1339,7 @@
         height: 205px; }
         .rank-grid-container .content-block3 #history-record .content-history-school .row-item {
           -ms-grid-columns: 1fr 0.9fr 1fr 1.5fr;
-          grid-template-columns: 1fr 0.9fr 1fr 1.5fr; }
+              grid-template-columns: 1fr 0.9fr 1fr 1.5fr; }
           .rank-grid-container .content-block3 #history-record .content-history-school .row-item li {
             padding: 5px;
             font-size: 12px;
@@ -1349,7 +1349,7 @@
             -webkit-transform: scale(0.9); }
         .rank-grid-container .content-block3 #history-record .content-history-school .row-school-list {
           -ms-grid-columns: 1fr 0.9fr 1fr 1.5fr;
-          grid-template-columns: 1fr 0.9fr 1fr 1.5fr; }
+              grid-template-columns: 1fr 0.9fr 1fr 1.5fr; }
           .rank-grid-container .content-block3 #history-record .content-history-school .row-school-list li {
             text-align: center;
             padding: 5px;
@@ -1385,9 +1385,9 @@
       #popup-grid-my-rank .content-person-info .container-info {
         padding: 5px 5px 0px;
         -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+            grid-template-columns: 1fr;
         -ms-grid-rows: 4fr 3fr;
-        grid-template-rows: 4fr 3fr; }
+            grid-template-rows: 4fr 3fr; }
       #popup-grid-my-rank .content-person-info .student-info-nologin {
         -webkit-box-shadow: inset 0 0 0 3px #095E61;
                 box-shadow: inset 0 0 0 3px #095E61;
@@ -1398,9 +1398,9 @@
         display: -ms-grid;
         display: grid;
         -ms-grid-columns: 4fr 6fr;
-        grid-template-columns: 4fr 6fr;
+            grid-template-columns: 4fr 6fr;
         -ms-grid-rows: 1fr;
-        grid-template-rows: 1fr;
+            grid-template-rows: 1fr;
         background: #0C6C70;
         -webkit-box-shadow: inset 0 0 0 4px #095E61;
                 box-shadow: inset 0 0 0 4px #095E61;
@@ -1537,9 +1537,9 @@
       font-size: 13px; }
     #popup-now-rank .now-rank-inside {
       -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+          grid-template-columns: 1fr;
       -ms-grid-rows: 1fr 3fr 2fr;
-      grid-template-rows: 1fr 3fr 2fr; }
+          grid-template-rows: 1fr 3fr 2fr; }
       #popup-now-rank .now-rank-inside .content {
         font-size: 13px; }
       #popup-now-rank .now-rank-inside .now-rank-gift-list .gift-list {
