@@ -23,7 +23,7 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => { // eslin
     })
 
   $('.col-12.col-logout .logout').on('click', () => {
-    ajax('PUT', `/Users/521d946be4b0d765448570bd/!logout`)
+    ajax('PUT', `/user/Users/521d946be4b0d765448570bd/!logout`)
       .then(() => {
         window.location = 'https://' + window.location.hostname
       })
@@ -34,6 +34,6 @@ define(['jquery', 'ajax', 'confirmPopup'], ($, ajax, confirmPopup) => { // eslin
   })
 
   $('.col-12.col-login .login').on('click', () => {
-    window.location.href = '/Users/login.html'
+    window.location.href = '/user/Users/login.html'
   })
 })
