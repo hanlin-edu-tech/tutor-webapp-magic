@@ -1,70 +1,64 @@
 @charset "UTF-8";
-html, body {
-  width: 100%;
-  height: 100%; }
-
 body {
-  background-image: url("../../img/fairytaleImg/background.png");
+  background-image: url("../../img/fairytaleImg/activityMeans/bg-mobile.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center; }
 
 * {
   letter-spacing: 1px;
-  color: #422700;
+  color: #333333;
   font-size: 14px;
   font-family: 微軟正黑體; }
 
-.white-opacity {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
-  position: absolute;
-  z-index: -100; }
-
 .ehanlin-logo {
-  display: none; }
+  position: absolute;
+  top: 0; }
 
 .content-logo {
-  display: none; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px 0px; }
 
 .fairytale-logo {
-  display: block;
-  width: 100%;
-  height: 200px;
-  background-image: url("../../img/fairytaleImg/title.png");
-  background-size: contain;
-  background-repeat: no-repeat; }
+  width: 60%; }
+  .fairytale-logo img {
+    width: 100%; }
 
 .content-box {
-  max-height: 85%;
-  overflow: scroll;
+  padding: 20px 10px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 80px;
+  width: 95%;
+  background-color: rgba(255, 255, 255, 0.8);
   position: relative;
-  top: 40px; }
+  border-radius: 20px; }
 
 hr {
   margin-top: 0rem; }
 
 #section_title .container-fluid .row .col-12 .title {
   width: 200px;
-  border: 3px solid #422700;
-  border-radius: 25px;
   text-align: center;
-  margin: 0px auto 20px auto;
-  font-size: 24px;
-  font-weight: 700;
-  padding: 5px 0px; }
+  margin: 0px auto 10px auto;
+  font-size: 20px;
+  font-weight: 700; }
 
 #section_title .container-fluid .row .col-12 .title_content {
   margin-bottom: 20px;
   background-color: #ffffff;
   border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  padding: 8px 16px;
-  color: #9b551b; }
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  padding: 12px 18px;
+  color: #0e55a5; }
   #section_title .container-fluid .row .col-12 .title_content span {
-    color: #9b551b; }
+    color: #0e55a5; }
     #section_title .container-fluid .row .col-12 .title_content span img {
       width: 14px;
       height: 14px; }
@@ -77,7 +71,7 @@ hr {
   height: 15px; }
 
 #section_part1 .container-fluid .row .col-12 .red_content {
-  color: #ff1414; }
+  color: #ff5837; }
 
 #section_part2 .container-fluid .row .stitle {
   margin-bottom: 15px; }
@@ -109,6 +103,29 @@ hr {
       margin: 5px 0px;
       background-color: #fff; }
 
+#section_part2 .container-fluid .row .col-7 {
+  padding-top: 15px; }
+  #section_part2 .container-fluid .row .col-7 p {
+    margin-bottom: 0px; }
+
+#section_part2 .container-fluid .row .col-5 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+#section_part2 .container-fluid .row .magic {
+  width: 100%;
+  max-width: 150px; }
+
+#section_part2 .container-fluid .row:nth-child(4) {
+  padding: 20px 0px; }
+
 #section_part3 .stitle {
   margin-bottom: 15px; }
 
@@ -119,11 +136,21 @@ hr {
   font-size: 12px;
   color: #ff1414; }
 
-#section_part4 .stitle {
-  margin-bottom: 15px; }
-
-#section_part4 p {
-  font-size: 12px; }
+#section_part4 {
+  padding-bottom: 30px; }
+  #section_part4 .stitle {
+    margin-bottom: 15px; }
+  #section_part4 p {
+    font-size: 12px; }
+  #section_part4 .btn-line {
+    background-color: #48abaf;
+    color: #ffffff;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 5px; }
+    #section_part4 .btn-line:hover {
+      text-decoration: none;
+      background-color: #33969a; }
 
 #section_part5 .stitle, #section_part6 .stitle {
   margin-bottom: 15px; }
@@ -146,15 +173,16 @@ hr {
   position: fixed;
   width: 100%;
   bottom: 0;
-  height: 60px;
+  height: 50px;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#D7B060), color-stop(51%, #CD9514), to(#D7B060));
   background-image: linear-gradient(-180deg, #D7B060 0%, #CD9514 51%, #D7B060 100%);
   border-top: 6px solid #EFD08D;
   -webkit-box-shadow: 0 4px 10px 0 rgba(152, 90, 16, 0.5);
-          box-shadow: 0 4px 10px 0 rgba(152, 90, 16, 0.5);
-  font-size: 25px; }
+          box-shadow: 0 4px 10px 0 rgba(152, 90, 16, 0.5); }
   .goback_btn h3 {
-    margin: 0px; }
+    margin: 0px;
+    color: #FFFFFF;
+    font-size: 22px; }
   .goback_btn a {
     color: #FFFFFF;
     letter-spacing: 3px;
@@ -166,10 +194,13 @@ hr {
 @media screen and (min-width: 768px) {
   * {
     font-size: 16px; }
-  .ehanlin-logo {
-    display: none; }
-  .content-logo {
-    display: none; }
+  .fairytale-logo {
+    max-width: 500px; }
+  .content-box {
+    width: 90%;
+    max-width: 800px; }
+  #section_part2 .row:nth-child(3) .col-4 {
+    padding: 0px; }
   #section_part3 p {
     font-size: 14px; }
   #section_part3 .red_content {
@@ -184,44 +215,21 @@ hr {
       font-size: 24px; } }
 
 @media screen and (min-width: 1200px) {
+  html, body {
+    width: 100%;
+    height: 100%; }
   * {
     font-size: 18px; }
-  .white-opacity {
-    display: none; }
-  .ehanlin-logo {
-    display: block;
-    width: 350px;
-    height: 46px;
-    background-image: url("../../img/fairytaleImg/elogo.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 20px;
-    left: 20px; }
-  .content-logo {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
-    height: 32%;
-    margin-bottom: 20px; }
-  .fairytale-logo {
-    width: 50%;
-    height: 160px; }
+  body {
+    background-image: url("../../img/fairytaleImg/background.png"); }
   .content-box {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 30px;
-    border: solid 30px rgba(255, 255, 255, 0);
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    max-height: 60%;
+    border: solid 15px rgba(255, 255, 255, 0);
+    padding: 10px;
+    height: 66vh;
     overflow: scroll;
-    top: 0px; }
+    overflow-x: hidden;
+    top: 0px;
+    margin-bottom: 0px; }
   #section_part3 p {
     font-size: 16px; }
   #section_part3 .red_content {
@@ -241,3 +249,11 @@ hr {
     .goback_btn h3 {
       font-size: 28px;
       letter-spacing: 5px; } }
+
+@media screen and (min-width: 1500px) {
+  .content-logo {
+    padding: 30px 0px; }
+  .fairytale-logo {
+    max-width: 740px; }
+  .content-box {
+    max-width: 1000px; } }

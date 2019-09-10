@@ -1,40 +1,57 @@
 html,body
-    width: 100%
-    height: 100%
+    //width: 100%
+    //height: 100%
     
 body
-    background-image: url("../../img/fairytaleImg/background.png")
+    background-image: url("../../img/fairytaleImg/activityMeans/bg-mobile.png")
     background-size: cover
     background-repeat: no-repeat
     background-position: center center
 *
     //border: .5px solid #000
     letter-spacing: 1px
-    color: #422700
+    color: #333333
     font-size: 14px
     font-family: 微軟正黑體
-.white-opacity
-    width: 100%
-    height: 100%
-    background-color: rgba(255,255,255,0.8)
-    position: absolute
-    z-index: -100
+    
+// .white-opacity
+//     width: 90%
+//     height: 100%
+//     background-color: rgba(255,255,255,0.8)
+//     position: absolute
+//     z-index: -100
+
 .ehanlin-logo
-    display: none
+    position: absolute
+    top: 0
+    //display: none
 .content-logo
-    display: none
+    //display: none
+    display: flex
+    justify-content: center
+    padding: 10px 0px
 .fairytale-logo
-    display: block
-    width: 100%
-    height: 200px
-    background-image: url("../../img/fairytaleImg/title.png")
-    background-size: contain
-    background-repeat: no-repeat
+    //display: block
+    width: 60%
+    // height: 150px
+    // background-image: url("../../img/fairytaleImg/title.png")
+    // background-size: contain
+    // background-repeat: no-repeat
+    img
+        width: 100%
 .content-box
-    max-height: 85%
-    overflow: scroll
+    padding: 20px 10px
+    margin-right: auto
+    margin-left: auto
+    margin-bottom: 80px
+    width: 95%
+    background-color: rgba(255,255,255,0.8)
+    //max-height: 85%
+    //overflow: scroll
+    //overflow-x: hidden
     position: relative
-    top: 40px
+    border-radius: 20px
+    //top: 40px
 hr
     margin-top: 0rem
 #section_title
@@ -43,22 +60,22 @@ hr
             .col-12
                 .title
                     width: 200px
-                    border: 3px solid #422700
-                    border-radius: 25px
+                    //border: 3px solid #422700
+                    //border-radius: 25px
                     text-align: center
-                    margin: 0px auto 20px auto
-                    font-size: 24px
+                    margin: 0px auto 10px auto
+                    font-size: 20px
                     font-weight: 700
-                    padding: 5px 0px
+                    //padding: 5px 0px
                 .title_content
                     margin-bottom: 20px
                     background-color: #ffffff
                     border-radius: 10px
-                    box-shadow: 0px 0px 10px rgba(0,0,0,0.2)
-                    padding: 8px 16px
-                    color: #9b551b
+                    box-shadow: 0px 0px 5px rgba(0,0,0,0.1)
+                    padding: 12px 18px
+                    color: #0e55a5
                     span
-                        color: #9b551b
+                        color: #0e55a5
                         img
                             width: 14px
                             height: 14px
@@ -74,7 +91,7 @@ hr
                         width: 15px
                         height: 15px
                 .red_content
-                    color: #ff1414
+                    color: #ff5837
 
 #section_part2
     .container-fluid
@@ -100,7 +117,20 @@ hr
                             border: 2px solid #422700
                             padding: 2px 12px
                             margin: 5px 0px
-                            background-color: #fff
+                            background-color: #fff 
+            .col-7 
+                padding-top: 15px
+                p
+                    margin-bottom: 0px
+            .col-5
+                display: flex
+                justify-content: center
+                align-items: center
+            .magic
+                width: 100%
+                max-width: 150px
+            &:nth-child(4)
+                padding: 20px 0px
 
 #section_part3
     .stitle
@@ -112,10 +142,22 @@ hr
         color: #ff1414
                     
 #section_part4
+    padding-bottom: 30px
     .stitle
         margin-bottom: 15px
     p
         font-size: 12px
+
+    .btn-line
+        background-color: #48abaf
+        color: #ffffff
+        padding: 10px 15px
+        margin-bottom: 20px
+        border-radius: 5px
+        &:hover
+            text-decoration: none
+            background-color: #33969a
+
 #section_part5, #section_part6
     .stitle
         margin-bottom: 15px
@@ -131,13 +173,15 @@ hr
     position: fixed
     width: 100%
     bottom: 0
-    height: 60px
+    height: 50px
     background-image: linear-gradient(-180deg, #D7B060 0%, #CD9514 51%, #D7B060 100%)
     border-top: 6px solid #EFD08D
     box-shadow: 0 4px 10px 0 rgba(152, 90, 16, 0.50)
-    font-size: 25px
+    
     h3
         margin: 0px
+        color: #FFFFFF
+        font-size: 22px
     a
         color: #FFFFFF
         letter-spacing: 3px
@@ -149,10 +193,21 @@ hr
 @media screen and (min-width: 768px)
     *
         font-size: 16px
-    .ehanlin-logo
-        display: none
-    .content-logo
-        display: none
+    // .ehanlin-logo
+    //     display: none
+    // .content-logo
+    //     display: none
+    .fairytale-logo
+        max-width: 500px
+
+    .content-box
+        width: 90%
+        max-width: 800px
+    #section_part2
+        .row
+            &:nth-child(3)
+                .col-4
+                    padding: 0px
     #section_part3
         p
             font-size: 14px
@@ -171,37 +226,47 @@ hr
             font-size: 24px
         
 @media screen and (min-width: 1200px)
+    html,body
+        width: 100%
+        height: 100%
     *
         font-size: 18px
-    .white-opacity
-        display: none
-    .ehanlin-logo
-        display: block
-        width: 350px
-        height: 46px
-        background-image: url("../../img/fairytaleImg/elogo.png")
-        background-size: contain
-        background-repeat: no-repeat
-        position: absolute
-        top: 20px
-        left: 20px
-    .content-logo
-        display: flex
-        justify-content: center
-        align-items: flex-end
-        height: 32%
-        margin-bottom: 20px
-    .fairytale-logo
-        width: 50%
-        height: 160px
+
+    body
+        background-image: url("../../img/fairytaleImg/background.png")
+
+    // .white-opacity
+    //     display: none
+    // .ehanlin-logo
+    //     display: block
+    //     width: 350px
+    //     height: 46px
+    //     background-image: url("../../img/fairytaleImg/elogo.png")
+    //     background-size: contain
+    //     background-repeat: no-repeat
+    //     position: absolute
+    //     top: 20px
+    //     left: 20px
+    // .content-logo
+    //     display: flex
+    //     justify-content: center
+    //     align-items: flex-end
+    //     height: 32%
+    //     margin-bottom: 20px
+    // .fairytale-logo
+    //     width: 50%
+    //     height: 160px
     .content-box
-        background-color: rgba(255,255,255,0.8)
-        border-radius: 30px
-        border: solid 30px rgba(255,255,255,0)
-        box-sizing: border-box
-        max-height: 60%
+        // background-color: rgba(255,255,255,0.8)
+        // border-radius: 30px
+        border: solid 15px rgba(255,255,255,0)
+        padding: 10px
+        //box-sizing: border-box
+        height: 66vh
         overflow: scroll
+        overflow-x: hidden
         top: 0px
+        margin-bottom: 0px
     #section_part3
         p
             font-size: 16px
@@ -225,3 +290,11 @@ hr
         h3
             font-size: 28px
             letter-spacing: 5px
+
+@media screen and (min-width: 1500px)
+    .content-logo
+        padding: 30px 0px
+    .fairytale-logo
+        max-width: 740px
+    .content-box
+        max-width: 1000px

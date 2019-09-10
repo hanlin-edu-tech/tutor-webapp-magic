@@ -562,7 +562,7 @@ button, a
 #power_rank
     z-index: 510
     position: absolute
-    bottom: 0%
+    bottom: 2%
     left: 12%
     width: 15%
     max-width: 210px
@@ -684,8 +684,8 @@ button, a
     .login_potion_box
         z-index: 1001
         position: fixed
-        left: 55%
-        top: 52%
+        left: 50%
+        top: 450px
         width: 850px
         height: 400px
         background-image: url("../../img/fairytaleImg/crystal-box.png")
@@ -777,6 +777,19 @@ button, a
 .swal2-container.swal2-shown
     background-color: rgba(0,0,0,.7) !important
 
+@media screen and (max-width: 1536px)
+    #login_dialog
+        .login_potion_box
+            left: 53%
+            top: 400px
+
+@media screen and (max-width: 1440px)
+    #login_dialog
+        .login_potion_box
+            left: 55%
+            top: 390px
+
+
 @media screen and (max-width: 1300px)
     #login_dialog
         .login_potion_box
@@ -845,11 +858,11 @@ button, a
                             width: 65%
                         .title-row
                             font-size: 12px
-                        .award_stitle,.award_scontnet
+                        .award_stitle,.award_scontnet,.award_stock
                             font-size: 12px
                             transform: scale(0.9)
                             transform-origin: 0 0
-                            line-height: 12px
+                            //line-height: 12px
                             //white-space: nowrap
                         .award_level
                             //line-height: 12px
@@ -878,7 +891,7 @@ button, a
 
     #my_treasure
         bottom: 5%
-        right: 0%
+        right: 2%
         max-width: 210px
         width: 12%
         // .book
@@ -934,7 +947,7 @@ button, a
     #login_dialog
         .login_potion_box
             left: 58%
-            top: 52%
+            top: 330px
             width: 720px
             //height: 400px
 
@@ -990,8 +1003,8 @@ button, a
 
                     // 獎品內容
                     .row_gift_content
-                        width: 51%
-                        left: 26%
+                        width: 50%
+                        left: 25%
                         .gift_photo
                             width: 70%
                             margin-top: 3px
@@ -1005,11 +1018,11 @@ button, a
                                 width: 110%
                                 letter-spacing: normal
 
-                        .award_stitle,.award_scontnet
+                        .award_stitle,.award_scontnet,.award_stock
                             font-size: 12px
                             transform: scale(0.8)
                             transform-origin: 0 0
-                            line-height: 12px
+                            line-height: 14px
                             white-space: nowrap
 
                         .award_scontnet
@@ -1065,7 +1078,7 @@ button, a
     #login_dialog
         .login_potion_box
             left: 60%
-            top: 50%
+            top: 270px
             width: 650px
 
     .function_description
@@ -1142,7 +1155,7 @@ button, a
     #login_dialog
         .login_potion_box
             left: 62%
-            top: 55%
+            top: 250px
             width: 560px
 
 
@@ -1206,8 +1219,8 @@ button, a
 
                     // 獎品內容
                     .row_gift_content
-                        width: 52%
-                        left: 27%
+                        width: 54%
+                        left: 23%
                         .gift_photo
                             width: 60%
                         .title-row
@@ -1223,6 +1236,13 @@ button, a
                             font-size: 12px
                             transform: scale(0.6)
                             transform-origin: 0 0
+                            line-height: 12px
+                            white-space: nowrap
+
+                        .award_stock
+                            font-size: 12px
+                            transform: scale(0.6)
+                            transform-origin: -80% 0
                             line-height: 12px
                             white-space: nowrap
 
@@ -1288,7 +1308,7 @@ button, a
     #login_dialog
         .login_potion_box
             left: 62%
-            top: 55%
+            top: 220px
             width: 70%
 
     .function_description
