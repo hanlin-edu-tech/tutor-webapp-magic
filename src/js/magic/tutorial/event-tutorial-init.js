@@ -443,7 +443,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
           audioLevelUpTarget.play()
 
           potionTarget.addClass('upgrade_animation')
-          await delay(1500)
+          await delay(700)
 
           potionTarget.attr('src',
             `./img/magicImg/LV${upLevel}.png`)
