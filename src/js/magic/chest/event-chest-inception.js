@@ -9,10 +9,10 @@ define(['jquery', 'ajax', 'confirmPopup', 'commonUtil',
         popupHtml = `
           <div class="confirm-grid-inception-container">
             <div class="content-block1 confirm-popup-title-font">
-              <span>開始調配藥水</span>
+              <span>開始啟動水晶球</span>
             </div>
             <div class="content-block2">
-              <p>目前藥水等級為 <span class="highlight">Lv${chest.level}</span>，成功調配此魔法藥水可能獲得</p>
+              <p>目前水晶球等級為 <span class="highlight">Lv${chest.level}</span>，成功啟動此水晶球可能獲得</p>
             </div>
             <div class="img-block-left-btn">
               <img class="left-btn" src="./img/magicImg/previous.svg">
@@ -21,7 +21,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'commonUtil',
               <img class="right-btn" src="./img/magicImg/next.svg">
             </div>
             <div class="content-block4">
-              <p>你確定要啟動這個藥水嗎？</p>
+              <p>你確定要啟動這個水晶球嗎</p>
             </div>
           </div>
         `

@@ -244,10 +244,12 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
     /* 4_5_1 新手教學獎勵：縮短前 10 瓶藥水調配時間 */
     let step4_5_1 = () => {
       let popupHtml = `<p class="common-font left-align">別急別急，我還要送你一份大禮物！
-        劈劈啪滋酷酷唷～為了讓魔法學員們更快學會魔藥學，
-        <span class="highlight">我將你們前 10 瓶藥水的調配時間大大的縮短了喔！
-        完成新手教學之後趕快前往「我的課程」練題拿藥水吧！</span>
-        成為魔法師的第一步驟就是拜師學藝，前往下一步，選擇你想選擇的學院吧！</p>
+        童話鎮鎮長有特別交代，要贈送每位勇士一份大禮物！他們是怎麼教的...劈霹啪滋酷酷唷～哎呀！被你聽到咒語了，
+        千萬不要傳出去！要是被我發現你跟別人說，我就我就我就..把水晶球通通沒收(ΦωΦ)總之，
+        <span class="highlight">我將你們前10個水晶球的啟動時間大大地縮短了啦！
+        完成新手教學之後趕快前往『我的課程』練題拿藥水吧！</span>
+        <br/>白毛我那個以前在當老師的那位叫孔子同事說：「三人行，必有我師焉」，團隊的合作比單打獨鬥更容易獲得勝利，
+        馬上前往下一步，選擇你想選擇的學院當和裡面的勇士們一起當夥伴吧！</p>
       `
 
       confirmPopup.dialog(popupHtml,
@@ -270,13 +272,14 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
       if (noviceTargets.platformChest)
         noviceTargets.platformChest.remove()
 
-      popupHtml = `<p class="common-font left-align">嘿嘿，別睡著了！新手教學即將完成囉～
-        你已經很棒了，也學會了如何調配藥水，每一個藥水的調配時間都是固定的，
-        越好的藥水調配時間就會越長： 
+      popupHtml = `<p class="common-font left-align">咳咳！白毛長老我幾百年來難得講那麼多話，
+        你不要睡著了呀～總之，新手教學即將完成了，你已經算很棒了啦，也已經學會如何將水晶球打開，
+        每一個水晶球的調配時間都是固定的，越好的藥水調配的時間就會越長。
         <br/><span class="highlight">Lv1: 1小時；Lv2: 2小時；Lv3: 4小時；</span>
         <br/><span class="highlight">Lv4: 8小時；Lv5: 12小時；Lv6: 24小時</span>
-        <br/>記得每一個寶藏是有限的，每個雲端魔法學徒都有可能是你的競爭對手，
-        每天固定時間回來參加，將會是你獲勝的關鍵！</p>
+        <br/>請特別記得，每一種資源和寶藏的數量都是有限的，在這裡每一位集訓的勇士們都要靠自己的力量自給自足，
+        總之總之，每天固定時間回來關心水晶球，將會是你獲得更好的物資的關鍵！
+        </p>
       `
 
       confirmPopup.dialog(popupHtml,
@@ -292,8 +295,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
     /* 4-4 完成藥水調配 */
     let step4_4 = () => {
       let popupHtml = `
-        太好了！現在可以打開藥水看看調配出什麼東西囉！
-        點選<span class="highlight">「調配完成」</span>確認結果吧！～
+      太好了！現在可以打開水晶球看看調配出什麼寶藏了！總之，點選『調配完成』確認結果吧！
       `
 
       /* 調配藥水完成，獲得獎勵 (按下調配完成，儲存進度) */
@@ -349,10 +351,9 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
     let step4_3 = () => {
       let popupHtml
       // 儲存進度
-      popupHtml = `通常製作藥水都是需要一些時間的唷！
-        <span class="highlight">你也可以花費寶石「立即完成」直接結束倒數！</span>
-        為了可以盡快教會你，就再給你一次免費的機會吧！
-        馬上點選按鈕試試看～`
+      popupHtml = `啟動後成功產生化學反應通常需要一些時間，你也可以
+        <span class="highlight">花費寶石點選『立即完成』加快反應時間</span>
+        。總之，為了可以盡快教會你，就再給你一次免費的機會吧！馬上點選『立即完成』按鈕試試看～`
 
       noviceTargets.startBtn.css('display', 'none')
       noviceTargets.readyNowBtn.removeAttr('style')
@@ -370,7 +371,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
 
     /* 4-2 確認調配藥水 */
     let step4_2 = () => {
-      let popupHtml = `現在，點選<span class="highlight">「調配」</span>來烹煮藥水吧！`
+      let popupHtml = `現在，點選『啟動』來喚起水晶球中的提煉元素彼此產品化學反應吧！`
 
       require(['eventChestInception'], eventChestInception => {
         noviceTargets.startBtn.css({display: '', left: '27%'})
@@ -389,8 +390,9 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
     /* 4-1 學習調配藥水 */
     let step4_1 = () => {
       let popupHtml = `
-        學會升級還不夠喔！
-        你必須學會<span class="highlight">「調配藥水」</span>才能成為真正的魔法師。
+      欸欸欸！別急著走啊～學會升級不夠，你還要學怎麼打開水晶球啊～
+      這年頭的孩子怎麼這樣，寶藏都不想拿了，長老我要自己吃掉了哼(ˋдˊ)
+      總之，我現在要教了，你們要認真聽阿！
       `
 
       confirmPopup.tutorialPrompt(popupHtml, {
@@ -403,8 +405,9 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
     /** *** step 3 升級教學完成 *****/
     /* 3-4 了解升級成本 */
     let step3_4 = () => {
-      let popupHtml = `恭喜你升級成功了！想獲得越好的寶藏，就要越努力的升級魔法藥水哦！
-      當然，<span class="highlight">每次升級魔法藥水都需要一定數量的資源 (e幣、寶石)</span>。`
+      let popupHtml = `升級成功後，比較高等的水晶球就會取代原本水晶球的位置。想獲得越好的寶藏，
+      就要越努力的升級水晶球喔～你也很期待其他等級的藥水是用哪些童話提煉出來的吧～總之，
+      每次升級都需要一定數量的資源（e幣、寶石），請在特訓中認真收集吧`
 
       platformTarget.find('img').attr('src', `./img/magicImg/LV2.png`)
       noviceTargets.upgradeBtn.css({display: 'none'})
@@ -460,7 +463,11 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
                     <span>升級成功</span>
                 </div>
                 <div class="content-block2">
-                  <p>恭喜你！成功升級至 <span class="highlight">Lv2 魔法藥水</span>，調配出厲害的寶藏的機率又提高了一點啦！</p>
+                  <p>噠啦啦啦啦...猜不到吧！Lv2水晶球就是用大野狼耳朵從上往下數來第87根毛髮、
+                  豬大哥、豬二哥驚嚇時哭出來的第2滴眼淚和豬小弟家的第66個紅色磚頭提煉出來的，
+                  是個代表勇氣的水晶球呀！總之，恭喜你啦，成功升級到Lv2水晶球，
+                  調配出厲害寶藏的機率又提高一點了呢，希望你也多了一些勇氣喔！
+                  </p>
                 </div>
               </div>
             `
@@ -491,9 +498,11 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
             </div>
             <div class="content-block2">
               <p>
-                升級這個藥水需要花費 
-                <span class="highlight">300 個 e 幣、0 個寶石 </span>
-                ，由於這次是你第一次升級，本次費用<span class="highlight">完全免費哦！</span>
+                <span class="highlight">升級Lv1水晶球需要花費300個e幣</span>
+                ，不過，因為這是你第一次升級，白毛長老我就施點魔法讓你
+                <span class="highlight">這次免費升級</span>
+                吧！你問我為什麼會魔法？總之，知道得越多，對你的特訓一點幫助也沒用，
+                小孩子不要問那麼多！不如猜猜Lv2水晶球是用什麼童話元素提煉出來的吧！
               </p>
             </div>
           </div>
@@ -532,9 +541,9 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
     /** *** step 2 獲取藥水完成 *****/
     /* 2-3 了解藥水獲得方式 */
     let step2_3 = () => {
-      let popupHtml = `當然是真的！大部分的藥水你都可以透過
-        <span class="highlight">練習名師派卷、自我評量獲得</span>，
-        練習得越多，就有機會取得更高級的藥水，調配出更好的寶藏！`
+      let popupHtml = `總之總之，就是這樣沒錯啦！白毛長老長到這把歲數，說謊的次數比你看過的巨人還少。大部分的水晶球都可以
+        <span class="highlight">透過 練習名師派卷、自我評量</span>，
+        獲得，偶爾在其他活動中也有機會贈送喔！特訓的越勤勞，就有機會取得越高級的水晶球，獲得更好的寶藏喔～`
 
       confirmPopup.tutorialPrompt(popupHtml, {
         confirmFn: step3_1
@@ -543,8 +552,8 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
 
     /* 2-2 知悉調配藥水的重要性 */
     let step2_2 = () => {
-      let popupHtml = `調配藥水是雲端魔法師非常重要的課程，藥水可以調配出生活中大部分的物品，
-        <span class="highlight">幸運的話還能調配出寶藏喔！</span>
+      let popupHtml = `特訓是需要很多體力和資源的，童話鎮的鎮長深深了解了這一點，所以提煉了很多水晶球送給各位勇士。
+      總之，我們可以從裡面調配出大部分特訓需要的物品，如果你夠幸運，調配出厲害的寶藏，那個寶藏就直接歸你啦！
       `
 
       confirmPopup.tutorialPrompt(popupHtml, {
@@ -559,9 +568,9 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
       let progressiveStep = 'STEP2_1'
       save(progressiveStep)
 
-      popupHtml = `太好了！你獲得了 1 個 Lv1 魔法藥水。未來當你獲得藥水時，就會幫你存放在這裡喔！
-                 <span class="highlight">基本上，1 次所能擁有的藥水數量上限是 4 個，超過的話是沒辦法再放進來的！</span>
-                 因此，定時回來調配藥水是很重要的！`
+      popupHtml = `要放好喔！水晶球極其珍貴又容易破，長老我每次收到的時候都很緊張，年紀大了實在很...(咳咳，長老你講重點），喔對，反正就是你收到水晶球時會放在這裡，
+                 <span class="highlight">基本上，1次所能擁有的數量上限是4個，超過的話就沒辦法再放進來了！</span>
+                 總之，定時回來打開他是很重要的喔～`
 
       confirmPopup.tutorialPrompt(popupHtml, {
         confirmFn: step2_2
@@ -574,9 +583,11 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
     let step1_1 = () => {
       let popupHtml = `
         <p class="common-font left-align">
-          嗨！我是傳奇魔法師 Albi，
-          初次見面你好 這學期我們要學習<span class="highlight">奇幻魔藥學哦！</span>
-          準備好了嗎？首先就讓我送你一個<span class="highlight"> Lv1 魔法藥水 </span>當作見面禮吧！
+        嗨！我是住在雲端鎮深山那位人人尊敬、人人喜歡、人人...(咳咳，長老你講太多廢話了啦)，
+        好的，總之我是白毛長老，今年我們要養精蓄銳幫隔壁的童話鎮對抗笨笨的巨人族、保衛家園。
+        總之總之，話不多說，我們就馬上開始吧！準備好了嗎？總之我就先送你一個
+        <span class="highlight">Lv1的小木偶水晶球</span>
+        ，這可是童話鎮為了感謝我們特別提煉的物資來源哦！
         </p>
         <img class="confirm-popup-common-img-small" src="./img/magicImg/LV1.png">
       `
@@ -613,9 +624,9 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
             let popupHtml = `
               <span class="confirm-popup-title-font left-align">歡迎回來！</span>
               <p class="common-font left-align">
-              <span class="highlight">你還有新手教學尚未完成喔！</span>
-              每一位魔法學院的新夥伴調都配需要升完級成新手教學，
-              趕快和 Albi 繼續學習如何調配奇幻魔藥吧～！
+              你上次就這樣走了，真是傷透了白毛長老的心 ╥﹏╥
+              你還有新手教學尚未完成喔！每一位新夥伴都需要完成新手教學，才能完全擁有水晶球的所有權限喔！
+              趕快跟著我一起學習如何打開水晶球收集資源吧！
               </p>
             `
 
