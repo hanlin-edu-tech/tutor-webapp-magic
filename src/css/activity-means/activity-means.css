@@ -9,7 +9,8 @@ body {
   letter-spacing: 1px;
   color: #333333;
   font-size: 14px;
-  font-family: 微軟正黑體; }
+  font-family: 微軟正黑體;
+  position: relative; }
 
 .ehanlin-logo {
   position: absolute;
@@ -160,6 +161,14 @@ hr {
   #section_part5 .part5_content li, #section_part6 .part5_content li {
     font-size: 12px; }
 
+.tree {
+  position: absolute;
+  bottom: -1%;
+  width: 70%;
+  z-index: -10; }
+  .tree img {
+    width: 100%; }
+
 .goback_btn {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -248,7 +257,14 @@ hr {
     border-radius: 10px 0px 0px 10px; }
     .goback_btn h3 {
       font-size: 28px;
-      letter-spacing: 5px; } }
+      letter-spacing: 5px; }
+  .tree {
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+    z-index: -10; }
+    .tree img {
+      width: 100%; } }
 
 @media screen and (min-width: 1500px) {
   .content-logo {
