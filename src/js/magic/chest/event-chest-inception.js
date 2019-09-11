@@ -21,7 +21,7 @@ define(['jquery', 'ajax', 'confirmPopup', 'commonUtil',
               <img class="right-btn" src="./img/magicImg/next.svg">
             </div>
             <div class="content-block4">
-              <p>你確定要啟動這個水晶球嗎</p>
+              <p>你確定要啟動這個水晶球嗎？</p>
             </div>
           </div>
         `
