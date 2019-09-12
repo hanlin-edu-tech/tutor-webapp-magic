@@ -446,7 +446,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
           audioLevelUpTarget.play()
 
           potionTarget.addClass('upgrade_animation')
-          await delay(700)
+          await delay(1500)
 
           potionTarget.attr('src',
             `./img/magicImg/LV${upLevel}.png`)
@@ -455,7 +455,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
           await delay(500)
 
           let popupHtml = `
-              <div class="confirm-grid-upgrade-container">
+              <div class="confirm-grid-upgrade-container swal2-popup-auto">
                 <div class="image-block1">
                     <img src="./img/magicImg/LV2_box.png">
                 </div>
@@ -463,7 +463,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
                     <span>升級成功</span>
                 </div>
                 <div class="content-block2">
-                  <p>噠啦啦啦啦...猜不到吧！Lv2水晶球就是用大野狼耳朵從上往下數來第87根毛髮、
+                  <p class="small-font">噠啦啦啦啦...猜不到吧！Lv2水晶球就是用大野狼耳朵從上往下數來第87根毛髮、
                   豬大哥、豬二哥驚嚇時哭出來的第2滴眼淚和豬小弟家的第66個紅色磚頭提煉出來的，
                   是個代表勇氣的水晶球呀！總之，恭喜你啦，成功升級到Lv2水晶球，
                   調配出厲害寶藏的機率又提高一點了呢，希望你也多了一些勇氣喔！
@@ -489,7 +489,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
       noviceTargets.upgradeBtn.off('click')
       noviceTargets.upgradeBtn.one('click', () => {
         let popupHtml = `
-          <div class="confirm-grid-upgrade-container">
+          <div class="confirm-grid-upgrade-container swal2-popup-auto">
             <div class="image-block1">
               <img class="image-silhouette" src="./img/magicImg/LV2.png">
             </div>
@@ -497,7 +497,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
               <span>藥水升級</span>
             </div>
             <div class="content-block2">
-              <p>
+              <p class="small-font">
                 <span class="highlight">升級Lv1水晶球需要花費300個e幣</span>
                 ，不過，因為這是你第一次升級，白毛長老我就施點魔法讓你
                 <span class="highlight">這次免費升級</span>
@@ -582,7 +582,7 @@ define(['jquery', 'ajax', 'sweetAlert', 'confirmPopup'],
     /* 1_1 發放藥水 */
     let step1_1 = () => {
       let popupHtml = `
-        <p class="common-font left-align">
+        <p class="common-font-m left-align">
         嗨！我是住在雲端鎮深山那位人人尊敬、人人喜歡、人人...(咳咳，長老你講太多廢話了啦)，
         好的，總之我是白毛長老，今年我們要養精蓄銳幫隔壁的童話鎮對抗笨笨的巨人族、保衛家園。
         總之總之，話不多說，我們就馬上開始吧！準備好了嗎？總之我就先送你一個

@@ -204,8 +204,8 @@ button, a
 
                 // -- 童話重寫 -- //
                 .mirror
-                    min-width: 306px
-                    max-width: 306px
+                    min-width: 310px
+                    max-width: 310px
                     width: 100%
                     position: relative
                     img
@@ -402,7 +402,7 @@ button, a
 .confirm_message_box
     border-top: solid 3px white
     border-bottom: solid 3px white
-
+    //height: auto !important
     .common-font
         font-size: 19px
 
@@ -435,6 +435,7 @@ button, a
         margin-top: 5px
         color: white
         letter-spacing: 2px
+        //font-size: 16px
         line-height: 31px
         text-shadow: 0 0 4px rgba(255, 255, 255, 0.5)
         font-weight: 400
@@ -480,6 +481,10 @@ button, a
 
     .common-font
         font-size: 19px
+
+    .common-font-m
+        font-size: 18px
+        line-height: 26px
 
     //內文
     .text_color
@@ -776,6 +781,14 @@ button, a
 
 .swal2-container.swal2-shown
     background-color: rgba(0,0,0,.7) !important
+
+.swal2-popup-auto
+    height: 210px !important
+
+.small-font
+    font-size: 16px
+    line-height: 24px !important
+
 
 @media screen and (max-width: 1536px)
     #login_dialog

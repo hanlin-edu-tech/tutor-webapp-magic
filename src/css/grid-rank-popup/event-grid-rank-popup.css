@@ -539,6 +539,15 @@
           color: #fff;
           text-align: center;
           font-weight: 500; }
+      .rank-grid-container .content-block3 #history-record .content-option .history-active {
+        background: #48ABAF;
+        border: 3px solid #5D450E;
+        -webkit-box-shadow: inset 0 1px 0 10px #33969A;
+                box-shadow: inset 0 1px 0 10px #33969A;
+        border-radius: 6px;
+        color: #fff;
+        text-align: center;
+        font-weight: 500; }
     .rank-grid-container .content-block3 #history-record .content-history-list {
       background: #947D66;
       border-radius: 5px;
@@ -1338,9 +1347,10 @@
           padding: 15px 0;
           cursor: pointer; }
         .rank-grid-container .content-block3 #history-record .content-option .history-active {
-          border: 2px solid #5D450E;
-          -webkit-box-shadow: inset 0 1px 0 5px #33969A;
-                  box-shadow: inset 0 1px 0 5px #33969A;
+          background: #48ABAF !important;
+          border: 2px solid #5D450E !important;
+          -webkit-box-shadow: inset 0 1px 0 10px #33969A;
+                  box-shadow: inset 0 1px 0 10px #33969A;
           cursor: pointer; }
       .rank-grid-container .content-block3 #history-record .content-history-list {
         padding: 10px 5px 5px; }
