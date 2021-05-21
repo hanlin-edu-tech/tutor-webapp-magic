@@ -122,3 +122,9 @@ require([], () => {
     determineOrientation();
     window.addEventListener("resize", determineOrientation);
 });
+
+var isOldEventPage = new RegExp('^.*\/app\/magic\/$').test(window.location.href);
+var isOldEventPageIndex = new RegExp('^.*\/app\/magic\/index\.html$').test(window.location.href);
+if(isOldEventPage || isOldEventPageIndex){
+    window.location.href = "/app/points-activity/"
+}
